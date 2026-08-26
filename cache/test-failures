@@ -1,0 +1,1 @@
+{"version":1,"failures":[{"contract":"test/RetailFavoritesForkTest.t.sol:RetailFavoritesForkTest","test":"test_RetailFavorites_GroupMintRedeem"}]}

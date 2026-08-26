@@ -1,0 +1,25 @@
+[profile.default]
+src = "contracts"
+out = "artifacts-forge"
+libs = ["node_modules", "lib"]
+optimizer = true
+via_ir = true
+fs_permissions = [{ access = "read-write", path = "./" }]
+remappings = [
+    "@nomicfoundation/=node_modules/@nomicfoundation/",
+    "@openzeppelin/=node_modules/@openzeppelin/",
+    "forge-std/=lib/forge-std/src/",
+    "hardhat/=node_modules/hardhat/",
+]
+
+[invariant]
+# Default run was 256 runs x 500 calls = 128,000 total, zero reverts,
+# both invariants held. Scaling up for a heavier campaign: more distinct
+# random seeds (runs) and longer call sequences per seed (depth) --
+# longer sequences matter most here, since a subtle accounting drift is
+# more likely to surface after many compounding operations than in a
+# short sequence.
+runs = 512
+depth = 1000
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
