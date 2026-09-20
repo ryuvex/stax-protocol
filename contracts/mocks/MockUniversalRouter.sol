@@ -7,48 +7,11 @@ interface IMockPermit2ForRouter {
     function transferFrom(address from, address to, uint160 amount, address token) external;
 }
 
-/// @notice Mock Universal Router for testing StaxVault's real V4 AND V3
-/// integrations. Deliberately DECODES the exact same real command/action
-/// encoding StaxVault sends for each venue:
-///   - V4 (commands=0x10, actions=[SWAP_EXACT_IN_SINGLE, SETTLE_ALL,
-///     TAKE_ALL]) -- confirmed against a real, successful mainnet
-///     transaction's actual calldata.
-///   - V3 (commands=0x00, v3SwapExactInput 6-param encoding: recipient,
-///     amountIn, amountOutMinimum, path, payer, minHopPriceX36) --
-///     confirmed against the real Uniswap/universal-router source AND a
-///     real on-chain swap (V3EncodingProofTest.t.sol) before being
-///     wired into the vault at all.
-/// So a passing test genuinely verifies the real encoding path for
-/// either venue, not just that "some payable function got called."
-///
-/// v18.3 fix (kept, unchanged): ExactInputSingleParams was missing the
-/// minHopPriceX36 field, matching the exact same bug just found and
-/// fixed in StaxVault.sol itself -- this mock was built against the
-/// same wrong assumption the contract had, which is exactly why it
-/// could never have caught the real bug (a mock built on the same wrong
-/// shape naturally accepts encoding built on that same wrong shape).
-/// Now corrected to match the real, official IV4Router
-/// ExactInputSingleParams struct exactly.
-///
-/// v19 addition: V3 support, added with the SAME discipline that fixed
-/// v18.3 -- decoded against the real router's actual parameter shape
-/// (6 params, address payer, uint256[] minHopPriceX36), not an
-/// assumed/older pattern. Path decoding uses the same BytesLib-style
-/// slicing the real Uniswap/universal-router Dispatcher.sol itself
-/// uses internally (toAddress/toUint24 via assembly on packed bytes) --
-/// copied from the real, audited standard rather than invented, since
-/// getting this subtly wrong is exactly the kind of bug a mock is
-/// supposed to catch, not introduce.
-///
-/// This is NOT trying to be a full V3/V4 swap engine. It's a
-/// configurable-rate mock: given a rate for a currency pair (set via
-/// setRate), it computes a swap output, applies the caller's stated
-/// minimum as a real slippage check, pulls the real input (via Permit2
-/// for ERC20, or accepts attached ETH for native on the V4 path), and
-/// pays out the real output -- close enough to real behavior to
-/// meaningfully exercise StaxVault's actual integration code on either
-/// venue, without needing full PoolManager/hook or real V3 pool
-/// simulation.
+/// @notice Test-only configurable-rate router, not a substitute for real-router fork tests.
+/// @dev V3 input field five is a payerIsUser flag. Decoding its word as uint256 models
+/// the upstream assembly decoder's nonzero semantics, allowing unchanged V1 regression
+/// comparisons. V2 must emit exactly 1; LocalV3Flow tests assert that separately.
+/// V4 decoding includes minHopPriceX36. Rates do not model real pool depth or fees.
 contract MockUniversalRouter {
     struct PoolKey {
         address currency0;
@@ -155,23 +118,16 @@ contract MockUniversalRouter {
         }
     }
 
-    /// @notice v19: decodes the real 6-param v3SwapExactInput encoding
-    /// -- (recipient, amountIn, amountOutMinimum, path, payer,
-    /// minHopPriceX36) -- confirmed against real infrastructure before
-    /// this was written (see StaxVault.sol's _executeV3Swap comments).
-    /// The vault's V3 usage is always single-hop (ticker<->USDG
-    /// directly, no multi-hop routing exists in this contract), so the
-    /// mock only needs to support a single-hop path -- matches real
-    /// current usage, not a general-purpose decoder.
+    /// @dev Single-hop test decoder: recipient, amount, minimum, path, payer flag, hop floors.
     function _executeV3(bytes memory input) internal {
         (
             address recipient,
             uint256 amountIn,
             uint256 amountOutMinimum,
             bytes memory path,
-            address payer,
+            uint256 payerWord,
             uint256[] memory minHopPriceX36
-        ) = abi.decode(input, (address, uint256, uint256, bytes, address, uint256[]));
+        ) = abi.decode(input, (address, uint256, uint256, bytes, uint256, uint256[]));
         lastMinimum = amountOutMinimum;
 
         // Single-hop V3 path length: token(20) + fee(3) + token(20) = 43.
@@ -184,7 +140,7 @@ contract MockUniversalRouter {
         (address tokenIn, uint24 fee, address tokenOut) = _decodeV3SingleHopPath(path);
         fee; // fee tier itself doesn't affect mock pricing -- the configured rate already represents the effective price
 
-        IMockPermit2ForRouter(permit2).transferFrom(payer, address(this), uint160(amountIn), tokenIn);
+        IMockPermit2ForRouter(permit2).transferFrom(payerWord != 0 ? msg.sender : address(this), address(this), uint160(amountIn), tokenIn);
 
         uint256 rate = rates[tokenIn][tokenOut];
         require(rate > 0, "MockUniversalRouter: no rate configured for this pair");

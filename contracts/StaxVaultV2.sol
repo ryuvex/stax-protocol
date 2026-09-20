@@ -7,6 +7,7 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
+import {StaxVaultPreview, StaxShareMath} from "./StaxVaultPreview.sol";
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
 import {IPriceOracle, IPausableToken, IPermit2, IUniversalRouter, PoolKey, V3PoolConfig, ExactInputSingleParams, StaxBasketToken} from "./StaxVault.sol";
 import {StaxV3RouteValidator} from "./StaxV3RouteValidator.sol";
@@ -104,8 +105,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
 
     uint256 public constant FEE_BPS = 25;
     uint256 public constant BPS_DENOMINATOR = 10_000;
-    // Legacy getter retained for ABI compatibility; swaps use tickerSlippageBps.
-    uint256 public constant MAX_SLIPPAGE_BPS = 200;
+    uint16 private constant SLIPPAGE_CAP_BPS = 500;
     uint256 public constant FEE_BURN_SHARE_BPS = 5000;     // 50%
     uint256 public constant FEE_REWARDS_SHARE_BPS = 3000;  // 30%
     uint256 public constant FEE_TREASURY_SHARE_BPS = 2000; // 20%
@@ -116,14 +116,12 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
 
     uint256 public constant MIN_TOKENS_IN = 1e6;
 
-    uint48 public constant USDG_STALENESS_CONFIRMED_REFERENCE = 27 hours;
-
     address public immutable permit2;
 
     address public constant DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
 
-    address public immutable rewardsPool;
-    address public immutable treasury;
+    address public rewardsPool;
+    address public treasury;
     address public staxToken;
     address public immutable universalRouter;
 
@@ -133,7 +131,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
 
     address public immutable usdgUsdFeed;
     uint48 public immutable usdgUsdMaxStaleness;
-    address public immutable sequencerUptimeFeed;
+    address public sequencerUptimeFeed;
 
     mapping(uint256 => Basket) public baskets;
     mapping(address => FeedConfig) public priceFeeds;
@@ -161,16 +159,19 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
     mapping(address => uint16) public tickerSlippageBps;
     StaxBasketTokenDeployer public immutable basketTokenDeployer;
     StaxV3RouteValidator public immutable routeValidator;
+    StaxVaultPreview public immutable previewer;
 
     error InvalidOracleConfiguration();
     error InvalidSlippage();
     error UserLimitNotMet();
     error Expired();
-    error UseBoundedEntryPoint();
+    error OwnershipRenunciationDisabled();
+    error SequencerFeedAlreadySet();
+    error InvalidSequencerFeed();
     event OracleConfigured(address indexed ticker, OracleType oracleType, address registry);
     event TickerSlippageSet(address indexed ticker, uint16 bps);
 
-    function renounceOwnership() public view override onlyOwner { revert InvalidOracleConfiguration(); }
+    function renounceOwnership() public view override onlyOwner { revert OwnershipRenunciationDisabled(); }
 
     function setTickerSlippage(address ticker, uint16 bps) external onlyOwner {
         require(oracleSettings[ticker].oracleType != OracleType.NONE, NoFeed());
@@ -178,18 +179,18 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
     }
 
     function _setSlippage(address ticker, uint16 bps) private {
-        require(bps > 0 && bps < BPS_DENOMINATOR, InvalidSlippage());
+        require(bps > 0 && bps <= SLIPPAGE_CAP_BPS, InvalidSlippage());
         tickerSlippageBps[ticker] = bps;
         emit TickerSlippageSet(ticker, bps);
     }
 
     function _slippage(address ticker) internal view returns (uint256 bps) {
         bps = tickerSlippageBps[ticker];
-        require(bps > 0 && bps < BPS_DENOMINATOR, InvalidSlippage());
+        require(bps > 0 && bps <= SLIPPAGE_CAP_BPS, InvalidSlippage());
     }
 
-    /// @notice Register crypto pricing or replace its registry. Stock registrations
-    /// cannot switch to TWAP and thereby bypass their oraclePaused check.
+    /// @notice Register TWAP pricing or replace its registry for an approved asset.
+    /// Existing Chainlink registrations cannot bypass their oraclePaused check.
     function setTwapOracle(address ticker, address registry, uint16 slippageBps) external onlyOwner {
         require(ticker != usdg && ticker.code.length > 0 && registry.code.length > 0, InvalidOracleConfiguration());
         require(oracleSettings[ticker].oracleType != OracleType.CHAINLINK, InvalidOracleConfiguration());
@@ -254,6 +255,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
         address _sequencerUptimeFeed,
         address validator
     ) Ownable(initialOwner) {
+        previewer = new StaxVaultPreview();
         require(StaxV3RouteValidator(validator).router() == _universalRouter, InvalidOracleConfiguration());
         routeValidator = StaxV3RouteValidator(validator);
         require(tokenDeployer.code.length > 0, InvalidOracleConfiguration());
@@ -285,6 +287,37 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
             LegacyTicker memory t = legacyTickers[i];
             _registerChainlink(t.ticker, t.feed, t.maxStaleness);
         }
+    }
+
+    event RewardsPoolUpdated(address indexed previous, address indexed current);
+    event TreasuryUpdated(address indexed previous, address indexed current);
+    event SequencerFeedSet(address indexed feed);
+
+    /// @notice Changes the destination of all unclaimed and future rewards fees.
+    function setRewardsPool(address recipient) external onlyOwner {
+        require(recipient != address(0), ZeroRewardsPool());
+        emit RewardsPoolUpdated(rewardsPool, recipient);
+        rewardsPool = recipient;
+    }
+
+    /// @notice Changes the destination of all unclaimed and future treasury fees.
+    function setTreasury(address recipient) external onlyOwner {
+        require(recipient != address(0), ZeroTreasury());
+        emit TreasuryUpdated(treasury, recipient);
+        treasury = recipient;
+    }
+
+    /// @notice Enable sequencer protection once; it cannot subsequently be replaced or disabled.
+    /// @dev Governance must verify the feed's identity; interface checks cannot authenticate it.
+    function setSequencerUptimeFeed(address feed) external onlyOwner {
+        require(sequencerUptimeFeed == address(0), SequencerFeedAlreadySet());
+        require(feed.code.length > 0, InvalidSequencerFeed());
+        (uint80 round, int256 answer, uint256 started, uint256 updated, uint80 answered) =
+            IPriceOracle(feed).latestRoundData();
+        require(round > 0 && answered >= round && (answer == 0 || answer == 1)
+            && started > 0 && updated >= started && updated <= block.timestamp, InvalidSequencerFeed());
+        sequencerUptimeFeed = feed;
+        emit SequencerFeedSet(feed);
     }
 
     function setStaxToken(address _staxToken) external onlyOwner {
@@ -666,7 +699,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
             amountIn,
             amountOutMinimum,
             path,
-            address(this),        // payer -- vault holds tokenIn, pulled via Permit2
+            true,                // payerIsUser: router caller (the vault) pays via Permit2
             minHopPriceX36
         );
 
@@ -749,9 +782,36 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
         emit TreasuryFeesClaimed(amount);
     }
 
-    /// @notice Legacy selectors remain but cannot bypass user protection.
-    function mint(uint256, uint256) external pure { revert UseBoundedEntryPoint(); }
-    function redeem(uint256, uint256) external pure { revert UseBoundedEntryPoint(); }
+    /// @notice Oracle estimate only: excludes DEX fees, impact and price movement.
+    function previewMint(uint256 basketId, uint256 usdgAmount) external view returns (uint256) {
+        return previewer.previewMint(basketId, usdgAmount);
+    }
+
+    /// @notice Oracle estimate of net USDG, not an executable quote or guaranteed minimum.
+    function previewRedeem(uint256 basketId, uint256 tokenAmount) external view returns (uint256) {
+        return previewer.previewRedeem(basketId, tokenAmount);
+    }
+
+    function getBasketTickerDecimals(uint256 basketId, uint256 index) external view returns (uint8) {
+        return baskets[basketId].tickerDecimals[index];
+    }
+
+    function getOraclePriceUsd18(address ticker) external view returns (uint256) {
+        return ticker == usdg ? _usdgUsd18() : _tickerUsd18(ticker);
+    }
+
+    function _mintState(uint256 basketId, uint256 received)
+        private view returns (uint256 net, uint256 nav, uint256 supply)
+    {
+        Basket storage basket = baskets[basketId];
+        net = received - (received * FEE_BPS) / BPS_DENOMINATOR;
+        uint256 value = (_to18(net, usdgDecimals) * _usdgUsd18()) / 1e18;
+        require(value <= basket.maxMintUsd, ExceedsMintLimit());
+        nav = getBasketNavUsd(basketId);
+        require(nav + value <= basket.depositCapUsd, ExceedsVaultCap());
+        supply = StaxBasketToken(basket.token).totalSupply();
+        if (supply == 0) require(value >= MIN_INITIAL_VALUE_USD, InitialMintTooSmall());
+    }
 
     function mint(uint256 basketId, uint256 usdgAmount, uint256 minSharesOut, uint256 deadline) external nonReentrant {
         require(block.timestamp <= deadline, Expired());
@@ -767,20 +827,8 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
         require(received > 0, NoUsdgReceived());
 
         uint256 fee = (received * FEE_BPS) / BPS_DENOMINATOR;
-        uint256 netDeposit = received - fee;
-
-        uint256 depositValueUsd = (_to18(netDeposit, usdgDecimals) * _usdgUsd18()) / 1e18;
-        require(depositValueUsd <= basket.maxMintUsd, ExceedsMintLimit());
-
-        uint256 navBefore = getBasketNavUsd(basketId);
-        require(navBefore + depositValueUsd <= basket.depositCapUsd, ExceedsVaultCap());
-
+        (uint256 netDeposit, uint256 navBefore, uint256 supplyBefore) = _mintState(basketId, received);
         StaxBasketToken basketToken = StaxBasketToken(basket.token);
-        uint256 supplyBefore = basketToken.totalSupply();
-
-        if (supplyBefore == 0) {
-            require(depositValueUsd >= MIN_INITIAL_VALUE_USD, InitialMintTooSmall());
-        }
 
         uint256[] memory tickerAmounts = new uint256[](basket.tickers.length);
         uint256 valueReceivedUsd = 0;
@@ -801,12 +849,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
             basketTickerHoldings[basketId][basket.tickers[i]] += tickerAmounts[i];
         }
 
-        uint256 tokensOut;
-        if (supplyBefore == 0) {
-            tokensOut = valueReceivedUsd;
-        } else {
-            tokensOut = (valueReceivedUsd * (supplyBefore + VIRTUAL_SHARES)) / (navBefore + 1);
-        }
+        uint256 tokensOut = StaxShareMath.shares(valueReceivedUsd, supplyBefore, navBefore);
         require(tokensOut >= MIN_TOKENS_OUT, SharesTooLow());
         require(tokensOut >= minSharesOut, UserLimitNotMet());
 

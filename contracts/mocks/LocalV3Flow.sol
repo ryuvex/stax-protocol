@@ -31,6 +31,7 @@ contract LocalV3Flow {
     address public immutable permit2;
     address private activePool;
     uint256 public lastMinimum;
+    uint256 public lastPayerWord;
     uint256 public lastOutput;
 
     constructor(address f, address p) { factory = f; permit2 = p; }
@@ -57,9 +58,9 @@ contract LocalV3Flow {
     }
     function execute(bytes calldata commands, bytes[] calldata inputs, uint256 deadline) external payable {
         require(msg.value == 0 && block.timestamp <= deadline && commands.length == 1 && commands[0] == 0 && inputs.length == 1, "command");
-        (address recipient, uint256 amount, uint256 minimum, bytes memory path, address payer, uint256[] memory floors) =
-            abi.decode(inputs[0], (address, uint256, uint256, bytes, address, uint256[]));
-        require(path.length == 43 && payer == msg.sender && floors.length == 0, "path");
+        (address recipient, uint256 amount, uint256 minimum, bytes memory path, uint256 payerWord, uint256[] memory floors) =
+            abi.decode(inputs[0], (address, uint256, uint256, bytes, uint256, uint256[]));
+        require(path.length == 43 && payerWord != 0 && floors.length == 0, "path");
         address input;
         address output;
         uint24 fee;
@@ -69,8 +70,9 @@ contract LocalV3Flow {
             output := shr(96, mload(add(path, 55)))
         }
         address pool = ILocalFactory(factory).getPool(input, output, fee);
+        lastPayerWord = payerWord;
         lastMinimum = minimum;
-        lastOutput = _swap(pool, recipient, input < output, amount, payer, true);
+        lastOutput = _swap(pool, recipient, input < output, amount, msg.sender, true);
         require(lastOutput >= minimum, "slippage");
     }
     function trade(address pool, bool zeroForOne, uint256 amount) external {
