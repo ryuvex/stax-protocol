@@ -75,6 +75,8 @@ contract MockUniversalRouter {
     // v19: shared by both venues -- a test configures one rate per pair
     // regardless of whether that ticker swaps via V4 or V3.
     mapping(address => mapping(address => uint256)) public rates;
+    // Test instrumentation: capture the exact vault-supplied execution minimum.
+    uint256 public lastMinimum;
 
     constructor(address _permit2, address _weth) {
         permit2 = _permit2;
@@ -121,6 +123,7 @@ contract MockUniversalRouter {
         );
 
         ExactInputSingleParams memory swapParams = abi.decode(actionParams[0], (ExactInputSingleParams));
+        lastMinimum = swapParams.amountOutMinimum;
         (address settleCurrency, uint256 settleAmount) = abi.decode(actionParams[1], (address, uint256));
         (address takeCurrency, uint256 takeMinAmount) = abi.decode(actionParams[2], (address, uint256));
 
@@ -169,6 +172,7 @@ contract MockUniversalRouter {
             address payer,
             uint256[] memory minHopPriceX36
         ) = abi.decode(input, (address, uint256, uint256, bytes, address, uint256[]));
+        lastMinimum = amountOutMinimum;
 
         // Single-hop V3 path length: token(20) + fee(3) + token(20) = 43.
         // minHopPriceX36 isn't used by this mock's rate-based pricing --

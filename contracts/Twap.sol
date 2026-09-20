@@ -33,7 +33,7 @@ interface ITwapV3Factory {
 
 /// @dev Solidity 0.8 adaptation of Uniswap v3-periphery OracleLibrary.consult
 /// and its quote calculation (GPL-2.0-or-later):
-/// https://github.com/Uniswap/v3-periphery/blob/v1.4.4/contracts/libraries/OracleLibrary.sol
+/// https://github.com/Uniswap/v3-periphery/blob/main/contracts/libraries/OracleLibrary.sol
 /// Uses the repository's locked Solidity-0.8 Uniswap math libraries. Importing
 /// shared math from v4-core DOES NOT make this an oracle for V4 pools.
 /// Changes: explicit signed divisor; unchecked cumulative subtraction preserves
@@ -73,8 +73,8 @@ library StaxV3OracleMath {
 
 /// @notice Draft V3 TWAP quote registry. Holds no assets and executes no trades.
 /// @dev NOT a Chainlink adapter or a drop-in feed for the existing StaxVault.
-/// The future vault TWAP branch must convert raw USDG quotes through its existing
-/// USDG/USD feed and preserve its sequencer checks. No safe parameters are implied.
+/// V2 converts 18-decimal USDG prices through its USDG/USD feed and preserves
+/// sequencer checks. No economically safe parameters are implied.
 contract UnifiedTwapRegistry is Ownable2Step {
     uint256 private constant BPS = 10_000;
     address public immutable usdg;
@@ -148,9 +148,13 @@ contract UnifiedTwapRegistry is Ownable2Step {
         emit TokenRemoved(token);
     }
 
-    /// @return usdgAmount Raw USDG units per ONE whole token (not a USD price).
+    function poolFor(address token) external view returns (address) {
+        return tokenConfigurations[token].pool;
+    }
+
+    /// @return usdgAmount18 USDG per ONE whole token, scaled to 18 decimals (not USD).
     /// @return harmonicLiquidity Time-weighted harmonic in-range liquidity, not dollar depth.
-    function quoteUsdg(address token) external view returns (uint256 usdgAmount, uint128 harmonicLiquidity) {
+    function quoteUsdg18(address token) external view returns (uint256 usdgAmount18, uint128 harmonicLiquidity) {
         SafetyParams memory params = tokenConfigurations[token];
         if (params.pool == address(0)) revert TokenNotConfigured();
         return _quote(token, tokenDecimals[token], params);
@@ -171,12 +175,17 @@ contract UnifiedTwapRegistry is Ownable2Step {
         int24 meanTick;
         (meanTick, harmonicLiquidity) = StaxV3OracleMath.consult(params.pool, params.twapWindow);
         if (harmonicLiquidity < params.minHarmonicLiquidity) revert InsufficientLiquidity();
-        uint128 baseAmount = uint128(10 ** uint256(decimals_));
+        // Scale BEFORE quoting. Exponent <= 36, so the base fits uint128.
+        // Multiplying a raw six-decimal quote afterward cannot recover its precision.
+        uint128 baseAmount = uint128(10 ** (uint256(decimals_) + 18 - usdgDecimals));
         bool baseIsToken0 = token < usdg;
         twapQuote = StaxV3OracleMath.quote(TickMath.getSqrtPriceAtTick(meanTick), baseAmount, baseIsToken0);
         uint256 spotQuote = StaxV3OracleMath.quote(spotSqrtPrice, baseAmount, baseIsToken0);
         if (twapQuote == 0 || spotQuote == 0) revert InvalidPrice();
-        uint256 difference = spotQuote > twapQuote ? spotQuote - twapQuote : twapQuote - spotQuote;
-        if (difference > FullMath.mulDiv(twapQuote, params.maxDeviationBps, BPS)) revert ExcessiveDeviation();
+        // Compare the worst endpoints of the integer quote intervals. This
+        // fails closed even for prices so small that 18-decimal rounding matters.
+        uint256 referenceQuote = spotQuote >= twapQuote ? twapQuote : twapQuote + 1;
+        uint256 difference = spotQuote >= twapQuote ? spotQuote - twapQuote + 1 : twapQuote + 1 - spotQuote;
+        if (difference > FullMath.mulDiv(referenceQuote, params.maxDeviationBps, BPS)) revert ExcessiveDeviation();
     }
 }
