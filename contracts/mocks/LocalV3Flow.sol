@@ -3,7 +3,6 @@ pragma solidity ^0.8.28;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {StaxVaultV2} from "../StaxVaultV2.sol";
 import {StaxV3OracleMath} from "../Twap.sol";
 import {IStaxTwapRegistry} from "../interfaces/IStaxTwapRegistry.sol";
 
@@ -95,10 +94,6 @@ contract LocalV3Flow {
         if (permit) ILocalPermit(permit2).transferFrom(payer, msg.sender, uint160(amount), token);
         else IERC20(token).transferFrom(payer, msg.sender, amount);
     }
-}
-
-contract LocalVaultUpgrade is StaxVaultV2 {
-    function revision() external pure returns (uint256) { return 2; }
 }
 
 /// @dev Explicit accumulator vectors only; not used as a simulated V3 pool.

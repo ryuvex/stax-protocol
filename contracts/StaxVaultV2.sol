@@ -7,19 +7,14 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
-import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
-import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
 import {IPriceOracle, IPausableToken, IPermit2, IUniversalRouter, PoolKey, V3PoolConfig, ExactInputSingleParams, StaxBasketToken} from "./StaxVault.sol";
 import {StaxV3RouteValidator} from "./StaxV3RouteValidator.sol";
 import {StaxBasketTokenDeployer} from "./StaxBasketTokenDeployer.sol";
 
-/// @notice Review draft for a NEW vault; never install over a V1 deployment.
-/// @dev Ownable ownership is explicitly set in initialize. The locked OZ 5.6
-/// guard accepts zero as not-entered; nonReentrant initialization seeds its
-/// namespaced proxy storage to NOT_ENTERED on exit. Preserve storage layout
-/// and dependency versions for all subsequent upgrades.
-contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgradeable {
+/// @notice Non-upgradeable V2 vault for new baskets; existing V1 baskets remain on V1.
+/// @dev Deploy directly. Code and core dependencies are fixed; owner settings remain configurable.
+contract StaxVaultV2 is ReentrancyGuard, Ownable2Step {
     using SafeERC20 for IERC20;
 
     error ZeroRewardsPool();
@@ -123,22 +118,22 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
 
     uint48 public constant USDG_STALENESS_CONFIRMED_REFERENCE = 27 hours;
 
-    address public permit2;
+    address public immutable permit2;
 
     address public constant DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
 
-    address public rewardsPool;
-    address public treasury;
+    address public immutable rewardsPool;
+    address public immutable treasury;
     address public staxToken;
-    address public universalRouter;
+    address public immutable universalRouter;
 
-    address public usdg;
+    address public immutable usdg;
 
-    uint8 public usdgDecimals;
+    uint8 public immutable usdgDecimals;
 
-    address public usdgUsdFeed;
-    uint48 public usdgUsdMaxStaleness;
-    address public sequencerUptimeFeed;
+    address public immutable usdgUsdFeed;
+    uint48 public immutable usdgUsdMaxStaleness;
+    address public immutable sequencerUptimeFeed;
 
     mapping(uint256 => Basket) public baskets;
     mapping(address => FeedConfig) public priceFeeds;
@@ -164,9 +159,8 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
     struct LegacyTicker { address ticker; address feed; uint48 maxStaleness; }
     mapping(address => OracleSettings) public oracleSettings;
     mapping(address => uint16) public tickerSlippageBps;
-    StaxBasketTokenDeployer public basketTokenDeployer;
-    StaxV3RouteValidator public routeValidator;
-    uint256[47] private __gap;
+    StaxBasketTokenDeployer public immutable basketTokenDeployer;
+    StaxV3RouteValidator public immutable routeValidator;
 
     error InvalidOracleConfiguration();
     error InvalidSlippage();
@@ -175,9 +169,6 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
     error UseBoundedEntryPoint();
     event OracleConfigured(address indexed ticker, OracleType oracleType, address registry);
     event TickerSlippageSet(address indexed ticker, uint16 bps);
-
-    /// @dev Deploy with the reviewed governance owner (preferably a multisig).
-    function _authorizeUpgrade(address) internal override onlyOwner {}
 
     function renounceOwnership() public view override onlyOwner { revert InvalidOracleConfiguration(); }
 
@@ -247,16 +238,12 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
     event TreasuryFeesClaimed(uint256 amount);
     event StaxTokenSet(address staxToken);
 
-    /// @dev No usable implementation owner; proxy ownership is initialized explicitly.
-    constructor() Ownable(address(1)) { _disableInitializers(); }
-
-    /// @notice Called atomically by StaxVaultProxy's constructor. The supplied
-    /// legacy ticker list registers Chainlink settings and 200 bps in one transaction.
-    /// This creates fresh state; it does not copy V1 baskets or balances.
-    function initialize(
+    /// @notice Direct deployment atomically registers the supplied Chainlink tickers at 200 bps.
+    /// @dev Creates fresh state; does not migrate V1 baskets or balances.
+    constructor(
         address initialOwner,
         address tokenDeployer,
-        LegacyTicker[] calldata legacyTickers,
+        LegacyTicker[] memory legacyTickers,
         address _rewardsPool,
         address _treasury,
         address _universalRouter,
@@ -266,9 +253,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
         uint48 _usdgUsdMaxStaleness,
         address _sequencerUptimeFeed,
         address validator
-    ) external initializer nonReentrant {
-        require(initialOwner != address(0), OwnableInvalidOwner(address(0)));
-        _transferOwnership(initialOwner);
+    ) Ownable(initialOwner) {
         require(StaxV3RouteValidator(validator).router() == _universalRouter, InvalidOracleConfiguration());
         routeValidator = StaxV3RouteValidator(validator);
         require(tokenDeployer.code.length > 0, InvalidOracleConfiguration());
@@ -297,7 +282,7 @@ contract StaxVaultV2 is ReentrancyGuard, Ownable2Step, Initializable, UUPSUpgrad
         sequencerUptimeFeed = _sequencerUptimeFeed;
         require(_universalRouter.code.length > 0 && _permit2.code.length > 0, InvalidOracleConfiguration());
         for (uint256 i; i < legacyTickers.length; ++i) {
-            LegacyTicker calldata t = legacyTickers[i];
+            LegacyTicker memory t = legacyTickers[i];
             _registerChainlink(t.ticker, t.feed, t.maxStaleness);
         }
     }
