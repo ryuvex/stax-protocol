@@ -26,6 +26,11 @@ What changed versus the V1-bound implementation (decisions by Dan, 2026-09-23):
   address(this) in that slot).
 - Fee handling unchanged: 50/30/20 recorded, burn share paid to treasury and
   tracked in pendingBuyBurnInformational until a burn path exists.
+- Treasury and rewards destinations are read from V2 at claim time, so they
+  follow V2's owner (a compromised recipient can be rotated once, for all clones).
+- initialize() is callable only by the factory that deployed the implementation,
+  so every clone is fee-paying and appears in the factory's BasketCreated log.
+- Creation requires every ticker to be priceable at that moment.
 - Still no owner, no pause, no settable parameters. One clone per basket.
 
 Inherited caveat: V2's owner controls feeds, TWAP settings, routes and
@@ -44,6 +49,8 @@ interface IStaxVaultV2Config {
     function tickerPools(address ticker)
         external view returns (address currency0, address currency1, uint24 fee, int24 tickSpacing, address hooks);
     function getOraclePriceUsd18(address token) external view returns (uint256);
+    function treasury() external view returns (address);
+    function rewardsPool() external view returns (address);
 }
 
 contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
@@ -74,14 +81,15 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
     error UserLimitNotMet();
     error Expired();
     error ZeroAddress();
+    error OnlyFactory();
 
     address public immutable mainVault;
     address public immutable usdg;
     uint8 public immutable usdgDecimals;
     address public immutable universalRouter;
     address public immutable permit2;
-    address public immutable rewardsPool;
-    address public immutable treasury;
+    /// @notice The factory that deployed this implementation; the only address allowed to initialize clones.
+    address public immutable factory;
 
     uint256 public constant FEE_BPS = 25;
     uint256 public constant BPS_DENOMINATOR = 10_000;
@@ -117,19 +125,22 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
     event RewardsPoolClaimed(uint256 amount);
     event TreasuryFeesClaimed(uint256 amount);
 
-    /// @dev USDG, router and Permit2 are read from the vault so a clone can never disagree with it.
-    constructor(address _mainVault, address _rewardsPool, address _treasury) {
-        require(_mainVault != address(0) && _rewardsPool != address(0) && _treasury != address(0), ZeroAddress());
+    /// @dev Deployed BY the factory (msg.sender). USDG, router and Permit2 are read from the vault
+    /// so a clone can never disagree with it.
+    constructor(address _mainVault) {
+        require(_mainVault != address(0), ZeroAddress());
         IStaxVaultV2Config v = IStaxVaultV2Config(_mainVault);
         mainVault = _mainVault;
         usdg = v.usdg();
         usdgDecimals = v.usdgDecimals();
         universalRouter = v.universalRouter();
         permit2 = v.permit2();
-        rewardsPool = _rewardsPool;
-        treasury = _treasury;
+        factory = msg.sender;
         _disableInitializers();
     }
+
+    function treasury() public view returns (address) { return IStaxVaultV2Config(mainVault).treasury(); }
+    function rewardsPool() public view returns (address) { return IStaxVaultV2Config(mainVault).rewardsPool(); }
 
     function initialize(
         string memory _name,
@@ -138,6 +149,7 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         uint256[] memory _weights,
         address _creator
     ) external initializer {
+        require(msg.sender == factory, OnlyFactory());
         require(_tickers.length > 0, EmptyBasket());
         require(_tickers.length <= MAX_LEGS, TooManyLegs());
         require(_tickers.length == _weights.length, LengthMismatch());
@@ -168,6 +180,8 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         (uint8 oracleType,) = v.oracleSettings(ticker);
         require(oracleType != 0, TickerNotRegisteredOnMainVault());
         _slippage(ticker);
+        // Must be priceable right now: a basket that cannot be valued at creation cannot mint either.
+        _tickerUsd18(ticker);
         if (v.tickerIsV3(ticker)) {
             (, bool exists) = v.tickerPoolsV3(ticker);
             require(exists, TickerNotRegisteredOnMainVault());
@@ -280,7 +294,7 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         uint256 amount = pendingRewardsPool;
         require(amount > 0, NothingToClaim());
         pendingRewardsPool = 0;
-        IERC20(usdg).safeTransfer(rewardsPool, amount);
+        IERC20(usdg).safeTransfer(rewardsPool(), amount);
         emit RewardsPoolClaimed(amount);
     }
 
@@ -288,7 +302,7 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         uint256 amount = pendingTreasuryFees;
         require(amount > 0, NothingToClaim());
         pendingTreasuryFees = 0;
-        IERC20(usdg).safeTransfer(treasury, amount);
+        IERC20(usdg).safeTransfer(treasury(), amount);
         emit TreasuryFeesClaimed(amount);
     }
 

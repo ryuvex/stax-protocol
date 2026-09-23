@@ -4,36 +4,39 @@ pragma solidity ^0.8.28;
 import {Clones} from "@openzeppelin/contracts/proxy/Clones.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {StaxUserBasketV2} from "./StaxUserBasketV2.sol";
+import {StaxUserBasketV2, IStaxVaultV2Config} from "./StaxUserBasketV2.sol";
 
-/// @notice Permissionless factory for StaxUserBasketV2 clones. Deploys and initializes
-/// atomically (no uninitialized-clone window). No owner, no admin functions.
-/// The flat creation fee goes 100% to treasury as spam deterrence.
+/// @notice Permissionless factory for StaxUserBasketV2 clones, bound to one StaxVaultV2.
+/// Deploys its own implementation in the constructor (so only this factory can initialize clones),
+/// then deploys + initializes each clone atomically. No owner, no admin functions.
+/// The flat creation fee goes 100% to V2's current treasury as spam deterrence.
 contract StaxUserBasketFactoryV2 {
     using SafeERC20 for IERC20;
 
-    error ZeroImplementation();
+    error ZeroVault();
     error ZeroUsdg();
-    error ZeroTreasury();
-    error ImplementationVaultMismatch();
 
+    address public immutable mainVault;
     address public immutable implementation;
     address public immutable usdg;
-    address public immutable treasury;
     uint256 public constant CREATION_FEE_USDG = 2e6; // USDG has 6 decimals
+
+    /// @notice True for every clone this factory created.
+    mapping(address => bool) public isUserBasket;
+    address[] public baskets;
 
     event BasketCreated(address indexed clone, address indexed creator, string name, address[] tickers, uint256[] weights);
 
-    constructor(address _implementation, address _treasury) {
-        require(_implementation != address(0), ZeroImplementation());
-        require(_treasury != address(0), ZeroTreasury());
-        address _usdg = StaxUserBasketV2(_implementation).usdg();
-        require(_usdg != address(0), ZeroUsdg());
-        require(StaxUserBasketV2(_implementation).treasury() == _treasury, ImplementationVaultMismatch());
-        implementation = _implementation;
-        usdg = _usdg;
-        treasury = _treasury;
+    constructor(address _mainVault) {
+        require(_mainVault != address(0), ZeroVault());
+        mainVault = _mainVault;
+        implementation = address(new StaxUserBasketV2(_mainVault));
+        usdg = IStaxVaultV2Config(_mainVault).usdg();
+        require(usdg != address(0), ZeroUsdg());
     }
+
+    function treasury() public view returns (address) { return IStaxVaultV2Config(mainVault).treasury(); }
+    function basketCount() external view returns (uint256) { return baskets.length; }
 
     /// @notice Fee is pulled first so a reverted initialize (e.g. unregistered ticker) charges nothing.
     function createUserBasket(
@@ -42,9 +45,11 @@ contract StaxUserBasketFactoryV2 {
         address[] memory tickers,
         uint256[] memory weights
     ) external returns (address clone) {
-        IERC20(usdg).safeTransferFrom(msg.sender, treasury, CREATION_FEE_USDG);
+        IERC20(usdg).safeTransferFrom(msg.sender, treasury(), CREATION_FEE_USDG);
         clone = Clones.clone(implementation);
         StaxUserBasketV2(clone).initialize(basketName, basketSymbol, tickers, weights, msg.sender);
+        isUserBasket[clone] = true;
+        baskets.push(clone);
         emit BasketCreated(clone, msg.sender, basketName, tickers, weights);
     }
 }
