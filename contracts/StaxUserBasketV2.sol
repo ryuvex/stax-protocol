@@ -31,6 +31,9 @@ What changed versus the V1-bound implementation (decisions by Dan, 2026-09-23):
 - initialize() is callable only by the factory that deployed the implementation,
   so every clone is fee-paying and appears in the factory's BasketCreated log.
 - Creation requires every ticker to be priceable at that moment.
+- redeemInKind(shares): oracle-free, swap-free, fee-free exit that pays each
+  underlying token pro rata from the ledger. Guarantees holders can always leave
+  even if a ticker's oracle is gone for good (no owner exists to intervene).
 - Still no owner, no pause, no settable parameters. One clone per basket.
 
 Inherited caveat: V2's owner controls feeds, TWAP settings, routes and
@@ -121,6 +124,7 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
 
     event Minted(address indexed user, uint256 usdgIn, uint256 tokensOut, uint256 valueReceivedUsd);
     event Redeemed(address indexed user, uint256 tokensIn, uint256 usdgOut, uint256 valueReturnedUsd);
+    event RedeemedInKind(address indexed user, uint256 tokensIn, address[] tickers, uint256[] amounts);
     event FeeSplit(uint256 toBurn, uint256 toRewards, uint256 toTreasury);
     event RewardsPoolClaimed(uint256 amount);
     event TreasuryFeesClaimed(uint256 amount);
@@ -276,6 +280,31 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         _routeFee(fee);
         IERC20(usdg).safeTransfer(msg.sender, netPayout);
         emit Redeemed(msg.sender, tokenAmount, netPayout, valueReturnedUsd);
+    }
+
+    /// @notice Emergency/in-kind exit: burns shares and transfers each underlying token pro rata.
+    /// @dev Touches NO oracle, NO swap and charges NO fee, so it works when pricing is unavailable.
+    /// Uses the same ledger arithmetic as redeem(); the two paths can be mixed freely.
+    function redeemInKind(uint256 tokenAmount) external nonReentrant {
+        require(tokenAmount > 0, AmountMustBeNonzero());
+        require(tokenAmount >= MIN_TOKENS_IN, RedeemAmountTooSmall());
+        StaxUserBasketToken basketToken = StaxUserBasketToken(token);
+        uint256 supplyBefore = basketToken.totalSupply();
+        require(supplyBefore > 0, NoSupply());
+        basketToken.burn(msg.sender, tokenAmount);
+
+        uint256[] memory amounts = new uint256[](tickers.length);
+        for (uint256 i = 0; i < tickers.length; i++) {
+            address ticker = tickers[i];
+            uint256 amount = (basketTickerHoldings[ticker] * tokenAmount) / supplyBefore;
+            if (amount == 0) continue;
+            basketTickerHoldings[ticker] -= amount;
+            amounts[i] = amount;
+        }
+        for (uint256 i = 0; i < tickers.length; i++) {
+            if (amounts[i] != 0) IERC20(tickers[i]).safeTransfer(msg.sender, amounts[i]);
+        }
+        emit RedeemedInKind(msg.sender, tokenAmount, tickers, amounts);
     }
 
     function getBasketNavUsd() public view returns (uint256 totalValueUsd) {
