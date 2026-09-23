@@ -25,7 +25,10 @@ contract StaxUserBasketFactoryV2 {
     mapping(address => bool) public isUserBasket;
     address[] public baskets;
 
-    event BasketCreated(address indexed clone, address indexed creator, string name, address[] tickers, uint256[] weights);
+    event BasketCreated(
+        address indexed clone, address indexed token, address indexed creator,
+        string name, string symbol, address[] tickers, uint256[] weights
+    );
 
     constructor(address _mainVault) {
         require(_mainVault != address(0), ZeroVault());
@@ -50,6 +53,6 @@ contract StaxUserBasketFactoryV2 {
         StaxUserBasketV2(clone).initialize(basketName, basketSymbol, tickers, weights, msg.sender);
         isUserBasket[clone] = true;
         baskets.push(clone);
-        emit BasketCreated(clone, msg.sender, basketName, tickers, weights);
+        emit BasketCreated(clone, StaxUserBasketV2(clone).token(), msg.sender, basketName, basketSymbol, tickers, weights);
     }
 }

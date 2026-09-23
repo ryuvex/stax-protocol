@@ -31,9 +31,16 @@ What changed versus the V1-bound implementation (decisions by Dan, 2026-09-23):
 - initialize() is callable only by the factory that deployed the implementation,
   so every clone is fee-paying and appears in the factory's BasketCreated log.
 - Creation requires every ticker to be priceable at that moment.
-- redeemInKind(shares): oracle-free, swap-free, fee-free exit that pays each
-  underlying token pro rata from the ledger. Guarantees holders can always leave
-  even if a ticker's oracle is gone for good (no owner exists to intervene).
+- redeemInKind(shares, receiver): oracle-free, swap-free, fee-free exit. Shares
+  are burned and each underlying leg is credited to owedInKind[receiver][ticker],
+  then paid best-effort in the same call. A leg whose token transfer fails (paused
+  or frozen token) stays owed and is pulled later with withdrawInKind(ticker), so
+  one broken ticker can never block the exit of the others. Guarantees holders can
+  always leave even if a ticker's oracle is gone for good (no owner exists).
+- Mint swaps are bounded on both sides: a leg that returns more tokens than
+  oracle-expected + slippage reverts (SwapAboveOracle). Otherwise a stale/lagging
+  oracle (e.g. weekend stock feed above market) would let a minter be credited
+  at the oracle price for tokens bought cheaper, and exit in kind at a profit.
 - Still no owner, no pause, no settable parameters. One clone per basket.
 
 Inherited caveat: V2's owner controls feeds, TWAP settings, routes and
@@ -85,6 +92,9 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
     error Expired();
     error ZeroAddress();
     error OnlyFactory();
+    error SwapAboveOracle();
+    error InKindTransferFailed();
+    error NothingOwed();
 
     address public immutable mainVault;
     address public immutable usdg;
@@ -116,6 +126,8 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
     address public creator;
 
     mapping(address => uint256) public basketTickerHoldings;
+    /// @notice Underlying tokens owed from redeemInKind that could not be paid at the time: receiver => ticker => amount.
+    mapping(address => mapping(address => uint256)) public owedInKind;
 
     /// @notice Owed-to-burn total (transparency only). The USDG itself is in pendingTreasuryFees.
     uint256 public pendingBuyBurnInformational;
@@ -124,7 +136,8 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
 
     event Minted(address indexed user, uint256 usdgIn, uint256 tokensOut, uint256 valueReceivedUsd);
     event Redeemed(address indexed user, uint256 tokensIn, uint256 usdgOut, uint256 valueReturnedUsd);
-    event RedeemedInKind(address indexed user, uint256 tokensIn, address[] tickers, uint256[] amounts);
+    event RedeemedInKind(address indexed user, address indexed receiver, uint256 tokensIn, address[] tickers, uint256[] amounts);
+    event InKindPaid(address indexed receiver, address indexed ticker, uint256 amount);
     event FeeSplit(uint256 toBurn, uint256 toRewards, uint256 toTreasury);
     event RewardsPoolClaimed(uint256 amount);
     event TreasuryFeesClaimed(uint256 amount);
@@ -282,10 +295,13 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         emit Redeemed(msg.sender, tokenAmount, netPayout, valueReturnedUsd);
     }
 
-    /// @notice Emergency/in-kind exit: burns shares and transfers each underlying token pro rata.
+    /// @notice Emergency/in-kind exit: burns shares and pays each underlying token pro rata to `receiver`.
     /// @dev Touches NO oracle, NO swap and charges NO fee, so it works when pricing is unavailable.
     /// Uses the same ledger arithmetic as redeem(); the two paths can be mixed freely.
-    function redeemInKind(uint256 tokenAmount) external nonReentrant {
+    /// Each leg is credited to owedInKind first and then paid best-effort: a leg whose token
+    /// transfer fails stays owed and can be pulled with withdrawInKind(ticker) later.
+    function redeemInKind(uint256 tokenAmount, address receiver) external nonReentrant {
+        require(receiver != address(0), ZeroAddress());
         require(tokenAmount > 0, AmountMustBeNonzero());
         require(tokenAmount >= MIN_TOKENS_IN, RedeemAmountTooSmall());
         StaxUserBasketToken basketToken = StaxUserBasketToken(token);
@@ -294,17 +310,43 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         basketToken.burn(msg.sender, tokenAmount);
 
         uint256[] memory amounts = new uint256[](tickers.length);
+        bool any;
         for (uint256 i = 0; i < tickers.length; i++) {
             address ticker = tickers[i];
             uint256 amount = (basketTickerHoldings[ticker] * tokenAmount) / supplyBefore;
             if (amount == 0) continue;
             basketTickerHoldings[ticker] -= amount;
+            owedInKind[receiver][ticker] += amount;
             amounts[i] = amount;
+            any = true;
         }
+        require(any, ZeroPayout());
+        emit RedeemedInKind(msg.sender, receiver, tokenAmount, tickers, amounts);
         for (uint256 i = 0; i < tickers.length; i++) {
-            if (amounts[i] != 0) IERC20(tickers[i]).safeTransfer(msg.sender, amounts[i]);
+            if (amounts[i] != 0) _payInKind(receiver, tickers[i], false);
         }
-        emit RedeemedInKind(msg.sender, tokenAmount, tickers, amounts);
+    }
+
+    /// @notice Pull one leg that redeemInKind could not pay (e.g. the token was paused at the time).
+    function withdrawInKind(address ticker) external nonReentrant {
+        require(owedInKind[msg.sender][ticker] > 0, NothingOwed());
+        _payInKind(msg.sender, ticker, true);
+    }
+
+    /// @dev Pays the full owed balance of one leg. Owed is zeroed before the transfer and restored if it
+    /// fails, so a reverting or false-returning token never blocks the other legs (unless `strict`).
+    function _payInKind(address receiver, address ticker, bool strict) internal {
+        uint256 amount = owedInKind[receiver][ticker];
+        if (amount == 0) return;
+        owedInKind[receiver][ticker] = 0;
+        (bool ok, bytes memory data) = ticker.call(abi.encodeCall(IERC20.transfer, (receiver, amount)));
+        ok = ok && (data.length == 0 || (data.length >= 32 && abi.decode(data, (bool))));
+        if (ok) {
+            emit InKindPaid(receiver, ticker, amount);
+        } else {
+            require(!strict, InKindTransferFailed());
+            owedInKind[receiver][ticker] = amount;
+        }
     }
 
     function getBasketNavUsd() public view returns (uint256 totalValueUsd) {
@@ -369,10 +411,14 @@ contract StaxUserBasketV2 is Initializable, ReentrancyGuard {
         IERC20(tok).forceApprove(permit2, 0);
     }
 
-    function _swapUsdgForTicker(address tickerOut, uint8 tickerDec, uint256 usdgAmount) internal returns (uint256) {
+    /// @dev Two-sided bound: received tokens must be within +/- slippage of the oracle-implied amount.
+    /// The lower bound is enforced by the router; the upper bound guards against minting against a
+    /// lagging oracle (tokens bought below the price the shares are credited at).
+    function _swapUsdgForTicker(address tickerOut, uint8 tickerDec, uint256 usdgAmount) internal returns (uint256 got) {
         uint256 expectedOut18 = (_to18(usdgAmount, usdgDecimals) * _usdgUsd18()) / _tickerUsd18(tickerOut);
-        uint256 minOut18 = expectedOut18 - ((expectedOut18 * _slippage(tickerOut)) / BPS_DENOMINATOR);
-        return _swapTicker(tickerOut, usdgAmount, _from18(minOut18, tickerDec), true);
+        uint256 tolerance18 = (expectedOut18 * _slippage(tickerOut)) / BPS_DENOMINATOR;
+        got = _swapTicker(tickerOut, usdgAmount, _from18(expectedOut18 - tolerance18, tickerDec), true);
+        require(got <= _from18(expectedOut18 + tolerance18, tickerDec), SwapAboveOracle());
     }
 
     function _swapTickerForUsdg(address tickerIn, uint8 tickerDec, uint256 tickerAmount) internal returns (uint256) {
