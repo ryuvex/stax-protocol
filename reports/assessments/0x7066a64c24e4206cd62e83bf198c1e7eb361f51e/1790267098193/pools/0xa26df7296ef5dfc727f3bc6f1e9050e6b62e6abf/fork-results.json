@@ -1,0 +1,87 @@
+{
+  "blockNumber": 71510748,
+  "blockHash": "0xd4368a608c68931c38c47d624f299569b7877ad40b508eda2ba4594b5b6111c0",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [
+    {
+      "amountUsdg": 10,
+      "tokensBought": "0.345571962525419702",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 28.652825153405956,
+      "spotMovePct": 0.03258892052453444,
+      "returnedUsdg": "9.801015",
+      "roundTripLossPct": 1.9898500000000041,
+      "buyGas": "185908",
+      "sellGas": "162125"
+    },
+    {
+      "amountUsdg": 100,
+      "tokensBought": "3.450660463283545855",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 28.73690502764262,
+      "spotMovePct": 0.3261281248080561,
+      "returnedUsdg": "98.011594",
+      "roundTripLossPct": 1.9884059999999981,
+      "buyGas": "185898",
+      "sellGas": "162135"
+    },
+    {
+      "amountUsdg": 1000,
+      "tokensBought": "34.008718137032680243",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 29.58447882534158,
+      "spotMovePct": 3.2851732043453374,
+      "returnedUsdg": "980.257154",
+      "roundTripLossPct": 1.974284599999998,
+      "buyGas": "186210",
+      "sellGas": "162465"
+    },
+    {
+      "amountUsdg": 10000,
+      "tokensBought": "67.601992372233909015",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 3.402567865403252e+50,
+      "spotMovePct": 1.1879026613667475e+51,
+      "returnedUsdg": "9960.340008",
+      "roundTripLossPct": 0.3965999199999959,
+      "buyGas": "388082",
+      "sellGas": "389169"
+    },
+    {
+      "amountUsdg": 50000,
+      "tokensBought": "67.601992372233909015",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 3.402567865403252e+50,
+      "spotMovePct": 1.1879026613667475e+51,
+      "returnedUsdg": "49960.340008",
+      "roundTripLossPct": 0.07931998400000362,
+      "buyGas": "388082",
+      "sellGas": "389169"
+    },
+    {
+      "amountUsdg": 100000,
+      "tokensBought": "67.601992372233909015",
+      "priceBefore": 28.643490549035477,
+      "priceAfterBuy": 3.402567865403252e+50,
+      "spotMovePct": 1.1879026613667475e+51,
+      "returnedUsdg": "99960.340008",
+      "roundTripLossPct": 0.03965999199999626,
+      "buyGas": "388082",
+      "sellGas": "389169"
+    }
+  ],
+  "vault": [],
+  "trialParameters": {
+    "twapWindow": 1800,
+    "maxObservationAge": 1800,
+    "minCurrentLiquidity": "1",
+    "minHarmonicLiquidity": "1",
+    "maxDeviationBps": 500,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "configure registry",
+  "assessmentError": "VM Exception while processing transaction: reverted with custom error 'StaleObservation()'"
+}

@@ -1,0 +1,55 @@
+{
+  "blockNumber": 71484854,
+  "blockHash": "0xad02622944966889a5302bb4f00dd03dc7a2fb3fca02e80595bcb97b5992fb82",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.732561",
+      "lossPct": 2.6743900000000043,
+      "mintGas": "518855",
+      "redeemGas": "343788"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d730000000000000000000000000000000000000000000000000b100303dab3b1b70000000000000000000000000000000000000000000000000b0fed77b69e2797)"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d730000000000000000000000000000000000000000000000006ea01e268b04f1290000000000000000000000000000000000000000000000006e962bd21db52920)"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d7300000000000000000000000000000000000000000000000452412d816e316b970000000000000000000000000000000000000000000000044e526ab1b49208d9)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0x3f390C5C24628Ac7C489515402235FeAD71D1913",
+    "maxStaleness": 345600,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "currency1": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+      "fee": 10000,
+      "tickSpacing": 200,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "122630000000000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

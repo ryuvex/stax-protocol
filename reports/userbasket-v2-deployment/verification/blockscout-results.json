@@ -1,0 +1,20 @@
+[
+  {
+    "name": "StaxUserBasketFactoryV2",
+    "address": "0x1de6a6bD0C62097A7559A29a76e41985558f9918",
+    "constructorArgs": [
+      "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33"
+    ],
+    "transactionHash": "0x44dd7fafdd3914fee882d513557883084fa47f3cf8dbddbfded5e3ad166a07bc",
+    "blockNumber": 70863402,
+    "gasUsed": "4817876",
+    "feeETH": "0.000250346472712",
+    "runtimeCodeHash": "0xf9ff8ac17c265f96accaacbb345ee993c1dfab2b934ddf5e27502a4ecfdef8d0",
+    "status": "VERIFIED"
+  },
+  {
+    "name": "StaxUserBasketV2",
+    "address": "0x897513814ff94683A9Bca00E5d61993b90AAdc95",
+    "error": "v2 HTTP 500"
+  }
+]

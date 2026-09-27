@@ -1,0 +1,10 @@
+
+Running Solidity tests
+
+  test/invariant/StaxVaultV2.invariant.t.sol:StaxVaultV2InvariantTest
+    ✔ test_invariantDetectsInsolventBalance()
+    ✔ invariant_accounting() (runs: 512)
+
+
+  2 passing
+

@@ -1,0 +1,446 @@
+{
+  "blockNumber": 71498263,
+  "blockHash": "0xe493dd76671c7c3d824b3a01c73d47218b5f427b1b9bfc10a88ad6a735ae70f5",
+  "timestamp": 1790265841,
+  "addresses": {
+    "token": "0xF0C4BF4C582cb3836e98394b1d4e7B7281101bE8",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0x2ef5945cd5664876b6481FdacFaA2942995a4DA8",
+    "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "predictedPool": "0x2ef5945cd5664876b6481FdacFaA2942995a4DA8",
+  "derivationMatches": true,
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "token1": "0xF0C4BF4C582cb3836e98394b1d4e7B7281101bE8",
+  "spotPriceUsdg": 49.2274025619383,
+  "tick": 237357,
+  "fee": 10000,
+  "tickSpacing": 200,
+  "liquidity": "402089149745666162",
+  "usdgBalancesRaw": {
+    "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+    "0x2ef5945cd5664876b6481FdacFaA2942995a4DA8": "134549134440",
+    "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+  },
+  "hourly": [
+    {
+      "hoursAgo": 0,
+      "meanTick": 237348,
+      "priceUsdg": 49.274552771402966
+    },
+    {
+      "hoursAgo": 1,
+      "meanTick": 237342,
+      "priceUsdg": 49.30412489523429
+    },
+    {
+      "hoursAgo": 2,
+      "meanTick": 237398,
+      "priceUsdg": 49.028807170567525
+    },
+    {
+      "hoursAgo": 3,
+      "meanTick": 237451,
+      "priceUsdg": 48.76965481032212
+    },
+    {
+      "hoursAgo": 4,
+      "meanTick": 237451,
+      "priceUsdg": 48.76965481032212
+    },
+    {
+      "hoursAgo": 5,
+      "meanTick": 237448,
+      "priceUsdg": 48.784287169903635
+    },
+    {
+      "hoursAgo": 6,
+      "meanTick": 237435,
+      "priceUsdg": 48.84774480892429
+    },
+    {
+      "hoursAgo": 7,
+      "meanTick": 237393,
+      "priceUsdg": 49.053326477523825
+    },
+    {
+      "hoursAgo": 8,
+      "meanTick": 237377,
+      "priceUsdg": 49.13187069135843
+    },
+    {
+      "hoursAgo": 9,
+      "meanTick": 237363,
+      "priceUsdg": 49.20070003821757
+    },
+    {
+      "hoursAgo": 10,
+      "meanTick": 237326,
+      "priceUsdg": 49.383070687635815
+    },
+    {
+      "hoursAgo": 11,
+      "meanTick": 237333,
+      "priceUsdg": 49.34851636126712
+    },
+    {
+      "hoursAgo": 12,
+      "meanTick": 237333,
+      "priceUsdg": 49.34851636126712
+    },
+    {
+      "hoursAgo": 13,
+      "meanTick": 237333,
+      "priceUsdg": 49.34851636126712
+    },
+    {
+      "hoursAgo": 14,
+      "meanTick": 237332,
+      "priceUsdg": 49.353451212903245
+    },
+    {
+      "hoursAgo": 15,
+      "meanTick": 237332,
+      "priceUsdg": 49.353451212903245
+    },
+    {
+      "hoursAgo": 16,
+      "meanTick": 237333,
+      "priceUsdg": 49.34851636126712
+    },
+    {
+      "hoursAgo": 17,
+      "meanTick": 237330,
+      "priceUsdg": 49.36332239668033
+    },
+    {
+      "hoursAgo": 18,
+      "meanTick": 237325,
+      "priceUsdg": 49.38800899470457
+    },
+    {
+      "hoursAgo": 19,
+      "meanTick": 237325,
+      "priceUsdg": 49.38800899470457
+    },
+    {
+      "hoursAgo": 20,
+      "meanTick": 237325,
+      "priceUsdg": 49.38800899470457
+    },
+    {
+      "hoursAgo": 21,
+      "meanTick": 237324,
+      "priceUsdg": 49.392947795604044
+    },
+    {
+      "hoursAgo": 22,
+      "meanTick": 237324,
+      "priceUsdg": 49.392947795604044
+    },
+    {
+      "hoursAgo": 23,
+      "meanTick": 237302,
+      "priceUsdg": 49.501726454565045
+    },
+    {
+      "hoursAgo": 24,
+      "meanTick": 237298,
+      "priceUsdg": 49.52153011544846
+    },
+    {
+      "hoursAgo": 25,
+      "meanTick": 237292,
+      "priceUsdg": 49.551250462737755
+    },
+    {
+      "hoursAgo": 26,
+      "meanTick": 237225,
+      "priceUsdg": 49.88434179654124
+    },
+    {
+      "hoursAgo": 27,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 28,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 29,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 30,
+      "meanTick": 237209,
+      "priceUsdg": 49.964216632570164
+    },
+    {
+      "hoursAgo": 31,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 32,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 33,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 34,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 35,
+      "meanTick": 237210,
+      "priceUsdg": 49.959220710499125
+    },
+    {
+      "hoursAgo": 36,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 37,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 38,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 39,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 40,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 41,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 42,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 43,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 44,
+      "meanTick": 237208,
+      "priceUsdg": 49.96921305423343
+    },
+    {
+      "hoursAgo": 45,
+      "meanTick": 237204,
+      "priceUsdg": 49.98920373780778
+    },
+    {
+      "hoursAgo": 46,
+      "meanTick": 237205,
+      "priceUsdg": 49.98420531727606
+    },
+    {
+      "hoursAgo": 47,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 48,
+      "meanTick": 237211,
+      "priceUsdg": 49.954225287970324
+    },
+    {
+      "hoursAgo": 49,
+      "meanTick": 237203,
+      "priceUsdg": 49.994202658181564
+    },
+    {
+      "hoursAgo": 50,
+      "meanTick": 237033,
+      "priceUsdg": 50.851326156385156
+    },
+    {
+      "hoursAgo": 51,
+      "meanTick": 236975,
+      "priceUsdg": 51.147105991741846
+    },
+    {
+      "hoursAgo": 52,
+      "meanTick": 236975,
+      "priceUsdg": 51.147105991741846
+    },
+    {
+      "hoursAgo": 53,
+      "meanTick": 236974,
+      "priceUsdg": 51.15222070234102
+    },
+    {
+      "hoursAgo": 54,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 55,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 56,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 57,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 58,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 59,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 60,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 61,
+      "meanTick": 236975,
+      "priceUsdg": 51.147105991741846
+    },
+    {
+      "hoursAgo": 62,
+      "meanTick": 236975,
+      "priceUsdg": 51.147105991741846
+    },
+    {
+      "hoursAgo": 63,
+      "meanTick": 236975,
+      "priceUsdg": 51.147105991741846
+    },
+    {
+      "hoursAgo": 64,
+      "meanTick": 236974,
+      "priceUsdg": 51.15222070234102
+    },
+    {
+      "hoursAgo": 65,
+      "meanTick": 236974,
+      "priceUsdg": 51.15222070234102
+    },
+    {
+      "hoursAgo": 66,
+      "meanTick": 236977,
+      "priceUsdg": 51.136878104752114
+    },
+    {
+      "hoursAgo": 67,
+      "meanTick": 236986,
+      "priceUsdg": 51.09087791761793
+    },
+    {
+      "hoursAgo": 68,
+      "meanTick": 237029,
+      "priceUsdg": 50.87166973813069
+    },
+    {
+      "hoursAgo": 69,
+      "meanTick": 237034,
+      "priceUsdg": 50.846241532231936
+    },
+    {
+      "hoursAgo": 70,
+      "meanTick": 237034,
+      "priceUsdg": 50.846241532231936
+    },
+    {
+      "hoursAgo": 71,
+      "meanTick": 237045,
+      "priceUsdg": 50.79034421052896
+    }
+  ],
+  "windowDiagnostics": [
+    {
+      "seconds": 300,
+      "twapUsdg": 49.23022783932959,
+      "spotDeviationBps": 0.5738907811903005,
+      "harmonicLiquidityRaw": "402089149745666161"
+    },
+    {
+      "seconds": 900,
+      "twapUsdg": 49.23022783932959,
+      "spotDeviationBps": 0.5738907811903005,
+      "harmonicLiquidityRaw": "402745125715107353"
+    },
+    {
+      "seconds": 1800,
+      "twapUsdg": 49.244998384637455,
+      "spotDeviationBps": 3.573118748368964,
+      "harmonicLiquidityRaw": "403834232522150976"
+    },
+    {
+      "seconds": 3600,
+      "twapUsdg": 49.274552771402966,
+      "spotDeviationBps": 9.56887618714819,
+      "harmonicLiquidityRaw": "404380994955972646"
+    },
+    {
+      "seconds": 7200,
+      "twapUsdg": 49.28933661552024,
+      "spotDeviationBps": 12.565406198313811,
+      "harmonicLiquidityRaw": "404654928154305148"
+    },
+    {
+      "seconds": 14400,
+      "twapUsdg": 49.09258287638458,
+      "spotDeviationBps": 27.46233293391631,
+      "harmonicLiquidityRaw": "439368716123423791"
+    }
+  ],
+  "statistics": {
+    "hourlyTwapSamples": 72,
+    "hourlyLogReturnStd": 0.00262550920622272,
+    "maxAbsoluteHourlyLogReturn": 0.016999150056660473
+  },
+  "caveats": [
+    "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+    "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+  ]
+}

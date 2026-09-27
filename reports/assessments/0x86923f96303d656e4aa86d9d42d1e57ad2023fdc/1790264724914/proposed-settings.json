@@ -1,0 +1,10 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "Required 10/100/1000 USDG round trips did not all pass.",
+  "pools": []
+}

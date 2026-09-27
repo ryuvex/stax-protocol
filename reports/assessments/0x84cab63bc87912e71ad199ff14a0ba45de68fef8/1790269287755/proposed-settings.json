@@ -1,0 +1,61 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "No candidate completed the required configuration checks; inspect pool results.",
+  "pools": [
+    {
+      "address": "0x5F2a5025feb93a4C44DA4E3B37e4fD3Fb0ab5171",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [],
+        "reason": "Insufficient initialized observations (need at least 100)."
+      },
+      "configurationTests": []
+    },
+    {
+      "address": "0x3B0028F88fDEB46150420Ad9a0784844c5F6Fab2",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [],
+        "reason": "Insufficient initialized observations (need at least 100)."
+      },
+      "configurationTests": []
+    }
+  ]
+}

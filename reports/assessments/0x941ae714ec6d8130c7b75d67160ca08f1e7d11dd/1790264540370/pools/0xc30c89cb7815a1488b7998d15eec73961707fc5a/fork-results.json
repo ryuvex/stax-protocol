@@ -1,0 +1,139 @@
+{
+  "blockNumber": 71485312,
+  "blockHash": "0xb9d11be3f5056e902a6ec73d8f7288efd0b2822b32806dc7b98d96553cd3768a",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [
+    {
+      "amountUsdg": 10,
+      "tokensBought": "0.018516409086997161",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 534.6634298462784,
+      "spotMovePct": 0.0009452727530057103,
+      "returnedUsdg": "9.801",
+      "roundTripLossPct": 1.9900000000000029,
+      "buyGas": "175077",
+      "sellGas": "151310"
+    },
+    {
+      "amountUsdg": 100,
+      "tokensBought": "0.185156214885184603",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 534.7089167407245,
+      "spotMovePct": 0.009452928575726105,
+      "returnedUsdg": "98.010046",
+      "roundTripLossPct": 1.9899540000000049,
+      "buyGas": "183831",
+      "sellGas": "159994"
+    },
+    {
+      "amountUsdg": 1000,
+      "tokensBought": "1.850774918723393074",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 535.163892101034,
+      "spotMovePct": 0.09454939032520482,
+      "returnedUsdg": "980.10463",
+      "roundTripLossPct": 1.9895369999999968,
+      "buyGas": "183817",
+      "sellGas": "160000"
+    },
+    {
+      "amountUsdg": 10000,
+      "tokensBought": "18.429392793605896624",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 539.7242872890342,
+      "spotMovePct": 0.9475043600497335,
+      "returnedUsdg": "9801.461072",
+      "roundTripLossPct": 1.985389280000005,
+      "buyGas": "183803",
+      "sellGas": "160082"
+    },
+    {
+      "amountUsdg": 50000,
+      "tokensBought": "90.681173837920856861",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 556.9791736242703,
+      "spotMovePct": 4.174777533742602,
+      "returnedUsdg": "49015.053255",
+      "roundTripLossPct": 1.9698934899999965,
+      "buyGas": "237371",
+      "sellGas": "214951"
+    },
+    {
+      "amountUsdg": 100000,
+      "tokensBought": "177.560102468135927796",
+      "priceBefore": 534.6583758663297,
+      "priceAfterBuy": 583.5534815598336,
+      "spotMovePct": 9.145111701332098,
+      "returnedUsdg": "98050.229573",
+      "roundTripLossPct": 1.9497704269999971,
+      "buyGas": "286517",
+      "sellGas": "263198"
+    }
+  ],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.752056",
+      "lossPct": 2.4794399999999994,
+      "mintGas": "615823",
+      "redeemGas": "440629"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "97.520609",
+      "lossPct": 2.4793909999999975,
+      "mintGas": "645745",
+      "redeemGas": "458663"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "975.210222",
+      "lossPct": 2.478977800000004,
+      "mintGas": "645685",
+      "redeemGas": "458577"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9752.513885",
+      "lossPct": 2.474861149999996,
+      "mintGas": "645671",
+      "redeemGas": "458671"
+    }
+  ],
+  "trialParameters": {
+    "twapWindow": 1800,
+    "maxObservationAge": 1800,
+    "minCurrentLiquidity": "1",
+    "minHarmonicLiquidity": "1",
+    "maxDeviationBps": 500,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "manipulation": [
+    {
+      "capitalUsdg": 10100,
+      "heldSeconds": 1801,
+      "immediateQuoteRejected": false,
+      "quoteRisePct": 0.9040167735959059,
+      "oracleAcceptedAfterHold": true,
+      "closedRoundTripCostUsdg": "200.519682",
+      "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+    },
+    {
+      "capitalUsdg": 50100,
+      "heldSeconds": 1801,
+      "immediateQuoteRejected": false,
+      "quoteRisePct": 4.132920114931937,
+      "oracleAcceptedAfterHold": true,
+      "closedRoundTripCostUsdg": "986.897471",
+      "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+    }
+  ]
+}

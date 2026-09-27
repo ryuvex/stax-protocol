@@ -1,0 +1,57 @@
+{
+  "blockNumber": 70526830,
+  "blockHash": "0x81b52d208c16704ac1a51afe3c5c21692d9537a84028318ba7113c428528f3c8",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.880565",
+      "lossPct": 1.1943499999999996,
+      "mintGas": "518516",
+      "redeemGas": "343596"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.806715",
+      "lossPct": 1.1932849999999995,
+      "mintGas": "518484",
+      "redeemGas": "343608"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d7300000000000000000000000000000000000000000000000091b55a2a937ea6d90000000000000000000000000000000000000000000000008ea8dc68e0d82128)"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d73000000000000000000000000000000000000000000000005b11585a9c2f284760000000000000000000000000000000000000000000000015d02657a96c97841)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0x6652eDf64bA3731C4F2D3ce821A0Fb1f1f6b482a",
+    "maxStaleness": 349200,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "currency1": "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+      "fee": 3000,
+      "tickSpacing": 30,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "93110000000000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

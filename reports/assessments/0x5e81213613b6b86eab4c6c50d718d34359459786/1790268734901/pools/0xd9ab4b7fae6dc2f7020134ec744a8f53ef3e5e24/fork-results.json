@@ -1,0 +1,132 @@
+{
+  "blockNumber": 71527033,
+  "blockHash": "0xfe6d55ed22de748ef7113e32d249b05e8c2c8eaa74bd8e7870ac43a0b746773a",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [
+    {
+      "amountUsdg": 10,
+      "tokensBought": "0.048324223395614657",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 206.31527386711318,
+      "spotMovePct": 0.000509213923982621,
+      "returnedUsdg": "9.94009",
+      "roundTripLossPct": 0.5990999999999969,
+      "buyGas": "176456",
+      "sellGas": "153622"
+    },
+    {
+      "amountUsdg": 100,
+      "tokensBought": "0.483231160936831004",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 206.3247292142506,
+      "spotMovePct": 0.0050921975820239496,
+      "returnedUsdg": "99.400907",
+      "roundTripLossPct": 0.599092999999995,
+      "buyGas": "185118",
+      "sellGas": "162306"
+    },
+    {
+      "amountUsdg": 1000,
+      "tokensBought": "4.831204586472865805",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 206.419294602059,
+      "spotMovePct": 0.050927810028955633,
+      "returnedUsdg": "994.009759",
+      "roundTripLossPct": 0.5990241000000007,
+      "buyGas": "185158",
+      "sellGas": "162294"
+    },
+    {
+      "amountUsdg": 10000,
+      "tokensBought": "48.205935599635463209",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 207.32274526097845,
+      "spotMovePct": 0.48882813727175733,
+      "returnedUsdg": "9940.163059",
+      "roundTripLossPct": 0.5983694099999992,
+      "buyGas": "215270",
+      "sellGas": "192432"
+    },
+    {
+      "amountUsdg": 50000,
+      "tokensBought": "236.55982485147717234",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 216.5727297086614,
+      "spotMovePct": 4.9722730012955685,
+      "returnedUsdg": "49703.577542",
+      "roundTripLossPct": 0.5928449160000016,
+      "buyGas": "382532",
+      "sellGas": "358980"
+    },
+    {
+      "amountUsdg": 100000,
+      "tokensBought": "460.298066220195567254",
+      "priceBefore": 206.31422328636103,
+      "priceAfterBuy": 229.65186923096323,
+      "spotMovePct": 11.311699975338051,
+      "returnedUsdg": "99415.081131",
+      "roundTripLossPct": 0.5849188689999951,
+      "buyGas": "676221",
+      "sellGas": "549129"
+    }
+  ],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "Transaction ran out of gas"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.904524",
+      "lossPct": 1.0954759999999952,
+      "mintGas": "650334",
+      "redeemGas": "457271"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "989.045921",
+      "lossPct": 1.0954079000000005,
+      "mintGas": "650374",
+      "redeemGas": "457271"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9890.524191",
+      "lossPct": 1.0947580900000031,
+      "mintGas": "680486",
+      "redeemGas": "487397"
+    }
+  ],
+  "trialParameters": {
+    "twapWindow": 1800,
+    "maxObservationAge": 1800,
+    "minCurrentLiquidity": "1",
+    "minHarmonicLiquidity": "1",
+    "maxDeviationBps": 500,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "manipulation": [
+    {
+      "capitalUsdg": 10000,
+      "error": "VM Exception while processing transaction: reverted with custom error 'StaleObservation()'"
+    },
+    {
+      "capitalUsdg": 50100,
+      "heldSeconds": 1801,
+      "immediateQuoteRejected": false,
+      "quoteRisePct": 4.958786769505297,
+      "oracleAcceptedAfterHold": true,
+      "closedRoundTripCostUsdg": "297.007396",
+      "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+    }
+  ]
+}

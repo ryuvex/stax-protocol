@@ -1,0 +1,33 @@
+{
+  "blockNumber": 71571459,
+  "blockHash": "0xade024ece8f2d24dedb60df2353d65ecb50291c512a7ce36c0837e1baac03f34",
+  "timestamp": 1790273202,
+  "addresses": {
+    "token": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D",
+    "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "derivationMatches": true,
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+  "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "fee": 3000,
+  "route": {
+    "venue": "v3",
+    "fee": 3000,
+    "pool": "0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D",
+    "source": "STAX_FORCE_V3_POOL override"
+  },
+  "mode": "CHAINLINK"
+}

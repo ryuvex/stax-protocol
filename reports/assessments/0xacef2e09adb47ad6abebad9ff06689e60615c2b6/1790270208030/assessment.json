@@ -1,0 +1,404 @@
+{
+  "token": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+  "status": "BLOCKED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "candidateAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Pool history and fork assessment",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 71541688,
+    "blockHash": "0xd5783ea115fb3cf947dfd1da664f9f160fc7dab043ebd7e464b65de57833f08d",
+    "token": {
+      "address": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+      "symbol": "INDA",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x07C3A3a6EEB2F122493F32418FBF136403608Cb8",
+        "version": "V3",
+        "fee": 500,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": 237388,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1788833212,
+        "latestObservationTimestamp": 1788833212,
+        "availableHistorySeconds": 1436996,
+        "latestObservationAgeSeconds": 1436996
+      },
+      {
+        "address": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+        "currentLiquidityRaw": "29863243272503704",
+        "unlocked": true,
+        "tick": 237697,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1790267839,
+        "latestObservationTimestamp": 1790267839,
+        "availableHistorySeconds": 2369,
+        "latestObservationAgeSeconds": 2369
+      },
+      {
+        "address": "0xFF2C1a42D9F3Ac3D338D8CE4e44607Cb8C333F45",
+        "version": "V3",
+        "fee": 10000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": 887271,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1788707660,
+        "latestObservationTimestamp": 1788707660,
+        "availableHistorySeconds": 1562548,
+        "latestObservationAgeSeconds": 1562548
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "not-configured",
+        "feed": null,
+        "maxStaleness": 0
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-09-24T17:16:55.732Z",
+    "candidates": [],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "poolAssessments": [
+    {
+      "address": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+      "fee": 3000,
+      "status": "BLOCKED",
+      "snapshot": {
+        "blockNumber": 71541688,
+        "blockHash": "0xd5783ea115fb3cf947dfd1da664f9f160fc7dab043ebd7e464b65de57833f08d",
+        "timestamp": 1790270208,
+        "addresses": {
+          "token": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+          "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "pool": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+          "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+        },
+        "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+        "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+        "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+        "usdgMaxStaleness": "97200",
+        "sequencerFeed": "0x0000000000000000000000000000000000000000",
+        "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+        "predictedPool": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+        "derivationMatches": true,
+        "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+        "routerContainsFactory": true,
+        "routerContainsPoolHash": true,
+        "tokenDecimals": 18,
+        "usdgDecimals": 6,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+        "spotPriceUsdg": 47.58292169765975,
+        "tick": 237697,
+        "fee": 3000,
+        "tickSpacing": 60,
+        "liquidity": "29863243272503704",
+        "usdgBalancesRaw": {
+          "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+          "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6": "1193620630",
+          "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+        },
+        "hourly": [],
+        "windowDiagnostics": [
+          {
+            "seconds": 300,
+            "twapUsdg": 47.58461628469466,
+            "spotDeviationBps": 0.356120773312707,
+            "harmonicLiquidityRaw": "29863243272503703"
+          },
+          {
+            "seconds": 900,
+            "twapUsdg": 47.58461628469466,
+            "spotDeviationBps": 0.356120773312707,
+            "harmonicLiquidityRaw": "29863243272503703"
+          },
+          {
+            "seconds": 1800,
+            "twapUsdg": 47.58461628469466,
+            "spotDeviationBps": 0.356120773312707,
+            "harmonicLiquidityRaw": "29863243272503703"
+          },
+          {
+            "seconds": 3600,
+            "error": "Observation call failed; do not infer sufficient history"
+          },
+          {
+            "seconds": 7200,
+            "error": "Observation call failed; do not infer sufficient history"
+          },
+          {
+            "seconds": 14400,
+            "error": "Observation call failed; do not infer sufficient history"
+          }
+        ],
+        "statistics": {
+          "hourlyTwapSamples": 0,
+          "hourlyLogReturnStd": 0,
+          "maxAbsoluteHourlyLogReturn": 0
+        },
+        "caveats": [
+          "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+          "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+        ]
+      },
+      "settingCandidates": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [],
+        "reason": "Insufficient initialized observations (need at least 100)."
+      },
+      "fork": {
+        "blockNumber": 71541688,
+        "blockHash": "0xd5783ea115fb3cf947dfd1da664f9f160fc7dab043ebd7e464b65de57833f08d",
+        "mode": "LOCAL_FORK_ONLY",
+        "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+        "direct": [
+          {
+            "amountUsdg": 10,
+            "tokensBought": "0.209518817546363255",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 47.587527700950545,
+            "spotMovePct": 0.00967995055045634,
+            "returnedUsdg": "9.940091",
+            "roundTripLossPct": 0.5990900000000021,
+            "buyGas": "183777",
+            "sellGas": "160037"
+          },
+          {
+            "amountUsdg": 100,
+            "tokensBought": "2.094275979731642888",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 47.62899176190616,
+            "spotMovePct": 0.09682058730888787,
+            "returnedUsdg": "99.401044",
+            "roundTripLossPct": 0.5989559999999949,
+            "buyGas": "183829",
+            "sellGas": "160037"
+          },
+          {
+            "amountUsdg": 1000,
+            "tokensBought": "20.851975193822995042",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 48.04462547396504,
+            "spotMovePct": 0.9703140535147092,
+            "returnedUsdg": "994.023363",
+            "roundTripLossPct": 0.5976636999999951,
+            "buyGas": "183121",
+            "sellGas": "160351"
+          },
+          {
+            "amountUsdg": 10000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "9960.686859",
+            "roundTripLossPct": 0.39313141000000273,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          },
+          {
+            "amountUsdg": 50000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "49960.686859",
+            "roundTripLossPct": 0.07862628200000499,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          },
+          {
+            "amountUsdg": 100000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "99960.686859",
+            "roundTripLossPct": 0.03931314099999694,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          }
+        ],
+        "vault": [],
+        "trialParameters": {
+          "twapWindow": 1800,
+          "maxObservationAge": 1800,
+          "minCurrentLiquidity": "1",
+          "minHarmonicLiquidity": "1",
+          "maxDeviationBps": 500,
+          "slippageBps": 200
+        },
+        "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+        "balanceMappingSlot": 1,
+        "setupStage": "configure registry",
+        "assessmentError": "VM Exception while processing transaction: reverted with custom error 'StaleObservation()'"
+      },
+      "summary": {
+        "status": "BLOCKED",
+        "listingApproved": false,
+        "passedRoundTripSizesUsdg": [],
+        "revertedRoundTripSizes": []
+      },
+      "configurationTests": [],
+      "proposedSettings": []
+    }
+  ],
+  "summary": {
+    "status": "BLOCKED",
+    "listingApproved": false,
+    "selectedPool": null,
+    "pools": [
+      {
+        "address": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+        "fee": 3000,
+        "status": "BLOCKED",
+        "passedRoundTripSizesUsdg": [],
+        "revertedRoundTripSizes": [],
+        "directSwapResults": [
+          {
+            "amountUsdg": 10,
+            "tokensBought": "0.209518817546363255",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 47.587527700950545,
+            "spotMovePct": 0.00967995055045634,
+            "returnedUsdg": "9.940091",
+            "roundTripLossPct": 0.5990900000000021,
+            "buyGas": "183777",
+            "sellGas": "160037"
+          },
+          {
+            "amountUsdg": 100,
+            "tokensBought": "2.094275979731642888",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 47.62899176190616,
+            "spotMovePct": 0.09682058730888787,
+            "returnedUsdg": "99.401044",
+            "roundTripLossPct": 0.5989559999999949,
+            "buyGas": "183829",
+            "sellGas": "160037"
+          },
+          {
+            "amountUsdg": 1000,
+            "tokensBought": "20.851975193822995042",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 48.04462547396504,
+            "spotMovePct": 0.9703140535147092,
+            "returnedUsdg": "994.023363",
+            "roundTripLossPct": 0.5976636999999951,
+            "buyGas": "183121",
+            "sellGas": "160351"
+          },
+          {
+            "amountUsdg": 10000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "9960.686859",
+            "roundTripLossPct": 0.39313141000000273,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          },
+          {
+            "amountUsdg": 50000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "49960.686859",
+            "roundTripLossPct": 0.07862628200000499,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          },
+          {
+            "amountUsdg": 100000,
+            "tokensBought": "134.692103914881526296",
+            "priceBefore": 47.58292169765975,
+            "priceAfterBuy": 3.402567865403252e+50,
+            "spotMovePct": 7.150817444592939e+50,
+            "returnedUsdg": "99960.686859",
+            "roundTripLossPct": 0.03931314099999694,
+            "buyGas": "842561",
+            "sellGas": "846397"
+          }
+        ],
+        "manipulationResults": [],
+        "reason": "VM Exception while processing transaction: reverted with custom error 'StaleObservation()'"
+      }
+    ]
+  },
+  "remaining": [
+    "Select defensible production TWAP window/deviation/liquidity floors and basket caps.",
+    "Model competing arbitrage, sustained manipulation and extractable vault value; isolated fork attack costs are not a safety proof.",
+    "Extend history/volatility sampling beyond the available observation ring.",
+    "Review verified token/router source, full invariants, and independent final audit."
+  ],
+  "proposedSettings": [],
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks."
+}

@@ -1,0 +1,75 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "No candidate completed the required configuration checks; inspect pool results.",
+  "pools": [
+    {
+      "address": "0xaA34feA710a1A737840329051D81D3B0B7C564d5",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false,
+          "staleFractionOverridden": false
+        },
+        "candidates": [],
+        "rejected": [
+          {
+            "window": 10800,
+            "reason": "Measured deviation exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.004017514909761833,
+              "latestObservationAge": 6906,
+              "maxGap": 13601,
+              "deviationP95Bps": 329.4988548101019,
+              "deviationP99Bps": 435.5073410975419,
+              "deviationSamples": 2315,
+              "deviationExceedanceFraction": 0.042332613390928725,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "653828887067661374"
+            }
+          }
+        ],
+        "reason": "No candidate satisfies the declared proposal policy."
+      },
+      "configurationTests": []
+    },
+    {
+      "address": "0xC97894fc00C6Eeb060838559D905B4C2253fd429",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false,
+          "staleFractionOverridden": false
+        },
+        "candidates": [],
+        "rejected": [],
+        "reason": "Insufficient initialized observations (need at least 100)."
+      },
+      "configurationTests": []
+    }
+  ]
+}

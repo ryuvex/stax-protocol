@@ -1,0 +1,11 @@
+{
+  "feed": "0x75a9c76Ef439e2C7c2E5a34Ab105EcFe3766431c",
+  "maxStaleness": 345600,
+  "route": {
+    "venue": "v3",
+    "fee": 3000,
+    "pool": "0x02175608F1b5E6b5ed221cCFdC7Be197D111D915",
+    "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "slippageBps": 200
+}

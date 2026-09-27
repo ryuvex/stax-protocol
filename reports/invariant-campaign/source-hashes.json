@@ -1,0 +1,22 @@
+[
+  {
+    "file": "contracts/StaxVaultV2.sol",
+    "sha256": "F8291D674C38B040B654B5CE76224C144EE7C015E00B76CC8584249197145656"
+  },
+  {
+    "file": "contracts/Twap.sol",
+    "sha256": "731FB3F8459FCCE8DE79EF59E998405D26764E54AA5ADC15623A2C54A8F6FA48"
+  },
+  {
+    "file": "contracts/StaxV3RouteValidator.sol",
+    "sha256": "E8A5A76C1B7F2085737497BBD623B9740E6AE9F3AE81C70183133BEA5FD39FAA"
+  },
+  {
+    "file": "test/invariant/StaxVaultV2.invariant.t.sol",
+    "sha256": "ABE6CFA8615391BA6022979FC3C397AA4A267E9240944ABAAF8A3D83B6F0FF18"
+  },
+  {
+    "file": "hardhat.invariant.config.ts",
+    "sha256": "65401D8F9755C0B6444F34F9406D7D55701B71313CA68EFF11EFDBB451FCFDFF"
+  }
+]

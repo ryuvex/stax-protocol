@@ -1,0 +1,61 @@
+{
+  "blockNumber": 71481821,
+  "blockHash": "0xe00b1eec11d2c51afa666656fa085bf4fe69bb9c0d42c45ff4c297d9b96912be",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.880553",
+      "lossPct": 1.194470000000003,
+      "mintGas": "516082",
+      "redeemGas": "341971"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.805541",
+      "lossPct": 1.1944590000000033,
+      "mintGas": "516082",
+      "redeemGas": "341983"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "988.055723",
+      "lossPct": 1.1944277000000003,
+      "mintGas": "516118",
+      "redeemGas": "341983"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9880.588278",
+      "lossPct": 1.1941172200000016,
+      "mintGas": "515169",
+      "redeemGas": "341995"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0xF6f373a037c30F0e5010d854385cA89185AE638b",
+    "maxStaleness": 367200,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "fee": 3000,
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "338345600750000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

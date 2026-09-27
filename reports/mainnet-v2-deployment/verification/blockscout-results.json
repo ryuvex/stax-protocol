@@ -1,0 +1,44 @@
+[
+  {
+    "name": "StaxBasketTokenDeployer",
+    "address": "0xC9F14d4e0Faefe3fD1033D84bf129D8767F4C3f9",
+    "error": "HTTP 500"
+  },
+  {
+    "name": "StaxV3RouteValidator",
+    "address": "0xEE85B813740730f29fa20D8b7E5ded33a08c6dd5",
+    "transactionHash": "0x23b182de1c294113a10cfbb1cfe2ee51480b12286a9e4eeb61757425c99b3916",
+    "blockNumber": 68882903,
+    "gasUsed": "564185",
+    "feeETH": "0.00002794295468",
+    "runtimeCodeHash": "0xdb3a22a1b3c677186d70f1864eaca44c32b0d0014151f386335668d297caac6a",
+    "constructorArgs": [
+      "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+      "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54"
+    ],
+    "creationCodeHash": "0xfa62657a2302801a1ccdb673fd2f7b77f0c6ef1c62f4b53c5ffbfb26b9514b59",
+    "status": "VERIFIED"
+  },
+  {
+    "name": "UnifiedTwapRegistry",
+    "address": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+    "transactionHash": "0xd2b02285f9ea1a75864e17c5391fea8d90a348edbdad534baf0febfda88845e0",
+    "blockNumber": 68883035,
+    "gasUsed": "1603256",
+    "feeETH": "0.0000803231256",
+    "runtimeCodeHash": "0x6299942a285847254a844bd100825b0381bfda6360d67380d2f3ec393e573c61",
+    "constructorArgs": [
+      "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+      "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA"
+    ],
+    "creationCodeHash": "0xae4772b6dc404d2a41d28797828282dd77e8dbcc0fee1c714fe09bef20ffc1b3",
+    "status": "VERIFIED"
+  },
+  {
+    "name": "StaxVaultV2",
+    "address": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+    "error": "HTTP 500"
+  }
+]

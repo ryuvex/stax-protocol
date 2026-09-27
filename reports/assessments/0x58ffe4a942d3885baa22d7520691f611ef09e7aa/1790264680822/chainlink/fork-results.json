@@ -1,0 +1,53 @@
+{
+  "blockNumber": 71486707,
+  "blockHash": "0x8818ad04376119734c82bf42644d5d6d3c2cf8847d1830d5807ac2392367ea8e",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d73000000000000000000000000000000000000000000000000004de6dadca4c6160000000000000000000000000000000000000000000000000020e680e5dca326)"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d73000000000000000000000000000000000000000000000000030b048c9e6fbce0000000000000000000000000000000000000000000000000013daa5b525de9ba)"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d730000000000000000000000000000000000000000000000001e6e2d7e305d60c1000000000000000000000000000000000000000000000000056a9c06899756c8)"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d73000000000000000000000000000000000000000000000001304dc6ede3a5c785000000000000000000000000000000000000000000000000056a9c06899756c8)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0x874cF94aa8eC88Fd9560094dD065f2fB3E41Fc2F",
+    "maxStaleness": 356400,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA",
+      "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "fee": 400000,
+      "tickSpacing": 8000,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "445804469880000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

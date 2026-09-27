@@ -1,0 +1,16 @@
+
+Compiled 1 Solidity file with solc 0.8.28 (evm target: cancun)
+
+Running Solidity tests
+
+  test/invariant/StaxVault.invariant.t.sol:StaxVaultInvariantTest
+    ✔ invariant_usdgCoversPendingFees() (runs: 4)
+    ✔ invariant_ledgerSolvency() (runs: 4)
+
+  test/invariant/StaxVaultV2.invariant.t.sol:StaxVaultV2InvariantTest
+    ✔ test_invariantDetectsInsolventBalance()
+    ✔ invariant_accounting() (runs: 4)
+
+
+  4 passing
+

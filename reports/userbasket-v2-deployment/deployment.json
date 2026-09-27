@@ -1,0 +1,35 @@
+{
+  "chainId": 4663,
+  "deployer": "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+  "vault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+  "factory": {
+    "name": "StaxUserBasketFactoryV2",
+    "address": "0x1de6a6bD0C62097A7559A29a76e41985558f9918",
+    "constructorArgs": [
+      "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33"
+    ],
+    "transactionHash": "0x44dd7fafdd3914fee882d513557883084fa47f3cf8dbddbfded5e3ad166a07bc",
+    "blockNumber": 70863402,
+    "gasUsed": "4817876",
+    "feeETH": "0.000250346472712",
+    "runtimeCodeHash": "0xf9ff8ac17c265f96accaacbb345ee993c1dfab2b934ddf5e27502a4ecfdef8d0"
+  },
+  "implementation": {
+    "name": "StaxUserBasketV2",
+    "address": "0x897513814ff94683A9Bca00E5d61993b90AAdc95",
+    "constructorArgs": [
+      "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33"
+    ],
+    "deployedBy": "factory constructor (same tx)",
+    "runtimeCodeHash": "0xdac39b1e79d93fb8ba9865e0ae26cb6d9ef7fa736eb47880e7064dedf786ce50"
+  },
+  "checks": {
+    "factoryMainVault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+    "implMainVault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+    "implFactory": "0x1de6a6bD0C62097A7559A29a76e41985558f9918",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "depositCapUsd": "25000000000000000000000",
+    "creationFeeUsdg": "2000000"
+  },
+  "deployedAt": "2026-09-23T22:15:34.007Z"
+}

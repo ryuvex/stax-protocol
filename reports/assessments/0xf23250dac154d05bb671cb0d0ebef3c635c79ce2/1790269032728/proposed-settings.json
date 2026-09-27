@@ -1,0 +1,153 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "No candidate completed the required configuration checks; inspect pool results.",
+  "pools": [
+    {
+      "address": "0x5c67a84Ec5494ffE24E217B28dEbb96341014c86",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.48705280065968615,
+              "latestObservationAge": 1847,
+              "maxGap": 44867,
+              "deviationP95Bps": 142.26428583706817,
+              "deviationP99Bps": 173.7643810649425,
+              "deviationSamples": 1395,
+              "deviationExceedanceFraction": 0.044444444444444446,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "8340631006975528"
+            }
+          },
+          {
+            "window": 3600,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.31322206856269164,
+              "latestObservationAge": 1847,
+              "maxGap": 44867,
+              "deviationP95Bps": 159.52134647556403,
+              "deviationP99Bps": 179.71945597948124,
+              "deviationSamples": 1393,
+              "deviationExceedanceFraction": 0.008614501076812634,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "8340631006975528"
+            }
+          },
+          {
+            "window": 10800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.1058899320557641,
+              "latestObservationAge": 1847,
+              "maxGap": 44867,
+              "deviationP95Bps": 181.4268245072448,
+              "deviationP99Bps": 230.14777559466904,
+              "deviationSamples": 1359,
+              "deviationExceedanceFraction": 0.016188373804267846,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "8340631006975528"
+            }
+          }
+        ],
+        "reason": "No candidate satisfies the declared proposal policy."
+      },
+      "configurationTests": []
+    },
+    {
+      "address": "0x3Ab74C45DceCC6A62898204Dd42143a816B44CB1",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.5552976840485329,
+              "latestObservationAge": 3106,
+              "maxGap": 35494,
+              "deviationP95Bps": 94.82258106064512,
+              "deviationP99Bps": 133.07382257673473,
+              "deviationSamples": 1361,
+              "deviationExceedanceFraction": 0.04481998530492285,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "71715089834061217"
+            }
+          },
+          {
+            "window": 3600,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.40947673642464055,
+              "latestObservationAge": 3106,
+              "maxGap": 35494,
+              "deviationP95Bps": 104.00239079513707,
+              "deviationP99Bps": 138.87975749729665,
+              "deviationSamples": 1353,
+              "deviationExceedanceFraction": 0.0066518847006651885,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "71715089834061217"
+            }
+          },
+          {
+            "window": 10800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.1634349811405549,
+              "latestObservationAge": 3106,
+              "maxGap": 35494,
+              "deviationP95Bps": 131.73622435725508,
+              "deviationP99Bps": 163.32924425598304,
+              "deviationSamples": 1324,
+              "deviationExceedanceFraction": 0.027945619335347432,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "71715089834061217"
+            }
+          }
+        ],
+        "reason": "No candidate satisfies the declared proposal policy."
+      },
+      "configurationTests": []
+    }
+  ]
+}

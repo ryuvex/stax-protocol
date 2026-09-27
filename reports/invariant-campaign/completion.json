@@ -1,0 +1,15 @@
+{
+  "status": "PASSED",
+  "runner": "Hardhat EDR Solidity invariant runner",
+  "suite": "StaxVaultV2InvariantTest",
+  "runs": 512,
+  "depth": 1000,
+  "scheduledHandlerCalls": 512000,
+  "failOnRevert": true,
+  "seed": "0x53544158",
+  "negativeControl": "PASSED",
+  "exitCode": 0,
+  "v1Validation": "Smoke only: 4 runs x 100 depth for each of two invariants",
+  "liveTransactionsSent": false,
+  "completedAt": "2026-09-22T17:35:16.3535185+05:00"
+}

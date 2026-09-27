@@ -1,0 +1,33 @@
+{
+  "id": 3,
+  "name": "Retail Favorites",
+  "symbol": "sRETAIL",
+  "capUsd": "8000",
+  "components": [
+    {
+      "token": "GME",
+      "proposal": "../reports/assessments/0x1b0e319c6a659f002271b69db8a7df2f911c153e/1790085445586/proposed-settings.json",
+      "weightBps": 2000
+    },
+    {
+      "token": "PLTR",
+      "proposal": "../reports/assessments/0x894e1ec2d74ffe5aef8dc8a9e84686accb964f2a/1790167831202/proposed-settings.json",
+      "weightBps": 2000
+    },
+    {
+      "token": "CRCL",
+      "proposal": "../reports/assessments/0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5/1790168549181/proposed-settings.json",
+      "weightBps": 2000
+    },
+    {
+      "token": "AMC",
+      "proposal": "../reports/assessments/0x05a3d1cd21d0c88145e82600e62e7e496e0f222b/1790163740241/proposed-settings.json",
+      "weightBps": 2000
+    },
+    {
+      "token": "NFLX",
+      "proposal": "../reports/assessments/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8/1790063802812/proposed-settings.json",
+      "weightBps": 2000
+    }
+  ]
+}

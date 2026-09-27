@@ -1,0 +1,33 @@
+{
+  "blockNumber": 71479848,
+  "blockHash": "0x47bb26196ef7a0d36953acce6467008009828a1e8ec15799f8b46691a7af3a97",
+  "timestamp": 1790263990,
+  "addresses": {
+    "token": "0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0x02175608F1b5E6b5ed221cCFdC7Be197D111D915",
+    "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "derivationMatches": true,
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "token1": "0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344",
+  "fee": 3000,
+  "route": {
+    "venue": "v3",
+    "fee": 3000,
+    "pool": "0x02175608F1b5E6b5ed221cCFdC7Be197D111D915",
+    "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "mode": "CHAINLINK"
+}

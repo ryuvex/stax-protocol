@@ -1,0 +1,13 @@
+{
+  "purpose": "register-only, held for Dan: SNDK and COIN would reuse V1's V4 route (fork round trips passed)",
+  "components": [
+    {
+      "token": "SNDK",
+      "proposal": "../reports/assessments/0xb90a19ff0af67f7779aff50a882a9cff42446400/1790264826854/proposed-settings.json"
+    },
+    {
+      "token": "COIN",
+      "proposal": "../reports/assessments/0x6330d8c3178a418788df01a47479c0ce7ccf450b/1790265078737/proposed-settings.json"
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+{
+  "vault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+  "mode": "LOCAL_FORK_ONLY",
+  "baskets": [
+    {
+      "name": "equal-GME-PLTR-CRCL-AMC-NFLX-SPY-QQQ",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        1432,
+        1428,
+        1428,
+        1428,
+        1428,
+        1428,
+        1428
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0xBd90822a325c234881C0197B15e3f391f26F79Ef",
+      "createGas": "1348199"
+    },
+    {
+      "name": "90pct-GME",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0x8CA979a62B592dBf79dc35fff2D11A778504481F",
+      "createGas": "1258534"
+    },
+    {
+      "name": "90pct-PLTR",
+      "tickers": [
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0x6F4D32406Fdb973767355f85d3a1C41b52042822",
+      "createGas": "1258546"
+    },
+    {
+      "name": "90pct-CRCL",
+      "tickers": [
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0xbDF294A2610F6B29eC5ed8a574d4D939Bd169E9F",
+      "createGas": "1258546"
+    },
+    {
+      "name": "90pct-AMC",
+      "tickers": [
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0x2927b5F27124599d448008B4eECF8ED425Ad6723",
+      "createGas": "1258534"
+    },
+    {
+      "name": "90pct-NFLX",
+      "tickers": [
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0xE40Cb623f77a0c3613A17bC237abCE7b35afdaA8",
+      "createGas": "1258546"
+    },
+    {
+      "name": "90pct-SPY",
+      "tickers": [
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0x621bD279dEDe8d0071653083deFeCEC3C71094a9",
+      "createGas": "1258534"
+    },
+    {
+      "name": "90pct-QQQ",
+      "tickers": [
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        },
+        {
+          "usdg": 5000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+        }
+      ],
+      "clone": "0x39d732415cC4e5Db29C6a6EB3a286f1aCE8B3c62",
+      "createGas": "1258534"
+    }
+  ],
+  "caveat": "Synthetic USDG funding; real pool state at fork block. Not a listing approval.",
+  "blockNumber": 70595441,
+  "registered": [
+    "GME",
+    "PLTR",
+    "CRCL",
+    "AMC",
+    "NFLX",
+    "SPY",
+    "QQQ"
+  ],
+  "implementationRuntimeBytes": 17437
+}

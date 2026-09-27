@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.v2-tests.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "hardhat.config.ts",
+    "scripts/assessment/**/*.ts",
+    "scripts/onboarding/**/*.ts",
+    "types/ethers-contracts/hardhat.d.ts"
+  ]
+}

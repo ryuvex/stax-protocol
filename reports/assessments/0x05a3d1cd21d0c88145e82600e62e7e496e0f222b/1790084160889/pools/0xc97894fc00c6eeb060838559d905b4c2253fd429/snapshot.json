@@ -1,0 +1,75 @@
+{
+  "blockNumber": 69694985,
+  "blockHash": "0x846f5aacde3812dc33036e7a38137a2fdf46844b0ffdbeed4a9f0adc77ec99cb",
+  "timestamp": 1790084162,
+  "addresses": {
+    "token": "0x05a3d1Cd21d0C88145E82600E62e7E496e0F222B",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0xC97894fc00C6Eeb060838559D905B4C2253fd429",
+    "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "predictedPool": "0xC97894fc00C6Eeb060838559D905B4C2253fd429",
+  "derivationMatches": true,
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x05a3d1Cd21d0C88145E82600E62e7E496e0F222B",
+  "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "spotPriceUsdg": 2.850831454413883,
+  "tick": -265848,
+  "fee": 10000,
+  "tickSpacing": 200,
+  "liquidity": "711698025586966",
+  "usdgBalancesRaw": {
+    "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+    "0xC97894fc00C6Eeb060838559D905B4C2253fd429": "137007834",
+    "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+  },
+  "hourly": [],
+  "windowDiagnostics": [
+    {
+      "seconds": 300,
+      "twapUsdg": 2.850659204393617,
+      "spotDeviationBps": 0.6042462739852539,
+      "harmonicLiquidityRaw": "711698025586965"
+    },
+    {
+      "seconds": 900,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 1800,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 3600,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 7200,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 14400,
+      "error": "Observation call failed; do not infer sufficient history"
+    }
+  ],
+  "statistics": {
+    "hourlyTwapSamples": 0,
+    "hourlyLogReturnStd": 0,
+    "maxAbsoluteHourlyLogReturn": 0
+  },
+  "caveats": [
+    "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+    "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "chainId": 4663,
+  "vault": "REQUIRED_DEPLOYED_V2_ADDRESS",
+  "expectedVaultCodeHash": "REQUIRED_REVIEWED_V2_RUNTIME_HASH",
+  "expectedOwner": "REQUIRED_V2_OWNER",
+  "usdg": "REQUIRED_VERIFIED_USDG_ADDRESS",
+  "expectedUsdgDecimals": 6,
+  "router": "REQUIRED_VERIFIED_ROUTER",
+  "factory": "REQUIRED_VERIFIED_V3_FACTORY",
+  "poolInitCodeHash": "REQUIRED_VERIFIED_POOL_INIT_CODE_HASH",
+  "v3FeeTiers": [
+    100,
+    500,
+    3000,
+    10000
+  ],
+  "chainlinkSourceVaults": [],
+  "chainlinkCandidates": {},
+  "routerDeploymentReview": "",
+  "registry": null,
+  "expectedRegistryOwner": null
+}

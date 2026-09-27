@@ -1,0 +1,72 @@
+{
+  "blockNumber": 70485699,
+  "blockHash": "0xceabe1a213f149e02a62c4793b8c28c53e364ee4320dfdd44709576ea5752452",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.890451",
+      "lossPct": 1.095489999999999,
+      "mintGas": "628848",
+      "redeemGas": "454596"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.904536",
+      "lossPct": 1.0954640000000015,
+      "mintGas": "654092",
+      "redeemGas": "461498"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "989.047249",
+      "lossPct": 1.0952751000000038,
+      "mintGas": "683286",
+      "redeemGas": "491519"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9890.671145",
+      "lossPct": 1.0932885500000045,
+      "mintGas": "731867",
+      "redeemGas": "538949"
+    }
+  ],
+  "trialParameters": {
+    "twapWindow": 3600,
+    "maxObservationAge": 3600,
+    "minCurrentLiquidity": "390000000000000000",
+    "minHarmonicLiquidity": "390000000000000000",
+    "maxDeviationBps": 250,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "manipulation": [],
+  "targetedRisk": [
+    {
+      "window": 3600,
+      "maxDeviationBps": 250,
+      "victimDepositUsdg": 10000,
+      "attackerDepositUsdg": 1000,
+      "manipulationCapitalUsdg": 100000,
+      "caveat": "Isolated single-token basket, one upward attack path, no external arbitrage. Experimental settings, not production approval. Profit excludes gas.",
+      "status": "INCOMPLETE",
+      "stage": "manipulation",
+      "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+    }
+  ],
+  "floorChecks": {
+    "currentLiquidityBelowFloor": "REJECTED",
+    "harmonicLiquidityBelowFloor": "REJECTED",
+    "observationTooOld": "REJECTED",
+    "note": "Current-liquidity boundary uses fork storage injection; this is a guard test, not realistic LP withdrawal modelling."
+  }
+}

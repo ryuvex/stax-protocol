@@ -1,0 +1,913 @@
+{
+  "token": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+  "status": "REVIEW_REQUIRED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "candidateAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Pool history and fork assessment",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 71533736,
+    "blockHash": "0xebe7574542e68d67dc77571e370f1762595cf4ce74afe8991cbabd653998ff67",
+    "token": {
+      "address": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+      "symbol": "LMT",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x40567898b0c6ea66798E78fFCF076c55604Bcd0c",
+        "version": "V3",
+        "fee": 100,
+        "token0": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": -213413,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1789135745,
+        "latestObservationTimestamp": 1789135745,
+        "availableHistorySeconds": 1133663,
+        "latestObservationAgeSeconds": 1133663
+      },
+      {
+        "address": "0x24c1cF38EBa9841fa3e7379FC1Da832eb97d3F14",
+        "version": "V3",
+        "fee": 500,
+        "token0": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": -213414,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1789061915,
+        "latestObservationTimestamp": 1789061915,
+        "availableHistorySeconds": 1207493,
+        "latestObservationAgeSeconds": 1207493
+      },
+      {
+        "address": "0x54f160Bea60EC5207918C539d86E0b906b4DA297",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "42997420160365699",
+        "unlocked": true,
+        "tick": -213627,
+        "observationCardinality": 1400,
+        "oldestObservationTimestamp": 1789893689,
+        "latestObservationTimestamp": 1790268865,
+        "availableHistorySeconds": 375719,
+        "latestObservationAgeSeconds": 543
+      },
+      {
+        "address": "0x68688654B6050739527b448C9ff98A882D8c357C",
+        "version": "V3",
+        "fee": 10000,
+        "token0": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": -213690,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1789000581,
+        "latestObservationTimestamp": 1789000581,
+        "availableHistorySeconds": 1268827,
+        "latestObservationAgeSeconds": 1268827
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "not-configured",
+        "feed": null,
+        "maxStaleness": 0
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-09-24T17:03:36.340Z",
+    "candidates": [],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "poolAssessments": [
+    {
+      "address": "0x54f160Bea60EC5207918C539d86E0b906b4DA297",
+      "fee": 3000,
+      "status": "REVIEW_REQUIRED",
+      "snapshot": {
+        "blockNumber": 71533736,
+        "blockHash": "0xebe7574542e68d67dc77571e370f1762595cf4ce74afe8991cbabd653998ff67",
+        "timestamp": 1790269408,
+        "addresses": {
+          "token": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+          "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "pool": "0x54f160Bea60EC5207918C539d86E0b906b4DA297",
+          "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+        },
+        "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+        "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+        "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+        "usdgMaxStaleness": "97200",
+        "sequencerFeed": "0x0000000000000000000000000000000000000000",
+        "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+        "predictedPool": "0x54f160Bea60EC5207918C539d86E0b906b4DA297",
+        "derivationMatches": true,
+        "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+        "routerContainsFactory": true,
+        "routerContainsPoolHash": true,
+        "tokenDecimals": 18,
+        "usdgDecimals": 6,
+        "token0": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "spotPriceUsdg": 528.1651838862758,
+        "tick": -213627,
+        "fee": 3000,
+        "tickSpacing": 60,
+        "liquidity": "42997420160365699",
+        "usdgBalancesRaw": {
+          "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+          "0x54f160Bea60EC5207918C539d86E0b906b4DA297": "14993455647",
+          "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+        },
+        "hourly": [
+          {
+            "hoursAgo": 0,
+            "meanTick": -213621,
+            "priceUsdg": 528.4716437861556
+          },
+          {
+            "hoursAgo": 1,
+            "meanTick": -213625,
+            "priceUsdg": 528.260307965238
+          },
+          {
+            "hoursAgo": 2,
+            "meanTick": -213627,
+            "priceUsdg": 528.1546717493414
+          },
+          {
+            "hoursAgo": 3,
+            "meanTick": -213673,
+            "priceUsdg": 525.7308604875122
+          },
+          {
+            "hoursAgo": 4,
+            "meanTick": -213668,
+            "priceUsdg": 525.9937784960996
+          },
+          {
+            "hoursAgo": 5,
+            "meanTick": -213669,
+            "priceUsdg": 525.9411843776618
+          },
+          {
+            "hoursAgo": 6,
+            "meanTick": -213685,
+            "priceUsdg": 525.1003933337042
+          },
+          {
+            "hoursAgo": 7,
+            "meanTick": -213688,
+            "priceUsdg": 524.9428947164774
+          },
+          {
+            "hoursAgo": 8,
+            "meanTick": -213703,
+            "priceUsdg": 524.1561099490759
+          },
+          {
+            "hoursAgo": 9,
+            "meanTick": -213650,
+            "priceUsdg": 526.9413724972455
+          },
+          {
+            "hoursAgo": 10,
+            "meanTick": -213675,
+            "priceUsdg": 525.6257300852379
+          },
+          {
+            "hoursAgo": 11,
+            "meanTick": -213675,
+            "priceUsdg": 525.6257300852379
+          },
+          {
+            "hoursAgo": 12,
+            "meanTick": -213670,
+            "priceUsdg": 525.88859551811
+          },
+          {
+            "hoursAgo": 13,
+            "meanTick": -213670,
+            "priceUsdg": 525.88859551811
+          },
+          {
+            "hoursAgo": 14,
+            "meanTick": -213668,
+            "priceUsdg": 525.9937784960996
+          },
+          {
+            "hoursAgo": 15,
+            "meanTick": -213666,
+            "priceUsdg": 526.0989825117366
+          },
+          {
+            "hoursAgo": 16,
+            "meanTick": -213653,
+            "priceUsdg": 526.7833216967101
+          },
+          {
+            "hoursAgo": 17,
+            "meanTick": -213647,
+            "priceUsdg": 527.0994707177628
+          },
+          {
+            "hoursAgo": 18,
+            "meanTick": -213624,
+            "priceUsdg": 528.3131339960345
+          },
+          {
+            "hoursAgo": 19,
+            "meanTick": -213612,
+            "priceUsdg": 528.9474585597532
+          },
+          {
+            "hoursAgo": 20,
+            "meanTick": -213631,
+            "priceUsdg": 527.9434626855476
+          },
+          {
+            "hoursAgo": 21,
+            "meanTick": -213657,
+            "priceUsdg": 526.5726610358297
+          },
+          {
+            "hoursAgo": 22,
+            "meanTick": -213627,
+            "priceUsdg": 528.1546717493414
+          },
+          {
+            "hoursAgo": 23,
+            "meanTick": -213624,
+            "priceUsdg": 528.3131339960345
+          },
+          {
+            "hoursAgo": 24,
+            "meanTick": -213617,
+            "priceUsdg": 528.6830641540826
+          },
+          {
+            "hoursAgo": 25,
+            "meanTick": -213596,
+            "priceUsdg": 529.7944095267057
+          },
+          {
+            "hoursAgo": 26,
+            "meanTick": -213555,
+            "priceUsdg": 531.9709165729008
+          },
+          {
+            "hoursAgo": 27,
+            "meanTick": -213708,
+            "priceUsdg": 523.8941104991761
+          },
+          {
+            "hoursAgo": 28,
+            "meanTick": -213754,
+            "priceUsdg": 521.4898518360311
+          },
+          {
+            "hoursAgo": 29,
+            "meanTick": -213720,
+            "priceUsdg": 523.2658460133573
+          },
+          {
+            "hoursAgo": 30,
+            "meanTick": -213708,
+            "priceUsdg": 523.8941104991761
+          },
+          {
+            "hoursAgo": 31,
+            "meanTick": -213708,
+            "priceUsdg": 523.8941104991761
+          },
+          {
+            "hoursAgo": 32,
+            "meanTick": -213708,
+            "priceUsdg": 523.8941104991761
+          },
+          {
+            "hoursAgo": 33,
+            "meanTick": -213709,
+            "priceUsdg": 523.8417263265435
+          },
+          {
+            "hoursAgo": 34,
+            "meanTick": -213712,
+            "priceUsdg": 523.6846052339115
+          },
+          {
+            "hoursAgo": 35,
+            "meanTick": -213713,
+            "priceUsdg": 523.6322420097105
+          },
+          {
+            "hoursAgo": 36,
+            "meanTick": -213732,
+            "priceUsdg": 522.6383349551039
+          },
+          {
+            "hoursAgo": 37,
+            "meanTick": -213737,
+            "priceUsdg": 522.377094165088
+          },
+          {
+            "hoursAgo": 38,
+            "meanTick": -213721,
+            "priceUsdg": 523.2135246608913
+          },
+          {
+            "hoursAgo": 39,
+            "meanTick": -213735,
+            "priceUsdg": 522.4815748076919
+          },
+          {
+            "hoursAgo": 40,
+            "meanTick": -213749,
+            "priceUsdg": 521.7506489161494
+          },
+          {
+            "hoursAgo": 41,
+            "meanTick": -213757,
+            "priceUsdg": 521.3334361646573
+          },
+          {
+            "hoursAgo": 42,
+            "meanTick": -213759,
+            "priceUsdg": 521.2291851153424
+          },
+          {
+            "hoursAgo": 43,
+            "meanTick": -213770,
+            "priceUsdg": 520.6561768739584
+          },
+          {
+            "hoursAgo": 44,
+            "meanTick": -213785,
+            "priceUsdg": 519.8758170421728
+          },
+          {
+            "hoursAgo": 45,
+            "meanTick": -213789,
+            "priceUsdg": 519.667918692542
+          },
+          {
+            "hoursAgo": 46,
+            "meanTick": -213823,
+            "priceUsdg": 517.9041360861044
+          },
+          {
+            "hoursAgo": 47,
+            "meanTick": -213827,
+            "priceUsdg": 517.6970262117272
+          },
+          {
+            "hoursAgo": 48,
+            "meanTick": -213805,
+            "priceUsdg": 518.8371563471558
+          },
+          {
+            "hoursAgo": 49,
+            "meanTick": -213803,
+            "priceUsdg": 518.9409289667967
+          },
+          {
+            "hoursAgo": 50,
+            "meanTick": -213764,
+            "priceUsdg": 520.9686486889232
+          },
+          {
+            "hoursAgo": 51,
+            "meanTick": -213538,
+            "priceUsdg": 532.8759909733881
+          },
+          {
+            "hoursAgo": 52,
+            "meanTick": -213507,
+            "priceUsdg": 534.5303868157185
+          },
+          {
+            "hoursAgo": 53,
+            "meanTick": -213514,
+            "priceUsdg": 534.1563651685666
+          },
+          {
+            "hoursAgo": 54,
+            "meanTick": -213512,
+            "priceUsdg": 534.2632017831639
+          },
+          {
+            "hoursAgo": 55,
+            "meanTick": -213523,
+            "priceUsdg": 533.6758647221699
+          },
+          {
+            "hoursAgo": 56,
+            "meanTick": -213514,
+            "priceUsdg": 534.1563651685666
+          },
+          {
+            "hoursAgo": 57,
+            "meanTick": -213516,
+            "priceUsdg": 534.0495499180875
+          },
+          {
+            "hoursAgo": 58,
+            "meanTick": -213525,
+            "priceUsdg": 533.5691455573669
+          },
+          {
+            "hoursAgo": 59,
+            "meanTick": -213534,
+            "priceUsdg": 533.0891733444683
+          },
+          {
+            "hoursAgo": 60,
+            "meanTick": -213530,
+            "priceUsdg": 533.3024410012889
+          },
+          {
+            "hoursAgo": 61,
+            "meanTick": -213528,
+            "priceUsdg": 533.4091068225135
+          },
+          {
+            "hoursAgo": 62,
+            "meanTick": -213519,
+            "priceUsdg": 533.8893670907454
+          },
+          {
+            "hoursAgo": 63,
+            "meanTick": -213511,
+            "priceUsdg": 534.3166281033422
+          },
+          {
+            "hoursAgo": 64,
+            "meanTick": -213504,
+            "priceUsdg": 534.6907619682094
+          },
+          {
+            "hoursAgo": 65,
+            "meanTick": -213513,
+            "priceUsdg": 534.2097808050834
+          },
+          {
+            "hoursAgo": 66,
+            "meanTick": -213534,
+            "priceUsdg": 533.0891733444683
+          },
+          {
+            "hoursAgo": 67,
+            "meanTick": -213534,
+            "priceUsdg": 533.0891733444683
+          },
+          {
+            "hoursAgo": 68,
+            "meanTick": -213523,
+            "priceUsdg": 533.6758647221699
+          },
+          {
+            "hoursAgo": 69,
+            "meanTick": -213520,
+            "priceUsdg": 533.8359834923962
+          },
+          {
+            "hoursAgo": 70,
+            "meanTick": -213529,
+            "priceUsdg": 533.3557712453891
+          },
+          {
+            "hoursAgo": 71,
+            "meanTick": -213507,
+            "priceUsdg": 534.5303868157185
+          }
+        ],
+        "windowDiagnostics": [
+          {
+            "seconds": 300,
+            "twapUsdg": 528.1546717493414,
+            "spotDeviationBps": 0.19903519739017383,
+            "harmonicLiquidityRaw": "42997420160365699"
+          },
+          {
+            "seconds": 900,
+            "twapUsdg": 528.1018615631851,
+            "spotDeviationBps": 1.1990551009088968,
+            "harmonicLiquidityRaw": "42997420160365699"
+          },
+          {
+            "seconds": 1800,
+            "twapUsdg": 528.1546717493414,
+            "spotDeviationBps": 0.19903519739017383,
+            "harmonicLiquidityRaw": "42997420160365699"
+          },
+          {
+            "seconds": 3600,
+            "twapUsdg": 528.4716437861556,
+            "spotDeviationBps": 5.79898474181495,
+            "harmonicLiquidityRaw": "42930985788258869"
+          },
+          {
+            "seconds": 7200,
+            "twapUsdg": 528.3659653094342,
+            "spotDeviationBps": 3.800044596754537,
+            "harmonicLiquidityRaw": "42964177292899086"
+          },
+          {
+            "seconds": 14400,
+            "twapUsdg": 527.6268074465053,
+            "spotDeviationBps": 10.20373552238718,
+            "harmonicLiquidityRaw": "42980792298830501"
+          }
+        ],
+        "statistics": {
+          "hourlyTwapSamples": 72,
+          "hourlyLogReturnStd": 0.003708895263578448,
+          "maxAbsoluteHourlyLogReturn": 0.022598870075325257
+        },
+        "caveats": [
+          "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+          "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+        ]
+      },
+      "settingCandidates": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "liquidityFloorFraction": 1,
+          "deviationCeilingOverridden": false,
+          "liquidityFloorOverridden": false
+        },
+        "candidates": [],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.15838432445524447,
+              "latestObservationAge": 543,
+              "maxGap": 6686,
+              "deviationP95Bps": 592.165891226284,
+              "deviationP99Bps": 862.5913532003104,
+              "deviationSamples": 1369,
+              "deviationExceedanceFraction": 0.04821037253469686,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "20788035379201442"
+            }
+          },
+          {
+            "window": 3600,
+            "reason": "Measured deviation exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.04448005025032005,
+              "latestObservationAge": 543,
+              "maxGap": 6686,
+              "deviationP95Bps": 658.5084396132546,
+              "deviationP99Bps": 961.113419637274,
+              "deviationSamples": 1361,
+              "deviationExceedanceFraction": 0.03600293901542983,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "20788035379201442"
+            }
+          },
+          {
+            "window": 10800,
+            "reason": "Measured deviation exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0,
+              "latestObservationAge": 543,
+              "maxGap": 6686,
+              "deviationP95Bps": 831.7749625647131,
+              "deviationP99Bps": 1099.6482981034683,
+              "deviationSamples": 1309,
+              "deviationExceedanceFraction": 0.04583651642475172,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "20788035379201442"
+            }
+          }
+        ],
+        "reason": "No candidate satisfies the declared proposal policy."
+      },
+      "fork": {
+        "blockNumber": 71533736,
+        "blockHash": "0xebe7574542e68d67dc77571e370f1762595cf4ce74afe8991cbabd653998ff67",
+        "mode": "LOCAL_FORK_ONLY",
+        "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+        "direct": [
+          {
+            "amountUsdg": 10,
+            "tokensBought": "0.018876479770496504",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 528.1758417418532,
+            "spotMovePct": 0.002017901956152812,
+            "returnedUsdg": "9.94009",
+            "roundTripLossPct": 0.5990999999999969,
+            "buyGas": "176390",
+            "sellGas": "153534"
+          },
+          {
+            "amountUsdg": 100,
+            "tokensBought": "0.188747658622222108",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 528.271767280965,
+            "spotMovePct": 0.020179935736197585,
+            "returnedUsdg": "99.40093",
+            "roundTripLossPct": 0.5990700000000015,
+            "buyGas": "185048",
+            "sellGas": "162218"
+          },
+          {
+            "amountUsdg": 1000,
+            "tokensBought": "1.885764388170704657",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 529.2315017247064,
+            "spotMovePct": 0.20189097482430363,
+            "returnedUsdg": "994.012005",
+            "roundTripLossPct": 0.5987995000000024,
+            "buyGas": "184104",
+            "sellGas": "162218"
+          },
+          {
+            "amountUsdg": 10000,
+            "tokensBought": "18.659384886456441302",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 541.5687715904781,
+            "spotMovePct": 2.5377643421283125,
+            "returnedUsdg": "9940.433395",
+            "roundTripLossPct": 0.5956660499999988,
+            "buyGas": "321002",
+            "sellGas": "263480"
+          },
+          {
+            "amountUsdg": 50000,
+            "tokensBought": "49.961543019184219871",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 26525614.822513893,
+            "spotMovePct": 5022119.4934048075,
+            "returnedUsdg": "49770.829767",
+            "roundTripLossPct": 0.45834046599999567,
+            "buyGas": "987254",
+            "sellGas": "790461"
+          },
+          {
+            "amountUsdg": 100000,
+            "tokensBought": "49.962124916593692709",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 276676337.93237734,
+            "spotMovePct": 52384333.19882878,
+            "returnedUsdg": "99620.828844",
+            "roundTripLossPct": 0.3791711560000022,
+            "buyGas": "994594",
+            "sellGas": "797843"
+          }
+        ],
+        "vault": [
+          {
+            "amountUsdg": 10,
+            "status": "ROUND_TRIP_PASS",
+            "returnedUsdg": "9.890452",
+            "lossPct": 1.0954800000000042,
+            "mintGas": "629636",
+            "redeemGas": "455353"
+          },
+          {
+            "amountUsdg": 100,
+            "status": "ROUND_TRIP_PASS",
+            "returnedUsdg": "98.904546",
+            "lossPct": 1.0954539999999957,
+            "mintGas": "648504",
+            "redeemGas": "457469"
+          },
+          {
+            "amountUsdg": 1000,
+            "status": "ROUND_TRIP_PASS",
+            "returnedUsdg": "989.048151",
+            "lossPct": 1.0951849000000013,
+            "mintGas": "647560",
+            "redeemGas": "457469"
+          },
+          {
+            "amountUsdg": 10000,
+            "status": "ROUND_TRIP_PASS",
+            "returnedUsdg": "9890.792374",
+            "lossPct": 1.0920762599999967,
+            "mintGas": "784432",
+            "redeemGas": "558731"
+          }
+        ],
+        "trialParameters": {
+          "twapWindow": 1800,
+          "maxObservationAge": 1800,
+          "minCurrentLiquidity": "1",
+          "minHarmonicLiquidity": "1",
+          "maxDeviationBps": 500,
+          "slippageBps": 200
+        },
+        "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+        "balanceMappingSlot": 1,
+        "setupStage": "complete",
+        "manipulation": [
+          {
+            "capitalUsdg": 10100,
+            "heldSeconds": 1801,
+            "immediateQuoteRejected": false,
+            "quoteRisePct": 2.5313838966765756,
+            "oracleAcceptedAfterHold": true,
+            "closedRoundTripCostUsdg": "60.158278",
+            "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+          },
+          {
+            "capitalUsdg": 50100,
+            "heldSeconds": 1801,
+            "immediateQuoteRejected": true,
+            "quoteRisePct": 5021850.625787068,
+            "oracleAcceptedAfterHold": true,
+            "closedRoundTripCostUsdg": "229.470239",
+            "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+          }
+        ]
+      },
+      "summary": {
+        "status": "REVIEW_REQUIRED",
+        "listingApproved": false,
+        "passedRoundTripSizesUsdg": [
+          10,
+          100,
+          1000,
+          10000
+        ],
+        "revertedRoundTripSizes": []
+      },
+      "configurationTests": [],
+      "proposedSettings": []
+    }
+  ],
+  "summary": {
+    "status": "REVIEW_REQUIRED",
+    "listingApproved": false,
+    "selectedPool": null,
+    "pools": [
+      {
+        "address": "0x54f160Bea60EC5207918C539d86E0b906b4DA297",
+        "fee": 3000,
+        "status": "REVIEW_REQUIRED",
+        "passedRoundTripSizesUsdg": [
+          10,
+          100,
+          1000,
+          10000
+        ],
+        "revertedRoundTripSizes": [],
+        "directSwapResults": [
+          {
+            "amountUsdg": 10,
+            "tokensBought": "0.018876479770496504",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 528.1758417418532,
+            "spotMovePct": 0.002017901956152812,
+            "returnedUsdg": "9.94009",
+            "roundTripLossPct": 0.5990999999999969,
+            "buyGas": "176390",
+            "sellGas": "153534"
+          },
+          {
+            "amountUsdg": 100,
+            "tokensBought": "0.188747658622222108",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 528.271767280965,
+            "spotMovePct": 0.020179935736197585,
+            "returnedUsdg": "99.40093",
+            "roundTripLossPct": 0.5990700000000015,
+            "buyGas": "185048",
+            "sellGas": "162218"
+          },
+          {
+            "amountUsdg": 1000,
+            "tokensBought": "1.885764388170704657",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 529.2315017247064,
+            "spotMovePct": 0.20189097482430363,
+            "returnedUsdg": "994.012005",
+            "roundTripLossPct": 0.5987995000000024,
+            "buyGas": "184104",
+            "sellGas": "162218"
+          },
+          {
+            "amountUsdg": 10000,
+            "tokensBought": "18.659384886456441302",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 541.5687715904781,
+            "spotMovePct": 2.5377643421283125,
+            "returnedUsdg": "9940.433395",
+            "roundTripLossPct": 0.5956660499999988,
+            "buyGas": "321002",
+            "sellGas": "263480"
+          },
+          {
+            "amountUsdg": 50000,
+            "tokensBought": "49.961543019184219871",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 26525614.822513893,
+            "spotMovePct": 5022119.4934048075,
+            "returnedUsdg": "49770.829767",
+            "roundTripLossPct": 0.45834046599999567,
+            "buyGas": "987254",
+            "sellGas": "790461"
+          },
+          {
+            "amountUsdg": 100000,
+            "tokensBought": "49.962124916593692709",
+            "priceBefore": 528.1651838862758,
+            "priceAfterBuy": 276676337.93237734,
+            "spotMovePct": 52384333.19882878,
+            "returnedUsdg": "99620.828844",
+            "roundTripLossPct": 0.3791711560000022,
+            "buyGas": "994594",
+            "sellGas": "797843"
+          }
+        ],
+        "manipulationResults": [
+          {
+            "capitalUsdg": 10100,
+            "heldSeconds": 1801,
+            "immediateQuoteRejected": false,
+            "quoteRisePct": 2.5313838966765756,
+            "oracleAcceptedAfterHold": true,
+            "closedRoundTripCostUsdg": "60.158278",
+            "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+          },
+          {
+            "capitalUsdg": 50100,
+            "heldSeconds": 1801,
+            "immediateQuoteRejected": true,
+            "quoteRisePct": 5021850.625787068,
+            "oracleAcceptedAfterHold": true,
+            "closedRoundTripCostUsdg": "229.470239",
+            "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+          }
+        ],
+        "reason": null
+      }
+    ]
+  },
+  "remaining": [
+    "Select defensible production TWAP window/deviation/liquidity floors and basket caps.",
+    "Model competing arbitrage, sustained manipulation and extractable vault value; isolated fork attack costs are not a safety proof.",
+    "Extend history/volatility sampling beyond the available observation ring.",
+    "Review verified token/router source, full invariants, and independent final audit."
+  ],
+  "proposedSettings": [],
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks."
+}

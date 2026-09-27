@@ -1,0 +1,425 @@
+{
+  "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+  "status": "REVIEW_REQUIRED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "chainlinkAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Chainlink feed, route and history",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 71482733,
+    "blockHash": "0x4d6b1331d1064b55aaa6912c93512af8af783b5c400bb412bd92f3368f97ca42",
+    "token": {
+      "address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "symbol": "MSFT",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x3D69Ea64810300877b938E9AD9916C25912c08f5",
+        "version": "V3",
+        "fee": 100,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": -1,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1787828492,
+        "latestObservationTimestamp": 1787828492,
+        "availableHistorySeconds": 2435789,
+        "latestObservationAgeSeconds": 2435789
+      },
+      {
+        "address": "0x38fA8bf13A6b2Ac49bE77BABB22C1837d1e505F9",
+        "version": "V3",
+        "fee": 500,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": 887271,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1789504223,
+        "latestObservationTimestamp": 1789504223,
+        "availableHistorySeconds": 760058,
+        "latestObservationAgeSeconds": 760058
+      },
+      {
+        "address": "0xeb60bCD1D920ad6E102690CCFC6fB488899E1510",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "currentLiquidityRaw": "776338606356409251",
+        "unlocked": true,
+        "tick": 214285,
+        "observationCardinality": 1801,
+        "oldestObservationTimestamp": 1789659962,
+        "latestObservationTimestamp": 1790263752,
+        "availableHistorySeconds": 604319,
+        "latestObservationAgeSeconds": 529
+      },
+      {
+        "address": "0x2Ea9292113514eD84Fd16aA4AD1e416537E39C8c",
+        "version": "V3",
+        "fee": 10000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "currentLiquidityRaw": "112985518521",
+        "unlocked": true,
+        "tick": 214151,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1789929283,
+        "latestObservationTimestamp": 1789929283,
+        "availableHistorySeconds": 334998,
+        "latestObservationAgeSeconds": 334998
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "candidate",
+        "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+        "maxStaleness": 345600
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-09-24T15:38:10.435Z",
+    "candidates": [
+      {
+        "compareOffchain": "",
+        "contractAddress": "0xc3b117F52cf17Dd4369eaF5eaf7cF0E2f91b4E30",
+        "contractType": "",
+        "contractVersion": 6,
+        "decimalPlaces": null,
+        "ens": null,
+        "formatDecimalPlaces": null,
+        "healthPrice": "",
+        "heartbeat": 86400,
+        "history": null,
+        "multiply": "100000000",
+        "name": "Robinhood MSFT / USD",
+        "pair": [
+          "",
+          ""
+        ],
+        "path": "robinhood-msft-usd-shared-svr",
+        "proxyAddress": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+        "secondaryProxyAddress": "0xaD6D88eab22aa4867Efe807a5311Ed64962f740D",
+        "svrDisplayLabel": "Shared SVR",
+        "threshold": 0.5,
+        "valuePrefix": "",
+        "assetName": "Microsoft (Robinhood Tokenized Equity)",
+        "feedCategory": "custom",
+        "feedType": "Crypto",
+        "docs": {
+          "assetClass": "Equity",
+          "assetSubClass": "US",
+          "attributeType": "other",
+          "baseAsset": "MSFT",
+          "baseAssetClic": "MSFT_CR",
+          "baseAssetEntityId": "crypto-MSFT",
+          "blockchainName": "Robinhood",
+          "clicProductName": "MSFT/USD-RefPrice-DF-Robinhood-001",
+          "deliveryChannelCode": "DF",
+          "marketHours": "us_equities_24/5",
+          "productSubType": "calculatedPrice",
+          "productType": "Price",
+          "productTypeCode": "primaryTokenizedPrice",
+          "quoteAsset": "USD",
+          "quoteAssetClic": "USD_FX",
+          "quoteAssetEntityId": "forex-USD"
+        },
+        "decimals": 8,
+        "maxSubmissionValue": "95780971304118053647396689196894323976171195136475135"
+      }
+    ],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "oracleType": "CHAINLINK",
+  "chainlinkAssessment": {
+    "feedResolution": {
+      "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+      "source": "configured source vault",
+      "directoryAgrees": true
+    },
+    "route": {
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "reason": null,
+      "alternatives": []
+    },
+    "feedChecks": {
+      "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+      "description": "RHMSFT / USD",
+      "decimals": 8,
+      "latestAnswer": "49550953747",
+      "updatedAt": 1790261455,
+      "oraclePaused": false,
+      "feedPriceUsd": 495.50953747,
+      "poolSpotUsdg": null,
+      "feedSpotDeviationBps": null,
+      "problems": [],
+      "note": "Feed-vs-spot sanity check applies to V3 routes only; for V4 routes the fork round trips at 2% slippage are the price-consistency evidence."
+    },
+    "feedHistory": {
+      "rounds": 152,
+      "coveredSeconds": 2590721,
+      "coveredDays": 29.98519675925926,
+      "maxGapSeconds": 290608,
+      "currentAgeSeconds": 2826,
+      "stoppedBy": "cutoff",
+      "proposedMaxStaleness": 363600,
+      "nonPositiveAnswers": 0,
+      "caveat": "Finite window of round history. A holiday weekend longer than anything observed can still exceed the proposed staleness."
+    },
+    "snapshot": {
+      "blockNumber": 71482733,
+      "blockHash": "0x4d6b1331d1064b55aaa6912c93512af8af783b5c400bb412bd92f3368f97ca42",
+      "timestamp": 1790264281,
+      "addresses": {
+        "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "pool": null,
+        "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+      "usdgMaxStaleness": "97200",
+      "sequencerFeed": "0x0000000000000000000000000000000000000000",
+      "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+      "derivationMatches": null,
+      "routerContainsFactory": true,
+      "routerContainsPoolHash": true,
+      "tokenDecimals": 18,
+      "usdgDecimals": 6,
+      "token0": null,
+      "token1": null,
+      "fee": 3000,
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "mode": "CHAINLINK"
+    },
+    "fork": {
+      "blockNumber": 71482733,
+      "blockHash": "0x4d6b1331d1064b55aaa6912c93512af8af783b5c400bb412bd92f3368f97ca42",
+      "mode": "CHAINLINK_FORK",
+      "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+      "direct": [],
+      "vault": [
+        {
+          "amountUsdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "9.880553",
+          "lossPct": 1.194470000000003,
+          "mintGas": "516634",
+          "redeemGas": "341467"
+        },
+        {
+          "amountUsdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "98.805543",
+          "lossPct": 1.1944570000000043,
+          "mintGas": "516634",
+          "redeemGas": "341479"
+        },
+        {
+          "amountUsdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "988.055919",
+          "lossPct": 1.1944080999999995,
+          "mintGas": "516698",
+          "redeemGas": "341479"
+        },
+        {
+          "amountUsdg": 10000,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "9880.607782",
+          "lossPct": 1.1939221799999955,
+          "mintGas": "516742",
+          "redeemGas": "341734"
+        }
+      ],
+      "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+      "chainlink": {
+        "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+        "maxStaleness": 363600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+          "fee": 3000,
+          "tickSpacing": 60,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+        },
+        "slippageBps": 200
+      },
+      "balanceMappingSlot": 1,
+      "setupStage": "complete",
+      "vaultOraclePriceUsd18": "495509537470000000000",
+      "staleCheck": "REJECTED",
+      "manipulation": []
+    },
+    "result": {
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+        "maxStaleness": 363600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+          "fee": 3000,
+          "tickSpacing": 60,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  },
+  "proposedSettings": [
+    {
+      "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "pool": null,
+      "fee": 3000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+        "maxStaleness": 363600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+          "fee": 3000,
+          "tickSpacing": 60,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  ],
+  "reason": null,
+  "remaining": [
+    "Confirm feed identity against Chainlink's official Robinhood listing.",
+    "Decide basket composition/weights and caps (Dan's cap formula).",
+    "Broadcaster support for Chainlink routes and multi-token baskets."
+  ],
+  "recommendedSetting": {
+    "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+    "pool": null,
+    "fee": 3000,
+    "status": "PROPOSED_FOR_REVIEW",
+    "params": {
+      "feed": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+      "maxStaleness": 363600,
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currency1": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "slippageBps": 200
+    },
+    "listingApproved": false,
+    "passedRoundTripSizesUsdg": [
+      10,
+      100,
+      1000,
+      10000
+    ],
+    "oracleType": "CHAINLINK",
+    "totalBasketCap": null,
+    "limitations": [
+      "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+      "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+      "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+      "V4 routes are executed on the fork but not depth-probed by direct router trades."
+    ]
+  },
+  "alternatives": [],
+  "recommendationReason": "Chainlink candidate passed feed/token checks, measured round-history staleness and V2 fork round trips. Feed identity, basket composition and caps still require review."
+}

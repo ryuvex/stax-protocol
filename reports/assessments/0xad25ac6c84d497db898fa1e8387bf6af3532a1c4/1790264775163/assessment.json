@@ -1,0 +1,402 @@
+{
+  "token": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+  "status": "REVIEW_REQUIRED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "chainlinkAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Chainlink feed, route and history",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 71487645,
+    "blockHash": "0x0e18832ffabbab55ae876b479865b9994f818b645d181fba2fd3238990c5724f",
+    "token": {
+      "address": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+      "symbol": "BABA",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x368DDD38861d31435d764fC54Df7D16481E3590b",
+        "version": "V3",
+        "fee": 500,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+        "currentLiquidityRaw": "185574682021",
+        "unlocked": true,
+        "tick": 229152,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1790168763,
+        "latestObservationTimestamp": 1790168763,
+        "availableHistorySeconds": 96012,
+        "latestObservationAgeSeconds": 96012
+      },
+      {
+        "address": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+        "currentLiquidityRaw": "163906704856114903",
+        "unlocked": true,
+        "tick": 229256,
+        "observationCardinality": 1801,
+        "oldestObservationTimestamp": 1790000086,
+        "latestObservationTimestamp": 1790264459,
+        "availableHistorySeconds": 264689,
+        "latestObservationAgeSeconds": 316
+      },
+      {
+        "address": "0x9EDa4BCb3EBfEdE532f3cAE3864fC0CEFff782Aa",
+        "version": "V3",
+        "fee": 10000,
+        "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "token1": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+        "currentLiquidityRaw": "3627216381432787",
+        "unlocked": true,
+        "tick": 229163,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1790261435,
+        "latestObservationTimestamp": 1790261435,
+        "availableHistorySeconds": 3340,
+        "latestObservationAgeSeconds": 3340
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "not-configured",
+        "feed": null,
+        "maxStaleness": 0
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-09-24T15:46:23.232Z",
+    "candidates": [
+      {
+        "compareOffchain": "",
+        "contractAddress": "0xFf5F85e4888782e66f1dd9cabaDF4822Fbeb1439",
+        "contractType": "",
+        "contractVersion": 6,
+        "decimalPlaces": null,
+        "ens": null,
+        "formatDecimalPlaces": null,
+        "healthPrice": "",
+        "heartbeat": 86400,
+        "history": null,
+        "multiply": "100000000",
+        "name": "Robinhood BABA / USD",
+        "pair": [
+          "",
+          ""
+        ],
+        "path": "robinhood-baba-usd-shared-svr",
+        "proxyAddress": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+        "secondaryProxyAddress": "0xDB69948B26050818E8c9f43300F78b2582e67260",
+        "svrDisplayLabel": "Shared SVR",
+        "threshold": 0.5,
+        "valuePrefix": "",
+        "assetName": "Alibaba Group Holding Ltd (ADRs) (Robinhood Tokenized Equity)",
+        "feedCategory": "custom",
+        "feedType": "Crypto",
+        "docs": {
+          "assetClass": "Equity",
+          "attributeType": "other",
+          "baseAsset": "BABA",
+          "baseAssetClic": "BABA_CR",
+          "baseAssetEntityId": "crypto-BABA",
+          "blockchainName": "Robinhood",
+          "clicProductName": "BABA/USD-RefPrice-DF-Robinhood-001",
+          "deliveryChannelCode": "DF",
+          "marketHours": "us_equities_24/5",
+          "productSubType": "calculatedPrice",
+          "productType": "Price",
+          "productTypeCode": "primaryTokenizedPrice",
+          "quoteAsset": "USD",
+          "quoteAssetClic": "USD_FX",
+          "quoteAssetEntityId": "forex-USD"
+        },
+        "decimals": 8,
+        "maxSubmissionValue": "95780971304118053647396689196894323976171195136475135"
+      }
+    ],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "oracleType": "CHAINLINK",
+  "chainlinkAssessment": {
+    "feedResolution": {
+      "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+      "source": "Chainlink directory (address/name match; identity NOT verified)",
+      "directoryAgrees": true
+    },
+    "route": {
+      "route": {
+        "venue": "v3",
+        "fee": 3000,
+        "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+        "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+      },
+      "reason": null,
+      "alternatives": [
+        {
+          "address": "0x9EDa4BCb3EBfEdE532f3cAE3864fC0CEFff782Aa",
+          "fee": 10000,
+          "currentLiquidityRaw": "3627216381432787"
+        },
+        {
+          "address": "0x368DDD38861d31435d764fC54Df7D16481E3590b",
+          "fee": 500,
+          "currentLiquidityRaw": "185574682021"
+        }
+      ]
+    },
+    "feedChecks": {
+      "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+      "description": "Robinhood BABA / USD",
+      "decimals": 8,
+      "latestAnswer": "11016500000",
+      "updatedAt": 1790262187,
+      "oraclePaused": false,
+      "feedPriceUsd": 110.165,
+      "poolSpotUsdg": 110.67160685611564,
+      "feedSpotDeviationBps": 45.986189453604,
+      "problems": [],
+      "note": null
+    },
+    "feedHistory": {
+      "rounds": 308,
+      "coveredSeconds": 2592685,
+      "coveredDays": 30.00792824074074,
+      "maxGapSeconds": 290908,
+      "currentAgeSeconds": 2588,
+      "stoppedBy": "cutoff",
+      "proposedMaxStaleness": 367200,
+      "nonPositiveAnswers": 0,
+      "caveat": "Finite window of round history. A holiday weekend longer than anything observed can still exceed the proposed staleness."
+    },
+    "snapshot": {
+      "blockNumber": 71487645,
+      "blockHash": "0x0e18832ffabbab55ae876b479865b9994f818b645d181fba2fd3238990c5724f",
+      "timestamp": 1790264775,
+      "addresses": {
+        "token": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+        "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+        "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+      "usdgMaxStaleness": "97200",
+      "sequencerFeed": "0x0000000000000000000000000000000000000000",
+      "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+      "derivationMatches": true,
+      "routerContainsFactory": true,
+      "routerContainsPoolHash": true,
+      "tokenDecimals": 18,
+      "usdgDecimals": 6,
+      "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "token1": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+      "fee": 3000,
+      "route": {
+        "venue": "v3",
+        "fee": 3000,
+        "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+        "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+      },
+      "mode": "CHAINLINK"
+    },
+    "fork": {
+      "blockNumber": 71487645,
+      "blockHash": "0x0e18832ffabbab55ae876b479865b9994f818b645d181fba2fd3238990c5724f",
+      "mode": "CHAINLINK_FORK",
+      "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+      "direct": [],
+      "vault": [
+        {
+          "amountUsdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "9.890451",
+          "lossPct": 1.095489999999999,
+          "mintGas": "501615",
+          "redeemGas": "326419"
+        },
+        {
+          "amountUsdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "98.904533",
+          "lossPct": 1.0954670000000055,
+          "mintGas": "511339",
+          "redeemGas": "335103"
+        },
+        {
+          "amountUsdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "989.046878",
+          "lossPct": 1.0953121999999982,
+          "mintGas": "511365",
+          "redeemGas": "335103"
+        },
+        {
+          "amountUsdg": 10000,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "9890.615482",
+          "lossPct": 1.093845179999997,
+          "mintGas": "542037",
+          "redeemGas": "365895"
+        }
+      ],
+      "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+      "chainlink": {
+        "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+        "maxStaleness": 367200,
+        "route": {
+          "venue": "v3",
+          "fee": 3000,
+          "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+          "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+        },
+        "slippageBps": 200
+      },
+      "balanceMappingSlot": 1,
+      "setupStage": "complete",
+      "vaultOraclePriceUsd18": "110165000000000000000",
+      "staleCheck": "REJECTED",
+      "manipulation": []
+    },
+    "result": {
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+        "maxStaleness": 367200,
+        "route": {
+          "venue": "v3",
+          "fee": 3000,
+          "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+          "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  },
+  "proposedSettings": [
+    {
+      "token": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+      "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+      "fee": 3000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+        "maxStaleness": 367200,
+        "route": {
+          "venue": "v3",
+          "fee": 3000,
+          "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+          "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  ],
+  "reason": null,
+  "remaining": [
+    "Confirm feed identity against Chainlink's official Robinhood listing.",
+    "Decide basket composition/weights and caps (Dan's cap formula).",
+    "Broadcaster support for Chainlink routes and multi-token baskets."
+  ],
+  "recommendedSetting": {
+    "token": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+    "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+    "fee": 3000,
+    "status": "PROPOSED_FOR_REVIEW",
+    "params": {
+      "feed": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+      "maxStaleness": 367200,
+      "route": {
+        "venue": "v3",
+        "fee": 3000,
+        "pool": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+        "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+      },
+      "slippageBps": 200
+    },
+    "listingApproved": false,
+    "passedRoundTripSizesUsdg": [
+      10,
+      100,
+      1000,
+      10000
+    ],
+    "oracleType": "CHAINLINK",
+    "totalBasketCap": null,
+    "limitations": [
+      "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+      "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+      "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+      "V4 routes are executed on the fork but not depth-probed by direct router trades."
+    ]
+  },
+  "alternatives": [],
+  "recommendationReason": "Chainlink candidate passed feed/token checks, measured round-history staleness and V2 fork round trips. Feed identity, basket composition and caps still require review."
+}

@@ -1,0 +1,14 @@
+{
+  "feed": "0x3f390C5C24628Ac7C489515402235FeAD71D1913",
+  "maxStaleness": 345600,
+  "route": {
+    "venue": "v4",
+    "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "currency1": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+    "fee": 10000,
+    "tickSpacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "slippageBps": 200
+}

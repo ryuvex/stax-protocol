@@ -1,0 +1,1044 @@
+{
+  "NVDA": {
+    "symbol": "NVDA",
+    "address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 3120359,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:30:13.114Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:31:11.427Z",
+    "log": "reports/prospects/logs/NVDA.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.599232\",\"lossPct\":1.1940076799999977,\"mintGas\":\"515765\",\"redeemGas\":\"341834\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SGOV": {
+    "symbol": "SGOV",
+    "address": "0x92FD66527192E3e61d4DDd13322Aa222DE86F9B5",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 1485793,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T18:03:22.826Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:04:09.498Z",
+    "log": "reports/prospects/logs/SGOV.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.452136\",\"lossPct\":1.0954786400000027,\"mintGas\":\"500872\",\"redeemGas\":\"325682\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0xfAb520051f96F4D2a32c22B6a3dD7fFfdf231bFe"
+  },
+  "USO": {
+    "symbol": "USO",
+    "address": "0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 1161270,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:33:09.756Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:33:59.469Z",
+    "log": "reports/prospects/logs/USO.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.461675\",\"lossPct\":1.0953832500000038,\"mintGas\":\"511616\",\"redeemGas\":\"336363\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SPCX": {
+    "symbol": "SPCX",
+    "address": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 873311,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:33:59.470Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:34:49.707Z",
+    "log": "reports/prospects/logs/SPCX.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9732.6759\",\"lossPct\":2.673241000000004,\"mintGas\":\"518095\",\"redeemGas\":\"343868\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "MU": {
+    "symbol": "MU",
+    "address": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 509351,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:34:49.708Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:35:37.423Z",
+    "log": "reports/prospects/logs/MU.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9733.017203\",\"lossPct\":2.669827970000005,\"mintGas\":\"516467\",\"redeemGas\":\"340738\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "TSLA": {
+    "symbol": "TSLA",
+    "address": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 463136,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:35:37.424Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:36:30.006Z",
+    "log": "reports/prospects/logs/TSLA.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.587739\",\"lossPct\":1.1941226100000035,\"mintGas\":\"517134\",\"redeemGas\":\"344088\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "GOOGL": {
+    "symbol": "GOOGL",
+    "address": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 380493,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:36:30.007Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:37:17.912Z",
+    "log": "reports/prospects/logs/GOOGL.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.588278\",\"lossPct\":1.1941172200000016,\"mintGas\":\"515169\",\"redeemGas\":\"341995\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "MSTR": {
+    "symbol": "MSTR",
+    "address": "0xec262a75e413fAfD0dF80480274532C79D42da09",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 362800,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T18:04:09.499Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:04:57.934Z",
+    "log": "reports/prospects/logs/MSTR.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.224575\",\"lossPct\":2.477754249999997,\"mintGas\":\"510560\",\"redeemGas\":\"336373\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x17578C0e0D15da44f31677263114F71aE76653EA",
+    "forcedV3Pool": "0x17578C0e0D15da44f31677263114F71aE76653EA"
+  },
+  "MSFT": {
+    "symbol": "MSFT",
+    "address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 291835,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:38:01.393Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:38:55.166Z",
+    "log": "reports/prospects/logs/MSFT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.607782\",\"lossPct\":1.1939221799999955,\"mintGas\":\"516742\",\"redeemGas\":\"341734\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "AMZN": {
+    "symbol": "AMZN",
+    "address": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 221172,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:38:55.166Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:39:59.806Z",
+    "log": "reports/prospects/logs/AMZN.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"988.098495\",\"lossPct\":1.190150499999998,\"mintGas\":\"539786\",\"redeemGas\":\"365396\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "AAPL": {
+    "symbol": "AAPL",
+    "address": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 166283,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:39:59.806Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:40:46.377Z",
+    "log": "reports/prospects/logs/AAPL.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.586042\",\"lossPct\":1.1941395799999976,\"mintGas\":\"516934\",\"redeemGas\":\"341734\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "META": {
+    "symbol": "META",
+    "address": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 140190,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:40:46.377Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:41:33.570Z",
+    "log": "reports/prospects/logs/META.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9880.558767\",\"lossPct\":1.1944123300000054,\"mintGas\":\"516870\",\"redeemGas\":\"341623\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "INTC": {
+    "symbol": "INTC",
+    "address": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 139938,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T18:04:57.935Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:05:51.639Z",
+    "log": "reports/prospects/logs/INTC.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.889345\",\"lossPct\":1.0911065499999983,\"mintGas\":\"660388\",\"redeemGas\":\"484950\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x2e5a92f5013a64661A49312111be2e8aBd33F56a",
+    "forcedV3Pool": "0x2e5a92f5013a64661A49312111be2e8aBd33F56a"
+  },
+  "DELL": {
+    "symbol": "DELL",
+    "address": "0x941AE714EC6D8130c7B75d67160Ca08f1e7d11Dd",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 131224,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T18:05:51.640Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:06:41.961Z",
+    "log": "reports/prospects/logs/DELL.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.506618\",\"lossPct\":2.4749338200000026,\"mintGas\":\"509493\",\"redeemGas\":\"333986\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0xc30c89cB7815A1488b7998D15eEC73961707Fc5a"
+  },
+  "SLV": {
+    "symbol": "SLV",
+    "address": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 93551,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T18:06:41.962Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:07:30.993Z",
+    "log": "reports/prospects/logs/SLV.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.498879\",\"lossPct\":1.0950112099999965,\"mintGas\":\"540598\",\"redeemGas\":\"365300\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D",
+    "forcedV3Pool": "0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D"
+  },
+  "TSM": {
+    "symbol": "TSM",
+    "address": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 84765,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T18:07:30.993Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:08:17.523Z",
+    "log": "reports/prospects/logs/TSM.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.774134\",\"lossPct\":2.472258660000004,\"mintGas\":\"538565\",\"redeemGas\":\"364179\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x07e8Ea83D4C1340774c8965125e26e12bf943bf1",
+    "forcedV3Pool": "0x07e8Ea83D4C1340774c8965125e26e12bf943bf1"
+  },
+  "AMD": {
+    "symbol": "AMD",
+    "address": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 78909,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T18:08:17.524Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:09:12.495Z",
+    "log": "reports/prospects/logs/AMD.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.04853\",\"lossPct\":1.0951469999999963,\"mintGas\":\"510924\",\"redeemGas\":\"335055\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x48D284A2A4d3DC1b3Da08231Fe44317e7e7Aa51f",
+    "forcedV3Pool": "0x48D284A2A4d3DC1b3Da08231Fe44317e7e7Aa51f"
+  },
+  "BABA": {
+    "symbol": "BABA",
+    "address": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 52132,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:46:14.774Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:47:06.451Z",
+    "log": "reports/prospects/logs/BABA.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.615482\",\"lossPct\":1.093845179999997,\"mintGas\":\"542037\",\"redeemGas\":\"365895\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SNDK": {
+    "symbol": "SNDK",
+    "address": "0xB90A19fF0Af67f7779afF50A882A9CfF42446400",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 36266,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:47:06.452Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:47:55.720Z",
+    "log": "reports/prospects/logs/SNDK.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"973.262839\",\"lossPct\":2.673716100000001,\"mintGas\":\"518456\",\"redeemGas\":\"343480\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "ASML": {
+    "symbol": "ASML",
+    "address": "0x47F93d52cBeC7C6D2CfC080e154002370a60dAEA",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 20296,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:47:55.721Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:48:47.872Z",
+    "log": "reports/prospects/logs/ASML.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"975.225792\",\"lossPct\":2.4774207999999964,\"mintGas\":\"508357\",\"redeemGas\":\"334133\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "USAR": {
+    "symbol": "USAR",
+    "address": "0xd917B029C761D264c6A312BBbcDA868658eF86a6",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 15905,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T18:09:12.496Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T18:10:15.574Z",
+    "log": "reports/prospects/logs/USAR.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.891277\",\"lossPct\":1.0910872299999985,\"mintGas\":\"612769\",\"redeemGas\":\"439147\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ],
+    "v3Pool": "0x04391780F519B7d3ba59c9590459D76e23d225C4"
+  },
+  "COIN": {
+    "symbol": "COIN",
+    "address": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b",
+    "path": "CHAINLINK",
+    "v3UsdgInPool": 0,
+    "onV1": true,
+    "state": "done",
+    "started": "2026-09-24T15:51:18.339Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:52:10.962Z",
+    "log": "reports/prospects/logs/COIN.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9732.826163\",\"lossPct\":2.6717383699999986,\"mintGas\":\"518743\",\"redeemGas\":\"343991\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "GLD": {
+    "symbol": "GLD",
+    "address": "0xC9a981FEE1F9DEc688bb123ccDeCc63D0deBFC4e",
+    "path": "TWAP",
+    "v3UsdgInPool": 921438,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:52:10.963Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:52:59.766Z",
+    "log": "reports/prospects/logs/GLD.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9940.115898\",\"lossPct\":0.5988410199999961,\"mintGas\":\"514210\",\"redeemGas\":\"338993\"}",
+      "REJECTED",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "RDDT": {
+    "symbol": "RDDT",
+    "address": "0x05b37Fb53A299a1b874A619e1c4C404D52C36F4C",
+    "path": "TWAP",
+    "v3UsdgInPool": 511737,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:52:59.766Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:55:33.227Z",
+    "log": "reports/prospects/logs/RDDT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.125498\",\"lossPct\":2.478745019999995,\"mintGas\":\"641574\",\"redeemGas\":\"440346\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "COST": {
+    "symbol": "COST",
+    "address": "0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2",
+    "path": "TWAP",
+    "v3UsdgInPool": 341185,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:55:33.228Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T15:57:49.602Z",
+    "log": "reports/prospects/logs/COST.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9.752083\",\"lossPct\":2.479169999999997,\"mintGas\":\"644621\",\"redeemGas\":\"454536\"}",
+      "PASS\",\"returnedUsdg\":\"97.523283\",\"lossPct\":2.476716999999995,\"mintGas\":\"645575\",\"redeemGas\":\"454482\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "LLY": {
+    "symbol": "LLY",
+    "address": "0x8005d266423c7ea827372c9c864491e5786600ea",
+    "path": "TWAP",
+    "v3UsdgInPool": 250046,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T15:57:49.602Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:02:15.031Z",
+    "log": "reports/prospects/logs/LLY.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.046107\",\"lossPct\":1.0953893000000048,\"mintGas\":\"626303\",\"redeemGas\":\"438609\"}",
+      "PASS\",\"returnedUsdg\":\"9890.545331\",\"lossPct\":1.0945466899999978,\"mintGas\":\"625321\",\"redeemGas\":\"438631\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "HIMS": {
+    "symbol": "HIMS",
+    "address": "0xCceE82fE024c36fA15E1005edE3E9e4787e23D09",
+    "path": "TWAP",
+    "v3UsdgInPool": 177494,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:02:15.032Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:04:01.172Z",
+    "log": "reports/prospects/logs/HIMS.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.045425\",\"lossPct\":1.0954574999999966,\"mintGas\":\"640028\",\"redeemGas\":\"434745\"}",
+      "PASS\",\"returnedUsdg\":\"9890.47744\",\"lossPct\":1.095225600000005,\"mintGas\":\"640026\",\"redeemGas\":\"434757\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "RBLX": {
+    "symbol": "RBLX",
+    "address": "0xF0C4BF4C582cb3836e98394b1d4e7B7281101bE8",
+    "path": "TWAP",
+    "v3UsdgInPool": 152140,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:04:01.173Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:07:58.063Z",
+    "log": "reports/prospects/logs/RBLX.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.396442\",\"lossPct\":2.4760355800000022,\"mintGas\":\"654313\",\"redeemGas\":\"462788\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "DJT": {
+    "symbol": "DJT",
+    "address": "0x1D11f0496982706C5e14A514D4E79F2e6BdE4516",
+    "path": "TWAP",
+    "v3UsdgInPool": 148890,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:07:58.064Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:09:38.921Z",
+    "log": "reports/prospects/logs/DJT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9752.228343\",\"lossPct\":2.4777165699999992,\"mintGas\":\"650116\",\"redeemGas\":\"456911\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "AVGO": {
+    "symbol": "AVGO",
+    "address": "0x156E175DD063a8cE274C50654eF40e0032b3fbcF",
+    "path": "TWAP",
+    "v3UsdgInPool": 106861,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:09:38.922Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:11:06.211Z",
+    "log": "reports/prospects/logs/AVGO.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "GLXY": {
+    "symbol": "GLXY",
+    "address": "0x2D427692E928fa156ec22acfaBaFA0447C5805B7",
+    "path": "TWAP",
+    "v3UsdgInPool": 92739,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:11:06.212Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:13:27.989Z",
+    "log": "reports/prospects/logs/GLXY.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.666321\",\"lossPct\":1.093336789999999,\"mintGas\":\"702385\",\"redeemGas\":\"511066\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "QUBT": {
+    "symbol": "QUBT",
+    "address": "0x59818904ab4cE163b3cE4FfB64f2D6Ca02c434B4",
+    "path": "TWAP",
+    "v3UsdgInPool": 84672,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:13:27.990Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:16:17.870Z",
+    "log": "reports/prospects/logs/QUBT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.691782\",\"lossPct\":1.0930821800000046,\"mintGas\":\"727353\",\"redeemGas\":\"509165\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "IBM": {
+    "symbol": "IBM",
+    "address": "0x980dcf6766FA79f5Cf0c4AAdb3ab477ff15a9619",
+    "path": "TWAP",
+    "v3UsdgInPool": 80761,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:16:17.871Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:19:28.901Z",
+    "log": "reports/prospects/logs/IBM.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"97.520731\",\"lossPct\":2.479268999999995,\"mintGas\":\"658690\",\"redeemGas\":\"470798\"}",
+      "PASS\",\"returnedUsdg\":\"975.220846\",\"lossPct\":2.477915399999997,\"mintGas\":\"658662\",\"redeemGas\":\"469814\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "LULU": {
+    "symbol": "LULU",
+    "address": "0x4e62068525Ab11FE768e29dfD00ef909B9803016",
+    "path": "TWAP",
+    "v3UsdgInPool": 79015,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:19:28.902Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:21:59.291Z",
+    "log": "reports/prospects/logs/LULU.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.604084\",\"lossPct\":1.093959160000002,\"mintGas\":\"651618\",\"redeemGas\":\"460886\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "MRNA": {
+    "symbol": "MRNA",
+    "address": "0x43B07D15cE533bEc5476d70C22a78a1B2B662155",
+    "path": "TWAP",
+    "v3UsdgInPool": 76409,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:21:59.292Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:24:57.739Z",
+    "log": "reports/prospects/logs/MRNA.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.04847\",\"lossPct\":1.0951530000000043,\"mintGas\":\"679438\",\"redeemGas\":\"486257\"}",
+      "PASS\",\"returnedUsdg\":\"9890.814186\",\"lossPct\":1.0918581400000016,\"mintGas\":\"844414\",\"redeemGas\":\"582587\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "PFE": {
+    "symbol": "PFE",
+    "address": "0x7066A64c24e4206CD62E83bf198c1E7EB361F51e",
+    "path": "TWAP",
+    "v3UsdgInPool": 72782,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:24:57.740Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:27:37.987Z",
+    "log": "reports/prospects/logs/PFE.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.576518\",\"lossPct\":1.0942348199999952,\"mintGas\":\"709684\",\"redeemGas\":\"510693\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "NET": {
+    "symbol": "NET",
+    "address": "0x116F00968269B7bfbaD4109cE591d6E74c0601d4",
+    "path": "TWAP",
+    "v3UsdgInPool": 72551,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:27:37.988Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:30:00.475Z",
+    "log": "reports/prospects/logs/NET.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.051654\",\"lossPct\":1.0948346000000053,\"mintGas\":\"675788\",\"redeemGas\":\"484939\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "BE": {
+    "symbol": "BE",
+    "address": "0x822CC93fFD030293E9842c30BBD678F530701867",
+    "path": "TWAP",
+    "v3UsdgInPool": 49828,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:30:00.476Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:31:43.145Z",
+    "log": "reports/prospects/logs/BE.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.046727\",\"lossPct\":1.0953273000000041,\"mintGas\":\"649536\",\"redeemGas\":\"457852\"}",
+      "PASS\",\"returnedUsdg\":\"9890.60675\",\"lossPct\":1.0939325000000055,\"mintGas\":\"679139\",\"redeemGas\":\"488336\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "JNJ": {
+    "symbol": "JNJ",
+    "address": "0x03DfbBE0AC4E7bCDaFd08eD41A400326B77D8c80",
+    "path": "TWAP",
+    "v3UsdgInPool": 39914,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:31:43.146Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:33:58.781Z",
+    "log": "reports/prospects/logs/JNJ.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "ON": {
+    "symbol": "ON",
+    "address": "0xbBD09F72b025360FeE5C928053Dca6248d35be54",
+    "path": "TWAP",
+    "v3UsdgInPool": 38771,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:33:58.782Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:35:33.536Z",
+    "log": "reports/prospects/logs/ON.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"97.520734\",\"lossPct\":2.479266000000002,\"mintGas\":\"628641\",\"redeemGas\":\"439634\"}",
+      "PASS\",\"returnedUsdg\":\"975.222692\",\"lossPct\":2.4777308,\"mintGas\":\"628575\",\"redeemGas\":\"439542\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "BA": {
+    "symbol": "BA",
+    "address": "0x4D21483a44Bf67a86b77E3dA301411880797D452",
+    "path": "TWAP",
+    "v3UsdgInPool": 32892,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:35:33.536Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:38:24.754Z",
+    "log": "reports/prospects/logs/BA.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.562969\",\"lossPct\":1.0943703100000035,\"mintGas\":\"652034\",\"redeemGas\":\"458935\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "RIVN": {
+    "symbol": "RIVN",
+    "address": "0xB1BF26c1D20ff267A4f93550d1E0d06ac40a114B",
+    "path": "TWAP",
+    "v3UsdgInPool": 29652,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:38:24.755Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:40:27.976Z",
+    "log": "reports/prospects/logs/RIVN.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "F": {
+    "symbol": "F",
+    "address": "0x25C288E6D899b9BC30160965aD9644c67e73bE0C",
+    "path": "TWAP",
+    "v3UsdgInPool": 25853,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:40:27.977Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:43:07.481Z",
+    "log": "reports/prospects/logs/F.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.585602\",\"lossPct\":1.0941439799999952,\"mintGas\":\"670741\",\"redeemGas\":\"487803\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "VTI": {
+    "symbol": "VTI",
+    "address": "0x0594134DF3f171a354D9C85eBD65b7A6148F6D09",
+    "path": "TWAP",
+    "v3UsdgInPool": 25472,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:43:07.482Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:44:11.111Z",
+    "log": "reports/prospects/logs/VTI.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SOXX": {
+    "symbol": "SOXX",
+    "address": "0x75742c18BC1f1C5c5f448f4C9D9C6F66dafAAa38",
+    "path": "TWAP",
+    "v3UsdgInPool": 24207,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:44:11.112Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:45:56.361Z",
+    "log": "reports/prospects/logs/SOXX.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "FIG": {
+    "symbol": "FIG",
+    "address": "0x41F4267525a8AFf329540eF24fD83d9044758B33",
+    "path": "TWAP",
+    "v3UsdgInPool": 20430,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:45:56.361Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:47:42.421Z",
+    "log": "reports/prospects/logs/FIG.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.047102\",\"lossPct\":1.0952897999999989,\"mintGas\":\"648938\",\"redeemGas\":\"457827\"}",
+      "PASS\",\"returnedUsdg\":\"9890.638578\",\"lossPct\":1.0936142200000054,\"mintGas\":\"679074\",\"redeemGas\":\"487817\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "MRVL": {
+    "symbol": "MRVL",
+    "address": "0x62fd0668e10D8B72339BE2DCF7643001688ff13B",
+    "path": "TWAP",
+    "v3UsdgInPool": 20337,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:47:42.422Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:50:18.041Z",
+    "log": "reports/prospects/logs/MRVL.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9.752096\",\"lossPct\":2.479039999999999,\"mintGas\":\"627052\",\"redeemGas\":\"433200\"}",
+      "PASS\",\"returnedUsdg\":\"97.524539\",\"lossPct\":2.475461000000001,\"mintGas\":\"627004\",\"redeemGas\":\"434278\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SNAP": {
+    "symbol": "SNAP",
+    "address": "0xF6589F11Bc40b669e584073F428B05562F568733",
+    "path": "TWAP",
+    "v3UsdgInPool": 20195,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:50:18.041Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:52:14.506Z",
+    "log": "reports/prospects/logs/SNAP.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.048658\",\"lossPct\":1.095134200000003,\"mintGas\":\"678753\",\"redeemGas\":\"484718\"}",
+      "PASS\",\"returnedUsdg\":\"9890.810274\",\"lossPct\":1.0918972599999965,\"mintGas\":\"727026\",\"redeemGas\":\"533159\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "TTWO": {
+    "symbol": "TTWO",
+    "address": "0x5e81213613b6B86EaB4c6c50d718d34359459786",
+    "path": "TWAP",
+    "v3UsdgInPool": 18429,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:52:14.507Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T16:57:12.276Z",
+    "log": "reports/prospects/logs/TTWO.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9890.524191\",\"lossPct\":1.0947580900000031,\"mintGas\":\"673697\",\"redeemGas\":\"475501\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "UPS": {
+    "symbol": "UPS",
+    "address": "0xf23250dac154D05Bb671CB0d0eBEf3c635c79CE2",
+    "path": "TWAP",
+    "v3UsdgInPool": 15592,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T16:57:12.277Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T16:59:28.580Z",
+    "log": "reports/prospects/logs/UPS.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SNOW": {
+    "symbol": "SNOW",
+    "address": "0xBa0CAB75495255d0cB58E22B648bFED4ECD1F47E",
+    "path": "TWAP",
+    "v3UsdgInPool": 14395,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T16:59:28.581Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:01:27.317Z",
+    "log": "reports/prospects/logs/SNOW.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.055074\",\"lossPct\":1.0944925999999966,\"mintGas\":\"651265\",\"redeemGas\":\"460528\"}",
+      "REJECTED\",\"harmonicLiquidityBelowFloor\":\"REJECTED\",\"observationTooOld\":\"REJECTED\",\"note\":\"Current-liquidity boundary uses fork s",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SKHY": {
+    "symbol": "SKHY",
+    "address": "0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8",
+    "path": "TWAP",
+    "v3UsdgInPool": 13002,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T17:01:27.318Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:03:27.699Z",
+    "log": "reports/prospects/logs/SKHY.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"98.904653\",\"lossPct\":1.095347000000002,\"mintGas\":\"611004\",\"redeemGas\":\"429522\"}",
+      "PASS\",\"returnedUsdg\":\"989.058756\",\"lossPct\":1.0941243999999961,\"mintGas\":\"611046\",\"redeemGas\":\"429532\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "LMT": {
+    "symbol": "LMT",
+    "address": "0x329fcACEb9AD6F9580DD5F643fed0646900D043c",
+    "path": "TWAP",
+    "v3UsdgInPool": 12578,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T17:03:27.700Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:05:32.426Z",
+    "log": "reports/prospects/logs/LMT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"989.048151\",\"lossPct\":1.0951849000000013,\"mintGas\":\"647560\",\"redeemGas\":\"457469\"}",
+      "PASS\",\"returnedUsdg\":\"9890.792374\",\"lossPct\":1.0920762599999967,\"mintGas\":\"784432\",\"redeemGas\":\"558731\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "WYFI": {
+    "symbol": "WYFI",
+    "address": "0x9e7ABD3C9139D14E4c86DcE0e455AAB7A0C2FB3E",
+    "path": "TWAP",
+    "v3UsdgInPool": 11559,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T17:05:32.427Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:08:06.632Z",
+    "log": "reports/prospects/logs/WYFI.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"98.9046\",\"lossPct\":1.095400000000002,\"mintGas\":\"642986\",\"redeemGas\":\"451078\"}",
+      "PASS\",\"returnedUsdg\":\"989.053456\",\"lossPct\":1.0946543999999947,\"mintGas\":\"642278\",\"redeemGas\":\"451380\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "BB": {
+    "symbol": "BB",
+    "address": "0x48E39E56aCdbA37b09020C0b734A613C9a2f100A",
+    "path": "TWAP",
+    "v3UsdgInPool": 11026,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:08:06.633Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:09:10.309Z",
+    "log": "reports/prospects/logs/BB.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "NU": {
+    "symbol": "NU",
+    "address": "0x408c14038a04f7bD235329E26d2bf569ee20e250",
+    "path": "TWAP",
+    "v3UsdgInPool": 9304,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:09:10.309Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:11:41.301Z",
+    "log": "reports/prospects/logs/NU.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "PENG": {
+    "symbol": "PENG",
+    "address": "0x9b23573b156B52565012F5cE02CDF60AFBaa70Be",
+    "path": "TWAP",
+    "v3UsdgInPool": 8064,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:11:41.302Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:12:42.937Z",
+    "log": "reports/prospects/logs/PENG.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "SHOP": {
+    "symbol": "SHOP",
+    "address": "0xF53F66751B1Eff985311b693531E3290F600c410",
+    "path": "TWAP",
+    "v3UsdgInPool": 6875,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:12:42.937Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:13:44.887Z",
+    "log": "reports/prospects/logs/SHOP.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "RCAT": {
+    "symbol": "RCAT",
+    "address": "0xFDE6b5d9BB419B10C23268c74e369AbFF39C0460",
+    "path": "TWAP",
+    "v3UsdgInPool": 2819,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T17:13:44.888Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:15:24.697Z",
+    "log": "reports/prospects/logs/RCAT.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"97.520933\",\"lossPct\":2.4790670000000015,\"mintGas\":\"630769\",\"redeemGas\":\"440834\"}",
+      "PASS\",\"returnedUsdg\":\"975.242577\",\"lossPct\":2.4757422999999945,\"mintGas\":\"631071\",\"redeemGas\":\"441146\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "WULF": {
+    "symbol": "WULF",
+    "address": "0x348Be1A8663f15edDe5CDf8A96BB69078f7aB6Fd",
+    "path": "TWAP",
+    "v3UsdgInPool": 2803,
+    "onV1": false,
+    "state": "done",
+    "started": "2026-09-24T17:15:24.698Z",
+    "exitCode": 0,
+    "finished": "2026-09-24T17:16:47.618Z",
+    "log": "reports/prospects/logs/WULF.log",
+    "verdictLines": [
+      "PASS\",\"returnedUsdg\":\"9.75217\",\"lossPct\":2.4783,\"mintGas\":\"627086\",\"redeemGas\":\"438641\"}",
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "INDA": {
+    "symbol": "INDA",
+    "address": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+    "path": "TWAP",
+    "v3UsdgInPool": 1767,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:16:47.619Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:17:58.546Z",
+    "log": "reports/prospects/logs/INDA.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  },
+  "CCL": {
+    "symbol": "CCL",
+    "address": "0x9651342CeA770aE9a2969Ba2A52611523146aef9",
+    "path": "TWAP",
+    "v3UsdgInPool": 1433,
+    "onV1": false,
+    "state": "failed",
+    "started": "2026-09-24T17:17:58.547Z",
+    "exitCode": 1,
+    "finished": "2026-09-24T17:19:07.568Z",
+    "log": "reports/prospects/logs/CCL.log",
+    "verdictLines": [
+      "RECOMMENDED CANDIDATE (FOR REVIEW)"
+    ]
+  }
+}

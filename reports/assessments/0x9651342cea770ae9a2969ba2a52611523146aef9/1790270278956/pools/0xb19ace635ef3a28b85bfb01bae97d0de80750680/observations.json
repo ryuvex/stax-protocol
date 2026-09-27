@@ -1,0 +1,1502 @@
+[
+  {
+    "timestamp": 1789410699,
+    "tickCumulative": "1700310061106",
+    "secondsPerLiquidity": "1068517597827136742249596847729665323703458825"
+  },
+  {
+    "timestamp": 1789410705,
+    "tickCumulative": "1700311530632",
+    "secondsPerLiquidity": "1068517597827136742249654220111498841667789122"
+  },
+  {
+    "timestamp": 1789410707,
+    "tickCumulative": "1700312020432",
+    "secondsPerLiquidity": "1068517597827136742249673344238776680989232554"
+  },
+  {
+    "timestamp": 1789410708,
+    "tickCumulative": "1700312265043",
+    "secondsPerLiquidity": "1068517597827136742249682906302415600649954270"
+  },
+  {
+    "timestamp": 1789410715,
+    "tickCumulative": "1700313977558",
+    "secondsPerLiquidity": "1068517597827136742249749840747888038275006283"
+  },
+  {
+    "timestamp": 1789410720,
+    "tickCumulative": "1700315200458",
+    "secondsPerLiquidity": "1068517597827136742249833815867107599925559407"
+  },
+  {
+    "timestamp": 1789410742,
+    "tickCumulative": "1700320580404",
+    "secondsPerLiquidity": "1068517597827136742250203306391673671187993153"
+  },
+  {
+    "timestamp": 1789410743,
+    "tickCumulative": "1700320824494",
+    "secondsPerLiquidity": "1068517597827136742250220101415517583518103777"
+  },
+  {
+    "timestamp": 1789410746,
+    "tickCumulative": "1700321556587",
+    "secondsPerLiquidity": "1068517597827136742250270486487049320508435651"
+  },
+  {
+    "timestamp": 1789410748,
+    "tickCumulative": "1700322044769",
+    "secondsPerLiquidity": "1068517597827136742250304076534737145168656900"
+  },
+  {
+    "timestamp": 1789410751,
+    "tickCumulative": "1700322776925",
+    "secondsPerLiquidity": "1068517597827136742250354461606268882158988774"
+  },
+  {
+    "timestamp": 1789410754,
+    "tickCumulative": "1700323509075",
+    "secondsPerLiquidity": "1068517597827136742250404846677800619149320648"
+  },
+  {
+    "timestamp": 1789410756,
+    "tickCumulative": "1700323996913",
+    "secondsPerLiquidity": "1068517597827136742250438436725488443809541897"
+  },
+  {
+    "timestamp": 1789410757,
+    "tickCumulative": "1700324240912",
+    "secondsPerLiquidity": "1068517597827136742250455231749332356139652521"
+  },
+  {
+    "timestamp": 1789410758,
+    "tickCumulative": "1700324484862",
+    "secondsPerLiquidity": "1068517597827136742250472026773176268469763145"
+  },
+  {
+    "timestamp": 1789410761,
+    "tickCumulative": "1700325216676",
+    "secondsPerLiquidity": "1068517597827136742250522411844708005460095019"
+  },
+  {
+    "timestamp": 1789410766,
+    "tickCumulative": "1700326436736",
+    "secondsPerLiquidity": "1068517597827136742250606386963927567110648143"
+  },
+  {
+    "timestamp": 1789410774,
+    "tickCumulative": "1700328389680",
+    "secondsPerLiquidity": "1068517597827136742250740747154678865751533141"
+  },
+  {
+    "timestamp": 1789410775,
+    "tickCumulative": "1700328633905",
+    "secondsPerLiquidity": "1068517597827136742250757542178522778081643765"
+  },
+  {
+    "timestamp": 1789410786,
+    "tickCumulative": "1700331320237",
+    "secondsPerLiquidity": "1068517597827136742250942287440805813712860638"
+  },
+  {
+    "timestamp": 1789410788,
+    "tickCumulative": "1700331808623",
+    "secondsPerLiquidity": "1068517597827136742250975877488493638373081887"
+  },
+  {
+    "timestamp": 1789410789,
+    "tickCumulative": "1700332052772",
+    "secondsPerLiquidity": "1068517597827136742250992672512337550703192511"
+  },
+  {
+    "timestamp": 1789410793,
+    "tickCumulative": "1700333029788",
+    "secondsPerLiquidity": "1068517597827136742251059852607713200023635010"
+  },
+  {
+    "timestamp": 1789410796,
+    "tickCumulative": "1700333762583",
+    "secondsPerLiquidity": "1068517597827136742251110237679244937013966884"
+  },
+  {
+    "timestamp": 1789410797,
+    "tickCumulative": "1700334006826",
+    "secondsPerLiquidity": "1068517597827136742251127032703088849344077508"
+  },
+  {
+    "timestamp": 1789410802,
+    "tickCumulative": "1700335228306",
+    "secondsPerLiquidity": "1068517597827136742251211007822308410994630632"
+  },
+  {
+    "timestamp": 1789410807,
+    "tickCumulative": "1700336450046",
+    "secondsPerLiquidity": "1068517597827136742251294982941527972645183756"
+  },
+  {
+    "timestamp": 1789410811,
+    "tickCumulative": "1700337427730",
+    "secondsPerLiquidity": "1068517597827136742251362163036903621965626255"
+  },
+  {
+    "timestamp": 1789410813,
+    "tickCumulative": "1700337916756",
+    "secondsPerLiquidity": "1068517597827136742251395753084591446625847504"
+  },
+  {
+    "timestamp": 1789410815,
+    "tickCumulative": "1700338405674",
+    "secondsPerLiquidity": "1068517597827136742251429343132279271286068753"
+  },
+  {
+    "timestamp": 1789410817,
+    "tickCumulative": "1700338894566",
+    "secondsPerLiquidity": "1068517597827136742251462933179967095946290002"
+  },
+  {
+    "timestamp": 1789410818,
+    "tickCumulative": "1700339139000",
+    "secondsPerLiquidity": "1068517597827136742251479728203811008276400626"
+  },
+  {
+    "timestamp": 1789410819,
+    "tickCumulative": "1700339383330",
+    "secondsPerLiquidity": "1068517597827136742251496523227654920606511250"
+  },
+  {
+    "timestamp": 1789410822,
+    "tickCumulative": "1700340116467",
+    "secondsPerLiquidity": "1068517597827136742251546908299186657596843124"
+  },
+  {
+    "timestamp": 1789410823,
+    "tickCumulative": "1700340360826",
+    "secondsPerLiquidity": "1068517597827136742251563703323030569926953748"
+  },
+  {
+    "timestamp": 1789410827,
+    "tickCumulative": "1700341338258",
+    "secondsPerLiquidity": "1068517597827136742251630883418406219247396247"
+  },
+  {
+    "timestamp": 1789410828,
+    "tickCumulative": "1700341582626",
+    "secondsPerLiquidity": "1068517597827136742251647678442250131577506871"
+  },
+  {
+    "timestamp": 1789410837,
+    "tickCumulative": "1700343781929",
+    "secondsPerLiquidity": "1068517597827136742251798833656845342548502494"
+  },
+  {
+    "timestamp": 1789410841,
+    "tickCumulative": "1700344759413",
+    "secondsPerLiquidity": "1068517597827136742251866013752220991868944993"
+  },
+  {
+    "timestamp": 1789410845,
+    "tickCumulative": "1700345736853",
+    "secondsPerLiquidity": "1068517597827136742251933193847596641189387492"
+  },
+  {
+    "timestamp": 1789410857,
+    "tickCumulative": "1700348669125",
+    "secondsPerLiquidity": "1068517597827136742252134734133723589150714989"
+  },
+  {
+    "timestamp": 1789410864,
+    "tickCumulative": "1700350380282",
+    "secondsPerLiquidity": "1068517597827136742252252299300630975461489362"
+  },
+  {
+    "timestamp": 1789410865,
+    "tickCumulative": "1700350624783",
+    "secondsPerLiquidity": "1068517597827136742252269094324474887791599986"
+  },
+  {
+    "timestamp": 1789410867,
+    "tickCumulative": "1700351113839",
+    "secondsPerLiquidity": "1068517597827136742252302684372162712451821235"
+  },
+  {
+    "timestamp": 1789410869,
+    "tickCumulative": "1700351603619",
+    "secondsPerLiquidity": "1068517597827136742252321808499440551773264667"
+  },
+  {
+    "timestamp": 1789410870,
+    "tickCumulative": "1700351848510",
+    "secondsPerLiquidity": "1068517597827136742252331370563079471433986383"
+  },
+  {
+    "timestamp": 1789410889,
+    "tickCumulative": "1700356501306",
+    "secondsPerLiquidity": "1068517597827136742252513049772218944987698992"
+  },
+  {
+    "timestamp": 1789410891,
+    "tickCumulative": "1700356991056",
+    "secondsPerLiquidity": "1068517597827136742252532173899496784309142424"
+  },
+  {
+    "timestamp": 1789410916,
+    "tickCumulative": "1700363112656",
+    "secondsPerLiquidity": "1068517597827136742252771225490469775827185330"
+  },
+  {
+    "timestamp": 1789410920,
+    "tickCumulative": "1700364092064",
+    "secondsPerLiquidity": "1068517597827136742252809473745025454470072195"
+  },
+  {
+    "timestamp": 1789410924,
+    "tickCumulative": "1700365071404",
+    "secondsPerLiquidity": "1068517597827136742252847721999581133112959060"
+  },
+  {
+    "timestamp": 1789410936,
+    "tickCumulative": "1700368008944",
+    "secondsPerLiquidity": "1068517597827136742252962466763248169041619655"
+  },
+  {
+    "timestamp": 1789410938,
+    "tickCumulative": "1700368498512",
+    "secondsPerLiquidity": "1068517597827136742252981590890526008363063087"
+  },
+  {
+    "timestamp": 1789410940,
+    "tickCumulative": "1700368987964",
+    "secondsPerLiquidity": "1068517597827136742253000715017803847684506519"
+  },
+  {
+    "timestamp": 1789410941,
+    "tickCumulative": "1700369232683",
+    "secondsPerLiquidity": "1068517597827136742253010277081442767345228235"
+  },
+  {
+    "timestamp": 1789410945,
+    "tickCumulative": "1700370211331",
+    "secondsPerLiquidity": "1068517597827136742253048525335998445988115100"
+  },
+  {
+    "timestamp": 1789410946,
+    "tickCumulative": "1700370456003",
+    "secondsPerLiquidity": "1068517597827136742253058087399637365648836816"
+  },
+  {
+    "timestamp": 1789410947,
+    "tickCumulative": "1700370700486",
+    "secondsPerLiquidity": "1068517597827136742253074882423481277978947440"
+  },
+  {
+    "timestamp": 1789410948,
+    "tickCumulative": "1700370944929",
+    "secondsPerLiquidity": "1068517597827136742253091677447325190309058064"
+  },
+  {
+    "timestamp": 1789410949,
+    "tickCumulative": "1700371189337",
+    "secondsPerLiquidity": "1068517597827136742253108472471169102639168688"
+  },
+  {
+    "timestamp": 1789410950,
+    "tickCumulative": "1700371433804",
+    "secondsPerLiquidity": "1068517597827136742253125267495013014969279312"
+  },
+  {
+    "timestamp": 1789410952,
+    "tickCumulative": "1700371922952",
+    "secondsPerLiquidity": "1068517597827136742253158857542700839629500561"
+  },
+  {
+    "timestamp": 1789410956,
+    "tickCumulative": "1700372901412",
+    "secondsPerLiquidity": "1068517597827136742253197105797256518272387426"
+  },
+  {
+    "timestamp": 1789410961,
+    "tickCumulative": "1700374124432",
+    "secondsPerLiquidity": "1068517597827136742253244916115451116575996007"
+  },
+  {
+    "timestamp": 1789410969,
+    "tickCumulative": "1700376081176",
+    "secondsPerLiquidity": "1068517597827136742253379276306202415216881005"
+  },
+  {
+    "timestamp": 1789410991,
+    "tickCumulative": "1700381462002",
+    "secondsPerLiquidity": "1068517597827136742253748766830768486479314751"
+  },
+  {
+    "timestamp": 1789411004,
+    "tickCumulative": "1700384641074",
+    "secondsPerLiquidity": "1068517597827136742253967102140739346770752873"
+  },
+  {
+    "timestamp": 1789411006,
+    "tickCumulative": "1700385130310",
+    "secondsPerLiquidity": "1068517597827136742253986226268017186092196305"
+  },
+  {
+    "timestamp": 1789411011,
+    "tickCumulative": "1700386353465",
+    "secondsPerLiquidity": "1068517597827136742254034036586211784395804886"
+  },
+  {
+    "timestamp": 1789411042,
+    "tickCumulative": "1700393937243",
+    "secondsPerLiquidity": "1068517597827136742254330460559018293878178090"
+  },
+  {
+    "timestamp": 1789411062,
+    "tickCumulative": "1700398830483",
+    "secondsPerLiquidity": "1068517597827136742254521701831796687092612415"
+  },
+  {
+    "timestamp": 1789411077,
+    "tickCumulative": "1700402500818",
+    "secondsPerLiquidity": "1068517597827136742254665132786380482003438159"
+  },
+  {
+    "timestamp": 1789411082,
+    "tickCumulative": "1700403724463",
+    "secondsPerLiquidity": "1068517597827136742254712943104575080307046740"
+  },
+  {
+    "timestamp": 1789411083,
+    "tickCumulative": "1700403969173",
+    "secondsPerLiquidity": "1068517597827136742254722505168213999967768456"
+  },
+  {
+    "timestamp": 1789411085,
+    "tickCumulative": "1700404458667",
+    "secondsPerLiquidity": "1068517597827136742254741629295491839289211888"
+  },
+  {
+    "timestamp": 1789411087,
+    "tickCumulative": "1700404948189",
+    "secondsPerLiquidity": "1068517597827136742254760753422769678610655320"
+  },
+  {
+    "timestamp": 1789411093,
+    "tickCumulative": "1700406416923",
+    "secondsPerLiquidity": "1068517597827136742254818125804603196574985617"
+  },
+  {
+    "timestamp": 1789411116,
+    "tickCumulative": "1700412046840",
+    "secondsPerLiquidity": "1068517597827136742255038053268298348771585091"
+  },
+  {
+    "timestamp": 1789411118,
+    "tickCumulative": "1700412536654",
+    "secondsPerLiquidity": "1068517597827136742255057177395576188093028523"
+  },
+  {
+    "timestamp": 1789411124,
+    "tickCumulative": "1700414006048",
+    "secondsPerLiquidity": "1068517597827136742255114549777409706057358820"
+  },
+  {
+    "timestamp": 1789411228,
+    "tickCumulative": "1700439476376",
+    "secondsPerLiquidity": "1068517597827136742256109004395857350772417311"
+  },
+  {
+    "timestamp": 1789411258,
+    "tickCumulative": "1700446824126",
+    "secondsPerLiquidity": "1068517597827136742256395866305024940594068799"
+  },
+  {
+    "timestamp": 1789411259,
+    "tickCumulative": "1700447069029",
+    "secondsPerLiquidity": "1068517597827136742256405428368663860254790515"
+  },
+  {
+    "timestamp": 1789411372,
+    "tickCumulative": "1700474742277",
+    "secondsPerLiquidity": "1068517597827136742257485941559861781916344453"
+  },
+  {
+    "timestamp": 1789411500,
+    "tickCumulative": "1700506090501",
+    "secondsPerLiquidity": "1068517597827136742258709885705643498488724135"
+  },
+  {
+    "timestamp": 1789411536,
+    "tickCumulative": "1700514907441",
+    "secondsPerLiquidity": "1068517597827136742259054119996644606274705920"
+  },
+  {
+    "timestamp": 1789411548,
+    "tickCumulative": "1700517846445",
+    "secondsPerLiquidity": "1068517597827136742259168864760311642203366515"
+  },
+  {
+    "timestamp": 1789411894,
+    "tickCumulative": "1700602594993",
+    "secondsPerLiquidity": "1068517597827136742262477338779377844813080344"
+  },
+  {
+    "timestamp": 1789412663,
+    "tickCumulative": "1700790973078",
+    "secondsPerLiquidity": "1068517597827136742269830565717707063908080154"
+  },
+  {
+    "timestamp": 1789413636,
+    "tickCumulative": "1701029328888",
+    "secondsPerLiquidity": "1068517597827136742279134453638375893790310083"
+  },
+  {
+    "timestamp": 1789414479,
+    "tickCumulative": "1701235829325",
+    "secondsPerLiquidity": "1068517597827136742287195273285985167778716897"
+  },
+  {
+    "timestamp": 1789414520,
+    "tickCumulative": "1701245872603",
+    "secondsPerLiquidity": "1068517597827136742287587317895180873868307264"
+  },
+  {
+    "timestamp": 1789414918,
+    "tickCumulative": "1701343365489",
+    "secondsPerLiquidity": "1068517597827136742291393019223470898835550339"
+  },
+  {
+    "timestamp": 1789415511,
+    "tickCumulative": "1701488588817",
+    "secondsPerLiquidity": "1068517597827136742295776538726460285903611795"
+  },
+  {
+    "timestamp": 1789421405,
+    "tickCumulative": "1702932206237",
+    "secondsPerLiquidity": "1068517597827136742339345617901197971197295143"
+  },
+  {
+    "timestamp": 1789421691,
+    "tickCumulative": "1703002266513",
+    "secondsPerLiquidity": "1068517597827136742341459760528272110660137599"
+  },
+  {
+    "timestamp": 1789433994,
+    "tickCumulative": "1706015984787",
+    "secondsPerLiquidity": "1068517597827136742432404854027898466643881445"
+  },
+  {
+    "timestamp": 1789436122,
+    "tickCumulative": "1706537206467",
+    "secondsPerLiquidity": "1068517597827136742448135257910464091738037903"
+  },
+  {
+    "timestamp": 1789449391,
+    "tickCumulative": "1709787540900",
+    "secondsPerLiquidity": "1068517597827136742546221126856781422271102773"
+  },
+  {
+    "timestamp": 1789452102,
+    "tickCumulative": "1710451619327",
+    "secondsPerLiquidity": "1068517597827136742561714010949967369096817392"
+  },
+  {
+    "timestamp": 1789452446,
+    "tickCumulative": "1710535891759",
+    "secondsPerLiquidity": "1068517597827136742563679909927487090862972253"
+  },
+  {
+    "timestamp": 1789459801,
+    "tickCumulative": "1712337631399",
+    "secondsPerLiquidity": "1068517597827136742605712430217189281531777500"
+  },
+  {
+    "timestamp": 1789467138,
+    "tickCumulative": "1714134902919",
+    "secondsPerLiquidity": "1068517597827136742647642083699928230945376970"
+  },
+  {
+    "timestamp": 1789476095,
+    "tickCumulative": "1716329018596",
+    "secondsPerLiquidity": "1068517597827136742698829749809358893327496426"
+  },
+  {
+    "timestamp": 1789480913,
+    "tickCumulative": "1717509264784",
+    "secondsPerLiquidity": "1068517597827136742726363765139853135970909571"
+  },
+  {
+    "timestamp": 1789486024,
+    "tickCumulative": "1718761628447",
+    "secondsPerLiquidity": "1068517597827136742755572223494804583490727874"
+  },
+  {
+    "timestamp": 1789486070,
+    "tickCumulative": "1718772900747",
+    "secondsPerLiquidity": "1068517597827136742755835105334821755587364861"
+  },
+  {
+    "timestamp": 1789491012,
+    "tickCumulative": "1719984056455",
+    "secondsPerLiquidity": "1068517597827136742784077758668840549099973363"
+  },
+  {
+    "timestamp": 1789491013,
+    "tickCumulative": "1719984301828",
+    "secondsPerLiquidity": "1068517597827136742784083473491449618058595906"
+  },
+  {
+    "timestamp": 1789491239,
+    "tickCumulative": "1720039755222",
+    "secondsPerLiquidity": "1068517597827136742785375023401099202707290669"
+  },
+  {
+    "timestamp": 1789492002,
+    "tickCumulative": "1720226952694",
+    "secondsPerLiquidity": "1068517597827136742789735433051818818136291131"
+  },
+  {
+    "timestamp": 1789492009,
+    "tickCumulative": "1720228669934",
+    "secondsPerLiquidity": "1068517597827136742789775436810082300846648933"
+  },
+  {
+    "timestamp": 1789492010,
+    "tickCumulative": "1720228915243",
+    "secondsPerLiquidity": "1068517597827136742789781151632691369805271476"
+  },
+  {
+    "timestamp": 1789493303,
+    "tickCumulative": "1720546031251",
+    "secondsPerLiquidity": "1068517597827136742797170417266217533304219835"
+  },
+  {
+    "timestamp": 1789494607,
+    "tickCumulative": "1720865842467",
+    "secondsPerLiquidity": "1068517597827136742804622545948443455348016169"
+  },
+  {
+    "timestamp": 1789500507,
+    "tickCumulative": "1722312787967",
+    "secondsPerLiquidity": "1068517597827136742838339999341950311221021058"
+  },
+  {
+    "timestamp": 1789501971,
+    "tickCumulative": "1722671847143",
+    "secondsPerLiquidity": "1068517597827136742846706499641627266644424305"
+  },
+  {
+    "timestamp": 1789502893,
+    "tickCumulative": "1722897987005",
+    "secondsPerLiquidity": "1068517597827136742851975566087188846494409136"
+  },
+  {
+    "timestamp": 1789508563,
+    "tickCumulative": "1724288673575",
+    "secondsPerLiquidity": "1068517597827136742884366875616023802677629581"
+  },
+  {
+    "timestamp": 1789514474,
+    "tickCumulative": "1725738470456",
+    "secondsPerLiquidity": "1068517597827136742918035950103700723797872867"
+  },
+  {
+    "timestamp": 1789516970,
+    "tickCumulative": "1726350639416",
+    "secondsPerLiquidity": "1068517597827136742932253173910373299523829091"
+  },
+  {
+    "timestamp": 1789520307,
+    "tickCumulative": "1727169162135",
+    "secondsPerLiquidity": "1068517597827136742951260736347419126926680021"
+  },
+  {
+    "timestamp": 1789521946,
+    "tickCumulative": "1727571180972",
+    "secondsPerLiquidity": "1068517597827136742960596485473675678054421307"
+  },
+  {
+    "timestamp": 1789524169,
+    "tickCumulative": "1728116391729",
+    "secondsPerLiquidity": "1068517597827136742973258700426493440810351069"
+  },
+  {
+    "timestamp": 1789529145,
+    "tickCumulative": "1729336820417",
+    "secondsPerLiquidity": "1068517597827136743001602011989795819340943286"
+  },
+  {
+    "timestamp": 1789532626,
+    "tickCumulative": "1730190497376",
+    "secondsPerLiquidity": "1068517597827136743021429798877226603035676306"
+  },
+  {
+    "timestamp": 1789536991,
+    "tickCumulative": "1731260983071",
+    "secondsPerLiquidity": "1068517597827136743046292852529520590633352155"
+  },
+  {
+    "timestamp": 1789536993,
+    "tickCumulative": "1731261473611",
+    "secondsPerLiquidity": "1068517597827136743046304244535775937248517184"
+  },
+  {
+    "timestamp": 1789542240,
+    "tickCumulative": "1732548221656",
+    "secondsPerLiquidity": "1068517597827136743076191172946677782133970834"
+  },
+  {
+    "timestamp": 1789542276,
+    "tickCumulative": "1732557052132",
+    "secondsPerLiquidity": "1068517597827136743076396229059274021206941356"
+  },
+  {
+    "timestamp": 1789542280,
+    "tickCumulative": "1732558033200",
+    "secondsPerLiquidity": "1068517597827136743076419013071784714437271414"
+  },
+  {
+    "timestamp": 1789544211,
+    "tickCumulative": "1733031595502",
+    "secondsPerLiquidity": "1068517597827136743087417995111321871379106938"
+  },
+  {
+    "timestamp": 1789550222,
+    "tickCumulative": "1734505600900",
+    "secondsPerLiquidity": "1068517597827136743121656669911766123257601676"
+  },
+  {
+    "timestamp": 1789550285,
+    "tickCumulative": "1734521049697",
+    "secondsPerLiquidity": "1068517597827136743122015518108809541635300090"
+  },
+  {
+    "timestamp": 1789550286,
+    "tickCumulative": "1734521295042",
+    "secondsPerLiquidity": "1068517597827136743122022421220322265761503219"
+  },
+  {
+    "timestamp": 1789550679,
+    "tickCumulative": "1734617690475",
+    "secondsPerLiquidity": "1068517597827136743124735344044822847359333058"
+  },
+  {
+    "timestamp": 1789555340,
+    "tickCumulative": "1735760744793",
+    "secondsPerLiquidity": "1068517597827136743156910746805629999592119013"
+  },
+  {
+    "timestamp": 1789556552,
+    "tickCumulative": "1736057934465",
+    "secondsPerLiquidity": "1068517597827136743165277317959051640550311799"
+  },
+  {
+    "timestamp": 1789559637,
+    "tickCumulative": "1736814280830",
+    "secondsPerLiquidity": "1068517597827136743186573416975805569886965880"
+  },
+  {
+    "timestamp": 1789560553,
+    "tickCumulative": "1737038828154",
+    "secondsPerLiquidity": "1068517597827136743192896667121460869489032375"
+  },
+  {
+    "timestamp": 1789569012,
+    "tickCumulative": "1739112467414",
+    "secondsPerLiquidity": "1068517597827136743251290087407594253041303647"
+  },
+  {
+    "timestamp": 1789569077,
+    "tickCumulative": "1739128401189",
+    "secondsPerLiquidity": "1068517597827136743251738789655921321244507055"
+  },
+  {
+    "timestamp": 1789570938,
+    "tickCumulative": "1739584597424",
+    "secondsPerLiquidity": "1068517597827136743264542787690999252597566027"
+  },
+  {
+    "timestamp": 1789571277,
+    "tickCumulative": "1739667683951",
+    "secondsPerLiquidity": "1068517597827136743266875165624310063306156565"
+  },
+  {
+    "timestamp": 1789571367,
+    "tickCumulative": "1739689739711",
+    "secondsPerLiquidity": "1068517597827136743267494381004835057299587681"
+  },
+  {
+    "timestamp": 1789575405,
+    "tickCumulative": "1740679191041",
+    "secondsPerLiquidity": "1068517597827136743295276511077723121138197101"
+  },
+  {
+    "timestamp": 1789575562,
+    "tickCumulative": "1740717662478",
+    "secondsPerLiquidity": "1068517597827136743296356697908194499548960270"
+  },
+  {
+    "timestamp": 1789575639,
+    "tickCumulative": "1740736530327",
+    "secondsPerLiquidity": "1068517597827136743296886471067088105521118002"
+  },
+  {
+    "timestamp": 1789577427,
+    "tickCumulative": "1741174645755",
+    "secondsPerLiquidity": "1068517597827136743309188216626851319523949513"
+  },
+  {
+    "timestamp": 1789578531,
+    "tickCumulative": "1741445153355",
+    "secondsPerLiquidity": "1068517597827136743316783925294624579176704540"
+  },
+  {
+    "timestamp": 1789578734,
+    "tickCumulative": "1741494894039",
+    "secondsPerLiquidity": "1068517597827136743318180599986253176739665835"
+  },
+  {
+    "timestamp": 1789583593,
+    "tickCumulative": "1742685509386",
+    "secondsPerLiquidity": "1068517597827136743351611350363708130229463550"
+  },
+  {
+    "timestamp": 1789585753,
+    "tickCumulative": "1743214787146",
+    "secondsPerLiquidity": "1068517597827136743366472519496307986071810342"
+  },
+  {
+    "timestamp": 1789586457,
+    "tickCumulative": "1743387291082",
+    "secondsPerLiquidity": "1068517597827136743371316159806192383531538185"
+  },
+  {
+    "timestamp": 1789587267,
+    "tickCumulative": "1743585792112",
+    "secondsPerLiquidity": "1068517597827136743376889098230917329472418232"
+  },
+  {
+    "timestamp": 1789595241,
+    "tickCumulative": "1745539940422",
+    "secondsPerLiquidity": "1068517597827136743431751580945431797290415141"
+  },
+  {
+    "timestamp": 1789597703,
+    "tickCumulative": "1746143292914",
+    "secondsPerLiquidity": "1068517597827136743448690561688237744088497457"
+  },
+  {
+    "timestamp": 1789608368,
+    "tickCumulative": "1748756996459",
+    "secondsPerLiquidity": "1068517597827136743522067584280449532310084745"
+  },
+  {
+    "timestamp": 1789608709,
+    "tickCumulative": "1748840553394",
+    "secondsPerLiquidity": "1068517597827136743524413722555549787329640419"
+  },
+  {
+    "timestamp": 1789608715,
+    "tickCumulative": "1748842023556",
+    "secondsPerLiquidity": "1068517597827136743524455003580918120262535826"
+  },
+  {
+    "timestamp": 1789615945,
+    "tickCumulative": "1750613539846",
+    "secondsPerLiquidity": "1068517597827136743574198639149759304401502173"
+  },
+  {
+    "timestamp": 1789619081,
+    "tickCumulative": "1751381931974",
+    "secondsPerLiquidity": "1068517597827136743595697517720164261896192249"
+  },
+  {
+    "timestamp": 1789628706,
+    "tickCumulative": "1753740297599",
+    "secondsPerLiquidity": "1068517597827136743661681799046741977421189694"
+  },
+  {
+    "timestamp": 1789631761,
+    "tickCumulative": "1754488784819",
+    "secondsPerLiquidity": "1068517597827136743682625381327541449725487584"
+  },
+  {
+    "timestamp": 1789646468,
+    "tickCumulative": "1758091632144",
+    "secondsPerLiquidity": "1068517597827136743783449363194552199047683680"
+  },
+  {
+    "timestamp": 1789647067,
+    "tickCumulative": "1758238359590",
+    "secondsPerLiquidity": "1068517597827136743787555813533733503109966637"
+  },
+  {
+    "timestamp": 1789649831,
+    "tickCumulative": "1758915354402",
+    "secondsPerLiquidity": "1068517597827136743806504442477802158248781487"
+  },
+  {
+    "timestamp": 1789651928,
+    "tickCumulative": "1759428936963",
+    "secondsPerLiquidity": "1068517597827136743820880446419810830400045865"
+  },
+  {
+    "timestamp": 1789652114,
+    "tickCumulative": "1759474485759",
+    "secondsPerLiquidity": "1068517597827136743822155571232978981577983477"
+  },
+  {
+    "timestamp": 1789655478,
+    "tickCumulative": "1760298285627",
+    "secondsPerLiquidity": "1068517597827136743845217506025977156645629337"
+  },
+  {
+    "timestamp": 1789656733,
+    "tickCumulative": "1760605655207",
+    "secondsPerLiquidity": "1068517597827136743853821170759988069163434198"
+  },
+  {
+    "timestamp": 1789657171,
+    "tickCumulative": "1760712929291",
+    "secondsPerLiquidity": "1068517597827136743856823884029706618711480834"
+  },
+  {
+    "timestamp": 1789664629,
+    "tickCumulative": "1762539826055",
+    "secondsPerLiquidity": "1068517597827136743907952275731900551426850283"
+  },
+  {
+    "timestamp": 1789668179,
+    "tickCumulative": "1763409444705",
+    "secondsPerLiquidity": "1068517597827136743932289335338066877672433756"
+  },
+  {
+    "timestamp": 1789668203,
+    "tickCumulative": "1763415323337",
+    "secondsPerLiquidity": "1068517597827136743932453867572024058469586996"
+  },
+  {
+    "timestamp": 1789668246,
+    "tickCumulative": "1763425854123",
+    "secondsPerLiquidity": "1068517597827136743932748654491197340731153218"
+  },
+  {
+    "timestamp": 1789668296,
+    "tickCumulative": "1763438100673",
+    "secondsPerLiquidity": "1068517597827136743933091429978608134058555802"
+  },
+  {
+    "timestamp": 1789668346,
+    "tickCumulative": "1763450348673",
+    "secondsPerLiquidity": "1068517597827136743933434205466018927385958386"
+  },
+  {
+    "timestamp": 1789671677,
+    "tickCumulative": "1764266283785",
+    "secondsPerLiquidity": "1068517597827136743956269908437325978857518540"
+  },
+  {
+    "timestamp": 1789673515,
+    "tickCumulative": "1764716560701",
+    "secondsPerLiquidity": "1068517597827136743968870335354546741572837532"
+  },
+  {
+    "timestamp": 1789675621,
+    "tickCumulative": "1765232494899",
+    "secondsPerLiquidity": "1068517597827136743983308038884289356523034375"
+  },
+  {
+    "timestamp": 1789675737,
+    "tickCumulative": "1765260914087",
+    "secondsPerLiquidity": "1068517597827136743984103278015082397042608370"
+  },
+  {
+    "timestamp": 1789675738,
+    "tickCumulative": "1765261159008",
+    "secondsPerLiquidity": "1068517597827136743984110133524830612909156421"
+  },
+  {
+    "timestamp": 1789675741,
+    "tickCumulative": "1765261893621",
+    "secondsPerLiquidity": "1068517597827136743984130700054075260508800576"
+  },
+  {
+    "timestamp": 1789675747,
+    "tickCumulative": "1765263362667",
+    "secondsPerLiquidity": "1068517597827136743984171833112564555708088886"
+  },
+  {
+    "timestamp": 1789675748,
+    "tickCumulative": "1765263607505",
+    "secondsPerLiquidity": "1068517597827136743984178688622312771574636937"
+  },
+  {
+    "timestamp": 1789675761,
+    "tickCumulative": "1765266790386",
+    "secondsPerLiquidity": "1068517597827136743984267810249039577839761608"
+  },
+  {
+    "timestamp": 1789675769,
+    "tickCumulative": "1765268749314",
+    "secondsPerLiquidity": "1068517597827136743984322654327025304772146021"
+  },
+  {
+    "timestamp": 1789675777,
+    "tickCumulative": "1765270708370",
+    "secondsPerLiquidity": "1068517597827136743984377498405011031704530434"
+  },
+  {
+    "timestamp": 1789675784,
+    "tickCumulative": "1765272422551",
+    "secondsPerLiquidity": "1068517597827136743984425486973248542770366795"
+  },
+  {
+    "timestamp": 1789675801,
+    "tickCumulative": "1765276586072",
+    "secondsPerLiquidity": "1068517597827136743984542030638968212501683673"
+  },
+  {
+    "timestamp": 1789675817,
+    "tickCumulative": "1765280504984",
+    "secondsPerLiquidity": "1068517597827136743984651718794939666366452499"
+  },
+  {
+    "timestamp": 1789675818,
+    "tickCumulative": "1765280749932",
+    "secondsPerLiquidity": "1068517597827136743984658574304687882233000550"
+  },
+  {
+    "timestamp": 1789676053,
+    "tickCumulative": "1765338313652",
+    "secondsPerLiquidity": "1068517597827136743986269619095518610871792695"
+  },
+  {
+    "timestamp": 1789676057,
+    "tickCumulative": "1765339293576",
+    "secondsPerLiquidity": "1068517597827136743986297041134511474337984901"
+  },
+  {
+    "timestamp": 1789677434,
+    "tickCumulative": "1765676805915",
+    "secondsPerLiquidity": "1068517597827136743995737078057804722574652067"
+  },
+  {
+    "timestamp": 1789677517,
+    "tickCumulative": "1765697150128",
+    "secondsPerLiquidity": "1068517597827136743996306085366906639498140356"
+  },
+  {
+    "timestamp": 1789677608,
+    "tickCumulative": "1765719455229",
+    "secondsPerLiquidity": "1068517597827136743997820534530806604033053932"
+  },
+  {
+    "timestamp": 1789678732,
+    "tickCumulative": "1765994959993",
+    "secondsPerLiquidity": "1068517597827136744000307290073449851917089220"
+  },
+  {
+    "timestamp": 1789679029,
+    "tickCumulative": "1766067757663",
+    "secondsPerLiquidity": "1068517597827136744000964377614521955672924167"
+  },
+  {
+    "timestamp": 1789683229,
+    "tickCumulative": "1767097207063",
+    "secondsPerLiquidity": "1068517597827136744010256524659986049189782008"
+  },
+  {
+    "timestamp": 1789687672,
+    "tickCumulative": "1768186230793",
+    "secondsPerLiquidity": "1068517597827136744020086288784509136688686624"
+  },
+  {
+    "timestamp": 1789738455,
+    "tickCumulative": "1780633753489",
+    "secondsPerLiquidity": "1068517597827136744132439408643986055990256090"
+  },
+  {
+    "timestamp": 1789738800,
+    "tickCumulative": "1780718316094",
+    "secondsPerLiquidity": "1068517597827136744133202692151292035100569412"
+  },
+  {
+    "timestamp": 1789739231,
+    "tickCumulative": "1780823957642",
+    "secondsPerLiquidity": "1068517597827136744134156243431433707554323157"
+  },
+  {
+    "timestamp": 1789739465,
+    "tickCumulative": "1780881312680",
+    "secondsPerLiquidity": "1068517597827136744134673948766823849907405236"
+  },
+  {
+    "timestamp": 1789739512,
+    "tickCumulative": "1780892832662",
+    "secondsPerLiquidity": "1068517597827136744134777932317094519525331978"
+  },
+  {
+    "timestamp": 1789740062,
+    "tickCumulative": "1781027640412",
+    "secondsPerLiquidity": "1068517597827136744135994761096857674628730028"
+  },
+  {
+    "timestamp": 1789740102,
+    "tickCumulative": "1781037444932",
+    "secondsPerLiquidity": "1068517597827136744136083257735385904090795340"
+  },
+  {
+    "timestamp": 1789744415,
+    "tickCumulative": "1782094660431",
+    "secondsPerLiquidity": "1068517597827136744145625407784692245837987689"
+  },
+  {
+    "timestamp": 1789745076,
+    "tickCumulative": "1782256690039",
+    "secondsPerLiquidity": "1068517597827136744147087814736371237698616982"
+  },
+  {
+    "timestamp": 1789748843,
+    "tickCumulative": "1783180102283",
+    "secondsPerLiquidity": "1068517597827136744155421985669767247288617812"
+  },
+  {
+    "timestamp": 1789752007,
+    "tickCumulative": "1783955706259",
+    "secondsPerLiquidity": "1068517597827136744162422069777350197737984052"
+  },
+  {
+    "timestamp": 1789756631,
+    "tickCumulative": "1785089238243",
+    "secondsPerLiquidity": "1068517597827136744172652281191213523552734208"
+  },
+  {
+    "timestamp": 1789761911,
+    "tickCumulative": "1786383609123",
+    "secondsPerLiquidity": "1068517597827136744184333837476939812545355494"
+  },
+  {
+    "timestamp": 1789762138,
+    "tickCumulative": "1786439260897",
+    "secondsPerLiquidity": "1068517597827136744184836055900587514742576143"
+  },
+  {
+    "timestamp": 1789762564,
+    "tickCumulative": "1786543702891",
+    "secondsPerLiquidity": "1068517597827136744185778545100913158513571724"
+  },
+  {
+    "timestamp": 1789762832,
+    "tickCumulative": "1786609410059",
+    "secondsPerLiquidity": "1068517597827136744186371472579052295909409319"
+  },
+  {
+    "timestamp": 1789769456,
+    "tickCumulative": "1788233515499",
+    "secondsPerLiquidity": "1068517597827136744201026515919327094827425114"
+  },
+  {
+    "timestamp": 1789796524,
+    "tickCumulative": "1794870210147",
+    "secondsPerLiquidity": "1068517597827136744260912191211379971807022268"
+  },
+  {
+    "timestamp": 1789796779,
+    "tickCumulative": "1794932732577",
+    "secondsPerLiquidity": "1068517597827136744261476960812319478873790432"
+  },
+  {
+    "timestamp": 1789798300,
+    "tickCumulative": "1795305663525",
+    "secondsPerLiquidity": "1068517597827136744264845645373217479848513482"
+  },
+  {
+    "timestamp": 1789798337,
+    "tickCumulative": "1795314735777",
+    "secondsPerLiquidity": "1068517597827136744264927592334922427932711215"
+  },
+  {
+    "timestamp": 1789828758,
+    "tickCumulative": "1802774056240",
+    "secondsPerLiquidity": "1068517597827136744332303498335631229807826223"
+  },
+  {
+    "timestamp": 1789843933,
+    "tickCumulative": "1806495042115",
+    "secondsPerLiquidity": "1068517597827136744365912826548403856232166982"
+  },
+  {
+    "timestamp": 1789849937,
+    "tickCumulative": "1807967294963",
+    "secondsPerLiquidity": "1068517597827136744379210382172093269678739761"
+  },
+  {
+    "timestamp": 1789888278,
+    "tickCumulative": "1817368968255",
+    "secondsPerLiquidity": "1068517597827136744463799733775938953981378694"
+  },
+  {
+    "timestamp": 1789889593,
+    "tickCumulative": "1817691427295",
+    "secondsPerLiquidity": "1068517597827136744466700936075280574566600002"
+  },
+  {
+    "timestamp": 1789909482,
+    "tickCumulative": "1822568846543",
+    "secondsPerLiquidity": "1068517597827136744510580793513763838307639248"
+  },
+  {
+    "timestamp": 1789922442,
+    "tickCumulative": "1825747118063",
+    "secondsPerLiquidity": "1068517597827136744539173631384081254873774731"
+  },
+  {
+    "timestamp": 1789940751,
+    "tickCumulative": "1830237400313",
+    "secondsPerLiquidity": "1068517597827136744579567633588374586656905484"
+  },
+  {
+    "timestamp": 1789951620,
+    "tickCumulative": "1832903066039",
+    "secondsPerLiquidity": "1068517597827136744603547228867115327448365867"
+  },
+  {
+    "timestamp": 1789959985,
+    "tickCumulative": "1834954607384",
+    "secondsPerLiquidity": "1068517597827136744622002405470912024174887728"
+  },
+  {
+    "timestamp": 1789976296,
+    "tickCumulative": "1838955141110",
+    "secondsPerLiquidity": "1068517597827136744657988345170198087570739261"
+  },
+  {
+    "timestamp": 1789978303,
+    "tickCumulative": "1839447375923",
+    "secondsPerLiquidity": "1068517597827136744662416263812615298608411631"
+  },
+  {
+    "timestamp": 1789979385,
+    "tickCumulative": "1839712706127",
+    "secondsPerLiquidity": "1068517597827136744664803412776788403911232510"
+  },
+  {
+    "timestamp": 1789979607,
+    "tickCumulative": "1839767145855",
+    "secondsPerLiquidity": "1068517597827136744665293197499566989287596867"
+  },
+  {
+    "timestamp": 1789987316,
+    "tickCumulative": "1841657515999",
+    "secondsPerLiquidity": "1068517597827136744682301082309927866163240265"
+  },
+  {
+    "timestamp": 1789987616,
+    "tickCumulative": "1841731078399",
+    "secondsPerLiquidity": "1068517597827136744682962953556925954509678586"
+  },
+  {
+    "timestamp": 1789990135,
+    "tickCumulative": "1842348769946",
+    "secondsPerLiquidity": "1068517597827136744688520465794219902991939024"
+  },
+  {
+    "timestamp": 1789990414,
+    "tickCumulative": "1842417178235",
+    "secondsPerLiquidity": "1068517597827136744689136006053928125154126662"
+  },
+  {
+    "timestamp": 1789991821,
+    "tickCumulative": "1842762153530",
+    "secondsPerLiquidity": "1068517597827136744692240182202349159498922389"
+  },
+  {
+    "timestamp": 1789993121,
+    "tickCumulative": "1843080886230",
+    "secondsPerLiquidity": "1068517597827136744695108290939340875666821781"
+  },
+  {
+    "timestamp": 1789993165,
+    "tickCumulative": "1843091673534",
+    "secondsPerLiquidity": "1068517597827136744695205365388900595290966068"
+  },
+  {
+    "timestamp": 1789993168,
+    "tickCumulative": "1843092409008",
+    "secondsPerLiquidity": "1068517597827136744695211984101370576174430451"
+  },
+  {
+    "timestamp": 1789994164,
+    "tickCumulative": "1843336577412",
+    "secondsPerLiquidity": "1068517597827136744697409396641404229484605677"
+  },
+  {
+    "timestamp": 1789994476,
+    "tickCumulative": "1843413062340",
+    "secondsPerLiquidity": "1068517597827136744698097742738282241364901531"
+  },
+  {
+    "timestamp": 1789994627,
+    "tickCumulative": "1843450078178",
+    "secondsPerLiquidity": "1068517597827136744698430884599271279165942152"
+  },
+  {
+    "timestamp": 1789994719,
+    "tickCumulative": "1843472629770",
+    "secondsPerLiquidity": "1068517597827136744698633858448350692925516570"
+  },
+  {
+    "timestamp": 1789994793,
+    "tickCumulative": "1843490768206",
+    "secondsPerLiquidity": "1068517597827136744698797120022610221384304689"
+  },
+  {
+    "timestamp": 1789994816,
+    "tickCumulative": "1843496405667",
+    "secondsPerLiquidity": "1068517597827136744698847863484880074824198293"
+  },
+  {
+    "timestamp": 1789994818,
+    "tickCumulative": "1843496895839",
+    "secondsPerLiquidity": "1068517597827136744698852275959860062079841215"
+  },
+  {
+    "timestamp": 1789994886,
+    "tickCumulative": "1843513561347",
+    "secondsPerLiquidity": "1068517597827136744699002300109179628771700567"
+  },
+  {
+    "timestamp": 1790014521,
+    "tickCumulative": "1848325608972",
+    "secondsPerLiquidity": "1068517597827136744742321773225204511046088701"
+  },
+  {
+    "timestamp": 1790015245,
+    "tickCumulative": "1848503050512",
+    "secondsPerLiquidity": "1068517597827136744743919089167959897588826516"
+  },
+  {
+    "timestamp": 1790054598,
+    "tickCumulative": "1858148706930",
+    "secondsPerLiquidity": "1068517597827136744830741153111679133246784053"
+  },
+  {
+    "timestamp": 1790055506,
+    "tickCumulative": "1858371264086",
+    "secondsPerLiquidity": "1068517597827136744832744416752593347308670705"
+  },
+  {
+    "timestamp": 1790055597,
+    "tickCumulative": "1858393568823",
+    "secondsPerLiquidity": "1068517597827136744834271138448781983187389587"
+  },
+  {
+    "timestamp": 1790056083,
+    "tickCumulative": "1858512690825",
+    "secondsPerLiquidity": "1068517597827136744837641282167517322324435527"
+  },
+  {
+    "timestamp": 1790056120,
+    "tickCumulative": "1858521759784",
+    "secondsPerLiquidity": "1068517597827136744838262037142890723725672874"
+  },
+  {
+    "timestamp": 1790067629,
+    "tickCumulative": "1861342696247",
+    "secondsPerLiquidity": "1068517597827136744993107886713638313893913009"
+  },
+  {
+    "timestamp": 1790069045,
+    "tickCumulative": "1861689696959",
+    "secondsPerLiquidity": "1068517597827136745012159213761355629705732283"
+  },
+  {
+    "timestamp": 1790071081,
+    "tickCumulative": "1862188533247",
+    "secondsPerLiquidity": "1068517597827136745039552223555954821084873556"
+  },
+  {
+    "timestamp": 1790071130,
+    "tickCumulative": "1862200536238",
+    "secondsPerLiquidity": "1068517597827136745040211485579498711250678036"
+  },
+  {
+    "timestamp": 1790075599,
+    "tickCumulative": "1863295039028",
+    "secondsPerLiquidity": "1068517597827136745100338872992103714331907088"
+  },
+  {
+    "timestamp": 1790083495,
+    "tickCumulative": "1865228469380",
+    "secondsPerLiquidity": "1068517597827136745206574239071747729621543382"
+  },
+  {
+    "timestamp": 1790084013,
+    "tickCumulative": "1865355282514",
+    "secondsPerLiquidity": "1068517597827136745213543580463497425660047890"
+  },
+  {
+    "timestamp": 1790084389,
+    "tickCumulative": "1865447313778",
+    "secondsPerLiquidity": "1068517597827136745218602407419670950197649618"
+  },
+  {
+    "timestamp": 1790086391,
+    "tickCumulative": "1865937235210",
+    "secondsPerLiquidity": "1068517597827136745245537970095892748400518394"
+  },
+  {
+    "timestamp": 1790088767,
+    "tickCumulative": "1866518687554",
+    "secondsPerLiquidity": "1068517597827136745277505451074265871542384634"
+  },
+  {
+    "timestamp": 1790089498,
+    "tickCumulative": "1866697590301",
+    "secondsPerLiquidity": "1068517597827136745287340564119379824832243313"
+  },
+  {
+    "timestamp": 1790089543,
+    "tickCumulative": "1866708606076",
+    "secondsPerLiquidity": "1068517597827136745287946008834879315800839264"
+  },
+  {
+    "timestamp": 1790102532,
+    "tickCumulative": "1869888988704",
+    "secondsPerLiquidity": "1068517597827136745462704262382054608936235139"
+  },
+  {
+    "timestamp": 1790102935,
+    "tickCumulative": "1869987687434",
+    "secondsPerLiquidity": "1068517597827136745468126356167527828054994438"
+  },
+  {
+    "timestamp": 1790102978,
+    "tickCumulative": "1869998216629",
+    "secondsPerLiquidity": "1068517597827136745468704892229005119424986125"
+  },
+  {
+    "timestamp": 1790103019,
+    "tickCumulative": "1870008258472",
+    "secondsPerLiquidity": "1068517597827136745469256519636460211196373547"
+  },
+  {
+    "timestamp": 1790103081,
+    "tickCumulative": "1870023447294",
+    "secondsPerLiquidity": "1068517597827136745470090687911148398753105746"
+  },
+  {
+    "timestamp": 1790103130,
+    "tickCumulative": "1870035451363",
+    "secondsPerLiquidity": "1068517597827136745472193151165489596719202726"
+  },
+  {
+    "timestamp": 1790103357,
+    "tickCumulative": "1870091062050",
+    "secondsPerLiquidity": "1068517597827136745473462408035637543488572807"
+  },
+  {
+    "timestamp": 1790105960,
+    "tickCumulative": "1870728791844",
+    "secondsPerLiquidity": "1068517597827136745488016926242664439702979514"
+  },
+  {
+    "timestamp": 1790111973,
+    "tickCumulative": "1872201958805",
+    "secondsPerLiquidity": "1068517597827136745521638254701693531880170266"
+  },
+  {
+    "timestamp": 1790170351,
+    "tickCumulative": "1886504335293",
+    "secondsPerLiquidity": "1068517597827136745848055336488023208101697250"
+  },
+  {
+    "timestamp": 1790170459,
+    "tickCumulative": "1886530812465",
+    "secondsPerLiquidity": "1068517597827136745852689337130244624026972228"
+  },
+  {
+    "timestamp": 1790170460,
+    "tickCumulative": "1886531057959",
+    "secondsPerLiquidity": "1068517597827136745852805815252055312824782805"
+  },
+  {
+    "timestamp": 1790190036,
+    "tickCumulative": "1891334088287",
+    "secondsPerLiquidity": "1068517597827136748132981527818099218764641433"
+  },
+  {
+    "timestamp": 1790220068,
+    "tickCumulative": "1898702529583",
+    "secondsPerLiquidity": "1068517597827136749461948390458998814279946218"
+  },
+  {
+    "timestamp": 1790230575,
+    "tickCumulative": "1901280474568",
+    "secondsPerLiquidity": "1068517597827136749926900935270131341253817667"
+  },
+  {
+    "timestamp": 1790232939,
+    "tickCumulative": "1901860429960",
+    "secondsPerLiquidity": "1068517597827136750031511938975615046761215792"
+  },
+  {
+    "timestamp": 1790232940,
+    "tickCumulative": "1901860675571",
+    "secondsPerLiquidity": "1068517597827136750031628417097425735559026369"
+  },
+  {
+    "timestamp": 1790244604,
+    "tickCumulative": "1904723825987",
+    "secondsPerLiquidity": "1068517597827136751390229229897299873221598449"
+  },
+  {
+    "timestamp": 1790245151,
+    "tickCumulative": "1904858098077",
+    "secondsPerLiquidity": "1068517597827136751453942762527746645623984159"
+  },
+  {
+    "timestamp": 1790249962,
+    "tickCumulative": "1906039087924",
+    "secondsPerLiquidity": "1068517597827136752014319006558970451890670911"
+  },
+  {
+    "timestamp": 1790256674,
+    "tickCumulative": "1907686709412",
+    "secondsPerLiquidity": "1068517597827136752796120160152313662795264858"
+  },
+  {
+    "timestamp": 1790256707,
+    "tickCumulative": "1907694807942",
+    "secondsPerLiquidity": "1068517597827136752799963938172066393123013904"
+  },
+  {
+    "timestamp": 1790256759,
+    "tickCumulative": "1907707566870",
+    "secondsPerLiquidity": "1068517597827136752802265026240038115917592881"
+  },
+  {
+    "timestamp": 1790258452,
+    "tickCumulative": "1908122905481",
+    "secondsPerLiquidity": "1068517597827136752877183143529963629210327663"
+  },
+  {
+    "timestamp": 1790266716,
+    "tickCumulative": "1910150461353",
+    "secondsPerLiquidity": "1068517597827136753242879139563008190256494376"
+  },
+  {
+    "timestamp": 1790267096,
+    "tickCumulative": "1910243684093",
+    "secondsPerLiquidity": "1068517597827136753259694783136647702986109979"
+  },
+  {
+    "timestamp": 1790267611,
+    "tickCumulative": "1910370011018",
+    "secondsPerLiquidity": "1068517597827136753282484405348290726817036389"
+  },
+  {
+    "timestamp": 1790268063,
+    "tickCumulative": "1910480872154",
+    "secondsPerLiquidity": "1068517597827136753302486170862198778800684423"
+  }
+]

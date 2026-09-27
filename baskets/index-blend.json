@@ -1,0 +1,18 @@
+{
+  "id": 4,
+  "name": "Index Blend",
+  "symbol": "sINDEX",
+  "capUsd": "10000",
+  "components": [
+    {
+      "token": "SPY",
+      "proposal": "../reports/assessments/0x117cc2133c37b721f49de2a7a74833232b3b4c0c/1790164992559/proposed-settings.json",
+      "weightBps": 6000
+    },
+    {
+      "token": "QQQ",
+      "proposal": "../reports/assessments/0xd5f3879160bc7c32ebb4dc785f8a4f505888de68/1790165042504/proposed-settings.json",
+      "weightBps": 4000
+    }
+  ]
+}

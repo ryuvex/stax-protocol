@@ -1,0 +1,135 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "No candidate completed the required configuration checks; inspect pool results.",
+  "pools": [
+    {
+      "address": "0xaA34feA710a1A737840329051D81D3B0B7C564d5",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 250,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "deviationCeilingOverridden": true
+        },
+        "candidates": [
+          {
+            "params": {
+              "twapWindow": 3600,
+              "maxObservationAge": 3600,
+              "minCurrentLiquidity": "790000000000000000",
+              "minHarmonicLiquidity": "790000000000000000",
+              "maxDeviationBps": 250,
+              "slippageBps": 200
+            },
+            "statistics": {
+              "historicalStaleFraction": 0.04060911757028575,
+              "latestObservationAge": 292,
+              "maxGap": 8895,
+              "deviationP95Bps": 221.19635370436487,
+              "deviationP99Bps": 358.0707167782593,
+              "deviationSamples": 2388,
+              "deviationExceedanceFraction": 0.028894472361809045,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "790909440871825764"
+            }
+          }
+        ],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.16294893055107712,
+              "latestObservationAge": 292,
+              "maxGap": 8895,
+              "deviationP95Bps": 170.5229758388127,
+              "deviationP99Bps": 318.0197919302508,
+              "deviationSamples": 2395,
+              "deviationExceedanceFraction": 0.033402922755741124,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "790909440871825764"
+            }
+          },
+          {
+            "window": 10800,
+            "reason": "Measured deviation exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0,
+              "latestObservationAge": 292,
+              "maxGap": 8895,
+              "deviationP95Bps": 293.69976267146217,
+              "deviationP99Bps": 433.4373351207721,
+              "deviationSamples": 2120,
+              "deviationExceedanceFraction": 0.04622641509433962,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "790909440871825764"
+            }
+          }
+        ],
+        "reason": null
+      },
+      "configurationTests": [
+        {
+          "status": "INSUFFICIENT_EVIDENCE",
+          "reason": "Attack probe is unresolved, profitable, or diluted existing holders.",
+          "params": {
+            "twapWindow": 3600,
+            "maxObservationAge": 3600,
+            "minCurrentLiquidity": "790000000000000000",
+            "minHarmonicLiquidity": "790000000000000000",
+            "maxDeviationBps": 250,
+            "slippageBps": 200
+          },
+          "listingApproved": false,
+          "statistics": {
+            "historicalStaleFraction": 0.04060911757028575,
+            "latestObservationAge": 292,
+            "maxGap": 8895,
+            "deviationP95Bps": 221.19635370436487,
+            "deviationP99Bps": 358.0707167782593,
+            "deviationSamples": 2388,
+            "deviationExceedanceFraction": 0.028894472361809045,
+            "hourlyLiquiditySamples": 72,
+            "minimumHourlyLiquidity": "790909440871825764"
+          }
+        }
+      ]
+    },
+    {
+      "address": "0xC97894fc00C6Eeb060838559D905B4C2253fd429",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 250,
+          "slippageBps": 200,
+          "maxCandidates": 3,
+          "deviationCeilingOverridden": true
+        },
+        "candidates": [],
+        "rejected": [],
+        "reason": "Insufficient initialized observations (need at least 100)."
+      },
+      "configurationTests": []
+    }
+  ]
+}

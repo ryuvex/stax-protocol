@@ -1,0 +1,59 @@
+{
+  "blockNumber": 71483282,
+  "blockHash": "0x97dbdd783e956ca8ec2a37e4fca1f0d6328f4a4716acd8a1c450ff086c84e809",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.880558",
+      "lossPct": 1.194419999999996,
+      "mintGas": "518083",
+      "redeemGas": "343808"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.805977",
+      "lossPct": 1.1940229999999996,
+      "mintGas": "518019",
+      "redeemGas": "343792"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "988.098495",
+      "lossPct": 1.190150499999998,
+      "mintGas": "539786",
+      "redeemGas": "365396"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d73000000000000000000000000000000000000000000000002273941e21e0f040800000000000000000000000000000000000000000000000195ba30c3c2c06e2c)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0xD5a1508ceD74c084eBf3cBe853e2C968fB2a651C",
+    "maxStaleness": 345600,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "fee": 3000,
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "246107000000000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

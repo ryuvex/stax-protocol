@@ -1,0 +1,11 @@
+{
+  "feed": "0x1C6c8cADBe02E19129c39dDB92281cE4c0bf206b",
+  "maxStaleness": 345600,
+  "route": {
+    "venue": "v3",
+    "fee": 10000,
+    "pool": "0xc30c89cB7815A1488b7998D15eEC73961707Fc5a",
+    "source": "deepest canonical V3 USDG pool (raw liquidity, not USD depth)"
+  },
+  "slippageBps": 200
+}

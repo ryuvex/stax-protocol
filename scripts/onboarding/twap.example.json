@@ -1,0 +1,35 @@
+{
+  "chainId": 4663,
+  "vault": "REQUIRED_V2_VAULT_ADDRESS",
+  "expectedVaultCodeHash": "REQUIRED_REVIEWED_RUNTIME_KECCAK256",
+  "expectedOwner": "REQUIRED_VAULT_OWNER",
+  "usdg": "REQUIRED_USDG_ADDRESS",
+  "expectedUsdgDecimals": 6,
+  "token": "REQUIRED_TOKEN_ADDRESS",
+  "expectedTokenDecimals": null,
+  "router": "REQUIRED_VERIFIED_ROUTER",
+  "factory": "REQUIRED_VERIFIED_V3_FACTORY",
+  "poolInitCodeHash": "REQUIRED_VERIFIED_POOL_INIT_CODE_HASH",
+  "pool": "REQUIRED_VERIFIED_V3_USDG_POOL",
+  "fee": null,
+  "slippageBps": null,
+  "review": {
+    "tokenBehavior": "",
+    "routerDeployment": "",
+    "roundTripFork": "",
+    "chainlinkFeedSearch": "",
+    "riskParameters": ""
+  },
+  "oracle": {
+    "type": "TWAP",
+    "registry": "REQUIRED_REGISTRY_ADDRESS",
+    "expectedRegistryOwner": "REQUIRED_REGISTRY_OWNER",
+    "safety": {
+      "twapWindow": null,
+      "maxObservationAge": null,
+      "minCurrentLiquidity": "REQUIRED_REVIEWED_RAW_LIQUIDITY",
+      "minHarmonicLiquidity": "REQUIRED_REVIEWED_RAW_LIQUIDITY",
+      "maxDeviationBps": null
+    }
+  }
+}

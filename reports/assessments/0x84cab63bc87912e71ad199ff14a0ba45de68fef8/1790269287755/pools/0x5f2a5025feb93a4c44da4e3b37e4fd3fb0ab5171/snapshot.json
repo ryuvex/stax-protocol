@@ -1,0 +1,136 @@
+{
+  "blockNumber": 71532530,
+  "blockHash": "0x49014110b932dbc5c3d3ea8683051c2545b45dce61f496bccaaf126e538d5ad1",
+  "timestamp": 1790269287,
+  "addresses": {
+    "token": "0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0x5F2a5025feb93a4C44DA4E3B37e4fD3Fb0ab5171",
+    "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "predictedPool": "0x5F2a5025feb93a4C44DA4E3B37e4fD3Fb0ab5171",
+  "derivationMatches": true,
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "token1": "0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8",
+  "spotPriceUsdg": 187.9046133484631,
+  "tick": 223962,
+  "fee": 3000,
+  "tickSpacing": 60,
+  "liquidity": "15769911043777259",
+  "usdgBalancesRaw": {
+    "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+    "0x5F2a5025feb93a4C44DA4E3B37e4fD3Fb0ab5171": "14129758251",
+    "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+  },
+  "hourly": [
+    {
+      "hoursAgo": 0,
+      "meanTick": 224012,
+      "priceUsdg": 186.9686772085258
+    },
+    {
+      "hoursAgo": 1,
+      "meanTick": 224099,
+      "priceUsdg": 185.3491856925517
+    },
+    {
+      "hoursAgo": 2,
+      "meanTick": 224080,
+      "priceUsdg": 185.70166627215028
+    },
+    {
+      "hoursAgo": 3,
+      "meanTick": 224094,
+      "priceUsdg": 185.44187882217014
+    },
+    {
+      "hoursAgo": 4,
+      "meanTick": 224106,
+      "priceUsdg": 185.2194931447735
+    },
+    {
+      "hoursAgo": 5,
+      "meanTick": 224098,
+      "priceUsdg": 185.367720611121
+    },
+    {
+      "hoursAgo": 6,
+      "meanTick": 224131,
+      "priceUsdg": 184.75704583387636
+    },
+    {
+      "hoursAgo": 7,
+      "meanTick": 224111,
+      "priceUsdg": 185.1269111746437
+    },
+    {
+      "hoursAgo": 8,
+      "meanTick": 224045,
+      "priceUsdg": 186.3527282454074
+    },
+    {
+      "hoursAgo": 9,
+      "meanTick": 224009,
+      "priceUsdg": 187.02477342093565
+    }
+  ],
+  "windowDiagnostics": [
+    {
+      "seconds": 300,
+      "twapUsdg": 187.90581462976004,
+      "spotDeviationBps": 0.06392996934723172,
+      "harmonicLiquidityRaw": "15769911043777259"
+    },
+    {
+      "seconds": 900,
+      "twapUsdg": 187.94339767174415,
+      "spotDeviationBps": 2.0636172252663787,
+      "harmonicLiquidityRaw": "15769911043777259"
+    },
+    {
+      "seconds": 1800,
+      "twapUsdg": 187.75555760160705,
+      "spotDeviationBps": 7.938819428841004,
+      "harmonicLiquidityRaw": "16325340453693450"
+    },
+    {
+      "seconds": 3600,
+      "twapUsdg": 186.9686772085258,
+      "spotDeviationBps": 50.05844582691488,
+      "harmonicLiquidityRaw": "18985310608823244"
+    },
+    {
+      "seconds": 7200,
+      "twapUsdg": 186.1478631838599,
+      "spotDeviationBps": 94.37390978096039,
+      "harmonicLiquidityRaw": "22628125575485089"
+    },
+    {
+      "seconds": 14400,
+      "twapUsdg": 185.86886463999633,
+      "spotDeviationBps": 109.52607433255324,
+      "harmonicLiquidityRaw": "25584844714591142"
+    }
+  ],
+  "statistics": {
+    "hourlyTwapSamples": 10,
+    "hourlyLogReturnStd": 0.004397791028151074,
+    "maxAbsoluteHourlyLogReturn": 0.008699565028996926
+  },
+  "caveats": [
+    "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+    "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+  ]
+}

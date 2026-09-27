@@ -1,0 +1,11 @@
+{
+  "feed": "0x6652eDf64bA3731C4F2D3ce821A0Fb1f1f6b482a",
+  "maxStaleness": 349200,
+  "route": {
+    "venue": "v3",
+    "fee": 3000,
+    "pool": "0x654E4143e82a5824445Ade0824351C2A9ACD95a8",
+    "source": "STAX_FORCE_V3_POOL override"
+  },
+  "slippageBps": 200
+}

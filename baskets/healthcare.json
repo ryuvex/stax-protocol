@@ -1,0 +1,18 @@
+{
+  "id": 6,
+  "name": "Healthcare",
+  "symbol": "sHEALTH",
+  "capUsd": "18000",
+  "components": [
+    {
+      "token": "LLY",
+      "proposal": "../reports/assessments/0x8005d266423c7ea827372c9c864491e5786600ea/1790507164520/proposed-settings.json",
+      "weightBps": 7000
+    },
+    {
+      "token": "PFE",
+      "proposal": "../reports/assessments/0x7066a64c24e4206cd62e83bf198c1e7eb361f51e/1790506015793/proposed-settings.json",
+      "weightBps": 3000
+    }
+  ]
+}

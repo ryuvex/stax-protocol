@@ -1,0 +1,381 @@
+{
+  "vault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+  "mode": "LOCAL_FORK_ONLY",
+  "baskets": [
+    {
+      "name": "equal-GME-PLTR-CRCL-AMC-SPY-QQQ",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        1670,
+        1666,
+        1666,
+        1666,
+        1666,
+        1666
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.4242100000000035,
+          "mintGas": "1812903",
+          "redeemGas": "1536899"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.4241770000000042,
+          "mintGas": "1810687",
+          "redeemGas": "1539261"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.4241575000000006,
+          "mintGas": "1841361",
+          "redeemGas": "1548037"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.4241052799999987,
+          "mintGas": "1865449",
+          "redeemGas": "1574065"
+        }
+      ],
+      "clone": "0xBd90822a325c234881C0197B15e3f391f26F79Ef",
+      "createGas": "1191723"
+    },
+    {
+      "name": "90pct-GME",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.3527900000000046,
+          "mintGas": "1810687",
+          "redeemGas": "1539249"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.3527529999999963,
+          "mintGas": "1810751",
+          "redeemGas": "1539325"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.3526791999999963,
+          "mintGas": "1819409",
+          "redeemGas": "1547997"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.352375699999998,
+          "mintGas": "1840419",
+          "redeemGas": "1548113"
+        }
+      ],
+      "clone": "0x8CA979a62B592dBf79dc35fff2D11A778504481F",
+      "createGas": "1191399"
+    },
+    {
+      "name": "90pct-PLTR",
+      "tickers": [
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.5243400000000027,
+          "mintGas": "1810751",
+          "redeemGas": "1539313"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.5242989999999965,
+          "mintGas": "1786467",
+          "redeemGas": "1515409"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.524174800000001,
+          "mintGas": "1786435",
+          "redeemGas": "1515397"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 2.5236528800000047,
+          "mintGas": "1824528",
+          "redeemGas": "1546974"
+        }
+      ],
+      "clone": "0x6F4D32406Fdb973767355f85d3a1C41b52042822",
+      "createGas": "1191411"
+    },
+    {
+      "name": "90pct-CRCL",
+      "tickers": [
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1349199999999948,
+          "mintGas": "1786835",
+          "redeemGas": "1515397"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1348800000000048,
+          "mintGas": "1786835",
+          "redeemGas": "1515409"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1348601000000014,
+          "mintGas": "1795477",
+          "redeemGas": "1524081"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1347988200000048,
+          "mintGas": "1835320",
+          "redeemGas": "1555549"
+        }
+      ],
+      "clone": "0xbDF294A2610F6B29eC5ed8a574d4D939Bd169E9F",
+      "createGas": "1191411"
+    },
+    {
+      "name": "90pct-AMC",
+      "tickers": [
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1349199999999948,
+          "mintGas": "1786835",
+          "redeemGas": "1515397"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.134866000000001,
+          "mintGas": "1826158",
+          "redeemGas": "1546563"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1347243000000007,
+          "mintGas": "1826198",
+          "redeemGas": "1546563"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 1.1341058399999993,
+          "mintGas": "1856460",
+          "redeemGas": "1576541"
+        }
+      ],
+      "clone": "0x2927b5F27124599d448008B4eECF8ED425Ad6723",
+      "createGas": "1191399"
+    },
+    {
+      "name": "90pct-SPY",
+      "tickers": [
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978799999999952,
+          "mintGas": "1786835",
+          "redeemGas": "1515397"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.697844000000003,
+          "mintGas": "1786835",
+          "redeemGas": "1515409"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978365000000042,
+          "mintGas": "1794525",
+          "redeemGas": "1524069"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978274800000017,
+          "mintGas": "1835000",
+          "redeemGas": "1555247"
+        }
+      ],
+      "clone": "0xE40Cb623f77a0c3613A17bC237abCE7b35afdaA8",
+      "createGas": "1191399"
+    },
+    {
+      "name": "90pct-QQQ",
+      "tickers": [
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"
+      ],
+      "weights": [
+        9000,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "rounds": [
+        {
+          "usdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978799999999952,
+          "mintGas": "1786835",
+          "redeemGas": "1515397"
+        },
+        {
+          "usdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.697844000000003,
+          "mintGas": "1786771",
+          "redeemGas": "1515345"
+        },
+        {
+          "usdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978345000000052,
+          "mintGas": "1795489",
+          "redeemGas": "1524017"
+        },
+        {
+          "usdg": 5000,
+          "status": "ROUND_TRIP_PASS",
+          "lossPct": 0.6978172800000015,
+          "mintGas": "1834986",
+          "redeemGas": "1555183"
+        }
+      ],
+      "clone": "0x621bD279dEDe8d0071653083deFeCEC3C71094a9",
+      "createGas": "1191399"
+    }
+  ],
+  "caveat": "Synthetic USDG funding; real pool state at fork block. Not a listing approval.",
+  "blockNumber": 70598164,
+  "unpriceable": [
+    {
+      "sym": "NFLX",
+      "addr": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+      "error": "VM Exception while processing transaction: reverted with custom error 'InsufficientLiquidity()'"
+    }
+  ],
+  "registered": [
+    "GME",
+    "PLTR",
+    "CRCL",
+    "AMC",
+    "SPY",
+    "QQQ"
+  ],
+  "implementationRuntimeBytes": 17437
+}

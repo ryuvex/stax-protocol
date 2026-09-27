@@ -1,0 +1,8 @@
+{
+  "twapWindow": 3600,
+  "maxObservationAge": 3600,
+  "minCurrentLiquidity": "390000000000000000",
+  "minHarmonicLiquidity": "390000000000000000",
+  "maxDeviationBps": 250,
+  "slippageBps": 200
+}

@@ -1,0 +1,132 @@
+{
+  "blockNumber": 69680006,
+  "blockHash": "0xf7ca51d9a112f0b0bf8610fa0f9a3e84753d06b36832808b0b5a65aea8d8babe",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [
+    {
+      "amountUsdg": 10,
+      "tokensBought": "15.422088701187937588",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.641938301196156,
+      "spotMovePct": 0.0005943794088247856,
+      "returnedUsdg": "9.801",
+      "roundTripLossPct": 1.9900000000000029,
+      "buyGas": "150494",
+      "sellGas": "121913"
+    },
+    {
+      "amountUsdg": 100,
+      "tokensBought": "154.216762183210040919",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.641972641444034,
+      "spotMovePct": 0.005943873577551884,
+      "returnedUsdg": "98.010029",
+      "roundTripLossPct": 1.9899710000000015,
+      "buyGas": "150520",
+      "sellGas": "121913"
+    },
+    {
+      "amountUsdg": 1000,
+      "tokensBought": "1541.755260288735186212",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.642316094439475,
+      "spotMovePct": 0.05944668470674319,
+      "returnedUsdg": "980.102911",
+      "roundTripLossPct": 1.989708899999998,
+      "buyGas": "159180",
+      "sellGas": "130585"
+    },
+    {
+      "amountUsdg": 10000,
+      "tokensBought": "15376.437412986366260444",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.6457556760600249,
+      "spotMovePct": 0.5952617401888016,
+      "returnedUsdg": "9801.29042",
+      "roundTripLossPct": 1.987095800000005,
+      "buyGas": "159208",
+      "sellGas": "130635"
+    },
+    {
+      "amountUsdg": 50000,
+      "tokensBought": "75965.698046382027455663",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.6617488303993433,
+      "spotMovePct": 3.086661516387479,
+      "returnedUsdg": "49012.278587",
+      "roundTripLossPct": 1.9754428259999957,
+      "buyGas": "189322",
+      "sellGas": "160611"
+    },
+    {
+      "amountUsdg": 100000,
+      "tokensBought": "150021.530966905157059176",
+      "priceBefore": 0.6419344856697551,
+      "priceAfterBuy": 0.6736243771955761,
+      "spotMovePct": 4.9366239442266036,
+      "returnedUsdg": "98036.68156",
+      "roundTripLossPct": 1.9633184399999948,
+      "buyGas": "213181",
+      "sellGas": "184367"
+    }
+  ],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.752056",
+      "lossPct": 2.4794399999999994,
+      "mintGas": "596000",
+      "redeemGas": "408806"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "97.520591",
+      "lossPct": 2.479408999999999,
+      "mintGas": "596026",
+      "redeemGas": "408818"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "975.208516",
+      "lossPct": 2.4791483999999975,
+      "mintGas": "610692",
+      "redeemGas": "396492"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+    }
+  ],
+  "trialParameters": {
+    "twapWindow": 1800,
+    "maxObservationAge": 1800,
+    "minCurrentLiquidity": "1",
+    "minHarmonicLiquidity": "1",
+    "maxDeviationBps": 500,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "manipulation": [
+    {
+      "capitalUsdg": 10100,
+      "heldSeconds": 1801,
+      "immediateQuoteRejected": false,
+      "quoteRisePct": 1.3996349482192194,
+      "oracleAcceptedAfterHold": true,
+      "closedRoundTripCostUsdg": "200.693751",
+      "limitation": "No competing arbitrage simulated, no extracted vault profit; cost is an isolated-pool scenario, not total sustained-attack cost."
+    },
+    {
+      "capitalUsdg": 50000,
+      "error": "VM Exception while processing transaction: reverted with custom error 'StaleObservation()'"
+    }
+  ]
+}

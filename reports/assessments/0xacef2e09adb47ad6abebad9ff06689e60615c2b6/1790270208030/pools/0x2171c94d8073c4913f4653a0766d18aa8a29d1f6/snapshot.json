@@ -1,0 +1,79 @@
+{
+  "blockNumber": 71541688,
+  "blockHash": "0xd5783ea115fb3cf947dfd1da664f9f160fc7dab043ebd7e464b65de57833f08d",
+  "timestamp": 1790270208,
+  "addresses": {
+    "token": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+    "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "predictedPool": "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6",
+  "derivationMatches": true,
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "token1": "0xACEF2e09adb47aD6aBeBAD9fF06689E60615C2B6",
+  "spotPriceUsdg": 47.58292169765975,
+  "tick": 237697,
+  "fee": 3000,
+  "tickSpacing": 60,
+  "liquidity": "29863243272503704",
+  "usdgBalancesRaw": {
+    "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+    "0x2171c94d8073C4913f4653a0766D18aA8A29D1f6": "1193620630",
+    "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+  },
+  "hourly": [],
+  "windowDiagnostics": [
+    {
+      "seconds": 300,
+      "twapUsdg": 47.58461628469466,
+      "spotDeviationBps": 0.356120773312707,
+      "harmonicLiquidityRaw": "29863243272503703"
+    },
+    {
+      "seconds": 900,
+      "twapUsdg": 47.58461628469466,
+      "spotDeviationBps": 0.356120773312707,
+      "harmonicLiquidityRaw": "29863243272503703"
+    },
+    {
+      "seconds": 1800,
+      "twapUsdg": 47.58461628469466,
+      "spotDeviationBps": 0.356120773312707,
+      "harmonicLiquidityRaw": "29863243272503703"
+    },
+    {
+      "seconds": 3600,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 7200,
+      "error": "Observation call failed; do not infer sufficient history"
+    },
+    {
+      "seconds": 14400,
+      "error": "Observation call failed; do not infer sufficient history"
+    }
+  ],
+  "statistics": {
+    "hourlyTwapSamples": 0,
+    "hourlyLogReturnStd": 0,
+    "maxAbsoluteHourlyLogReturn": 0
+  },
+  "caveats": [
+    "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+    "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "blockNumber": 71486187,
+  "blockHash": "0x4ef4521d7afd9199e4f121c2fb6d0090b8999132ab3879698220eab5a7b40bfe",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+    "maxStaleness": 345600,
+    "route": {
+      "venue": "v3",
+      "fee": 10000,
+      "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+      "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "57019900000000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

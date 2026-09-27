@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "name": "Semiconductors",
+  "symbol": "sSEMI",
+  "capUsd": "20000",
+  "components": [
+    {
+      "token": "MU",
+      "proposal": "../reports/assessments/0xff080c8ce2e5feadaca0da81314ae59d232d4afd/1790264090107/proposed-settings.json",
+      "weightBps": 6000
+    },
+    {
+      "token": "AMD",
+      "proposal": "../reports/assessments/0x86923f96303d656e4aa86d9d42d1e57ad2023fdc/1790273297923/proposed-settings.json",
+      "weightBps": 3000
+    },
+    {
+      "token": "ASML",
+      "proposal": "../reports/assessments/0x47f93d52cbec7c6d2cfc080e154002370a60daea/1790264876126/proposed-settings.json",
+      "weightBps": 1000
+    }
+  ]
+}

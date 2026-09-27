@@ -1,0 +1,80 @@
+{
+  "blockNumber": 70492809,
+  "blockHash": "0x1ca8b9107c32c942d6d2b5179801d1ca4a57b49f2839a869807183a9320d6ead",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [
+    {
+      "amountUsdg": 10,
+      "tokensBought": "14.198297571305028914",
+      "priceBefore": 0.7039134205051697,
+      "priceAfterBuy": 0.704001855184957,
+      "spotMovePct": 0.012563289349398765,
+      "returnedUsdg": "9.990002",
+      "roundTripLossPct": 0.09997999999999951,
+      "buyGas": "156773",
+      "sellGas": "128650"
+    },
+    {
+      "amountUsdg": 100,
+      "tokensBought": "141.902758827542561971",
+      "priceBefore": 0.7039134205051697,
+      "priceAfterBuy": 0.704798017269196,
+      "spotMovePct": 0.1256684044170564,
+      "returnedUsdg": "99.900056",
+      "roundTripLossPct": 0.09994399999999626,
+      "buyGas": "156757",
+      "sellGas": "128662"
+    },
+    {
+      "amountUsdg": 1000,
+      "tokensBought": "1411.055472273772243004",
+      "priceBefore": 0.7039134205051697,
+      "priceAfterBuy": 0.7127843847608483,
+      "spotMovePct": 1.2602351364905395,
+      "returnedUsdg": "999.003368",
+      "roundTripLossPct": 0.09966319999999973,
+      "buyGas": "156787",
+      "sellGas": "128653"
+    },
+    {
+      "amountUsdg": 10000,
+      "tokensBought": "13359.988762650594438537",
+      "priceBefore": 0.7039134205051697,
+      "priceAfterBuy": 0.7951227245925456,
+      "spotMovePct": 12.95746059535543,
+      "returnedUsdg": "9990.297721",
+      "roundTripLossPct": 0.09702279000000091,
+      "buyGas": "164501",
+      "sellGas": "135095"
+    },
+    {
+      "amountUsdg": 50000,
+      "tokensBought": "13962.388787592596834904",
+      "priceBefore": 0.7039134205051697,
+      "priceAfterBuy": 3.4025678683638813e+50,
+      "spotMovePct": 4.833787464830544e+52,
+      "returnedUsdg": "49989.845397",
+      "roundTripLossPct": 0.020309206000002078,
+      "buyGas": "3480485",
+      "sellGas": "3397940"
+    },
+    {
+      "amountUsdg": 100000,
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x5bf6f916)"
+    }
+  ],
+  "vault": [],
+  "trialParameters": {
+    "twapWindow": 1800,
+    "maxObservationAge": 1800,
+    "minCurrentLiquidity": "1",
+    "minHarmonicLiquidity": "1",
+    "maxDeviationBps": 500,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "configure registry",
+  "assessmentError": "VM Exception while processing transaction: reverted with reason string 'OLD'"
+}

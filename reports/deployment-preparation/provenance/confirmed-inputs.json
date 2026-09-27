@@ -1,0 +1,277 @@
+{
+  "status": "CONFIRMED",
+  "blockNumber": 68878528,
+  "blockHash": "0x41de78feec8bc892add32d9f94aa7b417e32265cf568bada1a5b9435d316c096",
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "verifiedSource": "https://sourcify.dev/server/v2/contract/4663/0x8876789976dEcBfCbBbe364623C63652db8C0904?fields=all",
+  "runtimeMatch": "match",
+  "recompiledRuntimeMatchesAfterImmutableSubstitution": true,
+  "immutables": {
+    "SPOKE_POOL": {
+      "value": "0x0000000000000000000000007332d11bd10d18a04b119cd4671a96f3148002c4",
+      "locations": [
+        {
+          "start": 1160,
+          "length": 32
+        },
+        {
+          "start": 9693,
+          "length": 32
+        },
+        {
+          "start": 10024,
+          "length": 32
+        }
+      ]
+    },
+    "V3_POSITION_MANAGER": {
+      "value": "0x00000000000000000000000073991a25c818bf1f1128deaab1492d45638de0d3",
+      "locations": [
+        {
+          "start": 1227,
+          "length": 32
+        },
+        {
+          "start": 4972,
+          "length": 32
+        },
+        {
+          "start": 10681,
+          "length": 32
+        }
+      ]
+    },
+    "V4_POSITION_MANAGER": {
+      "value": "0x00000000000000000000000058daec3116aae6d93017baaea7749052e8a04fa7",
+      "locations": [
+        {
+          "start": 2053,
+          "length": 32
+        },
+        {
+          "start": 5258,
+          "length": 32
+        }
+      ]
+    },
+    "WETH9": {
+      "value": "0x0000000000000000000000000bd7d308f8e1639fab988df18a8011f41eacad73",
+      "locations": [
+        {
+          "start": 6779,
+          "length": 32
+        },
+        {
+          "start": 12249,
+          "length": 32
+        },
+        {
+          "start": 12585,
+          "length": 32
+        }
+      ]
+    },
+    "PERMIT2": {
+      "value": "0x000000000000000000000000000000000022d473030f116ddee9f6b43ac78ba3",
+      "locations": [
+        {
+          "start": 3930,
+          "length": 32
+        },
+        {
+          "start": 11947,
+          "length": 32
+        },
+        {
+          "start": 14462,
+          "length": 32
+        }
+      ]
+    },
+    "UNISWAP_V2_FACTORY": {
+      "value": "0x0000000000000000000000008bceaa40b9acdfaedf85adf4ff01f5ad6517937f",
+      "locations": [
+        {
+          "start": 12958,
+          "length": 32
+        },
+        {
+          "start": 13418,
+          "length": 32
+        },
+        {
+          "start": 17095,
+          "length": 32
+        }
+      ]
+    },
+    "UNISWAP_V2_PAIR_INIT_CODE_HASH": {
+      "value": "0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f",
+      "locations": [
+        {
+          "start": 12992,
+          "length": 32
+        },
+        {
+          "start": 13385,
+          "length": 32
+        },
+        {
+          "start": 17062,
+          "length": 32
+        }
+      ]
+    },
+    "UNISWAP_V3_FACTORY": {
+      "value": "0x0000000000000000000000001f7d7550b1b028f7571e69a784071f0205fd2efa",
+      "locations": [
+        {
+          "start": 8271,
+          "length": 32
+        }
+      ]
+    },
+    "UNISWAP_V3_POOL_INIT_CODE_HASH": {
+      "value": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+      "locations": [
+        {
+          "start": 8354,
+          "length": 32
+        }
+      ]
+    },
+    "_cachedDomainSeparator": {
+      "value": "0xa7af6fcd684cdc3a3dc593f7aef3964925bd849513dc6f154233ada3b5303099",
+      "locations": [
+        {
+          "start": 18261,
+          "length": 32
+        }
+      ]
+    },
+    "_cachedChainId": {
+      "value": "0x0000000000000000000000000000000000000000000000000000000000001237",
+      "locations": [
+        {
+          "start": 18450,
+          "length": 32
+        }
+      ]
+    },
+    "_cachedThis": {
+      "value": "0x0000000000000000000000008876789976decbfcbbbe364623c63652db8c0904",
+      "locations": [
+        {
+          "start": 18214,
+          "length": 32
+        }
+      ]
+    },
+    "_hashedName": {
+      "value": "0xa11b775f1048ec545859d88137f90763cf7eee88ee2eace12b317c4eb4f76c80",
+      "locations": [
+        {
+          "start": 18340,
+          "length": 32
+        }
+      ]
+    },
+    "_hashedVersion": {
+      "value": "0xad7c5bef027816a800da1736444fb58a807ef4c9603b7848673f7e3a68eb14a5",
+      "locations": [
+        {
+          "start": 18378,
+          "length": 32
+        }
+      ]
+    },
+    "_name": {
+      "value": "0x556e6976657273616c526f75746572000000000000000000000000000000000f",
+      "locations": [
+        {
+          "start": 1375,
+          "length": 32
+        }
+      ]
+    },
+    "_version": {
+      "value": "0x3200000000000000000000000000000000000000000000000000000000000001",
+      "locations": [
+        {
+          "start": 1419,
+          "length": 32
+        }
+      ]
+    },
+    "poolManager": {
+      "value": "0x0000000000000000000000008366a39cc670b4001a1121b8f6a443a643e40951",
+      "locations": [
+        {
+          "start": 1654,
+          "length": 32
+        },
+        {
+          "start": 2189,
+          "length": 32
+        },
+        {
+          "start": 5163,
+          "length": 32
+        },
+        {
+          "start": 6877,
+          "length": 32
+        },
+        {
+          "start": 11489,
+          "length": 32
+        },
+        {
+          "start": 20474,
+          "length": 32
+        },
+        {
+          "start": 20593,
+          "length": 32
+        },
+        {
+          "start": 20843,
+          "length": 32
+        },
+        {
+          "start": 21179,
+          "length": 32
+        },
+        {
+          "start": 23605,
+          "length": 32
+        },
+        {
+          "start": 23972,
+          "length": 32
+        }
+      ]
+    }
+  },
+  "pools": [
+    {
+      "fee": 500,
+      "actual": "0xf3a57982092bd57d791B49072Cfa84D20686E6BA",
+      "predicted": "0xf3a57982092bd57d791B49072Cfa84D20686E6BA"
+    },
+    {
+      "fee": 3000,
+      "actual": "0x525dD86CcfF2a5265429971ed42bEa6D15FFd271",
+      "predicted": "0x525dD86CcfF2a5265429971ed42bEa6D15FFd271"
+    },
+    {
+      "fee": 10000,
+      "actual": "0x4B0c312fFbB068F6a0bEa128759E35d94B94D0E1",
+      "predicted": "0x4B0c312fFbB068F6a0bEa128759E35d94B94D0E1"
+    }
+  ],
+  "limitation": "Confirms deployed router source correspondence and V3 configuration, not a full router/factory security audit. Original creation transaction is absent from the Sourcify record."
+}

@@ -1,0 +1,306 @@
+{
+  "token": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+  "status": "BLOCKED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "chainlinkAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Chainlink feed, route and history",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 71486187,
+    "blockHash": "0x4ef4521d7afd9199e4f121c2fb6d0090b8999132ab3879698220eab5a7b40bfe",
+    "token": {
+      "address": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+      "symbol": "SLV",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x37ED4621D1Eb3aBC9e551a888E6AaF0A41F7be8e",
+        "version": "V3",
+        "fee": 500,
+        "token0": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "1189487989690069",
+        "unlocked": true,
+        "tick": -235852,
+        "observationCardinality": 64,
+        "oldestObservationTimestamp": 1790173711,
+        "latestObservationTimestamp": 1790263631,
+        "availableHistorySeconds": 90917,
+        "latestObservationAgeSeconds": 997
+      },
+      {
+        "address": "0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "598405860765006979",
+        "unlocked": true,
+        "tick": -235851,
+        "observationCardinality": 1801,
+        "oldestObservationTimestamp": 1789494312,
+        "latestObservationTimestamp": 1790262839,
+        "availableHistorySeconds": 770316,
+        "latestObservationAgeSeconds": 1789
+      },
+      {
+        "address": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+        "version": "V3",
+        "fee": 10000,
+        "token0": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "46816057087660816",
+        "unlocked": true,
+        "tick": -235778,
+        "observationCardinality": 1500,
+        "oldestObservationTimestamp": 1786965628,
+        "latestObservationTimestamp": 1790262817,
+        "availableHistorySeconds": 3299000,
+        "latestObservationAgeSeconds": 1811
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "candidate",
+        "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+        "maxStaleness": 345600
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-09-24T15:43:56.468Z",
+    "candidates": [
+      {
+        "compareOffchain": "",
+        "contractAddress": "0xcdF6F7043b3aF6Afa0CAAACe1230B355096B5386",
+        "contractType": "",
+        "contractVersion": 6,
+        "decimalPlaces": null,
+        "ens": null,
+        "formatDecimalPlaces": null,
+        "healthPrice": "",
+        "heartbeat": 86400,
+        "history": null,
+        "multiply": "100000000",
+        "name": "Robinhood SLV / USD",
+        "pair": [
+          "",
+          ""
+        ],
+        "path": "robinhood-slv-usd-shared-svr",
+        "proxyAddress": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+        "secondaryProxyAddress": "0xdA81cD9c76F1D3Ea32655dfFc7408ef22BB0Ee2a",
+        "svrDisplayLabel": "Shared SVR",
+        "threshold": 0.5,
+        "valuePrefix": "",
+        "assetName": "iShares Silver Trust ETF (Robinhood Tokenized ETF)",
+        "feedCategory": "custom",
+        "feedType": "Crypto",
+        "docs": {
+          "assetClass": "Equity",
+          "attributeType": "other",
+          "baseAsset": "SLV",
+          "baseAssetClic": "SLV_CR",
+          "baseAssetEntityId": "crypto-SLV",
+          "blockchainName": "Robinhood",
+          "clicProductName": "SLV/USD-RefPrice-DF-Robinhood-001",
+          "deliveryChannelCode": "DF",
+          "marketHours": "us_equities_24/5",
+          "productSubType": "calculatedPrice",
+          "productType": "Price",
+          "productTypeCode": "primaryTokenizedPrice",
+          "quoteAsset": "USD",
+          "quoteAssetClic": "USD_FX",
+          "quoteAssetEntityId": "forex-USD"
+        },
+        "decimals": 8,
+        "maxSubmissionValue": "95780971304118053647396689196894323976171195136475135"
+      }
+    ],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "oracleType": "CHAINLINK",
+  "chainlinkAssessment": {
+    "feedResolution": {
+      "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+      "source": "configured source vault",
+      "directoryAgrees": true
+    },
+    "route": {
+      "route": {
+        "venue": "v3",
+        "fee": 10000,
+        "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "reason": null,
+      "alternatives": []
+    },
+    "feedChecks": {
+      "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+      "description": "Robinhood SLV / USD",
+      "decimals": 8,
+      "latestAnswer": "5701990000",
+      "updatedAt": 1790262587,
+      "oraclePaused": false,
+      "feedPriceUsd": 57.0199,
+      "poolSpotUsdg": 57.6505580909807,
+      "feedSpotDeviationBps": 110.60315626311157,
+      "problems": [],
+      "note": null
+    },
+    "feedHistory": {
+      "rounds": 383,
+      "coveredSeconds": 2590255,
+      "coveredDays": 29.97980324074074,
+      "maxGapSeconds": 275578,
+      "currentAgeSeconds": 2041,
+      "stoppedBy": "cutoff",
+      "proposedMaxStaleness": 345600,
+      "nonPositiveAnswers": 0,
+      "caveat": "Finite window of round history. A holiday weekend longer than anything observed can still exceed the proposed staleness."
+    },
+    "snapshot": {
+      "blockNumber": 71486187,
+      "blockHash": "0x4ef4521d7afd9199e4f121c2fb6d0090b8999132ab3879698220eab5a7b40bfe",
+      "timestamp": 1790264628,
+      "addresses": {
+        "token": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+        "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+        "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+      "usdgMaxStaleness": "97200",
+      "sequencerFeed": "0x0000000000000000000000000000000000000000",
+      "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+      "derivationMatches": true,
+      "routerContainsFactory": true,
+      "routerContainsPoolHash": true,
+      "tokenDecimals": 18,
+      "usdgDecimals": 6,
+      "token0": "0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f",
+      "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "fee": 10000,
+      "route": {
+        "venue": "v3",
+        "fee": 10000,
+        "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "mode": "CHAINLINK"
+    },
+    "fork": {
+      "blockNumber": 71486187,
+      "blockHash": "0x4ef4521d7afd9199e4f121c2fb6d0090b8999132ab3879698220eab5a7b40bfe",
+      "mode": "CHAINLINK_FORK",
+      "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+      "direct": [],
+      "vault": [
+        {
+          "amountUsdg": 10,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+        },
+        {
+          "amountUsdg": 100,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+        },
+        {
+          "amountUsdg": 1000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+        },
+        {
+          "amountUsdg": 10000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x39d35496)"
+        }
+      ],
+      "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+      "chainlink": {
+        "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+        "maxStaleness": 345600,
+        "route": {
+          "venue": "v3",
+          "fee": 10000,
+          "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+          "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+        },
+        "slippageBps": 200
+      },
+      "balanceMappingSlot": 1,
+      "setupStage": "complete",
+      "vaultOraclePriceUsd18": "57019900000000000000",
+      "staleCheck": "REJECTED",
+      "manipulation": []
+    },
+    "result": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "reason": "Required 10/100/1000 USDG round trips did not all pass.",
+      "params": {
+        "feed": "0x209b73908e92Ae021826eD79609845451Ecba2ce",
+        "maxStaleness": 345600,
+        "route": {
+          "venue": "v3",
+          "fee": 10000,
+          "pool": "0x0Fa7BC480885DCf58Ad2ef63eC7289cF2481D51c",
+          "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false
+    }
+  },
+  "proposedSettings": [],
+  "reason": "Required 10/100/1000 USDG round trips did not all pass.",
+  "remaining": [
+    "Confirm feed identity against Chainlink's official Robinhood listing.",
+    "Decide basket composition/weights and caps (Dan's cap formula).",
+    "Broadcaster support for Chainlink routes and multi-token baskets."
+  ],
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks."
+}

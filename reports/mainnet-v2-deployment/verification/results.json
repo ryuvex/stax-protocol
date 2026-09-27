@@ -1,0 +1,37 @@
+[
+  {
+    "name": "StaxBasketTokenDeployer",
+    "address": "0xC9F14d4e0Faefe3fD1033D84bf129D8767F4C3f9",
+    "provider": "sourcify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-21T21:48:11.794Z"
+  },
+  {
+    "name": "StaxV3RouteValidator",
+    "address": "0xEE85B813740730f29fa20D8b7E5ded33a08c6dd5",
+    "provider": "sourcify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-21T21:48:22.284Z"
+  },
+  {
+    "name": "UnifiedTwapRegistry",
+    "address": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+    "provider": "sourcify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-21T21:48:36.472Z"
+  },
+  {
+    "name": "StaxVaultV2",
+    "address": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+    "provider": "sourcify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-21T21:48:37.835Z"
+  },
+  {
+    "name": "StaxVaultPreview",
+    "address": "0x7F191C0De99a30b20786FFf87B54d7a1bb0598Cc",
+    "provider": "sourcify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-21T21:48:48.300Z"
+  }
+]

@@ -1,0 +1,331 @@
+{
+  "blockNumber": 71497193,
+  "blockHash": "0x83d2e6ee7d27bbda034680aec03b23b6c03b4fd32ed6e94731406802bb9ae467",
+  "timestamp": 1790265735,
+  "addresses": {
+    "token": "0xCceE82fE024c36fA15E1005edE3E9e4787e23D09",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": "0xC8C90d3a1c1a24967E773ac2aD0d456BA3E31F64",
+    "v1": "0x13045D3Dab253fDB15181C16f135D612fa8546E6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "predictedPool": "0xC8C90d3a1c1a24967E773ac2aD0d456BA3E31F64",
+  "derivationMatches": true,
+  "routerCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "token1": "0xCceE82fE024c36fA15E1005edE3E9e4787e23D09",
+  "spotPriceUsdg": 28.07702765636528,
+  "tick": 242972,
+  "fee": 3000,
+  "tickSpacing": 60,
+  "liquidity": "2159577224099655223",
+  "usdgBalancesRaw": {
+    "0x13045D3Dab253fDB15181C16f135D612fa8546E6": "1466260",
+    "0xC8C90d3a1c1a24967E773ac2aD0d456BA3E31F64": "286980345416",
+    "0xCECa5491a16ea73F29990313924285EEB9771e3b": "2254454"
+  },
+  "hourly": [
+    {
+      "hoursAgo": 0,
+      "meanTick": 242901,
+      "priceUsdg": 28.27945417134514
+    },
+    {
+      "hoursAgo": 1,
+      "meanTick": 242916,
+      "priceUsdg": 28.237068906211753
+    },
+    {
+      "hoursAgo": 2,
+      "meanTick": 243043,
+      "priceUsdg": 27.880743403085365
+    },
+    {
+      "hoursAgo": 3,
+      "meanTick": 242900,
+      "priceUsdg": 28.282282116762275
+    },
+    {
+      "hoursAgo": 4,
+      "meanTick": 242876,
+      "priceUsdg": 28.35023771021454
+    },
+    {
+      "hoursAgo": 5,
+      "meanTick": 242876,
+      "priceUsdg": 28.35023771021454
+    },
+    {
+      "hoursAgo": 6,
+      "meanTick": 242901,
+      "priceUsdg": 28.27945417134514
+    },
+    {
+      "hoursAgo": 7,
+      "meanTick": 242877,
+      "priceUsdg": 28.34740296991755
+    },
+    {
+      "hoursAgo": 8,
+      "meanTick": 242873,
+      "priceUsdg": 28.35874363206309
+    },
+    {
+      "hoursAgo": 9,
+      "meanTick": 242841,
+      "priceUsdg": 28.449632411815497
+    },
+    {
+      "hoursAgo": 10,
+      "meanTick": 242826,
+      "priceUsdg": 28.492336745495713
+    },
+    {
+      "hoursAgo": 11,
+      "meanTick": 242826,
+      "priceUsdg": 28.492336745495713
+    },
+    {
+      "hoursAgo": 12,
+      "meanTick": 242826,
+      "priceUsdg": 28.492336745495713
+    },
+    {
+      "hoursAgo": 13,
+      "meanTick": 242826,
+      "priceUsdg": 28.492336745495713
+    },
+    {
+      "hoursAgo": 14,
+      "meanTick": 242824,
+      "priceUsdg": 28.498035497768182
+    },
+    {
+      "hoursAgo": 15,
+      "meanTick": 242822,
+      "priceUsdg": 28.50373538984809
+    },
+    {
+      "hoursAgo": 16,
+      "meanTick": 242808,
+      "priceUsdg": 28.543666568171293
+    },
+    {
+      "hoursAgo": 17,
+      "meanTick": 242808,
+      "priceUsdg": 28.543666568171293
+    },
+    {
+      "hoursAgo": 18,
+      "meanTick": 242814,
+      "priceUsdg": 28.526546360802282
+    },
+    {
+      "hoursAgo": 19,
+      "meanTick": 242812,
+      "priceUsdg": 28.532251955339905
+    },
+    {
+      "hoursAgo": 20,
+      "meanTick": 242717,
+      "priceUsdg": 28.804586272356993
+    },
+    {
+      "hoursAgo": 21,
+      "meanTick": 242679,
+      "priceUsdg": 28.914246439641687
+    },
+    {
+      "hoursAgo": 22,
+      "meanTick": 242638,
+      "priceUsdg": 29.033032255383908
+    },
+    {
+      "hoursAgo": 23,
+      "meanTick": 242548,
+      "priceUsdg": 29.295495736856058
+    },
+    {
+      "hoursAgo": 24,
+      "meanTick": 242478,
+      "priceUsdg": 29.501273299561152
+    },
+    {
+      "hoursAgo": 25,
+      "meanTick": 242479,
+      "priceUsdg": 29.49832346721443
+    },
+    {
+      "hoursAgo": 26,
+      "meanTick": 242201,
+      "priceUsdg": 30.329839812622453
+    },
+    {
+      "hoursAgo": 27,
+      "meanTick": 242198,
+      "priceUsdg": 30.338939674491762
+    },
+    {
+      "hoursAgo": 28,
+      "meanTick": 242143,
+      "priceUsdg": 30.50625517293348
+    },
+    {
+      "hoursAgo": 29,
+      "meanTick": 242115,
+      "priceUsdg": 30.591788101063216
+    },
+    {
+      "hoursAgo": 30,
+      "meanTick": 242115,
+      "priceUsdg": 30.591788101063216
+    },
+    {
+      "hoursAgo": 31,
+      "meanTick": 242117,
+      "priceUsdg": 30.585670661074296
+    },
+    {
+      "hoursAgo": 32,
+      "meanTick": 242150,
+      "priceUsdg": 30.484909333501985
+    },
+    {
+      "hoursAgo": 33,
+      "meanTick": 242152,
+      "priceUsdg": 30.47881326606064
+    },
+    {
+      "hoursAgo": 34,
+      "meanTick": 242151,
+      "priceUsdg": 30.481861147387246
+    },
+    {
+      "hoursAgo": 35,
+      "meanTick": 242160,
+      "priceUsdg": 30.454441184164118
+    },
+    {
+      "hoursAgo": 36,
+      "meanTick": 242173,
+      "priceUsdg": 30.41487811031496
+    },
+    {
+      "hoursAgo": 37,
+      "meanTick": 242176,
+      "priceUsdg": 30.405755471470446
+    },
+    {
+      "hoursAgo": 38,
+      "meanTick": 242151,
+      "priceUsdg": 30.481861147387246
+    },
+    {
+      "hoursAgo": 39,
+      "meanTick": 242140,
+      "priceUsdg": 30.515407964703513
+    },
+    {
+      "hoursAgo": 40,
+      "meanTick": 242145,
+      "priceUsdg": 30.500154836964533
+    },
+    {
+      "hoursAgo": 41,
+      "meanTick": 242138,
+      "priceUsdg": 30.521511351450535
+    },
+    {
+      "hoursAgo": 42,
+      "meanTick": 242124,
+      "priceUsdg": 30.564269253030773
+    },
+    {
+      "hoursAgo": 43,
+      "meanTick": 242134,
+      "priceUsdg": 30.533721787403888
+    },
+    {
+      "hoursAgo": 44,
+      "meanTick": 241988,
+      "priceUsdg": 30.9827616891434
+    },
+    {
+      "hoursAgo": 45,
+      "meanTick": 241908,
+      "priceUsdg": 31.231605388377222
+    },
+    {
+      "hoursAgo": 46,
+      "meanTick": 241873,
+      "priceUsdg": 31.34110203986308
+    },
+    {
+      "hoursAgo": 47,
+      "meanTick": 242144,
+      "priceUsdg": 30.503204852448228
+    },
+    {
+      "hoursAgo": 48,
+      "meanTick": 242149,
+      "priceUsdg": 30.487957824435334
+    }
+  ],
+  "windowDiagnostics": [
+    {
+      "seconds": 300,
+      "twapUsdg": 28.211668246219457,
+      "spotDeviationBps": 47.72514290154351,
+      "harmonicLiquidityRaw": "2842262015415621551"
+    },
+    {
+      "seconds": 900,
+      "twapUsdg": 28.259666469297485,
+      "spotDeviationBps": 64.62879281701083,
+      "harmonicLiquidityRaw": "4505477698406883894"
+    },
+    {
+      "seconds": 1800,
+      "twapUsdg": 28.26814521705653,
+      "spotDeviationBps": 67.60880815623315,
+      "harmonicLiquidityRaw": "5172179391571966895"
+    },
+    {
+      "seconds": 3600,
+      "twapUsdg": 28.27945417134514,
+      "spotDeviationBps": 71.58077159246324,
+      "harmonicLiquidityRaw": "4161032463666440449"
+    },
+    {
+      "seconds": 7200,
+      "twapUsdg": 28.259666469297485,
+      "spotDeviationBps": 64.62879281701083,
+      "harmonicLiquidityRaw": "3267301014210847337"
+    },
+    {
+      "seconds": 14400,
+      "twapUsdg": 28.169384578676716,
+      "spotDeviationBps": 32.78627619765162,
+      "harmonicLiquidityRaw": "3270756141027443929"
+    }
+  ],
+  "statistics": {
+    "hourlyTwapSamples": 49,
+    "hourlyLogReturnStd": 0.007137207344592614,
+    "maxAbsoluteHourlyLogReturn": 0.02779861009265683
+  },
+  "caveats": [
+    "Bytecode substring matches do not prove full router immutable provenance or verified source equivalence.",
+    "Hourly TWAP returns smooth intrahour jumps and are insufficient alone for production parameter selection."
+  ]
+}

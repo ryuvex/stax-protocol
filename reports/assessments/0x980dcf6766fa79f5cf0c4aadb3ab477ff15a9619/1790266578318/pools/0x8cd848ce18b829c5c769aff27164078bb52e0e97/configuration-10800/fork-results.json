@@ -1,0 +1,76 @@
+{
+  "blockNumber": 71505556,
+  "blockHash": "0xf15cb0af279518013a815a5add7c0027e2a42727e308ab832b0423cd64981cd6",
+  "mode": "LOCAL_FORK_ONLY",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.890451",
+      "lossPct": 1.095489999999999,
+      "mintGas": "628102",
+      "redeemGas": "452892"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "98.904522",
+      "lossPct": 1.0954780000000053,
+      "mintGas": "628076",
+      "redeemGas": "452904"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "989.045709",
+      "lossPct": 1.0954291000000005,
+      "mintGas": "641718",
+      "redeemGas": "440578"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9890.505097",
+      "lossPct": 1.094949030000003,
+      "mintGas": "673368",
+      "redeemGas": "471350"
+    }
+  ],
+  "trialParameters": {
+    "twapWindow": 10800,
+    "maxObservationAge": 10800,
+    "minCurrentLiquidity": "210000000000000000",
+    "minHarmonicLiquidity": "210000000000000000",
+    "maxDeviationBps": 100,
+    "slippageBps": 200
+  },
+  "caveat": "Trial oracle settings isolate integration; NOT production risk parameters or a listing approval. Direct router probes use minOut=0 only on this fork.",
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "manipulation": [],
+  "targetedRisk": [
+    {
+      "window": 10800,
+      "maxDeviationBps": 100,
+      "victimDepositUsdg": 10000,
+      "attackerDepositUsdg": 1000,
+      "manipulationCapitalUsdg": 100000,
+      "caveat": "Isolated single-token basket, one upward attack path, no external arbitrage. Experimental settings, not production approval. Profit excludes gas.",
+      "quoteAfterHold": "237134909376385862917",
+      "victimUnderlyingClaimChangeRaw": "0",
+      "victimUnderlyingClaimChangePct": 0,
+      "immediateRedeemPassed": false,
+      "attackerProfitUsdg": "-616.074663",
+      "victimReturnedUsdg": "9891.575193",
+      "status": "COMPLETED"
+    }
+  ],
+  "floorChecks": {
+    "currentLiquidityBelowFloor": "REJECTED",
+    "harmonicLiquidityBelowFloor": "REJECTED",
+    "observationTooOld": "REJECTED",
+    "note": "Current-liquidity boundary uses fork storage injection; this is a guard test, not realistic LP withdrawal modelling."
+  }
+}

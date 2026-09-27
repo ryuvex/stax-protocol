@@ -1,0 +1,402 @@
+{
+  "status": "PROPOSED_FOR_REVIEW",
+  "recommendedSetting": {
+    "token": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+    "pool": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+    "fee": 3000,
+    "status": "PROPOSED_FOR_REVIEW",
+    "params": {
+      "twapWindow": 3600,
+      "maxObservationAge": 3600,
+      "minCurrentLiquidity": "150000000000000000",
+      "minHarmonicLiquidity": "150000000000000000",
+      "maxDeviationBps": 100,
+      "slippageBps": 200
+    },
+    "listingApproved": false,
+    "passedRoundTripSizesUsdg": [
+      10,
+      100,
+      1000,
+      10000
+    ],
+    "attackOutcome": "TESTED_PATH_BLOCKED",
+    "totalBasketCap": null,
+    "limitations": [
+      "Single-token basket only; not validated for mixed baskets.",
+      "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+      "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+      "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+      "Tested trade sizes do not establish a safe total basket cap."
+    ],
+    "statistics": {
+      "historicalStaleFraction": 0.0484912688377815,
+      "latestObservationAge": 44,
+      "maxGap": 7850,
+      "deviationP95Bps": 90.53004409035114,
+      "deviationP99Bps": 193.49210117660775,
+      "deviationSamples": 1724,
+      "deviationExceedanceFraction": 0.04118329466357309,
+      "hourlyLiquiditySamples": 72,
+      "minimumHourlyLiquidity": "154380880806405413"
+    }
+  },
+  "alternatives": [
+    {
+      "token": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+      "pool": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+      "fee": 3000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "twapWindow": 10800,
+        "maxObservationAge": 10800,
+        "minCurrentLiquidity": "150000000000000000",
+        "minHarmonicLiquidity": "150000000000000000",
+        "maxDeviationBps": 200,
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "attackOutcome": "TESTED_PATH_BLOCKED",
+      "totalBasketCap": null,
+      "limitations": [
+        "Single-token basket only; not validated for mixed baskets.",
+        "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+        "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+        "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+        "Tested trade sizes do not establish a safe total basket cap."
+      ],
+      "statistics": {
+        "historicalStaleFraction": 0,
+        "latestObservationAge": 44,
+        "maxGap": 7850,
+        "deviationP95Bps": 151.92953965383893,
+        "deviationP99Bps": 259.17304490968183,
+        "deviationSamples": 1715,
+        "deviationExceedanceFraction": 0.029154518950437316,
+        "hourlyLiquiditySamples": 72,
+        "minimumHourlyLiquidity": "154380880806405413"
+      }
+    }
+  ],
+  "recommendationReason": "Among passing candidates, prefer a completed unprofitable attack test, then tighter deviation, shorter TWAP window, less historical staleness, and lower pool fee. This is a policy preference, not a safety guarantee; staleness/deviation can still block withdrawals.",
+  "listingApproved": false,
+  "proposedSettings": [
+    {
+      "token": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+      "pool": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+      "fee": 3000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "twapWindow": 3600,
+        "maxObservationAge": 3600,
+        "minCurrentLiquidity": "150000000000000000",
+        "minHarmonicLiquidity": "150000000000000000",
+        "maxDeviationBps": 100,
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "attackOutcome": "TESTED_PATH_BLOCKED",
+      "totalBasketCap": null,
+      "limitations": [
+        "Single-token basket only; not validated for mixed baskets.",
+        "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+        "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+        "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+        "Tested trade sizes do not establish a safe total basket cap."
+      ],
+      "statistics": {
+        "historicalStaleFraction": 0.0484912688377815,
+        "latestObservationAge": 44,
+        "maxGap": 7850,
+        "deviationP95Bps": 90.53004409035114,
+        "deviationP99Bps": 193.49210117660775,
+        "deviationSamples": 1724,
+        "deviationExceedanceFraction": 0.04118329466357309,
+        "hourlyLiquiditySamples": 72,
+        "minimumHourlyLiquidity": "154380880806405413"
+      }
+    },
+    {
+      "token": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+      "pool": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+      "fee": 3000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "twapWindow": 10800,
+        "maxObservationAge": 10800,
+        "minCurrentLiquidity": "150000000000000000",
+        "minHarmonicLiquidity": "150000000000000000",
+        "maxDeviationBps": 200,
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "attackOutcome": "TESTED_PATH_BLOCKED",
+      "totalBasketCap": null,
+      "limitations": [
+        "Single-token basket only; not validated for mixed baskets.",
+        "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+        "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+        "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+        "Tested trade sizes do not establish a safe total basket cap."
+      ],
+      "statistics": {
+        "historicalStaleFraction": 0,
+        "latestObservationAge": 44,
+        "maxGap": 7850,
+        "deviationP95Bps": 151.92953965383893,
+        "deviationP99Bps": 259.17304490968183,
+        "deviationSamples": 1715,
+        "deviationExceedanceFraction": 0.029154518950437316,
+        "hourlyLiquiditySamples": 72,
+        "minimumHourlyLiquidity": "154380880806405413"
+      }
+    }
+  ],
+  "reason": null,
+  "pools": [
+    {
+      "address": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3
+        },
+        "candidates": [
+          {
+            "params": {
+              "twapWindow": 3600,
+              "maxObservationAge": 3600,
+              "minCurrentLiquidity": "150000000000000000",
+              "minHarmonicLiquidity": "150000000000000000",
+              "maxDeviationBps": 100,
+              "slippageBps": 200
+            },
+            "statistics": {
+              "historicalStaleFraction": 0.0484912688377815,
+              "latestObservationAge": 44,
+              "maxGap": 7850,
+              "deviationP95Bps": 90.53004409035114,
+              "deviationP99Bps": 193.49210117660775,
+              "deviationSamples": 1724,
+              "deviationExceedanceFraction": 0.04118329466357309,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "154380880806405413"
+            }
+          },
+          {
+            "params": {
+              "twapWindow": 10800,
+              "maxObservationAge": 10800,
+              "minCurrentLiquidity": "150000000000000000",
+              "minHarmonicLiquidity": "150000000000000000",
+              "maxDeviationBps": 200,
+              "slippageBps": 200
+            },
+            "statistics": {
+              "historicalStaleFraction": 0,
+              "latestObservationAge": 44,
+              "maxGap": 7850,
+              "deviationP95Bps": 151.92953965383893,
+              "deviationP99Bps": 259.17304490968183,
+              "deviationSamples": 1715,
+              "deviationExceedanceFraction": 0.029154518950437316,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "154380880806405413"
+            }
+          }
+        ],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.16867961003900586,
+              "latestObservationAge": 44,
+              "maxGap": 7850,
+              "deviationP95Bps": 60.90902646409657,
+              "deviationP99Bps": 169.9146520190664,
+              "deviationSamples": 1732,
+              "deviationExceedanceFraction": 0.025981524249422634,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "154380880806405413"
+            }
+          }
+        ],
+        "reason": null
+      },
+      "configurationTests": [
+        {
+          "status": "PROPOSED_FOR_REVIEW",
+          "params": {
+            "twapWindow": 3600,
+            "maxObservationAge": 3600,
+            "minCurrentLiquidity": "150000000000000000",
+            "minHarmonicLiquidity": "150000000000000000",
+            "maxDeviationBps": 100,
+            "slippageBps": 200
+          },
+          "listingApproved": false,
+          "passedRoundTripSizesUsdg": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "attackOutcome": "TESTED_PATH_BLOCKED",
+          "totalBasketCap": null,
+          "limitations": [
+            "Single-token basket only; not validated for mixed baskets.",
+            "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+            "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+            "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+            "Tested trade sizes do not establish a safe total basket cap."
+          ],
+          "statistics": {
+            "historicalStaleFraction": 0.0484912688377815,
+            "latestObservationAge": 44,
+            "maxGap": 7850,
+            "deviationP95Bps": 90.53004409035114,
+            "deviationP99Bps": 193.49210117660775,
+            "deviationSamples": 1724,
+            "deviationExceedanceFraction": 0.04118329466357309,
+            "hourlyLiquiditySamples": 72,
+            "minimumHourlyLiquidity": "154380880806405413"
+          }
+        },
+        {
+          "status": "PROPOSED_FOR_REVIEW",
+          "params": {
+            "twapWindow": 10800,
+            "maxObservationAge": 10800,
+            "minCurrentLiquidity": "150000000000000000",
+            "minHarmonicLiquidity": "150000000000000000",
+            "maxDeviationBps": 200,
+            "slippageBps": 200
+          },
+          "listingApproved": false,
+          "passedRoundTripSizesUsdg": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "attackOutcome": "TESTED_PATH_BLOCKED",
+          "totalBasketCap": null,
+          "limitations": [
+            "Single-token basket only; not validated for mixed baskets.",
+            "Heuristic observed-range proposal, not a safety guarantee or listing approval.",
+            "Historical withdrawal blocks are disclosed; future liquidity and availability can differ.",
+            "One upward attack path; downward attacks, sandwiches and LP-withdrawal economics are not covered.",
+            "Tested trade sizes do not establish a safe total basket cap."
+          ],
+          "statistics": {
+            "historicalStaleFraction": 0,
+            "latestObservationAge": 44,
+            "maxGap": 7850,
+            "deviationP95Bps": 151.92953965383893,
+            "deviationP99Bps": 259.17304490968183,
+            "deviationSamples": 1715,
+            "deviationExceedanceFraction": 0.029154518950437316,
+            "hourlyLiquiditySamples": 72,
+            "minimumHourlyLiquidity": "154380880806405413"
+          }
+        }
+      ]
+    },
+    {
+      "address": "0xeA75eA625d83aE276b9ae8B0A3dC205916EE65cF",
+      "candidateGeneration": {
+        "policy": {
+          "windows": [
+            1800,
+            3600,
+            10800
+          ],
+          "minimumHistorySeconds": 86400,
+          "minimumObservations": 100,
+          "maximumHistoricalStaleFraction": 0.05,
+          "maximumProposedDeviationBps": 200,
+          "slippageBps": 200,
+          "maxCandidates": 3
+        },
+        "candidates": [],
+        "rejected": [
+          {
+            "window": 1800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.8002486379757944,
+              "latestObservationAge": 33186,
+              "maxGap": 168681,
+              "deviationP95Bps": 514.0145560002618,
+              "deviationP99Bps": 2522.9286430225015,
+              "deviationSamples": 1034,
+              "deviationExceedanceFraction": 0.048355899419729204,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "17596709704183405"
+            }
+          },
+          {
+            "window": 3600,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.7033346740283009,
+              "latestObservationAge": 33186,
+              "maxGap": 168681,
+              "deviationP95Bps": 366.6204944592844,
+              "deviationP99Bps": 782.0194814022163,
+              "deviationSamples": 1001,
+              "deviationExceedanceFraction": 0.04295704295704296,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "17596709704183405"
+            }
+          },
+          {
+            "window": 10800,
+            "reason": "Historical staleness exceeds proposal policy",
+            "statistics": {
+              "historicalStaleFraction": 0.5053636033927817,
+              "latestObservationAge": 33186,
+              "maxGap": 168681,
+              "deviationP95Bps": 341.1097960665921,
+              "deviationP99Bps": 771.4727682246591,
+              "deviationSamples": 958,
+              "deviationExceedanceFraction": 0.04592901878914405,
+              "hourlyLiquiditySamples": 72,
+              "minimumHourlyLiquidity": "17596709704183405"
+            }
+          }
+        ],
+        "reason": "No candidate satisfies the declared proposal policy."
+      },
+      "configurationTests": []
+    }
+  ]
+}

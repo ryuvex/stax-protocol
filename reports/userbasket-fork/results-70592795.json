@@ -1,0 +1,210 @@
+{
+  "vault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+  "mode": "LOCAL_FORK_ONLY",
+  "baskets": [
+    {
+      "name": "equal-GME-PLTR-CRCL-AMC-NFLX-SPY-QQQ",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        1432,
+        1428,
+        1428,
+        1428,
+        1428,
+        1428,
+        1428
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-GME",
+      "tickers": [
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-PLTR",
+      "tickers": [
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-CRCL",
+      "tickers": [
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-AMC",
+      "tickers": [
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-NFLX",
+      "tickers": [
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-SPY",
+      "tickers": [
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    },
+    {
+      "name": "90pct-QQQ",
+      "tickers": [
+        "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68",
+        "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+        "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+        "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+        "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+        "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+        "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"
+      ],
+      "weights": [
+        9000,
+        170,
+        166,
+        166,
+        166,
+        166,
+        166
+      ],
+      "rounds": [],
+      "status": "CREATE_FAILED",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x13be252b)"
+    }
+  ],
+  "caveat": "Synthetic USDG funding; real pool state at fork block. Not a listing approval.",
+  "blockNumber": 70592795,
+  "registered": [
+    "GME",
+    "PLTR",
+    "CRCL",
+    "AMC",
+    "NFLX",
+    "SPY",
+    "QQQ"
+  ],
+  "implementationRuntimeBytes": 17437
+}

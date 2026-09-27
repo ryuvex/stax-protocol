@@ -1,0 +1,80 @@
+{
+  "chainId": 4663,
+  "deployer": "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+  "danOwnerLater": "0x2d713bbB76d08D1a94D68d944B5Eb0D163F1a524",
+  "contracts": [
+    {
+      "name": "StaxBasketTokenDeployer",
+      "address": "0xC9F14d4e0Faefe3fD1033D84bf129D8767F4C3f9",
+      "transactionHash": "0xb10e92923df90aa63b7a9458942b309a3a25916c675b31e392d7174cd76662a8",
+      "blockNumber": 68882760,
+      "gasUsed": "787939",
+      "feeETH": "0.000041133567556",
+      "runtimeCodeHash": "0x86dfb8be2e9f684f2bad5df161eeaa2b804ff4ed848b7f2f0af3e2a386656821",
+      "constructorArgs": [],
+      "creationCodeHash": "0xf8a8f94c466fc15cc08349f693a4ed34eb7262d38d64601ed465e7af28738fc7"
+    },
+    {
+      "name": "StaxV3RouteValidator",
+      "address": "0xEE85B813740730f29fa20D8b7E5ded33a08c6dd5",
+      "transactionHash": "0x23b182de1c294113a10cfbb1cfe2ee51480b12286a9e4eeb61757425c99b3916",
+      "blockNumber": 68882903,
+      "gasUsed": "564185",
+      "feeETH": "0.00002794295468",
+      "runtimeCodeHash": "0xdb3a22a1b3c677186d70f1864eaca44c32b0d0014151f386335668d297caac6a",
+      "constructorArgs": [
+        "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+        "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54"
+      ],
+      "creationCodeHash": "0xfa62657a2302801a1ccdb673fd2f7b77f0c6ef1c62f4b53c5ffbfb26b9514b59"
+    },
+    {
+      "name": "UnifiedTwapRegistry",
+      "address": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+      "transactionHash": "0xd2b02285f9ea1a75864e17c5391fea8d90a348edbdad534baf0febfda88845e0",
+      "blockNumber": 68883035,
+      "gasUsed": "1603256",
+      "feeETH": "0.0000803231256",
+      "runtimeCodeHash": "0x6299942a285847254a844bd100825b0381bfda6360d67380d2f3ec393e573c61",
+      "constructorArgs": [
+        "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+        "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA"
+      ],
+      "creationCodeHash": "0xae4772b6dc404d2a41d28797828282dd77e8dbcc0fee1c714fe09bef20ffc1b3"
+    },
+    {
+      "name": "StaxVaultV2",
+      "address": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+      "transactionHash": "0x38f5baae88b8a0d26afc4e8c5518089fa5158cb881c6c5e55f67bd89af0efb9c",
+      "blockNumber": 68883165,
+      "gasUsed": "6304391",
+      "feeETH": "0.000316240861342",
+      "runtimeCodeHash": "0x2cb63e3cba81bcf8d8bd1af08b4d855e6dbcebaeae0003f0970dbb27fcecad90",
+      "constructorArgs": [
+        "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+        "0xC9F14d4e0Faefe3fD1033D84bf129D8767F4C3f9",
+        [],
+        "0xc02F399cBbF90CEc6DD3a7c2D90fcA84C0a3a5ad",
+        "0xFF843Bc76C276086569D081E02DAC467C2aDa5cE",
+        "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+        "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+        97200,
+        "0x0000000000000000000000000000000000000000",
+        "0xEE85B813740730f29fa20D8b7E5ded33a08c6dd5"
+      ],
+      "creationCodeHash": "0xaa35f1909da0d09e622fbbe8f120f8807cdf0addeda7ef45c322aeb113df91ee"
+    }
+  ],
+  "ownershipTransferred": false,
+  "tokensRegistered": false,
+  "preview": {
+    "address": "0x7F191C0De99a30b20786FFf87B54d7a1bb0598Cc",
+    "runtimeCodeHash": "0xbf318dbeeffcd5ac2c4fb52d61d68e159795aee90f63dec1873f5f03b13b818b"
+  },
+  "settingsVerified": true,
+  "remainingETH": "0.003533870323242"
+}
