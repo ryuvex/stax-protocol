@@ -22,8 +22,9 @@ const RPC = process.env.STAX_RPC_URL ?? "https://rpc.mainnet.chain.robinhood.com
 const CLONE = (process.env.STAX_E2E_CLONE ?? "0xaD4C4E4c217317488aBf06242aEE4930c44B1B0b") as string;
 const OFFICIAL_ID = BigInt(process.env.STAX_E2E_OFFICIAL_ID ?? 5);
 const MINT_USDG = Number(process.env.STAX_E2E_USDG ?? 3);
-// Frontend constants (src/routes/mint.tsx): 1% slippage, 20-minute deadline, 0.25% protocol fee.
-const FE_SLIPPAGE_BPS = 100n, FE_DEADLINE_SEC = 20 * 60, FEE_BPS = 25n;
+// Frontend constants (src/routes/mint.tsx): bounded paths (official V2 + V2 clones) quote oracle value minus the legs'
+// weighted DEX pool fees, then 2% slippage; 20-minute deadline; 0.25% protocol fee.
+const FE_SLIPPAGE_BPS = 200n, FE_DEADLINE_SEC = 20 * 60, FEE_BPS = 25n;
 
 const root = new URL("../../", import.meta.url);
 const json = async (p: string) => JSON.parse(await readFile(new URL(p, root), "utf8"));
@@ -62,6 +63,18 @@ function feMinUsdgOut(shares: bigint, supply: bigint, nav: bigint, usdgDec: numb
   const afterFee = value18 - (value18 * FEE_BPS) / 10000n;
   const usdg = afterFee / 10n ** BigInt(18 - usdgDec);
   return (usdg * (10000n - FE_SLIPPAGE_BPS)) / 10000n;
+}
+// Weighted DEX pool fee (bps) of a set of legs, read from the main vault exactly as the FE does.
+async function legFeeBps(ctx: Ctx, tickers: readonly string[], weights: readonly bigint[]): Promise<{ bps: bigint; notes: string[] }> {
+  const vault = new ctx.ethers.Contract(VAULT, ABI.vault, ctx.provider);
+  let bps = 0n; const notes: string[] = [];
+  for (let i = 0; i < tickers.length; i++) {
+    const isV3 = await vault.tickerIsV3(tickers[i]);
+    const feePpm: bigint = isV3 ? (await vault.tickerPoolsV3(tickers[i])).fee : (await vault.tickerPools(tickers[i])).fee;
+    bps += (BigInt(feePpm) * BigInt(weights[i])) / 100n / 10000n;
+    notes.push(`${tickers[i].slice(0, 6)}… ${isV3 ? "v3" : "v4"} ${Number(feePpm) / 100} bps`);
+  }
+  return { bps, notes };
 }
 async function send(ctx: Ctx, label: string, fn: () => Promise<any>): Promise<string> {
   const tx = await fn(); const r = await tx.wait();
@@ -134,8 +147,10 @@ async function T2(ctx: Ctx): Promise<Result> {
   const token = new ctx.ethers.Contract(await clone.token(), ERC20, ctx.signer);
   const [nav, supply] = [await clone.getBasketNavUsd(), await token.totalSupply()];
   const usdgRaw = BigInt(Math.round(MINT_USDG * 10 ** ctx.usdgDec));
-  const minShares = feMinSharesOut(usdgRaw, ctx.usdgDec, supply, nav);
-  console.log(`   clone ${CLONE} nav ${fmt(nav, 18)} supply ${fmt(supply, 18)} -> share price $${supply === 0n ? 1 : Number(nav + 1n) / Number(supply + 1n)}; FE minSharesOut ${fmt(minShares, 18)}`);
+  const [ct, cw] = await clone.getComposition();
+  const fee = await legFeeBps(ctx, ct, cw);
+  const minShares = (feMinSharesOut(usdgRaw, ctx.usdgDec, supply, nav) * (10000n - fee.bps)) / 10000n;
+  console.log(`   clone ${CLONE} nav ${fmt(nav, 18)} supply ${fmt(supply, 18)} -> share price $${supply === 0n ? 1 : Number(nav + 1n) / Number(supply + 1n)}; legs ${fee.notes.join(", ")} -> fee ${fee.bps} bps; FE minSharesOut ${fmt(minShares, 18)}`);
   await approveUsdg(ctx, CLONE, usdgRaw);
   try { await clone.mint.staticCall(usdgRaw, minShares, await deadline(ctx)); }
   catch (e) { const name = decodeError(e); return { ok: false, note: `staticCall mint reverted: ${name}${name === "UserLimitNotMet" ? " (FE quote is wrong)" : ""}` }; }
@@ -152,7 +167,9 @@ async function T3(ctx: Ctx): Promise<Result> {
   const token = new ctx.ethers.Contract(await clone.token(), ERC20, ctx.signer);
   const half = mintedShares / 2n;
   const [nav, supply] = [await clone.getBasketNavUsd(), await token.totalSupply()];
-  const minOut = feMinUsdgOut(half, supply, nav, ctx.usdgDec);
+  const [ct, cw] = await clone.getComposition();
+  const fee = await legFeeBps(ctx, ct, cw);
+  const minOut = (feMinUsdgOut(half, supply, nav, ctx.usdgDec) * (10000n - fee.bps)) / 10000n;
   try { await clone.redeem.staticCall(half, minOut, await deadline(ctx)); }
   catch (e) { return { ok: false, note: `staticCall redeem reverted: ${decodeError(e)}` }; }
   const before: bigint = await ctx.usdg.balanceOf(ctx.who);
@@ -199,14 +216,9 @@ async function T6(ctx: Ctx): Promise<Result> {
   // Official-basket quote the FE uses: previewMint (oracle value) minus the weighted DEX pool fees of the legs,
   // then the official-basket slippage default (covers the oracle-vs-DEX spot gap, which moves both ways).
   const [tickers, weights] = await vault.getBasketComposition(OFFICIAL_ID);
-  let feeBpsWeighted = 0n; const legNotes: string[] = [];
-  for (let i = 0; i < tickers.length; i++) {
-    const isV3 = await vault.tickerIsV3(tickers[i]);
-    const feePpm: bigint = isV3 ? (await vault.tickerPoolsV3(tickers[i])).fee : (await vault.tickerPools(tickers[i])).fee; // 3000 = 0.30%
-    feeBpsWeighted += (BigInt(feePpm) * BigInt(weights[i])) / 100n / 10000n; // ppm -> bps, weighted by bps weight
-    legNotes.push(`${tickers[i].slice(0, 6)}… ${isV3 ? "v3" : "v4"} fee ${Number(feePpm) / 100} bps`);
-  }
-  const OFFICIAL_SLIPPAGE_BPS = 200n;
+  const fee = await legFeeBps(ctx, tickers, weights);
+  const feeBpsWeighted = fee.bps, legNotes = fee.notes;
+  const OFFICIAL_SLIPPAGE_BPS = FE_SLIPPAGE_BPS;
   const estimate = (preview * (10000n - feeBpsWeighted)) / 10000n;
   const minShares = (estimate * (10000n - OFFICIAL_SLIPPAGE_BPS)) / 10000n;
   console.log(`   legs: ${legNotes.join(", ")} -> weighted fee ${feeBpsWeighted} bps; FE estimate ${fmt(estimate, 18)}, min (−${OFFICIAL_SLIPPAGE_BPS} bps) ${fmt(minShares, 18)}`);
