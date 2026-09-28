@@ -6,6 +6,7 @@
 //   STAX_E2E_ONLY=T2,T3          run a subset (PowerShell: $env:STAX_E2E_ONLY="T6"; npm run e2e; Remove-Item Env:STAX_E2E_ONLY)
 //   STAX_E2E_CLONE=0x...        community basket to test (default: Dan's "My Friday Night" 0xaD4C…)
 //   STAX_E2E_OFFICIAL_ID=5      official V2 basket for T6 (default sSEMI)
+//   STAX_E2E_V1_CLONE=0x...     V1 community basket for T8 (default sBLASTTECH 0x6902…)
 //   STAX_E2E_USDG=3             mint size in USDG (default 3)
 //
 // Every case prints PASS/FAIL and the report (with tx hashes) is written to reports/e2e/<timestamp>.json.
@@ -21,6 +22,9 @@ const ONLY = (process.env.STAX_E2E_ONLY ?? "").split(",").map((x) => x.trim()).f
 const RPC = process.env.STAX_RPC_URL ?? "https://rpc.mainnet.chain.robinhood.com";
 const CLONE = (process.env.STAX_E2E_CLONE ?? "0xaD4C4E4c217317488aBf06242aEE4930c44B1B0b") as string;
 const OFFICIAL_ID = BigInt(process.env.STAX_E2E_OFFICIAL_ID ?? 5);
+const V1_CLONE = (process.env.STAX_E2E_V1_CLONE ?? "0x69025cAc92BE4B5142f89DEEAf0d040c4F3e4Eaf") as string;
+// V1 clone interface, copied from the frontend's CLONE_ABI (unbounded mint/redeem, no deadline).
+const V1_CLONE_ABI = ["function mint(uint256 usdgAmount)", "function redeem(uint256 tokenAmount)", "function token() view returns (address)"];
 const MINT_USDG = Number(process.env.STAX_E2E_USDG ?? 3);
 // Frontend constants (src/routes/mint.tsx): bounded paths (official V2 + V2 clones) quote oracle value minus the legs'
 // weighted DEX pool fees, then 2% slippage; 20-minute deadline; 0.25% protocol fee.
@@ -261,6 +265,29 @@ async function T7(ctx: Ctx): Promise<Result> {
 }
 
 // ---------------------------------------------------------------- runner
+// T8: V1 regression -- a pre-V2 community clone must still mint and redeem through the old unbounded
+// signature the frontend uses for V1 (mint(usdg) / redeem(shares)), unaffected by the V1/V2 detection change.
+async function T8(ctx: Ctx): Promise<Result> {
+  const clone = contract(ctx, V1_CLONE, V1_CLONE_ABI);
+  const token = new ctx.ethers.Contract(await clone.token(), ERC20, ctx.signer);
+  const usdgRaw = BigInt(Math.round(MINT_USDG * 10 ** ctx.usdgDec));
+  console.log(`   V1 clone ${V1_CLONE} token ${await token.symbol()} supply ${fmt(await token.totalSupply(), 18)}`);
+  await approveUsdg(ctx, V1_CLONE, usdgRaw);
+  try { await clone.mint.staticCall(usdgRaw); }
+  catch (e) { return { ok: false, note: `staticCall V1 mint reverted: ${decodeError(e)}` }; }
+  const sharesBefore: bigint = await token.balanceOf(ctx.who);
+  const h1 = await send(ctx, "V1 mint", () => clone.mint(usdgRaw));
+  const got: bigint = ((await token.balanceOf(ctx.who)) as bigint) - sharesBefore;
+  if (got === 0n) return { ok: false, note: "V1 mint sent but no shares received", txs: [h1] };
+  try { await clone.redeem.staticCall(got); }
+  catch (e) { return { ok: false, note: `minted ${fmt(got, 18)} shares but staticCall V1 redeem reverted: ${decodeError(e)}`, txs: [h1] }; }
+  const usdgBefore: bigint = await ctx.usdg.balanceOf(ctx.who);
+  const h2 = await send(ctx, "V1 redeem", () => clone.redeem(got));
+  const back: bigint = ((await ctx.usdg.balanceOf(ctx.who)) as bigint) - usdgBefore;
+  const lossBps = Number(((usdgRaw - back) * 10000n) / usdgRaw);
+  return { ok: back > 0n && lossBps < 500, note: `V1 mint ${MINT_USDG} USDG -> ${fmt(got, 18)} shares -> redeem -> ${fmt(back, ctx.usdgDec)} USDG back (round-trip cost ${lossBps} bps)`, txs: [h1, h2] };
+}
+
 const CASES: Array<[string, (c: Ctx) => Promise<Result>, string]> = [
   ["T1", T1, "V2 basket tickers price via vault"],
   ["T2", T2, "clone mint with FE quote"],
@@ -269,6 +296,7 @@ const CASES: Array<[string, (c: Ctx) => Promise<Result>, string]> = [
   ["T5", T5, "pre-flight decodes UserLimitNotMet"],
   ["T6", T6, "official V2 previewMint vs FE, mint + redeem"],
   ["T7", T7, "stale pool -> StaleObservation (fork)"],
+  ["T8", T8, "V1 clone mint + redeem (old signature)"],
 ];
 const ctx = await makeCtx();
 const report: any = { mode: LIVE ? "live" : "fork", wallet: ctx.who, clone: CLONE, startedAt: new Date().toISOString(), cases: {} };
