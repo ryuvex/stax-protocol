@@ -159,3 +159,5 @@ artifacts/
 artifacts-forge/
 types/
 cache/
+e2e-private-key.txt
+reports/e2e/

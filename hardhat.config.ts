@@ -80,6 +80,10 @@ export default defineConfig({
     },
     4663: {
       name: "Robinhood Chain",
+      // Lets the local fork execute calls at any block (EDR needs a hardfork
+      // history for non-standard chains; the chain has been cancun-compatible
+      // since genesis for our purposes).
+      hardforkHistory: { cancun: { blockNumber: 0 } },
       blockExplorers: {
         blockscout: {
           name: "Robinhood Chain Explorer",

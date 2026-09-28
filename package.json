@@ -18,6 +18,7 @@
     "onboard:batch": "node scripts/onboarding/onboard-batch.mjs",
     "monitor": "node scripts/monitor/basket-monitor.mjs",
     "heartbeat": "node scripts/monitor/heartbeat.mjs",
+    "e2e": "hardhat run scripts/e2e/flows.ts",
     "test:audit": "hardhat test mocha test/StaxVaultV2.audit.test.ts",
     "typecheck:v2": "tsc --project tsconfig.v2-tests.json",
     "onboard:plan": "node --experimental-strip-types scripts/onboarding/plan-token.ts",
