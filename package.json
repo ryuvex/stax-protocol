@@ -9,6 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:local": "hardhat test mocha test/StaxVault.test.ts test/StaxVaultV2.local.test.ts test/StaxVaultV2.audit.test.ts",
     "test:v2": "hardhat test mocha test/StaxVaultV2.local.test.ts",
+    "streams-keeper": "node scripts/monitor/streams-keeper.mjs",
+    "test:streams": "hardhat test mocha test/StreamsRegistryAdapter.test.ts",
     "test:userbasket": "node scripts/onboarding/test-broadcaster.mjs userbasket",
     "fork:userbasket": "hardhat run scripts/assessment/userbasket-fork.ts",
     "userbasket:deploy": "node --experimental-strip-types scripts/onboarding/deploy-userbasket-factory.ts",

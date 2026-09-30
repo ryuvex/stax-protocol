@@ -17,6 +17,11 @@ const [t,w]=await v.getBasketComposition(6); for(let i=0;i<t.length;i++)console.
     const sym=await c.symbol().catch(()=>"?");
     let legs="(no getComposition)"; try{const [tk]=await c.getComposition(); const parts=[]; for(const x of tk){const s=await v.oracleSettings(x); parts.push((await new Contract(x,E,p).symbol())+(Number(s.oracleType)===2?"*":""));} legs=parts.join(", ");}catch{}
     console.log(`  ${a} ${sym} legs: ${legs}`);}
+  // creation tx per clone, from the factory's BasketCreated logs (deploy block 70863402)
+  const topic=(await import("ethers")).id("BasketCreated(address,address,address,string,string,address[],uint256[])");
+  const latest=await p.getBlockNumber(); const logs=[];
+  for(let from=70863402;from<=latest;from+=9_999_999){logs.push(...await p.getLogs({address:"0x1de6a6bD0C62097A7559A29a76e41985558f9918",topics:[topic],fromBlock:from,toBlock:Math.min(from+9_999_998,latest)}));}
+  console.log("  creation txs:"); for(const l of logs) console.log(`    clone 0x${l.topics[1].slice(26)} creator 0x${l.topics[3].slice(26)} tx ${l.transactionHash}`);
 }
 // V1 factory: no ABI in repo, so read its event logs and probe every address that appears in them.
 {
