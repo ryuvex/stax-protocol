@@ -104,6 +104,35 @@ describe("StreamsRegistryAdapter", function () {
     void owner;
   });
 
+  it("accepts several session streams for one token (regular / extended / overnight / v8)", async () => {
+    const [, other] = await ethers.getSigners();
+    const usdg = await deploy("MockERC20Decimals", "USDG", "USDG", 6);
+    const nflx = await deploy("MockERC20Decimals", "Netflix", "NFLX", 18);
+    const usdgUsd = await deploy("MockPriceOracle", 100_000_000n, 8);
+    const verifier = await deploy("MockStreamsVerifier");
+    const adapter = await deploy("StreamsRegistryAdapter", await verifier.getAddress(), await usdg.getAddress(), await usdgUsd.getAddress(), 97_200);
+    const token = await nflx.getAddress();
+    const regular = feedIdFor(11, "NFLX regular"), overnight = feedIdFor(11, "NFLX overnight"), nyse = feedIdFor(8, "NFLX nyse");
+    await adapter.setToken(token, regular, ethers.Wallet.createRandom().address, 900, MASK_24_5_OPEN | MASK_V8_OPEN);
+    await expect(adapter.addFeed(token, regular)).to.be.revertedWithCustomError(adapter, "FeedInUse");
+    await expect(adapter.connect(other).addFeed(token, overnight)).to.be.revertedWithCustomError(adapter, "NotOwner");
+    await adapter.addFeed(token, overnight);
+    await adapter.addFeed(token, nyse);
+    expect(await adapter.tokenOfFeed(overnight)).to.equal(token);
+
+    const t = await now();
+    await adapter.update(reportV11(overnight, ethers.parseUnits("1100", 18), t, 4, t + 600));
+    expect((await adapter.quoteUsdg18(token))[0]).to.equal(ethers.parseUnits("1100", 18));
+    await adapter.update(reportV8(nyse, ethers.parseUnits("1101", 18), t + 1, 2, t + 600));
+    expect((await adapter.quoteUsdg18(token))[0]).to.equal(ethers.parseUnits("1101", 18));
+    await adapter.update(reportV11(regular, ethers.parseUnits("1102", 18), t + 2, 2, t + 600));
+    expect((await adapter.quoteUsdg18(token))[0]).to.equal(ethers.parseUnits("1102", 18));
+
+    await expect(adapter.removeFeed(regular)).to.be.revertedWithCustomError(adapter, "FeedInUse"); // primary
+    await adapter.removeFeed(nyse);
+    await expect(adapter.update(reportV8(nyse, ethers.parseUnits("1103", 18), t + 3, 2, t + 600))).to.be.revertedWithCustomError(adapter, "UnknownFeed");
+  });
+
   it("decodes v11 (24/5 equities) and honours the status mask", async () => {
     const usdg = await deploy("MockERC20Decimals", "USDG", "USDG", 6);
     const amc = await deploy("MockERC20Decimals", "AMC", "AMC", 18);

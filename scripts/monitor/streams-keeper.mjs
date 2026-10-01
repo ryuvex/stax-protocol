@@ -16,7 +16,8 @@
 //   STAX_STREAMS_ADAPTER=0x...             deployed StreamsRegistryAdapter
 //   STAX_STREAMS_API_KEY / STAX_STREAMS_API_SECRET   Chainlink Data Streams credentials
 //   STAX_STREAMS_API_URL   default https://api.dataengine.chain.link (testnet: https://api.testnet-dataengine.chain.link)
-//   STAX_STREAMS_TOKENS    JSON: [{"symbol":"NFLX","token":"0x...","feedId":"0x..."}, ...]
+//   STAX_STREAMS_TOKENS    JSON: [{"symbol":"NFLX","token":"0x...","feedIds":["0x...","0x..."]}, ...]  (all session streams of the token)
+//   STAX_STREAMS_RPC_URL / STAX_STREAMS_CHAIN_ID   default Robinhood mainnet (4663); testnet: https://rpc.testnet.chain.robinhood.com / 46630
 //   STAX_STREAMS_PRIVATE_KEY or key file at ../../../streams-keeper-private-key.txt (outside the repo)
 //   STAX_STREAMS_MARKET_HOURS_ONLY=1   skip fetching when the stored status is "closed" and it's a weekend (saves API calls)
 import {Contract, JsonRpcProvider, Wallet, AbiCoder, formatUnits} from "ethers";
@@ -28,7 +29,7 @@ import "dotenv/config";
 const args = process.argv.slice(2);
 const ONCE = args.includes("--once"), DRY = args.includes("--dry-run");
 const PICK = args.filter((a) => !a.startsWith("--")).map((s) => s.toUpperCase());
-const RPC = process.env.STAX_RPC_URL ?? "https://rpc.mainnet.chain.robinhood.com";
+const RPC = process.env.STAX_STREAMS_RPC_URL ?? process.env.STAX_RPC_URL ?? "https://rpc.mainnet.chain.robinhood.com";
 const API = (process.env.STAX_STREAMS_API_URL ?? "https://api.dataengine.chain.link").replace(/\/$/, "");
 const EVERY = Math.max(30, Number(process.env.STAX_STREAMS_EVERY_SEC ?? 300)) * 1000;
 const MAX_AGE = Number(process.env.STAX_STREAMS_MAX_AGE_SEC ?? 240);
@@ -43,9 +44,10 @@ const ADAPTER_ABI = [
   "function update(bytes report) payable",
   "function prices(address) view returns (uint192 usd18, uint32 observedAt, uint32 marketStatus)",
   "function configs(address) view returns (bytes32 feedId, address pool, uint8 decimals, uint32 maxAge, uint32 allowedStatusMask)",
+  "function tokenOfFeed(bytes32) view returns (address)",
   "function isFresh(address) view returns (bool)",
 ];
-const provider = new JsonRpcProvider(RPC, 4663, {staticNetwork: true});
+const provider = new JsonRpcProvider(RPC, Number(process.env.STAX_STREAMS_CHAIN_ID ?? 4663), {staticNetwork: true});
 let signer = null;
 if (!DRY) {
   const key = (process.env.STAX_STREAMS_PRIVATE_KEY ?? await readFile(process.env.STAX_STREAMS_KEY_FILE ?? fileURLToPath(new URL("../../../streams-keeper-private-key.txt", import.meta.url)), "utf8")).trim();
@@ -84,25 +86,43 @@ function peek(fullReport) {
   return {version};
 }
 
+// Among a token's session streams, pick the freshest report whose status the adapter accepts
+// (mask from configs), falling back to the freshest of any status so "closed" still gets recorded.
+async function bestReport(t, mask) {
+  const feedIds = t.feedIds ?? (t.feedId ? [t.feedId] : []);
+  const seen = [];
+  for (const id of feedIds) {
+    try { const r = await latestReport(id); seen.push({id, report: r, ...peek(r.fullReport)}); }
+    catch (e) { console.error(`  ${t.symbol} ${id.slice(0, 10)}…: api error ${e.message.slice(0, 80)}`); }
+  }
+  if (!seen.length) return null;
+  const allowed = seen.filter((x) => x.status !== undefined && ((mask >> x.status) & 1) === 1);
+  const pool = allowed.length ? allowed : seen;
+  return pool.sort((a, b) => b.observedAt - a.observedAt)[0];
+}
+
 async function tick() {
   const now = (await provider.getBlock("latest")).timestamp;
   for (const t of TOKENS) {
     if (PICK.length && !PICK.includes(t.symbol.toUpperCase())) continue;
     try {
       const cfg = await adapter.configs(t.token);
-      if (cfg.feedId.toLowerCase() !== t.feedId.toLowerCase()) { console.error(`${t.symbol}: adapter feedId ${cfg.feedId} != env ${t.feedId}, skipping`); continue; }
+      if (cfg.feedId === "0x" + "0".repeat(64)) { console.error(`${t.symbol}: not configured on adapter, skipping`); continue; }
+      for (const id of t.feedIds ?? [t.feedId]) {
+        if ((await adapter.tokenOfFeed(id)).toLowerCase() !== t.token.toLowerCase()) console.error(`${t.symbol}: feed ${id.slice(0, 10)}… is not mapped to this token on the adapter`);
+      }
       const stored = await adapter.prices(t.token);
       const age = now - Number(stored.observedAt);
-      const report = await latestReport(t.feedId);
-      const p = peek(report.fullReport);
-      const changed = Number(stored.marketStatus) !== p.status;
+      const best = await bestReport(t, Number(cfg.allowedStatusMask));
+      if (!best) continue;
+      const changed = Number(stored.marketStatus) !== best.status;
       const due = PICK.length || age > MAX_AGE || changed;
-      console.log(`${t.symbol}: stored age ${age}s status ${stored.marketStatus} | api v${p.version} mid ${p.mid !== undefined ? formatUnits(p.mid, 18) : "?"} status ${p.status} observed ${now - p.observedAt}s ago${due ? " -> update" : " (fresh)"}`);
+      console.log(`${t.symbol}: stored age ${age}s status ${stored.marketStatus} | best ${best.id.slice(0, 10)}… v${best.version} mid ${best.mid !== undefined ? formatUnits(best.mid, 18) : "?"} status ${best.status} observed ${now - best.observedAt}s ago${due ? " -> update" : " (fresh)"}`);
       if (!due) continue;
-      if (p.observedAt <= Number(stored.observedAt)) { console.log(`  api report not newer than stored, skip`); continue; }
+      if (best.observedAt <= Number(stored.observedAt)) { console.log(`  not newer than stored, skip`); continue; }
       if (DRY) { console.log("  dry run"); continue; }
-      await adapter.update.staticCall(report.fullReport);
-      const tx = await adapter.update(report.fullReport, {gasLimit: 400_000});
+      await adapter.update.staticCall(best.report.fullReport);
+      const tx = await adapter.update(best.report.fullReport, {gasLimit: 400_000});
       const r = await tx.wait();
       console.log(`  update ${r.hash} (${r.status === 1 ? "ok" : "REVERTED"})`);
     } catch (e) {

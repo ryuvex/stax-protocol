@@ -79,6 +79,8 @@ contract StreamsRegistryAdapter is IStaxTwapRegistry {
     mapping(address => Price) public prices;
 
     event TokenConfigured(address indexed token, bytes32 indexed feedId, address pool, uint32 maxAge, uint32 allowedStatusMask);
+    event FeedAdded(address indexed token, bytes32 indexed feedId);
+    event FeedRemoved(address indexed token, bytes32 indexed feedId);
     event PriceUpdated(address indexed token, bytes32 indexed feedId, uint192 usd18, uint32 observedAt, uint32 marketStatus);
     event FeeTokenSet(address feeToken);
     event OwnershipTransferStarted(address indexed to);
@@ -92,6 +94,7 @@ contract StreamsRegistryAdapter is IStaxTwapRegistry {
     error ReportExpired();
     error ReportOlderThanStored();
     error TokenNotConfigured(address token);
+    error FeedInUse(bytes32 feedId);
     error StaleStreamPrice(address token, uint256 age);
     error MarketStatusNotAllowed(address token, uint32 status);
     error StaleUsdgFeed();
@@ -122,6 +125,29 @@ contract StreamsRegistryAdapter is IStaxTwapRegistry {
         emit TokenConfigured(token, feedId, pool, maxAge, allowedStatusMask);
     }
 
+    /// @notice Map an additional stream to a token. Chainlink publishes US equities as
+    ///         separate streams per session (regular / extended / overnight, plus the v8
+    ///         NYSE-hours one); all of them should price the same token. The keeper posts
+    ///         whichever is live; the status mask decides what is accepted.
+    function addFeed(address token, bytes32 feedId) external onlyOwner {
+        if (configs[token].feedId == bytes32(0)) revert TokenNotConfigured(token);
+        if (feedId == bytes32(0)) revert ZeroAddress();
+        if (tokenOfFeed[feedId] != address(0)) revert FeedInUse(feedId);
+        tokenOfFeed[feedId] = token;
+        emit FeedAdded(token, feedId);
+    }
+
+    /// @notice Unmap a secondary stream. The primary (configs[token].feedId) is removed with removeToken.
+    function removeFeed(bytes32 feedId) external onlyOwner {
+        address token = tokenOfFeed[feedId];
+        if (token == address(0)) revert UnknownFeed(feedId);
+        if (configs[token].feedId == feedId) revert FeedInUse(feedId);
+        delete tokenOfFeed[feedId];
+        emit FeedRemoved(token, feedId);
+    }
+
+    /// @notice Drop a token. Secondary feeds must be removed first (removeFeed) so no
+    ///         dangling feed -> token mapping survives.
     function removeToken(address token) external onlyOwner {
         delete tokenOfFeed[configs[token].feedId];
         delete configs[token];

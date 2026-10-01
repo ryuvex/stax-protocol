@@ -1,0 +1,36 @@
+{
+  "chainId": 46630,
+  "verifier": "0x72790f9eB82db492a7DDb6d2af22A270Dcc3Db64",
+  "usdg": "0x4bA8D18E06A794e225E62FE90C44d18175B9ef0F",
+  "usdgUsdFeed": "0x8e446c893A492bD7AB75a25a3346AeD39Cb6fDB1",
+  "adapter": "0xa03356Eb03Bc52c74221DB785aD3152735547924",
+  "tokens": [
+    {
+      "symbol": "tSTOCK_A",
+      "token": "0xCfcC07ee40a552636eB4cA5ED6c3a797B0AADf4a",
+      "feedIds": [
+        "0x000b6d125fa41f65c4196eab967c61af23e73490dc3b887cbbe3a866728ea654",
+        "0x000b726b1973c3ceb5d4c18db1b2d01f26ae6a92f7012d755ce501a07129d169",
+        "0x000bdaefb4eec872e1249fee2d50388d062771bf9664633bd3cb356607b0045f"
+      ]
+    },
+    {
+      "symbol": "tSTOCK_B",
+      "token": "0x25A6e04159452515Ce093c93A2884fB8401cD6bB",
+      "feedIds": [
+        "0x000bef8509c0438698f7e41ca236816fc4d6491e724df942d804576978f6e670",
+        "0x000b835e14e462214ae21ad86e8181f797e690bca07b7ace6a364ddc9b2e44db",
+        "0x000b9fd0f7943e31c696e1749381f3e24dc7f7a5c0e3f8071321aa3fd358f8a8"
+      ]
+    },
+    {
+      "symbol": "tSTOCK_C",
+      "token": "0xdF7141507a8A8A4EDd258d0cc4B0286B1e0315C7",
+      "feedIds": [
+        "0x000b6e7325461602b39169e795854532ab95f757224760210ba8236fe17c46cb",
+        "0x000b930bb9d864a2be1bbf01f7c0204163df9a0ff4e7e51d6a5f11185b93ae3e",
+        "0x000b51e1f5f83d8cb93cdf47130384b7caa1a1692546906de25bcb98b00ca1f5"
+      ]
+    }
+  ]
+}
