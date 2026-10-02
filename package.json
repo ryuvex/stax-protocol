@@ -10,6 +10,8 @@
     "test:local": "hardhat test mocha test/StaxVault.test.ts test/StaxVaultV2.local.test.ts test/StaxVaultV2.audit.test.ts",
     "test:v2": "hardhat test mocha test/StaxVaultV2.local.test.ts",
     "streams-keeper": "node scripts/monitor/streams-keeper.mjs",
+    "test:rewards": "hardhat test mocha test/rewards-scoring.test.ts",
+    "test:staking:fork": "hardhat test mocha test/StaxStakingRewards.fork.test.ts",
     "test:staking": "hardhat test mocha test/StaxStakingRewards.test.ts",
     "test:streams": "hardhat test mocha test/StreamsRegistryAdapter.test.ts",
     "test:userbasket": "node scripts/onboarding/test-broadcaster.mjs userbasket",
