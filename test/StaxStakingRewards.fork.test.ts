@@ -6,11 +6,13 @@ import { computePayouts, ONE } from "../scripts/rewards/scoring.mjs";
 // Full round trip on a mainnet fork (brief section 6):
 //   vault.setRewardsPool(distributor) by the real owner -> a real mint generates fees ->
 //   claimRewardsPool() funds the distributor with real USDG -> stake 100k STAX, wait, unstake exact ->
-//   score, publish root, claim. STAX is not deployed, so a mock 18-decimal token stands in.
+//   score, publish root, claim. Uses the real STAX token (0x9CC5...f8Fb, 18 decimals), funded on the fork
+//   by writing its balance slot, so custody runs against the token's actual code.
 // Run: npm run test:staking:fork   (needs RPC access; nothing is sent to mainnet)
 const RPC = process.env.STAX_RPC_URL ?? "https://rpc.mainnet.chain.robinhood.com";
 const VAULT = "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33";
-const OFFICIAL_ID = 5n; // sSEMI
+const OFFICIAL_ID = 4n; // sINDEX (SPY/QQQ, deep V3 pools; sSEMI's MU leg is a thin V4 pool that trips slippage on a fork)
+const STAX = "0x9CC546a4091f184898C4155C1B9F6290075eF8Fb";
 const VAULT_ABI = [
   "function owner() view returns(address)", "function usdg() view returns(address)", "function rewardsPool() view returns(address)",
   "function pendingRewardsPool() view returns(uint256)", "function setRewardsPool(address)", "function claimRewardsPool()",
@@ -31,15 +33,15 @@ describe("staking + rewards: mainnet fork round trip", function () {
   after(async () => { await connection?.close?.(); });
 
   async function deploy(name: string, ...args: any[]) { const c: any = await (await ethers.getContractFactory(name)).deploy(...args); await c.waitForDeployment(); return c; }
-  async function fundUsdg(usdg: any, who: string, amount: bigint) {
+  async function fundToken(token: any, who: string, amount: bigint) {
     for (let slot = 0; slot < 64; slot++) {
       const key = ethers.keccak256(ethers.AbiCoder.defaultAbiCoder().encode(["address", "uint256"], [who, slot]));
-      const old = await ethers.provider.getStorage(usdg.target, key);
-      await ethers.provider.send("hardhat_setStorageAt", [usdg.target, key, ethers.toBeHex(amount, 32)]);
-      if ((await usdg.balanceOf(who)) === amount) return;
-      await ethers.provider.send("hardhat_setStorageAt", [usdg.target, key, old]);
+      const old = await ethers.provider.getStorage(token.target, key);
+      await ethers.provider.send("hardhat_setStorageAt", [token.target, key, ethers.toBeHex(amount, 32)]);
+      if ((await token.balanceOf(who)) === amount) return;
+      await ethers.provider.send("hardhat_setStorageAt", [token.target, key, old]);
     }
-    throw new Error("could not fund USDG");
+    throw new Error(`could not fund ${token.target}`);
   }
   async function impersonate(addr: string) {
     await ethers.provider.send("hardhat_impersonateAccount", [addr]);
@@ -54,8 +56,9 @@ describe("staking + rewards: mainnet fork round trip", function () {
     const owner = await impersonate(await vault.owner());
 
     // --- contracts under test
-    const stax = await deploy("MockERC20Decimals", "Stax", "STAX", 18);
-    const staking = await deploy("StaxStaking", deployer.address, await stax.getAddress());
+    const stax = new ethers.Contract(STAX, ERC20, deployer);
+    expect(await stax.decimals()).to.equal(18n); // never assume
+    const staking = await deploy("StaxStaking", deployer.address, STAX);
     const dist = await deploy("StaxRewardsDistributor", deployer.address, usdg.target);
     const D = await dist.getAddress();
 
@@ -66,8 +69,8 @@ describe("staking + rewards: mainnet fork round trip", function () {
     console.log(`   rewardsPool ${before} -> distributor ${D}`);
 
     // --- a real mint on an official basket generates a fee; 30% is the rewards share
-    const mintUsdg = 500n * 10n ** 6n;
-    await fundUsdg(usdg, alice.address, mintUsdg * 2n);
+    const mintUsdg = 100n * 10n ** 6n;
+    await fundToken(usdg, alice.address, mintUsdg * 2n);
     await usdg.connect(alice).approve(VAULT, mintUsdg);
     const preview: bigint = await vault.previewMint(OFFICIAL_ID, mintUsdg);
     const minOut = (preview * 97n) / 100n;
@@ -76,7 +79,7 @@ describe("staking + rewards: mainnet fork round trip", function () {
     await vault.connect(alice).mint(OFFICIAL_ID, mintUsdg, minOut, deadline);
     const pendingAfter: bigint = await vault.pendingRewardsPool();
     expect(pendingAfter).to.be.greaterThan(pendingBefore);
-    console.log(`   fee to rewards from a 500 USDG mint: ${ethers.formatUnits(pendingAfter - pendingBefore, 6)} USDG (pending total ${ethers.formatUnits(pendingAfter, 6)})`);
+    console.log(`   fee to rewards from a 100 USDG mint: ${ethers.formatUnits(pendingAfter - pendingBefore, 6)} USDG (pending total ${ethers.formatUnits(pendingAfter, 6)})`);
 
     // --- anyone flushes the share; it lands in the distributor as unallocated USDG
     await vault.connect(bob).claimRewardsPool();
@@ -87,7 +90,7 @@ describe("staking + rewards: mainnet fork round trip", function () {
 
     // --- staking custody at real size: 100k STAX in, wait a week, exact amount out
     const amt = 100_000n * ONE;
-    await stax.mint(bob.address, amt);
+    await fundToken(stax, bob.address, amt);
     await stax.connect(bob).approve(await staking.getAddress(), amt);
     await staking.connect(bob).stake(amt);
     expect(await staking.balanceOf(bob.address)).to.equal(amt);
