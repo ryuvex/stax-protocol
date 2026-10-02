@@ -8,7 +8,8 @@
 //   STAX_RPC_URL                     default Robinhood mainnet
 //   STAX_STAKING                     StaxStaking address (omit -> everyone gets multiplier 1)
 //   STAX_REWARDS_DISTRIBUTOR         if set and --total omitted, total = distributor.unallocated()
-//   STAX_REWARDS_EXTRA_TOKENS        comma list of extra basket tokens to count (e.g. V1 clones)
+//   STAX_REWARDS_V1_CLONES           comma list of V1 community basket (clone) addresses; the V1 factory cannot be enumerated
+//   STAX_REWARDS_EXTRA_TOKENS        comma list of extra share tokens to count at $1/share (last resort)
 //   STAX_REWARDS_EXCLUDE             comma list of addresses whose balances never count
 //   STAX_REWARDS_PARAMS              JSON overriding scoring params, e.g. {"multiplierCap":3,"minHeldFraction":0.5}
 //   STAX_REWARDS_NAV_SAMPLES         NAV samples across the epoch (default 7; needs archive reads, falls back to end-of-epoch NAV)
@@ -30,7 +31,11 @@ const NAV_SAMPLES = Math.max(1, Number(process.env.STAX_REWARDS_NAV_SAMPLES ?? 7
 
 const abi = async (f) => { const a = JSON.parse(await readFile(new URL(`../../abi/${f}.json`, import.meta.url), "utf8")); return Array.isArray(a) ? a : a.abi; };
 const VAULT = "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33", FACTORY_V2 = "0x1de6a6bD0C62097A7559A29a76e41985558f9918";
+const VAULT_V1 = "0x13045D3Dab253fDB15181C16f135D612fa8546E6"; // legacy vault: Commodities, Retail V1, Mag 7, Mag 7 cap
 const vault = new Contract(VAULT, await abi("StaxVaultV2"), p);
+const VAULT_MIN_ABI = ["function baskets(uint256) view returns(string name,address token,uint256 depositCapUsd,uint256 maxMintUsd,bool mintPaused,bool exists)", "function getBasketNavUsd(uint256) view returns(uint256)"];
+const vaultV1 = new Contract(VAULT_V1, VAULT_MIN_ABI, p);
+const CLONE_MIN_ABI = ["function token() view returns(address)", "function getBasketNavUsd() view returns(uint256)"];
 const factory = new Contract(FACTORY_V2, await abi("StaxUserBasketFactoryV2"), p);
 const cloneAbi = await abi("StaxUserBasketV2");
 const ERC20 = ["function balanceOf(address) view returns(uint256)", "function totalSupply() view returns(uint256)", "function symbol() view returns(string)", "function decimals() view returns(uint8)", "event Transfer(address indexed from, address indexed to, uint256 value)"];
@@ -54,10 +59,16 @@ console.log(`epoch ${EPOCH}: ${new Date(START * 1000).toISOString()} -> ${new Da
 const startBlock = await blockAt(START), endBlock = (await blockAt(END)) - 1;
 console.log(`blocks ${startBlock}..${endBlock}`);
 const baskets = []; // {kind, id|clone, token, symbol, nav: async(block)=>usd18 per share}
-for (let i = 1, misses = 0; misses < 5 && i < 200; i++) {
-  const b = await vault.baskets(i); if (!b.exists) { misses++; continue; } misses = 0;
-  const token = new Contract(b.token, ERC20, p);
-  baskets.push({kind: "official", id: i, token: b.token, symbol: await token.symbol(), nav: async (bt) => { const [n, s] = await Promise.all([vault.getBasketNavUsd(i, {blockTag: bt}), token.totalSupply({blockTag: bt})]); return s === 0n ? 0n : (n * ONE) / s; }});
+for (const [kind, v] of [["official", vault], ["official-v1", vaultV1]]) {
+  for (let i = 1, misses = 0; misses < 5 && i < 200; i++) {
+    const b = await v.baskets(i).catch(() => null); if (!b || !b.exists) { misses++; continue; } misses = 0;
+    const token = new Contract(b.token, ERC20, p);
+    baskets.push({kind, id: i, token: b.token, symbol: await token.symbol(), nav: async (bt) => { const [n, s] = await Promise.all([v.getBasketNavUsd(i, {blockTag: bt}), token.totalSupply({blockTag: bt})]); return s === 0n ? 0n : (n * ONE) / s; }});
+  }
+}
+for (const addr of (process.env.STAX_REWARDS_V1_CLONES ?? "").split(",").map((s) => s.trim()).filter(Boolean)) {
+  const c = new Contract(addr, CLONE_MIN_ABI, p); const t = await c.token(); const token = new Contract(t, ERC20, p);
+  baskets.push({kind: "clone-v1", clone: addr, token: t, symbol: await token.symbol().catch(() => "?"), nav: async (bt) => { const [nv, s] = await Promise.all([c.getBasketNavUsd({blockTag: bt}), token.totalSupply({blockTag: bt})]); return s === 0n ? 0n : (nv * ONE) / s; }});
 }
 const n = Number(await factory.basketCount());
 for (let i = 0; i < n; i++) {
@@ -68,7 +79,7 @@ for (const t of (process.env.STAX_REWARDS_EXTRA_TOKENS ?? "").split(",").map((s)
   const token = new Contract(t, ERC20, p);
   baskets.push({kind: "extra", token: t, symbol: await token.symbol().catch(() => "?"), nav: async () => ONE}); // extra tokens valued at $1/share unless a nav source is added
 }
-const EXCLUDE = new Set([VAULT, FACTORY_V2, "0x0000000000000000000000000000000000000000", ...baskets.map((b) => b.clone).filter(Boolean), ...(process.env.STAX_REWARDS_EXCLUDE ?? "").split(",")].map((a) => a.trim().toLowerCase()).filter(Boolean));
+const EXCLUDE = new Set([VAULT, VAULT_V1, FACTORY_V2, "0x0000000000000000000000000000000000000000", ...baskets.map((b) => b.clone).filter(Boolean), ...(process.env.STAX_REWARDS_EXCLUDE ?? "").split(",")].map((a) => a.trim().toLowerCase()).filter(Boolean));
 console.log(`baskets: ${baskets.map((b) => b.symbol).join(", ")}`);
 
 // ---------------------------------------------------------------- NAV per share (sampled), with archive fallback
