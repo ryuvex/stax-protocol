@@ -1,0 +1,25 @@
+{
+  "chainId": 4663,
+  "deployedAt": "2026-10-05T16:43:50.565Z",
+  "deployer": "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+  "owner": "0xCECa5491a16ea73F29990313924285EEB9771e3b",
+  "publisher": "0x51756d4820aaB37684bC792ececb7256CFc8aE25",
+  "stax": "0x9CC546a4091f184898C4155C1B9F6290075eF8Fb",
+  "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "vault": "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33",
+  "staking": {
+    "address": "0x8e31193dB01cEE4be56487394955d46b234d3eCF",
+    "block": 80935493,
+    "tx": "0x3a83090c8ff4b6bc346006405f3bea4d4cc98b0c408653bc125737fc04fc065b"
+  },
+  "distributor": {
+    "address": "0x70C872fb43BfC0Ad910c3D024e417b2F0F64dD61",
+    "block": 80935556,
+    "tx": "0x67336d604c9535416a62037a4f72e2456d7bc0df34b7a11c4465bce3ef265bd2",
+    "setPublisherTx": null
+  },
+  "next": [
+    "vault owner (0x79F7c8AB5360c9902DD23AdF99cDaB54f2a6449D) calls StaxVaultV2.setRewardsPool(0x70C872fb43BfC0Ad910c3D024e417b2F0F64dD61)",
+    "owner calls distributor.setPublisher(0x51756d4820aaB37684bC792ececb7256CFc8aE25)"
+  ]
+}
