@@ -1,0 +1,252 @@
+{
+  "epoch": 1,
+  "start": 1790294400,
+  "end": 1790899200,
+  "startBlock": 71782334,
+  "endBlock": 77787156,
+  "rpc": "https://rpc.mainnet.chain.robinhood.com",
+  "generatedAt": "2026-10-05T15:01:54.765Z",
+  "params": {
+    "multiplierCap": 2,
+    "stakeForMax": "100000000000000000000000",
+    "curve": "sqrt",
+    "minHeldFraction": 0.5
+  },
+  "staking": null,
+  "excluded": [
+    "0xada84161033c0cc54ef21ceef913a8fec4239b33",
+    "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+    "0x1de6a6bd0c62097a7559a29a76e41985558f9918",
+    "0x0000000000000000000000000000000000000000",
+    "0x69025cac92be4b5142f89deeaf0d040c4f3e4eaf",
+    "0x666ca1636e80b6cae062783c199d965454c92dde",
+    "0xc3232da25f44530b482cc71430078825fff4396f",
+    "0x113675cdb88b9f12f029eb9dcb11ed7f639a156c",
+    "0xad4c4e4c217317488abf06242aee4930c44b1b0b",
+    "0x2d3bab226001f78bd9b805a8bbcdb1845ed9688a",
+    "0xff843bc76c276086569d081e02dac467c2ada5ce",
+    "0xceca5491a16ea73f29990313924285eeb9771e3b",
+    "0xc02f399cbbf90cec6dd3a7c2d90fca84c0a3a5ad",
+    "0xe86df3148ed10d8d6ddf96c482f9e9ef436d9561"
+  ],
+  "includedContracts": [],
+  "baskets": [
+    {
+      "kind": "official",
+      "id": 1,
+      "token": "0x1Ef193B929122a41a0314DD1592Bc8d7a8b0af56",
+      "symbol": "sAMC",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official",
+      "id": 2,
+      "token": "0x070122B7c8516654A96DCd810A1b47bD9203d384",
+      "symbol": "sNFLX",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official",
+      "id": 3,
+      "token": "0x3d34b99031c214aE907353aFdc0Efbca850dFE12",
+      "symbol": "sRETAIL",
+      "navPerShareUsd": "0.965531625631093477",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official",
+      "id": 4,
+      "token": "0xD84D573bbf327dafe6aa437CB73160Ce43DB3D9d",
+      "symbol": "sINDEX",
+      "navPerShareUsd": "1.003460387607520131",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official",
+      "id": 5,
+      "token": "0xF10878c1c3729751624626adf23dedA74428d00d",
+      "symbol": "sSEMI",
+      "navPerShareUsd": "0.995800267312001689",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official",
+      "id": 6,
+      "token": "0x5458cDEEa6453413061276B242e49e92Af584df7",
+      "symbol": "sHEALTH",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official-v1",
+      "id": 1,
+      "token": "0xFC53e28Fe5b177cEfb34fBF64e9318D342d9835b",
+      "symbol": "sCOMM",
+      "navPerShareUsd": "1.019133375778404683",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official-v1",
+      "id": 2,
+      "token": "0x65526C526a237C4483e67B4B7D6a57F51F63DA4d",
+      "symbol": "sRETAIL",
+      "navPerShareUsd": "1.136730308426332897",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official-v1",
+      "id": 3,
+      "token": "0x942d9b04a46714aCdB294ADd3099762e816F1432",
+      "symbol": "sMAG7",
+      "navPerShareUsd": "1.065605803070949649",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "official-v1",
+      "id": 4,
+      "token": "0x7969E4C6BeAa7E2676980D59BCdEeF50003Ab347",
+      "symbol": "sMAG7CAP",
+      "navPerShareUsd": "1.047490142052958477",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone-v1",
+      "clone": "0x69025cAc92BE4B5142f89DEEAf0d040c4F3e4Eaf",
+      "token": "0x510b48D4b3310f1633D340EfCEbF9E140F3508A8",
+      "symbol": "sBLASTTECH",
+      "navPerShareUsd": "1.023948444517944497",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone-v1",
+      "clone": "0x666cA1636E80B6CaE062783c199D965454c92ddE",
+      "token": "0x5A5fd2A038a2C400E276D2D85D5ad60AccB1b450",
+      "symbol": "sMEMESTREET",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone-v1",
+      "clone": "0xC3232da25F44530B482cc71430078825FFF4396F",
+      "token": "0xF890c83D4aEE7Edc387aC93B29d59833e5758c1D",
+      "symbol": "sBLASTAI",
+      "navPerShareUsd": "1.012466942514304719",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone",
+      "clone": "0x113675cdB88B9F12F029eB9DCB11ed7F639a156C",
+      "token": "0xF470058b79788b51b75d14Adc38F767Bd47DF4Eb",
+      "symbol": "sFRIDAY",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone",
+      "clone": "0xaD4C4E4c217317488aBf06242aEE4930c44B1B0b",
+      "token": "0x156e22D81a762795eC021F3461979aB667E0662d",
+      "symbol": "sFRIDAY",
+      "navPerShareUsd": "47.959681252794525921",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    },
+    {
+      "kind": "clone",
+      "clone": "0x2D3BAB226001F78bD9B805a8bbCDb1845eD9688a",
+      "token": "0xed9c286ed4800be15812751Ca92d07356F1099ba",
+      "symbol": "sTEST",
+      "navPerShareUsd": "0.0",
+      "navNote": "end-of-epoch (archive reads unavailable)"
+    }
+  ],
+  "total": "100000000",
+  "distributed": "99999998",
+  "dust": "2",
+  "merkleRoot": "0xfeadf8833c15c2b3866d2e6e50a2f3b0be6ec8a152f899e767e8da042a8c7719",
+  "wallets": [
+    {
+      "account": "0x9b19eaEd0BBe1DB757017bcDBed2a2ba1DD72230",
+      "tvlTwUsd": "27.584280579573536082",
+      "heldFraction": 1,
+      "stakeTw": "0.0",
+      "multiplier": 1,
+      "eligible": true,
+      "amount": "5055410"
+    },
+    {
+      "account": "0xcE746e7256018De28AAb368c6524Fd23f9C13C7a",
+      "tvlTwUsd": "0.000129143216846362",
+      "heldFraction": 0.0000496031746031746,
+      "stakeTw": "0.0",
+      "multiplier": 0,
+      "eligible": false,
+      "amount": "0"
+    },
+    {
+      "account": "0xD4AAFcaaBd7cc12D01458C882aEE82C6958E56c4",
+      "tvlTwUsd": "1.955387623249867268",
+      "heldFraction": 1,
+      "stakeTw": "0.0",
+      "multiplier": 1,
+      "eligible": true,
+      "amount": "358366"
+    },
+    {
+      "account": "0x97C83b80ba022bf5a58A2aE0AE3f02979BeD0C6D",
+      "tvlTwUsd": "410.378892529867791659",
+      "heldFraction": 1,
+      "stakeTw": "0.0",
+      "multiplier": 1,
+      "eligible": true,
+      "amount": "75210720"
+    },
+    {
+      "account": "0xf705876A3c16874d1E1438B5b6bEf86228fDAb10",
+      "tvlTwUsd": "105.720262456042396315",
+      "heldFraction": 1,
+      "stakeTw": "0.0",
+      "multiplier": 1,
+      "eligible": true,
+      "amount": "19375502"
+    }
+  ],
+  "leaves": [
+    {
+      "index": 0,
+      "account": "0x97C83b80ba022bf5a58A2aE0AE3f02979BeD0C6D",
+      "amount": "75210720",
+      "proof": [
+        "0x51acf05cdeae295ceccbfbfc5f71b074d5ca5f4903b191133861945c6215becb",
+        "0xdef15df2b1c462ae599b043f9dee362c0009e5eca0e6cd67467e5a29e9d0974f"
+      ]
+    },
+    {
+      "index": 1,
+      "account": "0xf705876A3c16874d1E1438B5b6bEf86228fDAb10",
+      "amount": "19375502",
+      "proof": [
+        "0x798c17edef7ed3779bf30bc12f789d191b6b0b7dd00753020c20f7dc39bd597b",
+        "0xdef15df2b1c462ae599b043f9dee362c0009e5eca0e6cd67467e5a29e9d0974f"
+      ]
+    },
+    {
+      "index": 2,
+      "account": "0x9b19eaEd0BBe1DB757017bcDBed2a2ba1DD72230",
+      "amount": "5055410",
+      "proof": [
+        "0xc639c2f189a6bc290b8e7d80e4deb070e3d72090428d2f4566d97940268ccb53",
+        "0xb501fd928ec0edf8267093bb3b4c907b79e7e3c9fd91ecc42445aba589491401"
+      ]
+    },
+    {
+      "index": 3,
+      "account": "0xD4AAFcaaBd7cc12D01458C882aEE82C6958E56c4",
+      "amount": "358366",
+      "proof": [
+        "0x796d167e6e34641f2e0557b98ef945250e577fdfb88640a576dc56c1aa2cc574",
+        "0xb501fd928ec0edf8267093bb3b4c907b79e7e3c9fd91ecc42445aba589491401"
+      ]
+    }
+  ]
+}

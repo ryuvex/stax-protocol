@@ -29,6 +29,7 @@ error ZeroRoot();
 error ZeroAmount();
 error InsufficientUnallocated(uint256 requested, uint256 available);
 error RecoveryNotAllowed();
+error NotPublisher();
 
 contract StaxRewardsDistributor is Ownable2Step {
     using SafeERC20 for IERC20;
@@ -43,6 +44,11 @@ contract StaxRewardsDistributor is Ownable2Step {
     }
 
     address public immutable token;              // USDG
+    /// @notice Hot key allowed to publish epochs and recover expired ones. Set and rotated by the
+    ///         owner (a multisig). If compromised, the damage is bounded by `unallocated()` at that
+    ///         moment: a bad root can only promise USDG not yet assigned to earlier epochs, and
+    ///         nothing already promised or claimed is reachable. Owner retains the same rights.
+    address public publisher;
     uint256 public epochCount;
     mapping(uint256 => Epoch) public epochs;
     // epoch => packed array of booleans (same scheme as Uniswap)
@@ -51,6 +57,7 @@ contract StaxRewardsDistributor is Ownable2Step {
     uint256 public outstanding;
 
     event EpochPublished(uint256 indexed epoch, bytes32 merkleRoot, uint256 total, uint64 expiresAt);
+    event PublisherSet(address indexed publisher);
     event Claimed(uint256 indexed epoch, uint256 index, address account, uint256 amount);
     event Recovered(uint256 indexed epoch, uint256 amount);
     event TokenRecovered(address token, uint256 amount);
@@ -58,6 +65,11 @@ contract StaxRewardsDistributor is Ownable2Step {
     constructor(address owner_, address token_) Ownable(owner_) {
         require(token_ != address(0), "Zero token");
         token = token_;
+    }
+
+    modifier onlyPublisher() {
+        if (msg.sender != publisher && msg.sender != owner()) revert NotPublisher();
+        _;
     }
 
     /* ========== VIEWS ========== */
@@ -112,8 +124,14 @@ contract StaxRewardsDistributor is Ownable2Step {
 
     /* ========== RESTRICTED FUNCTIONS ========== */
 
+    /// @notice Owner-only: set or rotate the publishing key. address(0) leaves the owner as the only publisher.
+    function setPublisher(address publisher_) external onlyOwner {
+        publisher = publisher_;
+        emit PublisherSet(publisher_);
+    }
+
     /// @notice Publish an epoch's root. `total` must be covered by unallocated USDG already held here.
-    function publishEpoch(bytes32 merkleRoot, uint256 total, uint64 expiresAt) external onlyOwner returns (uint256 epoch) {
+    function publishEpoch(bytes32 merkleRoot, uint256 total, uint64 expiresAt) external onlyPublisher returns (uint256 epoch) {
         if (merkleRoot == bytes32(0)) revert ZeroRoot();
         if (total == 0) revert ZeroAmount();
         uint256 avail = unallocated();
@@ -125,7 +143,7 @@ contract StaxRewardsDistributor is Ownable2Step {
     }
 
     /// @notice After an epoch expires, return its unclaimed USDG to the unallocated pool.
-    function recoverExpired(uint256 epoch) external onlyOwner {
+    function recoverExpired(uint256 epoch) external onlyPublisher {
         Epoch storage e = epochs[epoch];
         if (e.merkleRoot == bytes32(0)) revert EpochNotFound();
         if (e.expiresAt == 0 || block.timestamp <= e.expiresAt) revert EpochNotExpired();

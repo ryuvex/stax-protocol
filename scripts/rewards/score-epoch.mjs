@@ -10,7 +10,9 @@
 //   STAX_REWARDS_DISTRIBUTOR         if set and --total omitted, total = distributor.unallocated()
 //   STAX_REWARDS_V1_CLONES           comma list of V1 community basket (clone) addresses; the V1 factory cannot be enumerated
 //   STAX_REWARDS_EXTRA_TOKENS        comma list of extra share tokens to count at $1/share (last resort)
-//   STAX_REWARDS_EXCLUDE             comma list of addresses whose balances never count
+//   STAX_REWARDS_EXCLUDE             comma list of addresses whose balances never count (treasury, deployer, ...)
+//   STAX_REWARDS_INCLUDE_CONTRACTS   comma list of contract addresses that DO earn (smart wallets like Safe).
+//                                    Every other address with code (DEX pools, vaults, routers) is excluded automatically.
 //   STAX_REWARDS_PARAMS              JSON overriding scoring params, e.g. {"multiplierCap":3,"minHeldFraction":0.5}
 //   STAX_REWARDS_NAV_SAMPLES         NAV samples across the epoch (default 7; needs archive reads, falls back to end-of-epoch NAV)
 import {Contract, JsonRpcProvider, formatUnits, getAddress, id as topicId, zeroPadValue} from "ethers";
@@ -79,6 +81,9 @@ for (const t of (process.env.STAX_REWARDS_EXTRA_TOKENS ?? "").split(",").map((s)
   const token = new Contract(t, ERC20, p);
   baskets.push({kind: "extra", token: t, symbol: await token.symbol().catch(() => "?"), nav: async () => ONE}); // extra tokens valued at $1/share unless a nav source is added
 }
+const INCLUDE_CONTRACTS = new Set((process.env.STAX_REWARDS_INCLUDE_CONTRACTS ?? "").split(",").map((a) => a.trim().toLowerCase()).filter(Boolean));
+const codeCache = new Map();
+async function isContract(addr) { const k = addr.toLowerCase(); if (!codeCache.has(k)) codeCache.set(k, (await p.getCode(addr)) !== "0x"); return codeCache.get(k); }
 const EXCLUDE = new Set([VAULT, VAULT_V1, FACTORY_V2, "0x0000000000000000000000000000000000000000", ...baskets.map((b) => b.clone).filter(Boolean), ...(process.env.STAX_REWARDS_EXCLUDE ?? "").split(",")].map((a) => a.trim().toLowerCase()).filter(Boolean));
 console.log(`baskets: ${baskets.map((b) => b.symbol).join(", ")}`);
 
@@ -103,6 +108,7 @@ for (const b of baskets) {
   const tsOf = async (bn) => { if (!blockTs.has(bn)) blockTs.set(bn, (await p.getBlock(bn)).timestamp); return blockTs.get(bn); };
   for (const h of holders) {
     if (EXCLUDE.has(h.toLowerCase())) continue;
+    if (!INCLUDE_CONTRACTS.has(h.toLowerCase()) && (await isContract(h))) { EXCLUDE.add(h.toLowerCase()); continue; } // pools, routers, other contracts
     let bal;
     try { bal = await token.balanceOf(h, {blockTag: startBlock - 1}); }
     catch { bal = null; }
@@ -164,6 +170,7 @@ const tree = leaves.length ? buildTree(leaves) : {root: null, proofs: []};
 const out = {
   epoch: EPOCH, start: START, end: END, startBlock, endBlock, rpc: RPC, generatedAt: new Date().toISOString(),
   params: {...PARAMS, stakeForMax: PARAMS.stakeForMax.toString()}, staking: process.env.STAX_STAKING ?? null,
+  excluded: [...EXCLUDE], includedContracts: [...INCLUDE_CONTRACTS],
   baskets: baskets.map((b) => ({kind: b.kind, id: b.id, clone: b.clone, token: b.token, symbol: b.symbol, navPerShareUsd: formatUnits(b.navAvg, 18), navNote: b.navNote})),
   total: total.toString(), distributed: result.distributed.toString(), dust: result.dust.toString(), merkleRoot: tree.root,
   wallets: result.payouts.map((r) => ({account: r.account, tvlTwUsd: formatUnits(r.tvlTw, 18), heldFraction: r.heldFraction, stakeTw: formatUnits(r.stakeTw, 18), multiplier: r.multiplier, eligible: r.eligible, amount: r.amount.toString()})),

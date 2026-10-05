@@ -100,7 +100,7 @@ describe("StaxStaking + StaxRewardsDistributor", function () {
     const t1 = tree(leaves1);
     // over-allocation refused
     await expect(dist.publishEpoch(t1.root, 1_000_001n, 0)).to.be.revertedWithCustomError(dist, "InsufficientUnallocated");
-    await expect(dist.connect(alice).publishEpoch(t1.root, 1_000_000n, 0)).to.be.revertedWithCustomError(dist, "OwnableUnauthorizedAccount");
+    await expect(dist.connect(alice).publishEpoch(t1.root, 1_000_000n, 0)).to.be.revertedWithCustomError(dist, "NotPublisher");
     await dist.publishEpoch(t1.root, 1_000_000n, 0);
     expect(await dist.epochCount()).to.equal(1n);
     expect(await dist.unallocated()).to.equal(0n);
@@ -140,5 +140,21 @@ describe("StaxStaking + StaxRewardsDistributor", function () {
 
     // USDG can never be pulled by the owner outside claims
     await expect(dist.recoverERC20(await usdg.getAddress(), 1n)).to.be.revertedWithCustomError(dist, "RecoveryNotAllowed");
+
+    // publisher role: owner sets a hot key that can publish / recover but nothing else;
+    // a compromised publisher can only promise what is unallocated right now
+    const [, , , , publisher, mallory] = await ethers.getSigners();
+    await usdg.mint(D, 100_000n);
+    await expect(dist.connect(publisher).publishEpoch(t1.root, 100_000n, 0)).to.be.revertedWithCustomError(dist, "NotPublisher");
+    await expect(dist.connect(publisher).setPublisher(publisher.address)).to.be.revertedWithCustomError(dist, "OwnableUnauthorizedAccount");
+    await dist.connect(owner).setPublisher(publisher.address);
+    const leavesM: Leaf[] = [{ index: 0, account: mallory.address, amount: 400_000n }];
+    const tm = tree(leavesM);
+    await expect(dist.connect(publisher).publishEpoch(tm.root, 400_000n, 0)).to.be.revertedWithCustomError(dist, "InsufficientUnallocated"); // bounded
+    await dist.connect(publisher).publishEpoch(tm.root, 100_000n, 0); // can only promise what is unallocated (0.1 USDG)
+    await expect(dist.connect(publisher).setPublisher(mallory.address)).to.be.revertedWithCustomError(dist, "OwnableUnauthorizedAccount");
+    await expect(dist.connect(publisher).recoverERC20(await usdg.getAddress(), 1n)).to.be.revertedWithCustomError(dist, "OwnableUnauthorizedAccount");
+    await dist.connect(owner).setPublisher(ethers.ZeroAddress); // rotate out
+    await expect(dist.connect(publisher).publishEpoch(tm.root, 1n, 0)).to.be.revertedWithCustomError(dist, "NotPublisher");
   });
 });
