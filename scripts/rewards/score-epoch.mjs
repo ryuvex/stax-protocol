@@ -140,7 +140,8 @@ function sumSeries(series) {
 const stake = new Map();
 if (process.env.STAX_STAKING) {
   const STAKED = topicId("Staked(address,uint256,uint256,uint256)"), WITHDRAWN = topicId("Withdrawn(address,uint256,uint256,uint256)");
-  const logs = (await getLogsChunked({address: process.env.STAX_STAKING, topics: [[STAKED, WITHDRAWN]]}, 0, endBlock)).sort((a, b) => a.blockNumber - b.blockNumber || a.index - b.index);
+  // one topic value per query: the RPC caps multi-value topic filters at 100k blocks
+  const logs = [...await getLogsChunked({address: process.env.STAX_STAKING, topics: [STAKED]}, 0, endBlock), ...await getLogsChunked({address: process.env.STAX_STAKING, topics: [WITHDRAWN]}, 0, endBlock)].sort((a, b) => a.blockNumber - b.blockNumber || a.index - b.index);
   for (const l of logs) {
     const user = getAddress("0x" + l.topics[1].slice(26));
     const [, newBalance, timestamp] = [0, BigInt("0x" + l.data.slice(66, 130)), Number(BigInt("0x" + l.data.slice(130, 194)))];
