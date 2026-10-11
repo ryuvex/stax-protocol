@@ -1,0 +1,36 @@
+{
+  "blockNumber": 85689888,
+  "blockHash": "0xf741a2aeaf2ed3227ef5fe37d01772895d11aefaca176f2a406af719f546079c",
+  "timestamp": 1791706835,
+  "addresses": {
+    "token": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+    "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "pool": null,
+    "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+  },
+  "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+  "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgMaxStaleness": "97200",
+  "sequencerFeed": "0x0000000000000000000000000000000000000000",
+  "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+  "derivationMatches": null,
+  "routerContainsFactory": true,
+  "routerContainsPoolHash": true,
+  "tokenDecimals": 18,
+  "usdgDecimals": 6,
+  "token0": null,
+  "token1": null,
+  "fee": 9000,
+  "route": {
+    "venue": "v4",
+    "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+    "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "fee": 9000,
+    "tickSpacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+  },
+  "mode": "CHAINLINK"
+}

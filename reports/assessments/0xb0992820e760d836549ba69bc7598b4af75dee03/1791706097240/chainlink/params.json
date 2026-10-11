@@ -1,0 +1,14 @@
+{
+  "feed": "0x0e6a64a2B58A6693a531E6c555f3A5d042eEA844",
+  "maxStaleness": 345600,
+  "route": {
+    "venue": "v4",
+    "currency0": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "currency1": "0xb0992820E760d836549ba69BC7598b4af75dEE03",
+    "fee": 10000,
+    "tickSpacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "source": "deepest hookless V4 USDG pool (808,331 USDG at current tick) 0xc2ce4784e1e72cf0221b51b30c8aaadf6c0b12863cf03ab3687854fb7b1d850a"
+  },
+  "slippageBps": 200
+}

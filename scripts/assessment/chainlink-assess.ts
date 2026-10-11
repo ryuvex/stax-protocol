@@ -68,7 +68,36 @@ export async function measureFeedHistory(provider:AbstractProvider,feed:string,b
     caveat:"Finite window of round history. A holiday weekend longer than anything observed can still exceed the proposed staleness."};
 }
 
-/// Prefer the route an existing configured vault already executes on; otherwise the deepest canonical V3 USDG pool.
+// Uniswap V4 PoolManager on Robinhood Chain; pools are discovered from its Initialize events (no factory contract).
+const V4_POOL_MANAGER="0x8366a39CC670B4001A1121B8F6A443A643e40951";
+const V4_INIT_ABI=["event Initialize(bytes32 indexed id,address indexed currency0,address indexed currency1,uint24 fee,int24 tickSpacing,address hooks,uint160 sqrtPriceX96,int24 tick)","function extsload(bytes32) view returns(bytes32)"];
+const v4StateSlot=(id:string)=>keccak256(AbiCoder.defaultAbiCoder().encode(["bytes32","uint256"],[id,6n]));
+/// Every V4 token/USDG pool with live liquidity, ranked by USDG at the current tick (same depth proxy as the prospect scan).
+/// STAX_FORCE_V4_POOL=<poolId> restricts the result to that pool. Hooked pools are reported but never selected.
+export async function discoverV4Routes(provider:AbstractProvider,token:string,usdg:string,blockNumber:number){
+  const pm=new Contract(V4_POOL_MANAGER,V4_INIT_ABI,provider);
+  const STEP=9_999_999;const events:any[]=[];
+  for(let from=0;from<=blockNumber;from+=STEP){const to=Math.min(from+STEP-1,blockNumber);
+    events.push(...await pm.queryFilter(pm.filters.Initialize(null,token,null),from,to),...await pm.queryFilter(pm.filters.Initialize(null,null,token),from,to));}
+  const forced=process.env.STAX_FORCE_V4_POOL;
+  const pools:any[]=[];
+  for(const ev of events){
+    const {id,currency0,currency1,fee,tickSpacing,hooks}=(ev as any).args;
+    if(!(same(currency0,usdg)||same(currency1,usdg)))continue;
+    if(forced&&!same(id,forced))continue;
+    const base=BigInt(v4StateSlot(id));const at={blockTag:blockNumber};
+    const liquidity=BigInt(await pm.extsload("0x"+(base+3n).toString(16).padStart(64,"0"),at));
+    const slot0=BigInt(await pm.extsload("0x"+base.toString(16).padStart(64,"0"),at));
+    const sqrt=Number(slot0&((1n<<160n)-1n))/2**96;
+    const usdgIs0=same(currency0,usdg);
+    const usdgAtTick=liquidity===0n?0:(usdgIs0?Number(liquidity)/sqrt:Number(liquidity)*sqrt)/1e6;
+    pools.push({poolId:id,currency0,currency1,fee:Number(fee),tickSpacing:Number(tickSpacing),hooks,liquidityRaw:liquidity.toString(),usdgAtTick,hooked:hooks!==ZeroAddress});
+  }
+  return pools.filter(p=>BigInt(p.liquidityRaw)>0n).sort((a,b)=>b.usdgAtTick-a.usdgAtTick);
+}
+
+/// Prefer the route an existing configured vault already executes on; otherwise the deepest canonical V3 USDG pool,
+/// otherwise the deepest hookless V4 USDG pool (STAX_FORCE_V4_POOL=<poolId> to pick one).
 export async function selectRoute(provider:AbstractProvider,discovery:any,sourceVaults:string[],blockNumber:number):Promise<{route:Route|null;reason:string|null;alternatives:any[]}> {
   const at={blockTag:blockNumber},token=discovery.token.address;
   // STAX_FORCE_V3_POOL=<address>: assess a specific canonical V3 USDG pool instead of the source vault's route.
@@ -94,10 +123,16 @@ export async function selectRoute(provider:AbstractProvider,discovery:any,source
       }
     }catch{ /* source vault unreadable: fall through to discovery */ }
   }
-  const active=discovery.pools.filter((p:any)=>BigInt(p.currentLiquidityRaw)>0n&&p.unlocked).sort((a:any,b:any)=>BigInt(b.currentLiquidityRaw)>BigInt(a.currentLiquidityRaw)?1:-1);
-  if(!active.length)return {route:null,reason:"No configured source route and no active canonical V3 USDG pool. V4 pool discovery is not automated; supply the route manually.",alternatives:[]};
-  return {route:{venue:"v3",fee:active[0].fee,pool:active[0].address,source:"deepest canonical V3 USDG pool (raw liquidity, not USD depth)"},reason:null,
+  const active=process.env.STAX_FORCE_V4_POOL?[]:discovery.pools.filter((p:any)=>BigInt(p.currentLiquidityRaw)>0n&&p.unlocked).sort((a:any,b:any)=>BigInt(b.currentLiquidityRaw)>BigInt(a.currentLiquidityRaw)?1:-1);
+  if(active.length)return {route:{venue:"v3",fee:active[0].fee,pool:active[0].address,source:"deepest canonical V3 USDG pool (raw liquidity, not USD depth)"},reason:null,
     alternatives:active.slice(1).map((p:any)=>({address:p.address,fee:p.fee,currentLiquidityRaw:p.currentLiquidityRaw}))};
+  // No vault route and no V3 pool (new tokens launch on V4 first): deepest hookless V4 USDG pool.
+  const v4=await discoverV4Routes(provider,token,discovery.usdg.address,blockNumber);
+  const hookless=v4.filter(p=>!p.hooked);
+  if(!hookless.length)return {route:null,reason:v4.length?`Only hooked V4 USDG pools found (${v4.length}); V2 requires hookless pools unless explicitly allowlisted.`:(process.env.STAX_FORCE_V4_POOL?`STAX_FORCE_V4_POOL ${process.env.STAX_FORCE_V4_POOL} is not a live V4 USDG pool for this token.`:"No configured source route, no active canonical V3 USDG pool and no live V4 USDG pool."),alternatives:v4};
+  const best=hookless[0];
+  return {route:{venue:"v4",currency0:best.currency0,currency1:best.currency1,fee:best.fee,tickSpacing:best.tickSpacing,hooks:best.hooks,source:process.env.STAX_FORCE_V4_POOL?"STAX_FORCE_V4_POOL override":`deepest hookless V4 USDG pool (${Math.round(best.usdgAtTick).toLocaleString("en-US")} USDG at current tick) ${best.poolId}`},reason:null,
+    alternatives:v4.slice(1)};
 }
 
 /// Sanity checks on the feed and token before spending fork time. Failures are reasons, not approvals.

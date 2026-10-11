@@ -1,0 +1,14 @@
+{
+  "_comment": "AI Infrastructure basket (Dan, 2026-10-11): NVDA anchor + ORCL/NBIS/CRWV. Weights = sqrt of hookless V4 USDG depth at tick. maxMint keeps each thin leg under the $1k single-swap size that passed on the fork. Name/symbol pending Dan.",
+  "id": 7,
+  "name": "AI Infrastructure",
+  "symbol": "sAIINFRA",
+  "capUsd": "100000",
+  "maxMintUsd": "5000",
+  "components": [
+    { "proposal": "../assessments/0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec/1790263813533/proposed-settings.json", "weightBps": 6000 },
+    { "proposal": "../assessments/0xb0992820e760d836549ba69bc7598b4af75dee03/1791706097240/proposed-settings.json", "weightBps": 1500 },
+    { "proposal": "../assessments/0x9d9c6684f596f66a64c030b93a886d51fd4d7931/1791706459944/proposed-settings.json", "weightBps": 1250 },
+    { "proposal": "../assessments/0x5f10a1c971b69e47e059e1dc91901b59b3fb49c3/1791706836809/proposed-settings.json", "weightBps": 1250 }
+  ]
+}

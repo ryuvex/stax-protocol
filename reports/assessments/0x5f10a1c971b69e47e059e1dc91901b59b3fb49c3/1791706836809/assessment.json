@@ -1,0 +1,452 @@
+{
+  "token": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+  "status": "REVIEW_REQUIRED",
+  "stages": {
+    "discovery": "COMPLETE",
+    "chainlink": "COMPLETE",
+    "chainlinkAssessment": "COMPLETE"
+  },
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "Chainlink feed, route and history",
+  "discovery": {
+    "mode": "DISCOVERY_ONLY",
+    "chainId": 4663,
+    "blockNumber": 85689888,
+    "blockHash": "0xf741a2aeaf2ed3227ef5fe37d01772895d11aefaca176f2a406af719f546079c",
+    "token": {
+      "address": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+      "symbol": "CRWV",
+      "decimals": 18
+    },
+    "usdg": {
+      "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "decimals": 6
+    },
+    "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "checkedFeeTiers": [
+      100,
+      500,
+      3000,
+      10000
+    ],
+    "pools": [
+      {
+        "address": "0x556E74940e01C4b449A97E9D0C5F3360AF210bcd",
+        "version": "V3",
+        "fee": 3000,
+        "token0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+        "token1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "currentLiquidityRaw": "0",
+        "unlocked": true,
+        "tick": -231600,
+        "observationCardinality": 1,
+        "oldestObservationTimestamp": 1790088089,
+        "latestObservationTimestamp": 1790088089,
+        "availableHistorySeconds": 1618746,
+        "latestObservationAgeSeconds": 1618746
+      }
+    ],
+    "feedLookups": [
+      {
+        "source": "0x13045d3dab253fdb15181c16f135d612fa8546e6",
+        "status": "not-configured",
+        "feed": null,
+        "maxStaleness": 0
+      }
+    ],
+    "registrationStatus": "NOT_PREPARED",
+    "tokenDecimalsSupportedByV2": true,
+    "limitations": [
+      "No V2 configuration used; no transactions prepared or sent.",
+      "Only the listed V3 factory/fee tiers were searched. Missing pools do not prove no other V3 or V4 pool exists.",
+      "Feed lookups are candidates from existing vault configuration, not an exhaustive Chainlink search.",
+      "Raw liquidity and available observations do not establish economically safe TWAP settings or mint/redeem depth.",
+      "Pool metadata checks are discovery only; registration still verifies reviewed deployment inputs, CREATE2 identity and risk settings."
+    ]
+  },
+  "chainlink": {
+    "source": "https://reference-data-directory.vercel.app/feeds-robinhood-mainnet.json",
+    "count": 58,
+    "checkedAt": "2026-10-11T08:20:42.173Z",
+    "candidates": [
+      {
+        "compareOffchain": "",
+        "contractAddress": "0xd9C04B7353421fC4deb1614Ed13Fe10D90E586cc",
+        "contractType": "",
+        "contractVersion": 6,
+        "decimalPlaces": null,
+        "ens": null,
+        "formatDecimalPlaces": null,
+        "healthPrice": "",
+        "heartbeat": 86400,
+        "history": null,
+        "multiply": "100000000",
+        "name": "Robinhood CRWV / USD",
+        "pair": [
+          "",
+          ""
+        ],
+        "path": "robinhood-crwv-usd-shared-svr",
+        "proxyAddress": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+        "secondaryProxyAddress": "0x288b837A17fED1aa00c1df832ef79D0C77336c10",
+        "svrDisplayLabel": "Shared SVR",
+        "threshold": 0.5,
+        "valuePrefix": "",
+        "assetName": "CoreWeave Inc (Robinhood Tokenized Equity)",
+        "feedCategory": "custom",
+        "feedType": "Crypto",
+        "docs": {
+          "assetClass": "Equity",
+          "attributeType": "other",
+          "baseAsset": "CRWV",
+          "baseAssetClic": "CRWV_CR",
+          "baseAssetEntityId": "crypto-CRWV",
+          "blockchainName": "Robinhood",
+          "clicProductName": "CRWV/USD-RefPrice-DF-Robinhood-001",
+          "deliveryChannelCode": "DF",
+          "marketHours": "us_equities_24/5",
+          "productSubType": "calculatedPrice",
+          "productType": "Price",
+          "productTypeCode": "primaryTokenizedPrice",
+          "quoteAsset": "USD",
+          "quoteAssetClic": "USD_FX",
+          "quoteAssetEntityId": "forex-USD"
+        },
+        "decimals": 8,
+        "maxSubmissionValue": "95780971304118053647396689196894323976171195136475135"
+      }
+    ],
+    "caveat": "Address/name matches are candidates, not verified feed identity; no match is limited to this directory."
+  },
+  "oracleType": "CHAINLINK",
+  "chainlinkAssessment": {
+    "feedResolution": {
+      "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+      "source": "Chainlink directory (address/name match; identity NOT verified)",
+      "directoryAgrees": true
+    },
+    "route": {
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+        "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "fee": 9000,
+        "tickSpacing": 90,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+      },
+      "reason": null,
+      "alternatives": [
+        {
+          "poolId": "0x214cb0d273321ae3d5fb85a869e3853ed1a8ece7c3eda9dee0c77d7f0d8a4ae8",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 2500,
+          "tickSpacing": 25,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "715449481285010",
+          "usdgAtTick": 6499.728346417388,
+          "hooked": false
+        },
+        {
+          "poolId": "0x467805e52e5832aeca78537aa1e57e3645f778423ade7cc215f7624c39ce627b",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 31000,
+          "tickSpacing": 200,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "280610271051886",
+          "usdgAtTick": 2625.577919963586,
+          "hooked": false
+        },
+        {
+          "poolId": "0x335aee5297eda88f75af358a1cce266507d736f80c0efab7c73ed4d7347736d8",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 910000,
+          "tickSpacing": 18200,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "13713571765772",
+          "usdgAtTick": 118.57649502853468,
+          "hooked": false
+        },
+        {
+          "poolId": "0xb4aabf9a1545ca5021db0ee47940b931bfc51ce4c3a42fc6158c47e448ede8cc",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 961000,
+          "tickSpacing": 9610,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "26397933215621",
+          "usdgAtTick": 118.05045899999936,
+          "hooked": false
+        },
+        {
+          "poolId": "0xd7ada31b9746cb0b765c14ab756e4fea8f3ff800ed6b2ed2d549180398e75fb7",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 900000,
+          "tickSpacing": 18000,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "12825237720652",
+          "usdgAtTick": 110.38381598877932,
+          "hooked": false
+        },
+        {
+          "poolId": "0x59622cbbe9b2712d1243532a0b4049c98fa639a5563694198cfe4778416f2bd8",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 800000,
+          "tickSpacing": 16000,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "12658074996291",
+          "usdgAtTick": 109.12405513132163,
+          "hooked": false
+        },
+        {
+          "poolId": "0x87396db049ec6c5ea5fc7de11f1bd1de2b9ada16efc7c4aafe78af584fd0c24f",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 905000,
+          "tickSpacing": 18100,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "liquidityRaw": "9814274811145",
+          "usdgAtTick": 83.81802146093912,
+          "hooked": false
+        }
+      ]
+    },
+    "feedChecks": {
+      "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+      "description": "Robinhood CRWV / USD",
+      "decimals": 8,
+      "latestAnswer": "8217700000",
+      "updatedAt": 1791564444,
+      "oraclePaused": false,
+      "feedPriceUsd": 82.177,
+      "poolSpotUsdg": null,
+      "feedSpotDeviationBps": null,
+      "problems": [],
+      "note": "Feed-vs-spot sanity check applies to V3 routes only; for V4 routes the fork round trips at 2% slippage are the price-consistency evidence."
+    },
+    "feedHistory": {
+      "rounds": 958,
+      "coveredSeconds": 2450133,
+      "coveredDays": 28.358020833333335,
+      "maxGapSeconds": 188616,
+      "currentAgeSeconds": 142391,
+      "stoppedBy": "cutoff",
+      "proposedMaxStaleness": 345600,
+      "nonPositiveAnswers": 0,
+      "caveat": "Finite window of round history. A holiday weekend longer than anything observed can still exceed the proposed staleness."
+    },
+    "snapshot": {
+      "blockNumber": 85689888,
+      "blockHash": "0xf741a2aeaf2ed3227ef5fe37d01772895d11aefaca176f2a406af719f546079c",
+      "timestamp": 1791706835,
+      "addresses": {
+        "token": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+        "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "pool": null,
+        "v1": "0x13045d3dab253fdb15181c16f135d612fa8546e6"
+      },
+      "router": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "factory": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "usdgFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+      "usdgMaxStaleness": "97200",
+      "sequencerFeed": "0x0000000000000000000000000000000000000000",
+      "poolInitCodeHash": "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54",
+      "derivationMatches": null,
+      "routerContainsFactory": true,
+      "routerContainsPoolHash": true,
+      "tokenDecimals": 18,
+      "usdgDecimals": 6,
+      "token0": null,
+      "token1": null,
+      "fee": 9000,
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+        "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "fee": 9000,
+        "tickSpacing": 90,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+      },
+      "mode": "CHAINLINK"
+    },
+    "fork": {
+      "blockNumber": 85689888,
+      "blockHash": "0xf741a2aeaf2ed3227ef5fe37d01772895d11aefaca176f2a406af719f546079c",
+      "mode": "CHAINLINK_FORK",
+      "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+      "direct": [],
+      "vault": [
+        {
+          "amountUsdg": 10,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "9.752236",
+          "lossPct": 2.477640000000003,
+          "mintGas": "517090",
+          "redeemGas": "343864"
+        },
+        {
+          "amountUsdg": 100,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "97.52265",
+          "lossPct": 2.4773500000000004,
+          "mintGas": "518047",
+          "redeemGas": "343888"
+        },
+        {
+          "amountUsdg": 1000,
+          "status": "ROUND_TRIP_PASS",
+          "returnedUsdg": "975.25476",
+          "lossPct": 2.474524,
+          "mintGas": "539430",
+          "redeemGas": "364503"
+        },
+        {
+          "amountUsdg": 10000,
+          "status": "REVERT",
+          "stage": "mint",
+          "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d7300000000000000000000000000000000000000000000000672baee9d7110a53600000000000000000000000000000000000000000000000662bf59072dc2c9d3)"
+        }
+      ],
+      "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+      "chainlink": {
+        "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+        "maxStaleness": 345600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 9000,
+          "tickSpacing": 90,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+        },
+        "slippageBps": 200
+      },
+      "balanceMappingSlot": 1,
+      "setupStage": "complete",
+      "vaultOraclePriceUsd18": "82177000000000000000",
+      "staleCheck": "REJECTED",
+      "manipulation": []
+    },
+    "result": {
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+        "maxStaleness": 345600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 9000,
+          "tickSpacing": 90,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  },
+  "proposedSettings": [
+    {
+      "token": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+      "pool": null,
+      "fee": 9000,
+      "status": "PROPOSED_FOR_REVIEW",
+      "params": {
+        "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+        "maxStaleness": 345600,
+        "route": {
+          "venue": "v4",
+          "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+          "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "fee": 9000,
+          "tickSpacing": 90,
+          "hooks": "0x0000000000000000000000000000000000000000",
+          "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+        },
+        "slippageBps": 200
+      },
+      "listingApproved": false,
+      "passedRoundTripSizesUsdg": [
+        10,
+        100,
+        1000
+      ],
+      "oracleType": "CHAINLINK",
+      "totalBasketCap": null,
+      "limitations": [
+        "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+        "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+        "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+        "V4 routes are executed on the fork but not depth-probed by direct router trades."
+      ]
+    }
+  ],
+  "reason": null,
+  "remaining": [
+    "Confirm feed identity against Chainlink's official Robinhood listing.",
+    "Decide basket composition/weights and caps (Dan's cap formula).",
+    "Broadcaster support for Chainlink routes and multi-token baskets."
+  ],
+  "recommendedSetting": {
+    "token": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+    "pool": null,
+    "fee": 9000,
+    "status": "PROPOSED_FOR_REVIEW",
+    "params": {
+      "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+      "maxStaleness": 345600,
+      "route": {
+        "venue": "v4",
+        "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+        "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+        "fee": 9000,
+        "tickSpacing": 90,
+        "hooks": "0x0000000000000000000000000000000000000000",
+        "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+      },
+      "slippageBps": 200
+    },
+    "listingApproved": false,
+    "passedRoundTripSizesUsdg": [
+      10,
+      100,
+      1000
+    ],
+    "oracleType": "CHAINLINK",
+    "totalBasketCap": null,
+    "limitations": [
+      "Feed identity is inferred from the configured source vault or the public directory; confirm against Chainlink's official listing.",
+      "Staleness proposal is measured from a finite window of round history and floored at V1's 96h; longer market closures can still block mint/redeem.",
+      "Round trips prove integration at tested sizes only; they do not establish a safe basket cap.",
+      "V4 routes are executed on the fork but not depth-probed by direct router trades."
+    ]
+  },
+  "alternatives": [],
+  "recommendationReason": "Chainlink candidate passed feed/token checks, measured round-history staleness and V2 fork round trips. Feed identity, basket composition and caps still require review."
+}

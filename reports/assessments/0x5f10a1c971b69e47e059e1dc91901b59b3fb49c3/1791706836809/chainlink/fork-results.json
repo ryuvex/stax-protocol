@@ -1,0 +1,59 @@
+{
+  "blockNumber": 85689888,
+  "blockHash": "0xf741a2aeaf2ed3227ef5fe37d01772895d11aefaca176f2a406af719f546079c",
+  "mode": "CHAINLINK_FORK",
+  "funding": "Synthetic trader USDG balance; real pool reserves/liquidity untouched",
+  "direct": [],
+  "vault": [
+    {
+      "amountUsdg": 10,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "9.752236",
+      "lossPct": 2.477640000000003,
+      "mintGas": "517090",
+      "redeemGas": "343864"
+    },
+    {
+      "amountUsdg": 100,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "97.52265",
+      "lossPct": 2.4773500000000004,
+      "mintGas": "518047",
+      "redeemGas": "343888"
+    },
+    {
+      "amountUsdg": 1000,
+      "status": "ROUND_TRIP_PASS",
+      "returnedUsdg": "975.25476",
+      "lossPct": 2.474524,
+      "mintGas": "539430",
+      "redeemGas": "364503"
+    },
+    {
+      "amountUsdg": 10000,
+      "status": "REVERT",
+      "stage": "mint",
+      "error": "VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0x8b063d7300000000000000000000000000000000000000000000000672baee9d7110a53600000000000000000000000000000000000000000000000662bf59072dc2c9d3)"
+    }
+  ],
+  "caveat": "Chainlink integration probe on a local fork; not a listing approval or cap.",
+  "chainlink": {
+    "feed": "0xe1b3aABCAFAd1c94708dc1367dcfF8Aa4407487C",
+    "maxStaleness": 345600,
+    "route": {
+      "venue": "v4",
+      "currency0": "0x5f10A1C971B69e47e059e1dC91901B59b3fB49C3",
+      "currency1": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "fee": 9000,
+      "tickSpacing": 90,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "source": "deepest hookless V4 USDG pool (305,007 USDG at current tick) 0x237014478f7ef98afbe7412ac35b6a3f96b8fb111de48b7c4dbf49dba4bd9c4b"
+    },
+    "slippageBps": 200
+  },
+  "balanceMappingSlot": 1,
+  "setupStage": "complete",
+  "vaultOraclePriceUsd18": "82177000000000000000",
+  "staleCheck": "REJECTED",
+  "manipulation": []
+}

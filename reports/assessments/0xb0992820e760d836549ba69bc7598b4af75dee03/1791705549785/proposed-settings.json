@@ -1,0 +1,10 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks.",
+  "listingApproved": false,
+  "proposedSettings": [],
+  "reason": "Assessment failed during RPC connection / chain ID (EAI_AGAIN). No token suitability conclusion can be drawn from this failure.",
+  "pools": []
+}

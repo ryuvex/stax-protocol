@@ -1,0 +1,16 @@
+{
+  "token": "0xb0992820E760d836549ba69BC7598b4af75dEE03",
+  "status": "BLOCKED",
+  "stages": {},
+  "listingApproved": false,
+  "limitations": [
+    "Automated engineering assessment, not independent review or a listing approval.",
+    "Probe sizes and oracle parameters are experiments. Production caps/parameters require economic review."
+  ],
+  "currentStage": "RPC connection / chain ID",
+  "error": "Assessment failed during RPC connection / chain ID (EAI_AGAIN). No token suitability conclusion can be drawn from this failure.",
+  "proposedSettings": [],
+  "recommendedSetting": null,
+  "alternatives": [],
+  "recommendationReason": "No suitable configuration: no candidate passed the required checks."
+}
