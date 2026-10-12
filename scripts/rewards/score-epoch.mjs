@@ -17,6 +17,8 @@
 //   STAX_REWARDS_NAV_SAMPLES         NAV samples across the epoch (default 7; needs archive reads, falls back to end-of-epoch NAV)
 import {Contract, JsonRpcProvider, formatUnits, getAddress, id as topicId, zeroPadValue} from "ethers";
 import {readFile, writeFile, mkdir} from "node:fs/promises";
+import {pathToFileURL} from "node:url";
+import {resolve, dirname} from "node:path";
 import "dotenv/config";
 import {timeWeightedAverage, computePayouts, DEFAULT_PARAMS, ONE} from "./scoring.mjs";
 import {buildTree} from "./merkle.mjs";
@@ -177,8 +179,11 @@ const out = {
   wallets: result.payouts.map((r) => ({account: r.account, tvlTwUsd: formatUnits(r.tvlTw, 18), heldFraction: r.heldFraction, stakeTw: formatUnits(r.stakeTw, 18), multiplier: r.multiplier, eligible: r.eligible, amount: r.amount.toString()})),
   leaves: leaves.map((l, i) => ({...l, amount: l.amount.toString(), proof: tree.proofs[i]})),
 };
+// --out <path>: write somewhere else (the leaderboard indexer scores the open window and must never touch epoch-N.json)
+const outArg = process.argv.indexOf("--out") >= 0 ? process.argv[process.argv.indexOf("--out") + 1] : null;
 await mkdir(new URL("../../reports/rewards/", import.meta.url), {recursive: true});
-const file = new URL(`../../reports/rewards/epoch-${EPOCH}.json`, import.meta.url);
+const file = outArg ? pathToFileURL(resolve(outArg)) : new URL(`../../reports/rewards/epoch-${EPOCH}.json`, import.meta.url);
+if (outArg) await mkdir(dirname(resolve(outArg)), {recursive: true});
 await writeFile(file, JSON.stringify(out, null, 2));
 console.log(`\nwallets with basket value: ${wallets.length}, eligible: ${result.payouts.filter((r) => r.eligible).length}, paid: ${paid.length}`);
 for (const r of paid.slice(0, 15)) console.log(`  ${r.account}  tvl $${Number(formatUnits(r.tvlTw, 18)).toFixed(2)}  held ${(r.heldFraction * 100).toFixed(0)}%  stake ${formatUnits(r.stakeTw, 18)}  x${r.multiplier.toFixed(3)}  -> ${formatUnits(r.amount, 6)} USDG`);
