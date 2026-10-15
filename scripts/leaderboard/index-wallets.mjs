@@ -3,7 +3,8 @@
 //   1. scans new Minted/Redeemed events (both vaults + every community clone) -> volume, average-cost basis, net flows,
 //      mint count, first mint, and one lb_activity row per event; distributor Claimed events -> lb_activity "claim" rows
 //   2. scans share-token Transfers -> balances, opened_at, holding spans (tenure, all-time and inside the open epoch)
-//   3. reads staking balances, current NAV per share -> value, return %
+//   3. reads staking balances, current NAV per share -> value, return %; also writes one nav_snapshots row per official
+//      basket with supply (hourly price history for the site's charts -- the 6-hourly GitHub cron stays as backup)
 //   4. runs score-epoch on the OPEN reward window (--out reports/leaderboard/live.json) -> reward_score, the same number
 //      the distributor will pay on when the window closes
 //   5. at every epoch boundary (Mon 19:15 UTC anchor, same as the runner) closes an lb_weekly row per wallet -> hot streak
@@ -100,7 +101,9 @@ async function discoverBaskets() {
       const b = await vault.baskets(i).catch(() => null); if (!b || !b.exists) { misses++; continue; } misses = 0;
       const token = new Contract(b.token, ERC20, p);
       baskets.push({basketId: v.ids[i] ?? `${v.kind}-${i}`, symbol: await token.symbol(), token: b.token.toLowerCase(), kind: `official-${v.kind}`, vault: v.address, onchainId: i, fromBlock: v.fromBlock,
-        nav: async () => { const [n, s] = await Promise.all([vault.getBasketNavUsd(i), token.totalSupply()]); return s === 0n ? 0n : (n * ONE) / s; }});
+        nav: async () => { const [n, s] = await Promise.all([vault.getBasketNavUsd(i), token.totalSupply()]); return s === 0n ? 0n : (n * ONE) / s; },
+        // price-history row, same numbers the snapshot-nav cron records: nav_usd per share, tvl_usd; null when no supply
+        snap: async () => { const [n, s] = await Promise.all([vault.getBasketNavUsd(i), token.totalSupply()]); if (s === 0n) return null; const tvl = Number(formatUnits(n, 18)); return {basket_id: v.ids[i] ?? `${v.kind}-${i}`, nav_usd: tvl / Number(formatUnits(s, 18)), tvl_usd: tvl}; }});
     }
   }
   const factory = new Contract(FACTORY_V2.address, FACTORY_ABI, p);
@@ -234,6 +237,9 @@ async function tick() {
     w.staked_stax = (await staking.balanceOf(w.wallet).catch(() => 0n)).toString();
     w.volume_usd = +num(w.volume_usd).toFixed(2); w.week_flow_usd = +num(w.week_flow_usd).toFixed(2);
   }
+  // ---- 3b. hourly nav_snapshots rows for the site's price charts (official baskets with supply; clones have no chart)
+  const snapRows = (await Promise.all(baskets.filter((b) => b.snap && !b.basketId.startsWith("v1-") && !b.basketId.startsWith("v2-")).map((b) => b.snap().catch(() => null)))).filter(Boolean);
+  state.snapRows = snapRows;
   // ---- 4. live reward score for the open window (the number the distributor pays on when it closes)
   const dist = new Contract(DIST, DIST_ABI, p);
   const winStart = ANCHOR + Math.floor((now - ANCHOR) / LEN) * LEN, winEnd = winStart + LEN;
@@ -279,14 +285,15 @@ async function tick() {
   if (DRY) {
     const top = [...active].sort((a, b) => num(b.reward_score) - num(a.reward_score)).slice(0, 10);
     log("dry run, top 10 by reward score:"); for (const w of top) console.log(`  ${w.wallet}  score ${w.reward_score}  value $${w.value_usd}  vol $${w.volume_usd}  tenure ${w.tenure_days}d  ret ${w.return_pct}%  staked ${formatUnits(BigInt(w.staked_stax), 18)}`);
-    log(`dry run: ${(state.activity ?? []).length} activity rows`); log("summary", JSON.stringify(summary)); return;
+    log(`dry run: ${(state.activity ?? []).length} activity rows, ${(state.snapRows ?? []).length} nav snapshots`); log("summary", JSON.stringify(summary)); return;
   }
   await upsert("lb_wallets", walletRows, "wallet");
   if (state.activity?.length) await upsert("lb_activity", state.activity, "tx_hash,log_index");
+  if (state.snapRows?.length) { try { await sb("POST", "nav_snapshots", state.snapRows); } catch (e) { log("nav_snapshots insert failed:", e.message); } }
   await upsert("lb_positions", posRows, "wallet,basket_id");
   if (weeklyRows.length) await upsert("lb_weekly", weeklyRows, "wallet,epoch");
   await upsert("lb_state", [{key: "cursor", value: summary, updated_at}], "key");
-  log(`written: ${walletRows.length} wallets, ${posRows.length} positions, ${(state.activity ?? []).length} activity rows, ${weeklyRows.length} weekly rows, cursor ${latest}`);
+  log(`written: ${walletRows.length} wallets, ${posRows.length} positions, ${(state.activity ?? []).length} activity rows, ${(state.snapRows ?? []).length} nav snapshots, ${weeklyRows.length} weekly rows, cursor ${latest}`);
 }
 
 log(`indexer: rpc ${RPC}, anchor ${new Date(ANCHOR * 1000).toISOString()}, tick ${TICK}s${DRY ? " (dry run)" : ""}`);
