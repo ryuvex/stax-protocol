@@ -12,14 +12,23 @@ const BASKET_ABI=[
  "function getBasketComposition(uint256) view returns(address[],uint256[])",
  "function createBasket(uint256,string,string,address[],uint256[],uint256,uint256)",
 ];
-export type BasketInput={id:string;name:string;symbol:string;capUsd:string};
+export type BasketInput={id:string;name:string;symbol:string;capUsd:string;maxMintUsd?:string}; // maxMintUsd: per-mint USD limit; default 15% of cap
 const BASKET_CREATED="event BasketCreated(uint256 indexed basketId,address token,string name)";
 /// Basket share symbols are permanent ERC20 metadata: refuse any symbol already used on the listed vaults (V1, V2, ...).
+// First block to scan per vault (deploy blocks); the RPC refuses unbounded eth_getLogs, so BasketCreated is read in chunks.
+const VAULT_DEPLOY_BLOCK:Record<string,number>={"0x13045d3dab253fdb15181c16f135d612fa8546e6":46338037,"0xada84161033c0cc54ef21ceef913a8fec4239b33":68883165};
+async function basketCreatedEvents(provider:AbstractProvider,vault:Contract,vaultAddress:string):Promise<any[]>{
+ const latest=await provider.getBlockNumber();const from=VAULT_DEPLOY_BLOCK[vaultAddress.toLowerCase()]??0;const out:any[]=[];let step=9_999_999;
+ for(let f=from;f<=latest;){const t=Math.min(f+step-1,latest);
+  try{out.push(...await vault.queryFilter(vault.filters.BasketCreated(),f,t));f=t+1;}
+  catch(e){if(step>100_000){step=100_000;continue;}throw e;}}
+ return out;
+}
 export async function findSymbolCollision(provider:AbstractProvider,vaults:string[],symbol:string):Promise<{vault:string;basketId:string;token:string}|null>{
  for(const vaultAddress of vaults){
   const vault=new Contract(vaultAddress,[BASKET_CREATED],provider);
   let events:any[]=[];
-  try{events=await vault.queryFilter(vault.filters.BasketCreated());}catch{throw Error(`Could not read BasketCreated history from ${vaultAddress}; symbol collision check failed closed`);}
+  try{events=await basketCreatedEvents(provider,vault,vaultAddress);}catch{throw Error(`Could not read BasketCreated history from ${vaultAddress}; symbol collision check failed closed`);}
   for(const ev of events){
    const token=new Contract(ev.args.token,["function symbol() view returns(string)"],provider);
    let existing="";try{existing=await token.symbol();}catch{continue;}
@@ -70,8 +79,9 @@ export async function executeBasketListing(provider:AbstractProvider,signer:Sign
  if(configs.some(c=>!same(c.vault,configs[0].vault)||!same(c.expectedOwner,configs[0].expectedOwner)))throw Error("Components must target one vault/owner");
  const vaultConfig=configs[0];
  if(!/^\d+$/.test(basket.id)||BigInt(basket.id)>=2n**256n||!basket.name?.trim()||!basket.symbol?.trim())throw Error("Basket ID, name and symbol required");
- const cap=parseUnits(basket.capUsd,18),maximum=cap*15n/100n;
+ const cap=parseUnits(basket.capUsd,18),maximum=basket.maxMintUsd?parseUnits(basket.maxMintUsd,18):cap*15n/100n;
  if(cap<=0n||cap>=2n**256n||maximum===0n)throw Error("Invalid basket cap");
+ if(maximum>cap)throw Error("maxMintUsd must not exceed capUsd");
  if(options.broadcast){
   if(!signer)throw Error("Signer required");
   const who=await signer.getAddress();
@@ -190,7 +200,7 @@ async function main(){
   const file=resolve(values["basket-file"]),spec=JSON.parse(await readFile(file,"utf8"));
   if(!Array.isArray(spec.components)||!spec.components.length)throw Error(usage);
   components=await Promise.all(spec.components.map((c:any)=>loadComponent(resolve(dirname(file),c.proposal),Number(c.weightBps??10000),manifest)));
-  basket={id:String(spec.id??"0"),name:spec.name??"",symbol:spec.symbol??"",capUsd:String(spec.capUsd??"0")};logBase=file;
+  basket={id:String(spec.id??"0"),name:spec.name??"",symbol:spec.symbol??"",capUsd:String(spec.capUsd??"0"),...(spec.maxMintUsd!==undefined?{maxMintUsd:String(spec.maxMintUsd)}:{})};logBase=file;
  } else {
   if(positionals.length!==1||!values["basket-id"]||!values.name||!values.symbol||!values["cap-usd"])throw Error(usage);
   const file=resolve(positionals[0]);

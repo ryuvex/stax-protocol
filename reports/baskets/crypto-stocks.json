@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "name": "Crypto Stocks",
+  "symbol": "sCRYPTO",
+  "capUsd": 100000,
+  "maxMintUsd": 5000,
+  "components": [
+    { "ticker": "COIN", "proposal": "../assessments/0x6330d8c3178a418788df01a47479c0ce7ccf450b/1792319619630/proposed-settings.json", "weightBps": 3400 },
+    { "ticker": "MSTR", "proposal": "../assessments/0xec262a75e413fafd0df80480274532c79d42da09/1792319505321/proposed-settings.json", "weightBps": 3300 },
+    { "ticker": "CRCL", "proposal": "../assessments/0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5/1790168549181/proposed-settings.json", "weightBps": 3300 }
+  ]
+}

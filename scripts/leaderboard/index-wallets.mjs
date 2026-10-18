@@ -41,7 +41,7 @@ const ONE = 10n ** 18n;
 // ---------------------------------------------------------------- contracts and basket ids
 const VAULTS = [
   {kind: "v1", address: "0x13045D3Dab253fDB15181C16f135D612fa8546E6", fromBlock: 46338037, ids: {1: "commodities", 2: "retailfavorites", 3: "mag7", 4: "mag7cap"}},
-  {kind: "v2", address: "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33", fromBlock: 68883165, ids: {3: "retailfavoritesv2", 4: "indexblend", 5: "semiconductors", 6: "healthcare", 7: "aiinfrastructure"}},
+  {kind: "v2", address: "0xAda84161033C0Cc54EF21CEeF913A8fEC4239b33", fromBlock: 68883165, ids: {3: "retailfavoritesv2", 4: "indexblend", 5: "semiconductors", 6: "healthcare", 7: "aiinfrastructure", 8: "cryptostocks"}},
 ];
 const FACTORY_V2 = {address: "0x1de6a6bD0C62097A7559A29a76e41985558f9918", fromBlock: 70863402};
 const VAULT_ABI = ["function baskets(uint256) view returns(string name,address token,uint256 depositCapUsd,uint256 maxMintUsd,bool mintPaused,bool exists)", "function getBasketNavUsd(uint256) view returns(uint256)",
