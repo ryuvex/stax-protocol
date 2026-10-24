@@ -1,0 +1,72 @@
+{
+  "chainId": 4663,
+  "deployedAt": "2026-10-24T00:15:54.670Z",
+  "verifier": "0xcE73c8ad08CBDEaCa6078BF0627C8fe0a9a536E7",
+  "feeManager": "0x0000000000000000000000000000000000000000",
+  "usdg": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "usdgUsdFeed": "0x61B7e5650328764B076A108EFF5fa7282a1B9aD2",
+  "usdgUsdMaxStaleness": 97200,
+  "adapter": "0x13F3DdFdcC264C858b8915cfF070704fed97203B",
+  "owner": "0x79F7c8aB5360c9902dD23ADf99cdAb54F2A6449D",
+  "maxAge": 900,
+  "allowedStatusMask": 30,
+  "deployTx": "0xaa199a3f5fc033b4550e3e8601ebf26db353f5191682b8d667a3a1c65dea00b2",
+  "txs": [
+    {
+      "step": "setToken NFLX",
+      "hash": "0x74381c139d23c679ad26adc17baeea6b7ae2d9b6cea2e744fc13fb1713293b35"
+    },
+    {
+      "step": "addFeed NFLX",
+      "hash": "0xa702665450b25d1ff96c350499a41a1d9daa106059fef298760d4c821a523406"
+    },
+    {
+      "step": "setToken AMC",
+      "hash": "0xf9dea2728d6e04aca5e23d08a031ff2096bb369300d5f224f32851a20402c92d"
+    },
+    {
+      "step": "addFeed AMC",
+      "hash": "0x8622afebbadf7f35174af7e525446f246de0b62326b74f18691e3444ee357aef"
+    },
+    {
+      "step": "setToken LLY",
+      "hash": "0x4383edea287e30db9b4aabf19eacd1a14f35119cd85114b68901984739fae7b0"
+    },
+    {
+      "step": "addFeed LLY",
+      "hash": "0xa944841322ad7e93b1a1f6f4e9627f17a253e02170e0e11e8d31de78e262e55d"
+    }
+  ],
+  "tokens": [
+    {
+      "symbol": "NFLX",
+      "token": "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8",
+      "pool": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+      "previousRegistry": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+      "feedIds": [
+        "0x000b826d0a21022b01a51b0b15e3fc173812e78ddc449a5069f13f2c1e652912",
+        "0x000ba38bc53d30ddf079e88e8302fbe6489c69564fe1c4c537d4c142881149a5"
+      ]
+    },
+    {
+      "symbol": "AMC",
+      "token": "0x05a3d1Cd21d0C88145E82600E62e7E496e0F222B",
+      "pool": "0xaA34feA710a1A737840329051D81D3B0B7C564d5",
+      "previousRegistry": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+      "feedIds": [
+        "0x000bcb04385f07fca93ba82d1a1038a0fa3bee06ff0c78a27149d346fbad97b7",
+        "0x000b70cc5542a211118a0e0904b4afc1bced460659e0340f71511c5f8a85c431"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "token": "0x8005d266423c7ea827372c9c864491e5786600ea",
+      "pool": "0xF212D02146a897F5F686E9d629F6A73da534324a",
+      "previousRegistry": "0xDb21d05dE573C537FaF5e1dB083a90F290EB75b0",
+      "feedIds": [
+        "0x000b55861659dd18041a907c765200e25bd2a4d9213633e2873fec3045d94472",
+        "0x000bf5d9411efd14ede7b03aeb13592f1161bc6f821fe2ce0bcf65b832a505b1"
+      ]
+    }
+  ]
+}

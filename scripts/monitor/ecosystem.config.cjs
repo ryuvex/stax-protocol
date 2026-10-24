@@ -1,4 +1,6 @@
 // PM2 config: pm2 start scripts/monitor/ecosystem.config.cjs  (run from stax-protocol root)
 module.exports={apps:[{name:"stax-monitor",script:"scripts/monitor/basket-monitor.mjs",cwd:__dirname+"/../..",autorestart:true,max_restarts:50,restart_delay:10000,max_memory_restart:"300M",env:{NODE_ENV:"production"}},
  {name:"stax-indexer",script:"scripts/leaderboard/index-wallets.mjs",cwd:__dirname+"/../..",autorestart:true,max_restarts:50,restart_delay:60000,max_memory_restart:"400M",env:{NODE_ENV:"production"}},
- {name:"stax-epoch",script:"scripts/rewards/run-epoch.mjs",cwd:__dirname+"/../..",autorestart:true,max_restarts:50,restart_delay:60000,max_memory_restart:"300M",env:{NODE_ENV:"production"}}]};
+ {name:"stax-epoch",script:"scripts/rewards/run-epoch.mjs",cwd:__dirname+"/../..",autorestart:true,max_restarts:50,restart_delay:60000,max_memory_restart:"300M",env:{NODE_ENV:"production"}},
+ // Chainlink Data Streams keeper (mainnet adapter 0x13F3…203B): every 10 min on weekdays, posts a verified report per ticker when the stored one is older than 8 min. ~0.0011 ETH/day from the keeper wallet.
+ {name:"stax-streams",script:"scripts/monitor/streams-keeper.mjs",cwd:__dirname+"/../..",autorestart:true,max_restarts:50,restart_delay:60000,max_memory_restart:"300M",env:{NODE_ENV:"production",STAX_STREAMS_EVERY_SEC:"600",STAX_STREAMS_MAX_AGE_SEC:"480",STAX_STREAMS_MARKET_HOURS_ONLY:"1"}}]};
