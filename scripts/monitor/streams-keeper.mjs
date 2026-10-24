@@ -20,6 +20,9 @@
 //   STAX_STREAMS_RPC_URL / STAX_STREAMS_CHAIN_ID   default Robinhood mainnet (4663); testnet: https://rpc.testnet.chain.robinhood.com / 46630
 //   STAX_STREAMS_PRIVATE_KEY or key file at ../../../streams-keeper-private-key.txt (outside the repo)
 //   STAX_STREAMS_MARKET_HOURS_ONLY=1   skip fetching when the stored status is "closed" and it's a weekend (saves API calls)
+//   STAX_STREAMS_WARN_HOURS=24 / STAX_STREAMS_CRITICAL_HOURS=4   low-balance alerts: when the keeper wallet's runway (balance /
+//       cost of one full round of updates per tick, from the last update's real gas) drops below these, post to Slack
+//       (STAX_SLACK_WEBHOOK) + Telegram (STAX_TELEGRAM_RELAY_URL/SECRET), repeated at most every 6h per level.
 import {Contract, JsonRpcProvider, Wallet, AbiCoder, formatUnits} from "ethers";
 import {createHmac, createHash} from "node:crypto";
 import {readFile} from "node:fs/promises";
@@ -55,6 +58,30 @@ if (!DRY) {
   console.log("keeper wallet", signer.address, "ETH", formatUnits(await provider.getBalance(signer.address), 18));
 }
 const adapter = new Contract(ADAPTER, ADAPTER_ABI, signer ?? provider);
+
+// --- low-balance alerting (Slack + Telegram relay), two levels, each re-sent at most every 6h while it holds
+const WARN_H = Number(process.env.STAX_STREAMS_WARN_HOURS ?? 24), CRIT_H = Number(process.env.STAX_STREAMS_CRITICAL_HOURS ?? 4);
+let lastUpdateCostWei = 129_310n * 20_000_000n; // seed: 129k gas at 0.02 gwei (measured 2026-10-24); replaced by every real update
+const alertedAt = {warn: 0, crit: 0};
+async function notify(text) {
+  const jobs = [];
+  if (process.env.STAX_SLACK_WEBHOOK) jobs.push(fetch(process.env.STAX_SLACK_WEBHOOK, {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify({text})}).catch((e) => console.error("slack failed:", e.message)));
+  if (process.env.STAX_TELEGRAM_RELAY_URL && process.env.STAX_TELEGRAM_RELAY_SECRET) jobs.push(fetch(process.env.STAX_TELEGRAM_RELAY_URL, {method: "POST", headers: {"content-type": "application/json", authorization: `Bearer ${process.env.STAX_TELEGRAM_RELAY_SECRET}`}, body: JSON.stringify({text})}).catch((e) => console.error("telegram failed:", e.message)));
+  await Promise.all(jobs);
+}
+async function checkRunway() {
+  if (!signer) return;
+  const bal = await provider.getBalance(signer.address);
+  const perTick = lastUpdateCostWei * BigInt(TOKENS.length);            // worst case: every token updates every tick
+  const hours = perTick > 0n ? Number(bal) / Number(perTick) * (EVERY / 3_600_000) : Infinity;
+  const level = hours < CRIT_H ? "crit" : hours < WARN_H ? "warn" : null;
+  if (!level) return;
+  if (Date.now() - alertedAt[level] < 6 * 3_600_000) return;
+  alertedAt[level] = Date.now();
+  const short = `${signer.address.slice(0, 6)}…${signer.address.slice(-4)}`;
+  await notify(`${level === "crit" ? "🔴" : "⚠️"} Streams keeper wallet ${short} has ${Number(formatUnits(bal, 18)).toFixed(5)} ETH ≈ ${hours < 1 ? "<1" : Math.floor(hours)}h of updates left (${TOKENS.map((t) => t.symbol).join("/")} pricing). Send ETH to ${signer.address} to keep Chainlink Streams pricing live.`);
+  console.log(`low balance alert (${level}): ${hours.toFixed(1)}h runway`);
+}
 
 // --- Chainlink Data Streams REST auth: HMAC-SHA256 over "METHOD PATH BODYHASH APIKEY TIMESTAMP_MS"
 function authHeaders(method, pathWithQuery, body = "") {
@@ -102,6 +129,7 @@ async function bestReport(t, mask) {
 }
 
 async function tick() {
+  try { await checkRunway(); } catch (e) { console.error("runway check failed:", e.message); }
   const now = (await provider.getBlock("latest")).timestamp;
   for (const t of TOKENS) {
     if (PICK.length && !PICK.includes(t.symbol.toUpperCase())) continue;
@@ -124,6 +152,7 @@ async function tick() {
       await adapter.update.staticCall(best.report.fullReport);
       const tx = await adapter.update(best.report.fullReport, {gasLimit: 400_000});
       const r = await tx.wait();
+      if (r.status === 1 && r.gasUsed && r.gasPrice) lastUpdateCostWei = r.gasUsed * r.gasPrice;
       console.log(`  update ${r.hash} (${r.status === 1 ? "ok" : "REVERTED"})`);
     } catch (e) {
       console.error(`${t.symbol}: failed:`, e.shortMessage ?? e.message);
