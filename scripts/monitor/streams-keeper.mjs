@@ -19,7 +19,8 @@
 //   STAX_STREAMS_TOKENS    JSON: [{"symbol":"NFLX","token":"0x...","feedIds":["0x...","0x..."]}, ...]  (all session streams of the token)
 //   STAX_STREAMS_RPC_URL / STAX_STREAMS_CHAIN_ID   default Robinhood mainnet (4663); testnet: https://rpc.testnet.chain.robinhood.com / 46630
 //   STAX_STREAMS_PRIVATE_KEY or key file at ../../../streams-keeper-private-key.txt (outside the repo)
-//   STAX_STREAMS_MARKET_HOURS_ONLY=1   skip fetching when the stored status is "closed" and it's a weekend (saves API calls)
+//   (no weekend skip: the adapter only quotes a report observed within its maxAge, so closed-market reports must keep
+//    being posted or weekend quoting stops; budget ~0.034 ETH/month at 3 tickers every 10 min)
 //   STAX_STREAMS_WARN_HOURS=24 / STAX_STREAMS_CRITICAL_HOURS=4   low-balance alerts: when the keeper wallet's runway (balance /
 //       cost of one full round of updates per tick, from the last update's real gas) drops below these, post to Slack
 //       (STAX_SLACK_WEBHOOK) + Telegram (STAX_TELEGRAM_RELAY_URL/SECRET), repeated at most every 6h per level.
