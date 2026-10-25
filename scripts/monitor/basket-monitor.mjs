@@ -1,7 +1,8 @@
 // Stax basket health monitor. Read-only, no keys.
 // Every STAX_MONITOR_INTERVAL_SEC (default 120) it prices every leg of every basket (official V2 + user-basket clones)
 // and posts to Slack ONLY when a basket changes state: blocked -> one message with reason + suggested fix; recovered -> one message.
-// Env: STAX_RPC_URL, Slack = STAX_SLACK_WEBHOOK | STAX_SLACK_BOT_TOKEN+STAX_SLACK_CHANNEL | rotating OAuth token in .slack-tokens.local.json + STAX_SLACK_CLIENT_ID/SECRET + STAX_SLACK_CHANNEL, STAX_MONITOR_INTERVAL_SEC, STAX_MONITOR_STATE (state file), STAX_MONITOR_INCLUDE_PAUSED=1
+// Also checks the price charts' data (nav_snapshots) every 10 min — see 'price-chart freshness' below; those alerts go to Slack + Telegram.
+// Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, STAX_TELEGRAM_RELAY_URL/SECRET, STAX_NAV_CHECK_EVERY_SEC, STAX_NAV_STALE_MIN, STAX_NAV_FROZEN_MIN, STAX_RPC_URL, Slack = STAX_SLACK_WEBHOOK | STAX_SLACK_BOT_TOKEN+STAX_SLACK_CHANNEL | rotating OAuth token in .slack-tokens.local.json + STAX_SLACK_CLIENT_ID/SECRET + STAX_SLACK_CHANNEL, STAX_MONITOR_INTERVAL_SEC, STAX_MONITOR_STATE (state file), STAX_MONITOR_INCLUDE_PAUSED=1
 import {Contract,JsonRpcProvider,Interface} from "ethers";
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {dirname} from "node:path";
@@ -167,6 +168,63 @@ let state={baskets:{},rpcDown:false,startedAt:null};
 try{state={...state,...JSON.parse(await readFile(STATE_FILE,"utf8"))};}catch{}
 async function saveState(){await mkdir(dirname(STATE_FILE),{recursive:true});await writeFile(STATE_FILE,JSON.stringify(state,null,2));}
 
+// ---------- price-chart freshness (nav_snapshots, written hourly by the indexer; the site's charts read it) ----------
+// Every STAX_NAV_CHECK_EVERY_SEC (default 600) alerts Slack + Telegram when, for any basket seen in the last 48h,
+// the newest snapshot is older than STAX_NAV_STALE_MIN (120) or, during NYSE regular hours, NAV has not changed for
+// STAX_NAV_FROZEN_MIN (180). Repeats every 6h while it holds, posts a green message when it clears. US market holidays are not known.
+const SB_URL=(process.env.SUPABASE_URL??"").replace(/\/$/,""), SB_KEY=process.env.SUPABASE_SERVICE_ROLE_KEY;
+const NAV_EVERY_TICKS=Math.max(1,Math.round(Number(process.env.STAX_NAV_CHECK_EVERY_SEC??600)*1000/INTERVAL));
+const NAV_STALE_MIN=Number(process.env.STAX_NAV_STALE_MIN??120), NAV_FROZEN_MIN=Number(process.env.STAX_NAV_FROZEN_MIN??180), NAV_REMIND_H=6, NAV_FAILS_BEFORE_ALERT=3;
+async function telegram(text){
+  if(!process.env.STAX_TELEGRAM_RELAY_URL||!process.env.STAX_TELEGRAM_RELAY_SECRET) return;
+  try{const r=await fetch(process.env.STAX_TELEGRAM_RELAY_URL,{method:"POST",headers:{"content-type":"application/json",authorization:`Bearer ${process.env.STAX_TELEGRAM_RELAY_SECRET}`},body:JSON.stringify({text})});if(!r.ok)console.error("telegram failed",r.status);}
+  catch(e){console.error("telegram failed",e.message);}
+}
+const notify=async text=>{await slack(text);await telegram(text);};
+function nyMinutesSinceOpen(d=new Date()){ // minutes since 09:30 America/New_York on a weekday; -1 outside the regular session
+  const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d).map(x=>[x.type,x.value]));
+  if(p.weekday==="Sat"||p.weekday==="Sun") return -1;
+  const m=(Number(p.hour)%24)*60+Number(p.minute)-570; // 09:30 = minute 570, session = 390 min
+  return m>=0&&m<390?m:-1;
+}
+let navFails=0;
+async function checkNavSnapshots(){
+  if(!SB_URL||!SB_KEY){console.warn("(nav check skipped — SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set)");return;}
+  const since=new Date(Date.now()-48*3600_000).toISOString();
+  const r=await withTimeout(fetch(`${SB_URL}/rest/v1/nav_snapshots?select=basket_id,nav_usd,created_at&created_at=gte.${since}&order=created_at.asc&limit=5000`,{headers:{apikey:SB_KEY,authorization:`Bearer ${SB_KEY}`}}));
+  if(!r.ok) throw Error(`nav_snapshots query failed: ${r.status}`);
+  const rows=await r.json();
+  const now=Date.now(), open=nyMinutesSinceOpen(), by=new Map();
+  for(const x of rows){
+    const t=Date.parse(x.created_at), b=by.get(x.basket_id)??{last:0,n:0,navs:new Set()};
+    b.last=Math.max(b.last,t);
+    if(now-t<=NAV_FROZEN_MIN*60_000){b.n++;b.navs.add(Number(x.nav_usd).toFixed(8));}
+    by.set(x.basket_id,b);
+  }
+  const problems=new Map();
+  if(!rows.length) problems.set("all baskets","no nav_snapshots rows in the last 48h");
+  for(const [id,b] of by){
+    const ageMin=Math.round((now-b.last)/60_000);
+    if(ageMin>NAV_STALE_MIN) problems.set(id,`last snapshot ${ageMin} min ago — indexer not writing?`);
+    else if(open>=NAV_FROZEN_MIN&&b.n>=2&&b.navs.size===1) problems.set(id,`NAV unchanged for ${NAV_FROZEN_MIN} min during market hours — oracle frozen?`);
+  }
+  state.nav??={};
+  const msgs=[];
+  for(const [id,why] of problems){
+    const prev=state.nav[id];
+    if(prev&&now-prev.remindedAt<NAV_REMIND_H*3600_000) continue;
+    state.nav[id]={since:prev?.since??now,remindedAt:now,why};
+    msgs.push(`📉 *Price chart ${id}*: ${why}${prev?` (still, since ${new Date(prev.since).toISOString().slice(0,16)}Z)`:""}`);
+  }
+  for(const id of Object.keys(state.nav)) if(!problems.has(id)){msgs.push(`🟢 Price chart ${id} healthy again after ${minutes((now-state.nav[id].since)/1000)}`);delete state.nav[id];}
+  if(msgs.length) await notify(msgs.join("\n"));
+  console.log(new Date().toISOString(),`nav check: ${by.size} baskets in 48h, problems ${problems.size}, market ${open<0?"closed":`open ${open} min`}`);
+}
+async function navTick(){
+  try{await checkNavSnapshots();if(navFails>=NAV_FAILS_BEFORE_ALERT)await notify("🟢 Price-chart check can read nav_snapshots again.");navFails=0;}
+  catch(e){navFails++;console.error(new Date().toISOString(),`nav check failed (${navFails}):`,e.message);if(navFails===NAV_FAILS_BEFORE_ALERT)await notify(`⚠️ Price-chart check could not read nav_snapshots ${navFails} times in a row: ${e.message.slice(0,100)}`);}
+}
+
 // ---------- main loop ----------
 let baskets=[], tick=0, rpcFailures=0;
 console.log(`Stax monitor: vault ${VAULT}, factory ${FACTORY}, every ${INTERVAL/1000}s, state ${STATE_FILE}`);
@@ -198,6 +256,7 @@ for(;;){
       await slack(`👀 Stax monitor started: watching ${baskets.length} baskets / ${tokens.length} tokens every ${INTERVAL/1000}s. Currently blocked: ${currentlyBlocked}.`);
     }
     if(blocked.length||recovered.length) await slack([...blocked,...recovered].join("\n"));
+    if(tick%NAV_EVERY_TICKS===0) await navTick();
     await saveState();
     console.log(new Date().toISOString(),`tick ${tick}: ${baskets.length} baskets, ${tokens.length} tokens, blocked ${Object.keys(state.baskets).length}, ${Date.now()-started}ms`);
   }catch(e){
